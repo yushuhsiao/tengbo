@@ -1,0 +1,26 @@
+﻿html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.jqx-button.button-icon-text {
+  padding: .3em .6em .3em .6em;
+}
+.jqx-button .button-icon {
+  display: block;
+  float: left;
+}
+.jqx-button .button-text {
+  padding-left: .8em;
+}
+.grid-toolbar.jqx-menu {
+  background-color: transparent;
+  background-image: none !important;
+  border: 0;
+}
+.grid-toolbar > ul {
+  padding: 0;
+}
+/*# sourceMappingURL=style2.css.map */

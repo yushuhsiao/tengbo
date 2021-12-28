@@ -1,0 +1,72 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/master/default.Master" AutoEventWireup="true" Inherits="SiteMasterPage" %>
+
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        this.RootMasterPage.NavIndex = 7;
+    }
+</script>
+
+<asp:Content ContentPlaceHolderID="body2" runat="server">
+    <div class="main_games">
+    <div class="main_index">
+      <div class="main_lights">
+        <div class="lights_left"></div>
+        <div class="lights_right"></div>
+      </div>
+      <div class="content">
+        <div class="quest">
+          <div class="quest_left">
+            <div class="quest_box">
+            <dl>
+              <dt>关于腾博会</dt>
+              <dd><a <% if (this.PageUrl==urls.help1) { %>class="cur"<% } else { %>href="Help1.aspx"<% } %>>关于我们</a></dd>
+              <dd><a <% if (this.PageUrl==urls.help2) { %>class="cur"<% } else { %>href="Help2.aspx"<% } %>>营业执照</a></dd>
+              <dd><a <% if (this.PageUrl==urls.help3) { %>class="cur"<% } else { %>href="Help3.aspx"<% } %>>博彩责任</a></dd>
+              <dd><a <% if (this.PageUrl==urls.help9) { %>class="cur"<% } else { %>href="Help9.aspx"<% } %>>规则与声明</a></dd>
+              <dd><a class="<%if (this.PageUrl==urls.help4) { %>cur <% } %>none_b" <%if (this.PageUrl!=urls.help4) {%>href="Help4.aspx"<% } %>>联系我们</a></dd>
+            </dl>
+            </div>
+            <div class="quest_box">
+            <dl>
+              <dt>新手指南</dt>
+              <dd><a <% if (this.PageUrl==urls.help5) { %>class="cur"<% } else { %>href="Help5.aspx"<% } %>>常见问题</a></dd>
+              <dd><a <% if (this.PageUrl==urls.help6) { %>class="cur"<% } else { %>href="Help6.aspx"<% } %>>存款流程</a></dd>
+              <%--<dd><a <% if (this.PageUrl==urls.help7) { %>class="cur"<% } else { %>href="Help7.aspx"<% } %>>提款流程</a></dd>--%>
+              <dd><a class="<%if (this.PageUrl==urls.help7) { %>cur <% } %>none_b" <%if (this.PageUrl!=urls.help7) {%>href="Help7.aspx"<% } %>>提款流程</a></dd>
+            </dl>
+            </div>
+            <div class="quest_box1">
+            <dl>
+              <dd>7x24小时在线客服</dd>
+              <dd>400-6571318</dd>
+              <dd class="none_b">QQ: 77683735</dd>
+            </dl>
+            </div>
+          </div>
+          <div class="quest_right">
+              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                      <td height="35">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                  <td width="80" class="quest_xian">&nbsp;</td>
+                                  <td width="80" class="quest_tit"><asp:ContentPlaceHolder ID="help_title" runat="server"></asp:ContentPlaceHolder></td>
+                                  <td class="quest_xian">&nbsp;</td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <asp:ContentPlaceHolder ID="help_content" runat="server"></asp:ContentPlaceHolder>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+          <div class="B"></div>
+      </div></div>
+    </div>
+  </div>
+</asp:Content>

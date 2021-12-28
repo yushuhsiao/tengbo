@@ -1,0 +1,155 @@
+﻿html body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 50px;
+  z-index: 102;
+  font-size: 30px;
+  color: white;
+}
+#menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  z-index: 100;
+  font-size: 12px;
+  background-color: black;
+  color: white;
+}
+#menu table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#menu table.navbar {
+  position: absolute;
+  top: 27px;
+}
+#menu td {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+#menu td.fill {
+  width: 200px;
+}
+#menu a {
+  text-decoration: none;
+}
+#menu .top-nav {
+  position: absolute;
+  top: 4px;
+}
+#menu label.navbar {
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 4px 12px 4px 12px;
+  margin: -1px -1px 0 0;
+  background-color: #999999;
+  color: #ffffff;
+  border: 1px solid #cccccc;
+}
+#menu label.navbar:hover {
+  color: #000000;
+  background-color: #ffffff;
+}
+#menu .menu,
+#menu .menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+#menu .menu li {
+  position: relative;
+  white-space: nowrap;
+  padding: 4px 12px 4px 12px;
+  margin: -1px -1px 0 0;
+  color: #ffffff;
+  background-color: #999999;
+  border: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+}
+#menu .menu li > ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+#menu .menu li:hover,
+#menu .menu li.sfHover,
+#menu .menu li.sfHover > a {
+  color: #000000;
+  background-color: #ffffff;
+}
+#menu .menu li:hover ul,
+#menu .menu li.sfHover ul,
+#menu .menu li.sfHover > a ul {
+  display: block;
+}
+#menu .menu > li {
+  float: left;
+  display: inline;
+}
+#menu .menu ul ul {
+  top: 0;
+  left: 100%;
+}
+#menu td > .menu li {
+  color: #cccccc;
+}
+#menu td > .menu li > a:link,
+#menu td > .menu li > a:visited {
+  color: #ffffff;
+}
+#menu td > .menu li:hover,
+#menu td > .menu li.sfHover,
+#menu td > .menu li.sfHover > a {
+  color: #000000;
+  background-color: #ffffff;
+}
+#menu .userinfo {
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+  font-size: larger;
+}
+#menu .settings {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#menu .settings > li {
+  background-color: transparent;
+  padding: 0;
+}
+#menu .settings > li > ul {
+  left: auto;
+  right: 0;
+  border: 0px none black;
+}
+#main {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+}
+.ui-button-text-only .ui-button-text {
+  padding: .25em 1em;
+}
+.ui-widget {
+  font-size: 1em;
+}
+/**/

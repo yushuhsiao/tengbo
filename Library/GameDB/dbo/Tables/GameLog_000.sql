@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[GameLog_000] (
+    [sn]           BIGINT           IDENTITY (1, 1) NOT NULL,
+    [ACTime]       SMALLDATETIME    NOT NULL,
+    [LogType]      INT              NOT NULL,
+    [GameID]       INT              NOT NULL,
+    [CorpID]       INT              NOT NULL,
+    [MemberID]     INT              NOT NULL,
+    [ACNT]         VARCHAR (20)     NOT NULL,
+    [AgentID]      INT              NOT NULL,
+    [AgentACNT]    VARCHAR (20)     NOT NULL,
+    [PrevBalance]  DECIMAL (19, 6)  NOT NULL,
+    [Amount]       DECIMAL (19, 6)  NOT NULL,
+    [Balance]      DECIMAL (19, 6)  NOT NULL,
+    [CurrencyA]    VARCHAR (3)      NOT NULL,
+    [CurrencyB]    VARCHAR (3)      NOT NULL,
+    [CurrencyX]    DECIMAL (19, 6)  NOT NULL,
+    [SerialNumber] VARCHAR (16)     NULL,
+    [TranID]       UNIQUEIDENTIFIER NULL,
+    [RequestIP]    VARCHAR (20)     NOT NULL,
+    [RequestTime]  DATETIME         NOT NULL,
+    [FinishTime]   DATETIME         NULL,
+    [CreateTime]   DATETIME         CONSTRAINT [DF_Game0000_Log_CreateTime] DEFAULT (getdate()) NOT NULL,
+    CONSTRAINT [PK_GameLog_000] PRIMARY KEY CLUSTERED ([sn] ASC)
+);
+

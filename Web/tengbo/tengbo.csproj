@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A68401B-1C5C-44FE-966C-A00B23A040CB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>web</RootNamespace>
+    <AssemblyName>tengbo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="clearcache.aspx" />
+    <Content Include="CLogin.aspx" />
+    <Content Include="CLoginHandler.aspx" />
+    <Content Include="css\jquery-ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\jquery-ui\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\jquery-ui\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\jquery-ui\images\ui-icons_888888_256x240.png" />
+    <Content Include="css\jquery-ui\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\jquery-ui\jquery-ui.css" />
+    <Content Include="css\jquery-ui\jquery.ui.accordion.css" />
+    <Content Include="css\jquery-ui\jquery.ui.all.css" />
+    <Content Include="css\jquery-ui\jquery.ui.autocomplete.css" />
+    <Content Include="css\jquery-ui\jquery.ui.base.css" />
+    <Content Include="css\jquery-ui\jquery.ui.button.css" />
+    <Content Include="css\jquery-ui\jquery.ui.core.css" />
+    <Content Include="css\jquery-ui\jquery.ui.datepicker.css" />
+    <Content Include="css\jquery-ui\jquery.ui.dialog.css" />
+    <Content Include="css\jquery-ui\jquery.ui.menu.css" />
+    <Content Include="css\jquery-ui\jquery.ui.progressbar.css" />
+    <Content Include="css\jquery-ui\jquery.ui.resizable.css" />
+    <Content Include="css\jquery-ui\jquery.ui.selectable.css" />
+    <Content Include="css\jquery-ui\jquery.ui.slider.css" />
+    <Content Include="css\jquery-ui\jquery.ui.spinner.css" />
+    <Content Include="css\jquery-ui\jquery.ui.tabs.css" />
+    <Content Include="css\jquery-ui\jquery.ui.theme.css" />
+    <Content Include="css\jquery-ui\jquery.ui.tooltip.css" />
+    <Content Include="css\style.css">
+      <DependentUpon>style.less</DependentUpon>
+    </Content>
+    <Content Include="css\style.min.css">
+      <DependentUpon>style.less</DependentUpon>
+    </Content>
+    <Content Include="Downloads\360.jpg" />
+    <Content Include="Downloads\ag_download.exe" />
+    <Content Include="Downloads\BBBrowser-Launcher.exe" />
+    <Content Include="Downloads\tengbo.jpg" />
+    <Content Include="Downloads\tyc.jpg" />
+    <Content Include="ElectronicGame.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Game\ag1.aspx" />
+    <Content Include="Game\ag3.aspx" />
+    <Content Include="Game\ag2.aspx" />
+    <Content Include="image\1.png" />
+    <Content Include="image\10.png" />
+    <Content Include="image\11.png" />
+    <Content Include="image\12.png" />
+    <Content Include="image\13.png" />
+    <Content Include="image\14.png" />
+    <Content Include="image\15.png" />
+    <Content Include="image\16.png" />
+    <Content Include="image\17.png" />
+    <Content Include="image\18.png" />
+    <Content Include="image\2-01.png" />
+    <Content Include="image\2-02.png" />
+    <Content Include="image\2-03.png" />
+    <Content Include="image\2.png" />
+    <Content Include="image\3-01.png" />
+    <Content Include="image\3-02.png" />
+    <Content Include="image\3-03.png" />
+    <Content Include="image\3-04.png" />
+    <Content Include="image\3-05.png" />
+    <Content Include="image\3-06.png" />
+    <Content Include="image\3.png" />
+    <Content Include="image\360.jpg" />
+    <Content Include="image\4-01.png" />
+    <Content Include="image\4-02.png" />
+    <Content Include="image\4-03.png" />
+    <Content Include="image\4.png" />
+    <Content Include="image\5-01.png" />
+    <Content Include="image\5-02.png" />
+    <Content Include="image\5-03.png" />
+    <Content Include="image\5.png" />
+    <Content Include="image\6.png" />
+    <Content Include="image\7.png" />
+    <Content Include="image\8.png" />
+    <Content Include="image\9.png" />
+    <Content Include="image\chuna.png" />
+    <Content Include="image\cn_dl.png" />
+    <Content Include="image\f_bt_hover.gif" />
+    <Content Include="image\about_link.jpg" />
+    <Content Include="image\AG_1.png" />
+    <Content Include="image\AG_2.png" />
+    <Content Include="image\AG_3.png" />
+    <Content Include="image\bag1.jpg" />
+    <Content Include="image\bag2.jpg" />
+    <Content Include="image\bag3.jpg" />
+    <Content Include="image\bag4.jpg" />
+    <Content Include="image\banner1.jpg" />
+    <Content Include="image\banner2.jpg" />
+    <Content Include="image\banner3.jpg" />
+    <Content Include="image\banner4.jpg" />
+    <Content Include="image\banner5.jpg" />
+    <Content Include="image\banner6.jpg" />
+    <Content Include="image\bggame.png" />
+    <Content Include="image\bg_body.gif" />
+    <Content Include="image\bt.gif" />
+    <Content Include="image\bt.png" />
+    <Content Include="image\bt1.gif" />
+    <Content Include="image\bt1.png" />
+    <Content Include="image\bt2.png" />
+    <Content Include="image\bullet.png" />
+    <Content Include="image\china_flag.gif" />
+    <Content Include="image\collect_bg.png" />
+    <Content Include="image\corner.gif" />
+    <Content Include="image\english_flag.gif" />
+    <Content Include="image\f1.png" />
+    <Content Include="image\f2.png" />
+    <Content Include="image\f3.png" />
+    <Content Include="image\float_bg.png" />
+    <Content Include="image\float_bg_bc.png" />
+    <Content Include="image\float_bg_bl.png" />
+    <Content Include="image\float_bg_br.png" />
+    <Content Include="image\float_bg_cc.png" />
+    <Content Include="image\float_bg_cl.png" />
+    <Content Include="image\float_bg_cr.png" />
+    <Content Include="image\float_bg_tc.png" />
+    <Content Include="image\float_bg_tl.png" />
+    <Content Include="image\float_bg_tr.png" />
+    <Content Include="image\float_close.png" />
+    <Content Include="image\float_left.jpg" />
+    <Content Include="image\float_preload.gif" />
+    <Content Include="image\float_tubiao.png" />
+    <Content Include="image\f_1.png" />
+    <Content Include="image\f_2.png" />
+    <Content Include="image\f_3.png" />
+    <Content Include="image\f_bt.gif" />
+    <Content Include="image\f_bt1.gif" />
+    <Content Include="image\f_yanzhen.gif" />
+    <Content Include="image\game_bg.png" />
+    <Content Include="image\game_bg2.png" />
+    <Content Include="image\home.gif" />
+    <Content Include="image\idialog_s.png" />
+    <Content Include="image\img1.jpg" />
+    <Content Include="image\img2.jpg" />
+    <Content Include="image\img3.jpg" />
+    <Content Include="image\img4.jpg" />
+    <Content Include="image\img5.jpg" />
+    <Content Include="image\img6.jpg" />
+    <Content Include="image\in.gif" />
+    <Content Include="image\input.gif" />
+    <Content Include="image\k.gif" />
+    <Content Include="image\kefu_bt.gif" />
+    <Content Include="image\lights.png" />
+    <Content Include="image\lights_bg.gif" />
+    <Content Include="image\lights_bg1.gif" />
+    <Content Include="image\link_1.jpg" />
+    <Content Include="image\link_2.jpg" />
+    <Content Include="image\link_3.jpg" />
+    <Content Include="image\link_4.jpg" />
+    <Content Include="image\link_5.jpg" />
+    <Content Include="image\link_6.jpg" />
+    <Content Include="image\live_img1.jpg" />
+    <Content Include="image\live_img1a.jpg" />
+    <Content Include="image\live_img2.jpg" />
+    <Content Include="image\live_img2a.jpg" />
+    <Content Include="image\live_img3.jpg" />
+    <Content Include="image\live_img3a.jpg" />
+    <Content Include="image\load.gif" />
+    <Content Include="image\loading.gif" />
+    <Content Include="image\loading01.gif" />
+    <Content Include="image\loading02.GIF" />
+    <Content Include="image\loading03.gif" />
+    <Content Include="image\loading_login.gif" />
+    <Content Include="image\loading_reg.gif" />
+    <Content Include="image\login.gif" />
+    <Content Include="image\login_banner.jpg" />
+    <Content Include="image\login_busy.gif" />
+    <Content Include="image\login_tubiao.gif" />
+    <Content Include="image\logo.png" />
+    <Content Include="image\lstd_1.png" />
+    <Content Include="image\lstd_2.png" />
+    <Content Include="image\lstd_3.png" />
+    <Content Include="image\lstd_4.png" />
+    <Content Include="image\mid_bts.gif" />
+    <Content Include="image\mid_bts.jpg" />
+    <Content Include="image\mid_bts_bover.gif" />
+    <Content Include="image\mid_bts_bover.jpg" />
+    <Content Include="image\money_hover.gif" />
+    <Content Include="image\money_titbg.gif" />
+    <Content Include="image\mouse_hover.gif" />
+    <Content Include="image\ncgac.png" />
+    <Content Include="image\new_tubiao.png" />
+    <Content Include="image\notic.gif" />
+    <Content Include="image\notic1.gif" />
+    <Content Include="image\notselected.png" />
+    <Content Include="image\on.gif" />
+    <Content Include="image\phone.png" />
+    <Content Include="image\pro1.jpg" />
+    <Content Include="image\pro1_biao.png" />
+    <Content Include="image\pro1_bt-.png" />
+    <Content Include="image\pro1_bt.png" />
+    <Content Include="image\pro1_img.jpg" />
+    <Content Include="image\pro2.jpg" />
+    <Content Include="image\pro3.jpg" />
+    <Content Include="image\pro4.jpg" />
+    <Content Include="image\pro5.jpg" />
+    <Content Include="image\pro5_img.jpg" />
+    <Content Include="image\pro6.jpg" />
+    <Content Include="image\pro7.jpg" />
+    <Content Include="image\pro8.jpg" />
+    <Content Include="image\pro9.jpg" />
+    <Content Include="image\profer_bg.gif" />
+    <Content Include="image\pro_1.jpg" />
+    <Content Include="image\pro_2.jpg" />
+    <Content Include="image\pro_3.jpg" />
+    <Content Include="image\pro_4.jpg" />
+    <Content Include="image\pro_5.jpg" />
+    <Content Include="image\pro_6.jpg" />
+    <Content Include="image\pro_7.jpg" />
+    <Content Include="image\pro_8.jpg" />
+    <Content Include="image\pro_8img1.gif" />
+    <Content Include="image\pro_8img2.gif" />
+    <Content Include="image\pro_8img3.gif" />
+    <Content Include="image\pro_9.jpg" />
+    <Content Include="image\pro_bt.png" />
+    <Content Include="image\pt_img1.jpg" />
+    <Content Include="image\pt_load.gif" />
+    <Content Include="image\qq_bt.gif" />
+    <Content Include="image\queren2.gif" />
+    <Content Include="image\quest_hover.gif" />
+    <Content Include="image\quest_xian.gif" />
+    <Content Include="image\quxiao2.gif" />
+    <Content Include="image\register.gif" />
+    <Content Include="Downloads\AG.jpg" />
+    <Content Include="Downloads\bbs.jpg" />
+    <Content Include="Downloads\cc.jpg" />
+    <Content Include="Downloads\ff.jpg" />
+    <Content Include="Downloads\flash.jpg" />
+    <Content Include="Downloads\ie.jpg" />
+    <Content Include="image\selected.png" />
+    <Content Include="image\stloading.gif" />
+    <Content Include="image\t1.png" />
+    <Content Include="image\t1_hover.png" />
+    <Content Include="image\t2.png" />
+    <Content Include="image\t2_hover.png" />
+    <Content Include="image\tengfa_close.png" />
+    <Content Include="image\tengfa_link.png" />
+    <Content Include="image\threeLines.png" />
+    <Content Include="image\tk_1.png" />
+    <Content Include="image\tk_2.png" />
+    <Content Include="image\tk_3.png" />
+    <Content Include="image\top_bg.gif" />
+    <Content Include="image\tubiao.gif" />
+    <Content Include="image\tubiao1.gif" />
+    <Content Include="image\tubiao_gou.png" />
+    <Content Include="image\tubiao_jc.gif" />
+    <Content Include="image\tubiao_x.png" />
+    <Content Include="image\user_bt.gif" />
+    <Content Include="image\user_bt_hover.gif" />
+    <Content Include="image\user_lan.jpg" />
+    <Content Include="image\user_li.jpg" />
+    <Content Include="image\user_tit1-.png" />
+    <Content Include="image\user_tit1.png" />
+    <Content Include="image\user_tit2-.png" />
+    <Content Include="image\user_tit2.png" />
+    <Content Include="image\user_ul.jpg" />
+    <Content Include="image\user_zhifu.jpg" />
+    <Content Include="image\user_zhifu1.jpg" />
+    <Content Include="image\Video-rules-.jpg" />
+    <Content Include="image\Video-rules.jpg" />
+    <Content Include="image\video_bg-.jpg" />
+    <Content Include="image\video_bg.jpg" />
+    <Content Include="image\video_bottombg.gif" />
+    <Content Include="image\video_hengbg.png" />
+    <Content Include="image\vip_banner.jpg" />
+    <Content Include="image\vip_tubiao.gif" />
+    <Content Include="image\vip_video.gif" />
+    <Content Include="image\weixin.png" />
+    <Content Include="image\welcome.jpg" />
+    <Content Include="image\wenxin.jpg" />
+    <Content Include="image\xiala_bg.png" />
+    <Content Include="image\zxzf_2.png" />
+    <Content Include="image\zxzf_3.png" />
+    <Content Include="image\zxzf_4.png" />
+    <Content Include="js\hoverSilder.js" />
+    <Content Include="js\script.src.js" />
+    <Content Include="js\style.js" />
+    <Content Include="Login.ascx" />
+    <Content Include="Login.aspx" />
+    <Content Include="default.aspx" />
+    <Content Include="Game\hg.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Help\1.aspx" />
+    <Content Include="css\com.css" />
+    <Content Include="css\css.css" />
+    <Content Include="css\default.css" />
+    <Content Include="EGames.aspx" />
+    <Content Include="Downloads\default.aspx" />
+    <Content Include="float.aspx" />
+    <Content Include="js\ie7\blank.gif" />
+    <Content Include="js\ie7\ie7-squish.js" />
+    <Content Include="js\ie7\IE7.js" />
+    <Content Include="js\ie7\IE8.js" />
+    <Content Include="js\ie7\IE9.js" />
+    <Content Include="js\jquery-ui.js" />
+    <Content Include="js\jquery.blockUI.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="css\popup.css" />
+    <Content Include="js\script.js" />
+    <Content Include="LiveCasino.aspx" />
+    <Content Include="maintain\index.html" />
+    <Content Include="maintain\access.html" />
+    <Content Include="maintain\css\maintain.css" />
+    <Content Include="maintain\image\access_bg.png" />
+    <Content Include="maintain\image\logo.png" />
+    <Content Include="maintain\image\logo_tex.png" />
+    <Content Include="maintain\image\main_bg.gif" />
+    <Content Include="maintain\image\m_bg.png" />
+    <Content Include="maintain\image\online.png" />
+    <Content Include="maintain\image\phone.png" />
+    <Content Include="maintain\image\QQ.png" />
+    <Content Include="maintain\image\top_bg.jpg" />
+    <Content Include="marketing\css\css.css" />
+    <Content Include="marketing\image\1-.gif" />
+    <Content Include="marketing\image\1.gif" />
+    <Content Include="marketing\image\2.gif" />
+    <Content Include="marketing\image\3-.gif" />
+    <Content Include="marketing\image\3.gif" />
+    <Content Include="marketing\image\banner.jpg" />
+    <Content Include="marketing\image\hg.png" />
+    <Content Include="marketing\image\icon_0.gif" />
+    <Content Include="marketing\image\left.png" />
+    <Content Include="marketing\image\link_1.jpg" />
+    <Content Include="marketing\image\link_2.jpg" />
+    <Content Include="marketing\image\link_3.jpg" />
+    <Content Include="marketing\image\link_4.jpg" />
+    <Content Include="marketing\image\logo.gif" />
+    <Content Include="marketing\image\logo.jpg" />
+    <Content Include="marketing\image\mid_pt.jpg" />
+    <Content Include="marketing\image\nav.gif" />
+    <Content Include="marketing\image\pic01.png" />
+    <Content Include="marketing\image\pic02.png" />
+    <Content Include="marketing\image\profer_bg.gif" />
+    <Content Include="marketing\image\pro_1.jpg" />
+    <Content Include="marketing\image\pro_2.jpg" />
+    <Content Include="marketing\image\pro_3.jpg" />
+    <Content Include="marketing\image\pro_4.jpg" />
+    <Content Include="marketing\image\pro_5.jpg" />
+    <Content Include="marketing\image\pro_6.jpg" />
+    <Content Include="marketing\image\pro_7.jpg" />
+    <Content Include="marketing\image\pro_8.jpg" />
+    <Content Include="marketing\image\pro_9.jpg" />
+    <Content Include="marketing\image\pro_bt.png" />
+    <Content Include="marketing\image\right.png" />
+    <Content Include="marketing\index.html" />
+    <Content Include="marketing\js\kf.js" />
+    <Content Include="MemberCenter\05_3.ascx" />
+    <Content Include="MemberCenter\06.ascx" />
+    <Content Include="MemberCenter\12.ascx" />
+    <Content Include="MemberCenter\Cdefault.aspx" />
+    <Content Include="MemberCenter\dinpay_v3.aspx" />
+    <Content Include="MemberCenter\ecpss.aspx" />
+    <Content Include="MemberCenter\pay_Finish.aspx" />
+    <Content Include="MemberCenter\yeepay.aspx" />
+    <Content Include="PrivateTable.aspx" />
+    <Content Include="Promotion\default.aspx" />
+    <Content Include="Promotion\01.aspx" />
+    <Content Include="MemberCenter\dinpay.aspx" />
+    <Content Include="Recovery.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="MemberCenter\01.ascx" />
+    <Content Include="MemberCenter\02.ascx" />
+    <Content Include="MemberCenter\03.ascx" />
+    <Content Include="MemberCenter\04.ascx" />
+    <Content Include="MemberCenter\05_2.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Promotion\03.aspx" />
+    <Content Include="Promotion\04.aspx" />
+    <Content Include="Promotion\05.aspx" />
+    <Content Include="Promotion\06.aspx" />
+    <Content Include="Promotion\07.aspx" />
+    <Content Include="Promotion\08.aspx" />
+    <Content Include="Promotion\09.aspx" />
+    <Content Include="Promotion\02.aspx" />
+    <Content Include="MemberCenter\UserMsg.aspx" />
+    <Content Include="Help\2.aspx" />
+    <Content Include="Help\3.aspx" />
+    <Content Include="Help\4.aspx" />
+    <Content Include="Help\5.aspx" />
+    <Content Include="Help\7.aspx" />
+    <Content Include="Help\8.aspx" />
+    <Content Include="Help\6.aspx" />
+    <Content Include="VIP.aspx" />
+    <Content Include="MemberCenter\Withdrawal.aspx" />
+    <Content Include="MemberCenter\Deposit.aspx" />
+    <Content Include="MemberCenter\GameTran.aspx" />
+    <Content Include="MemberCenter\default.aspx" />
+    <Content Include="MemberCenter\08.ascx" />
+    <Content Include="MemberCenter\07.ascx" />
+    <Content Include="MemberCenter\09.ascx" />
+    <Content Include="MemberCenter\10.ascx" />
+    <Content Include="MemberCenter\11.ascx" />
+    <Content Include="MemberCenter\load.aspx" />
+    <Content Include="MemberCenter\05_1.ascx" />
+    <Content Include="MemberCenter\05.ascx" />
+    <Content Include="Help\9.aspx" />
+    <Content Include="market\css\css.css" />
+    <Content Include="market\image\1-.gif" />
+    <Content Include="market\image\1.gif" />
+    <Content Include="market\image\2.gif" />
+    <Content Include="market\image\3-.gif" />
+    <Content Include="market\image\3.gif" />
+    <Content Include="market\image\banner.jpg" />
+    <Content Include="market\image\hg.png" />
+    <Content Include="market\image\icon_0.gif" />
+    <Content Include="market\image\left.png" />
+    <Content Include="market\image\link_1.jpg" />
+    <Content Include="market\image\link_2.jpg" />
+    <Content Include="market\image\link_3.jpg" />
+    <Content Include="market\image\link_4.jpg" />
+    <Content Include="market\image\logo.gif" />
+    <Content Include="market\image\logo.jpg" />
+    <Content Include="market\image\mid_pt.jpg" />
+    <Content Include="market\image\nav.gif" />
+    <Content Include="market\image\pic01.png" />
+    <Content Include="market\image\pic02.png" />
+    <Content Include="market\image\profer_bg.gif" />
+    <Content Include="market\image\pro_1.jpg" />
+    <Content Include="market\image\pro_2.jpg" />
+    <Content Include="market\image\pro_3.jpg" />
+    <Content Include="market\image\pro_4.jpg" />
+    <Content Include="market\image\pro_5.jpg" />
+    <Content Include="market\image\pro_6.jpg" />
+    <Content Include="market\image\pro_7.jpg" />
+    <Content Include="market\image\pro_8.jpg" />
+    <Content Include="market\image\pro_9.jpg" />
+    <Content Include="market\image\pro_bt.png" />
+    <Content Include="market\image\right.png" />
+    <Content Include="market\index.html" />
+    <Content Include="market\js\kf.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\res.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_LocalResources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MemberCenter\MemberCenter.master" />
+    <Content Include="css\style.less" />
+    <Content Include="css\web.config" />
+    <Content Include="js\web.config" />
+    <Content Include="master\root.Master" />
+    <Content Include="master\default.master" />
+    <Content Include="Promotion\Promotion.master" />
+    <Content Include="Help\Help.master" />
+    <Content Include="Game\bbin.ashx" />
+    <Content Include="api.ashx" />
+    <Content Include="Game\ag.Master" />
+    <Content Include="CheckVerifyCode.ashx" />
+    <Content Include="MemberCenter\yeepay.ashx" />
+    <Content Include="MemberCenter\dinpay.ashx" />
+    <Content Include="css\style.css.map">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="Downloads\tengbo.rar" />
+    <Content Include="MemberCenter\ecpss.ashx" />
+    <Content Include="MemberCenter\dinpay_v3.ashx" />
+    <Content Include="MemberCenter\CMemberCenter.master" />
+    <Content Include="master\Cdefault.master" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\tengbo.dep.pubxml" />
+    <Content Include="VerifyImage.ashx" />
+    <Content Include="ptkeyfile\play.p12" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\res.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>res.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\Tools\Tools.csproj">
+      <Project>{c7be9b7b-151d-45bd-b098-5e8a90959ed6}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\admin\admin.csproj">
+      <Project>{ff884e24-378e-4c25-ba22-05de634ecf0d}</Project>
+      <Name>admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\web.dll\web.dll.csproj">
+      <Project>{d1630c08-2fec-499e-ac1d-e623bba6e83a}</Project>
+      <Name>web.dll</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8691</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/tengbo</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

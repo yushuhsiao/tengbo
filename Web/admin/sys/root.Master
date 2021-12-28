@@ -1,0 +1,200 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="root.master.cs" Inherits="web.sys.root" ClientIDMode="Static" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="web" %>
+
+<!DOCTYPE html>
+<script runat="server">
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <!--[if lt IE 7]> <script src="js/ie7/IE7.js"></script> <![endif]-->
+    <!--[if lt IE 8]> <script src="js/ie7/IE8.js"></script> <![endif]-->
+    <!--[if lt IE 9]> <script src="js/ie7/IE9.js"></script> <![endif]-->
+    <link rel="stylesheet" href="../js/jqwidgets/styles/jqx.base.css" />
+    <link rel="stylesheet" href="" id="css_theme" path="<%=ResolveClientUrl("~/js/jqwidgets/styles/")%>" />
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqx-all.js"></script><%--
+    <script type="text/javascript" src="../js/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxvalidator.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxdropdownbutton.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxcolorpicker.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxswitchbutton.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxpanel.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxtooltip.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxchart.core.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxchart.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxdraw.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxchart.rangeselector.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgauge.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxbuttongroup.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxtree.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxdragdrop.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxcombobox.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxwindow.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxdocking.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxdockpanel.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxmaskedinput.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxexpander.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxnavigationbar.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxnumberinput.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxprogressbar.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxradiobutton.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxrating.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxslider.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxsplitter.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxtabs.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgrid.sort.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgrid.filter.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgrid.grouping.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgrid.pager.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgrid.edit.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgrid.aggregates.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxdata.export.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgrid.export.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgrid.storage.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxgrid.columnsreorder.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxlistmenu.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxknockout.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxscrollview.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxtouch.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxinput.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxresponse.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxtreemap.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxpasswordinput.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxrangeselector.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxdatatable.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxtreegrid.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxbulletchart.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxeditor.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxnotification.js"></script>
+    <script type="text/javascript" src="../js/jqwidgets/jqxangular.js"></script>--%>
+    <script type="text/javascript" src="../js/jqwidgets/globalization/globalize.js"></script>
+    <asp:ContentPlaceHolder ID="include" runat="server"></asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="../css/style2.css" />
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/js/lang.aspx")%>"></script>
+    <script type="text/javascript" src="../js/admin2.js"></script>
+    <script type="text/javascript" src="../js/util.js"></script><%--
+    <script type="text/javascript" src="../js/jqx.js"></script>--%>
+    <script type="text/javascript" src="../js/datagrid.js"></script>
+    <style type="text/css">
+        [grid=host] { overflow: hidden; border-style: solid; border-width: 1px; }
+        [grid=toolbar] { }
+        [grid=body] { overflow-x: auto; overflow-y: hidden; }
+        [grid=header] { white-space: nowrap; height: 1.1em; }
+        [grid=headercell] { border-style: solid; border-width: 1px; display: inline-block; text-align: center; white-space: nowrap; height: 100%; overflow: hidden; }
+        [grid=filter] { white-space: nowrap; height: 1.1em; }
+        [grid=filtercell] { border-style: solid; border-width: 1px; display: inline-block; text-align: center; white-space: nowrap; height: 100%; overflow: hidden; }
+        [grid=data] { overflow-x: auto; overflow-y: scroll; }
+        [grid=datacell] { }
+        [grid=pager] { }
+    </style>
+    <script type="text/javascript">
+        (function ($) {
+            $.fn.jqx_addClass = function (grid, classname) {
+                this.addClass(classname);
+                this.addClass(grid.toThemeProperty(classname))
+            };
+
+            var row = function () { }
+            var column = function (p1, p2) {
+                if (p1 != undefined) $.extend(true, this, p1);
+                if (p1 != undefined) $.extend(true, this, p2);
+                if ((this.Text == undefined) || (this.Text == ''))
+                    this.Text = this.Name;
+            }
+            var rows = function () { }
+            var columns = function () { }
+
+            $.jqx.jqxWidget("datagrid", "", {});
+            $.extend($.jqx._datagrid.prototype, {
+                defineInstance: function () {
+                    return $.extend(true, this, {
+                        columns: [],
+                        width: 800,
+                        height: 'auto',
+                        toolbar: null,
+                        shrinkToFit: false,
+                    });
+                },
+                createInstance: function (options) {
+                    //prepareData.call(this);
+                    var grid = this;
+
+                    grid.host.toolbar = $(this.toolbar).attr('grid', 'toolbar').appendTo(grid.host);
+                    grid.host.body = $('  <div grid="body"></div>').appendTo(grid.host);
+                    grid.host.header = $('<div grid="header"></div>').appendTo(grid.host.body);
+                    grid.host.filter = $('<div grid="filter"></div>').appendTo(grid.host.body);
+                    grid.host.data = $('  <div grid="data">data</div>').appendTo(grid.host.body);
+                    grid.host.pager = $(' <div grid="pager">pager</div>').appendTo(grid.host.body);
+
+                    grid.host.attr('grid', 'host');
+                    grid.host.jqx_addClass(this, 'jqx-widget');
+                    grid.host.css({ width: this.width, height: this.height });
+
+                    grid.rows = new rows();
+
+                    var tmp = new Array();
+                    tmp.push(new column({ width: 50, forzen: true }));
+                    for (var i = 0; i < this.columns.length; i++) {
+                        tmp.push(new column({ width: 80 }, this.columns[i]));
+                    }
+                    this.columns = tmp;
+
+                    $(window).resize(function () { grid.resize.apply(grid, arguments); }).trigger('resize');
+
+                    //console.log(this.element);
+                },
+                resize: function () {
+                    this.renderHeaders();
+                    this.renderFilters();
+                    console.log(this, arguments)
+                },
+                renderHeaders: function () {
+                    for (var i = 0; i < this.columns.length; i++) {
+                        var col = this.columns[i];
+                        col.header_cell = $('<div grid="headercell"></div>')
+                            .css({ width: col.width, })
+                            .appendTo(this.host.header);
+                        if (col.Text != undefined)
+                            col.header_cell.text(col.Text);
+
+                        col.header_cell.attr('column-name', col.Name);
+                    }
+                },
+                renderFilters: function () {
+                    for (var i = 0; i < this.columns.length; i++) {
+                        var col = this.columns[i];
+                        col.filter_cell = $('<div grid="filtercell"></div>')
+                            .css({ width: col.width, })
+                            .appendTo(this.host.filter);
+                    }
+                },
+                renderPager: function () {
+                },
+                renderData: function () {
+                }
+            });
+        })(jqxBaseFramework);
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+</body>
+</html>

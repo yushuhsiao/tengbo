@@ -1,0 +1,213 @@
+@nav-height:50px;
+@logo-width:200px;
+@bgcolor:black;
+@fgcolor:white;
+@menu-enable:white;
+@menu-disable:#cccccc;
+@menu-bg:#999999;
+@menu-hover-enable:black;
+@menu-hover-disable:#cccccc;
+@menu-hover-bg:white;
+@menu-border:#cccccc;
+
+
+html body {
+	margin: 0;
+	padding: 0;
+    width: 100%;
+	height: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	overflow: hidden;
+}
+#logo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: @logo-width;
+	height: @nav-height;
+	z-index: 102;
+	font-size: 30px;
+	color: white;
+}
+#menu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: @nav-height;
+	z-index: 100;
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		&.navbar	{
+			position: absolute;
+			top: 27px;
+		}
+	}
+	td {
+		position: relative;
+		margin: 0;
+		padding: 0;
+		white-space: nowrap;
+		&.fill {
+			width: @logo-width;
+		}
+	}
+
+	a { text-decoration:none; }
+	font-size: 12px;
+	background-color: black;
+	color: white;
+
+	.top-nav {
+		position: absolute;
+		top: 4px;
+	}
+
+	label {
+		&.navbar {
+			font-size: 12px;
+			display: inline-block;
+			vertical-align: middle;
+			padding: 4px 12px 4px 12px;
+			margin: -1px -1px 0 0;
+			background-color: @menu-bg;
+			color: @menu-enable;
+			border: 1px solid @menu-border;
+			&:hover {
+				color: @menu-hover-enable;
+				background-color: @menu-hover-bg;
+			}
+		}
+	}
+
+	.menu, .menu ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		white-space: nowrap;
+	}
+
+	.menu {
+		li {
+			position: relative;
+			white-space: nowrap;
+			& > ul {
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 0;
+			}
+
+			padding: 4px 12px 4px 12px;
+			margin: -1px -1px 0 0;
+			color: @menu-enable;
+			background-color: @menu-bg;
+			border: 1px solid @menu-border;
+			border-right: 1px solid @menu-border;
+
+
+			&:hover, &.sfHover, &.sfHover > a  {
+				ul { display: block; }
+				color: @menu-hover-enable;
+				background-color: @menu-hover-bg;
+			}
+		}
+
+		& > li {
+			float: left;
+			display: inline;
+		}
+
+		ul {
+			ul {
+				top: 0;
+				left: 100%;
+			}
+		}
+	}
+
+	td > .menu {
+		 li {
+			color: @menu-disable;
+			& > a:link, & > a:visited { color: @menu-enable; }
+
+			&:hover, &.sfHover, &.sfHover > a  {
+				color: @menu-hover-enable;
+				background-color: @menu-hover-bg;
+			}
+		}
+	}
+
+	.userinfo {
+		position: absolute;
+		bottom: 0;
+		right: 30px;
+		font-size: larger;
+	}
+
+	.settings {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		& > li {
+			background-color: transparent;
+			padding: 0;
+			& > ul {
+				left: auto;
+				right: 0;
+				border: 0px none black;
+			}
+		}
+	}
+}
+#main {
+	position: absolute;
+	top: @nav-height;
+	left: 0;
+	width: 100%;
+}
+.ui-button-text-only .ui-button-text { padding: .25em 1em; }
+.ui-widget { font-size: 1em; }
+/**/
+//#menu table { width: 100%; border-collapse: collapse; }
+//#menu td { position: relative; padding: 0; margin: 0; white-space: nowrap; }
+//#menu td.fill { width: 200px; }
+//.menu, .menu ul { list-style-type: none; margin: 0; padding: 0; white-space: nowrap; }
+//.menu li { position: relative; white-space: nowrap; }
+//.menu li > ul { display: none; position: absolute; top: 100%; left: 0; }
+//.menu li:hover > ul,
+//.menu li.sfHover > ul { display: block; }
+//.menu > li { float: left; display: inline; }
+//.menu ul ul { top: 0; left: 100%; }
+
+
+
+
+//#menu1.navbar { background-color: #c0c0c0; }
+//#menu2.navbar { background-color: #ffc0c0; }
+//#menu3.navbar { background-color: #c0ffc0; }
+//#menu4.navbar { background-color: #ffffc0; }
+//#menu5.navbar { background-color: #c0c0ff; }
+//#menu6.navbar { background-color: #ffc0ff; }
+//#menu7.navbar { background-color: #c0ffff; }
+//#menu8.navbar { background-color: #ffffff; }
+//#menu > table[id=menu1] { bottom:-20px; }
+//#menu > table[id=menu2] { bottom:-40px; }
+//#menu > table[id=menu3] { bottom:-60px; }
+//#menu > table[id=menu4] { bottom:-80px; }
+//#menu > table[id=menu5] { bottom:-100px; }
+//#menu > table[id=menu6] { bottom:-120px; }
+//#menu > table[id=menu7] { bottom:-140px; }
+//#menu > table[id=menu8] { bottom:-160px; }
+
+//#menu { font-size: 12px; background-color: black; color: white; }
+//.menu li { padding: 4px 12px 4px 12px; margin: -1px -1px 0 0; background-color: #999999; color: white; border: 1px solid #cccccc; border-right: 1px solid #cccccc; }
+//#menu00 > li { background-color:transparent; padding:0; }
+//#menu00 > li > ul { left:auto; right:0; border:0px none black; }
+//label.navbar { font-size: 12px; display: inline-block; vertical-align: middle; padding: 4px 12px 4px 12px; margin: -1px -1px 0 0; background-color: #999999; color: white; border: 1px solid #cccccc; }
+//.menu li:hover,
+//.menu li.sfHover { color: black; background-color: white; }
+//label.navbar:hover { color: black; background-color: white; }
+//.ui-button-text-only .ui-button-text { padding: .25em 1em; }
+//.ui-widget { font-size: 1em; }

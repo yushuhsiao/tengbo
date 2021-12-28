@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{29BF10E1-83BE-4DEB-9340-06E35843A023}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>cmbchina</RootNamespace>
+    <AssemblyName>cmbchina</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\library\tools\app.config.cs">
+      <Link>Tools\app.config.cs</Link>
+    </Compile>
+    <Compile Include="..\..\library\tools\extensions\ExtensionAttribute.cs">
+      <Link>ExtensionAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\library\tools\extensions\System.ComponentModel.cs">
+      <Link>Tools\System.ComponentModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\library\tools\extensions\System.cs">
+      <Link>Tools\System.cs</Link>
+    </Compile>
+    <Compile Include="..\..\library\tools\extensions\System.Diagnostics.cs">
+      <Link>Tools\System.Diagnostics.cs</Link>
+    </Compile>
+    <Compile Include="..\..\library\tools\extensions\System.Net.cs">
+      <Link>Tools\System.Net.cs</Link>
+    </Compile>
+    <Compile Include="..\..\library\tools\extensions\System.Threading.cs">
+      <Link>Tools\System.Threading.cs</Link>
+    </Compile>
+    <Compile Include="..\..\library\tools\extensions\System.Reflection.cs">
+      <Link>Tools\System.Reflection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\library\tools\Log.cs">
+      <Link>Tools\Log.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\..\library\tools\Tick.cs">
+      <Link>Tools\Tick.cs</Link>
+    </Compile>
+    <Compile Include="..\..\library\tools\ToolStripExt.cs">
+      <Link>Tools\ToolStripExt.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="config.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Tools\Task.cs">
+    </Compile>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.zh-CHS.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.zh-CHT.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GenIndex.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Login\Advertizement_Page.htm" />
+    <Content Include="Login\Login.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Login\NoticeList.htm" />
+    <Content Include="歷史交易查詢1\am_QueryHistoryTrans.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="歷史交易查詢1\Blank.htm" />
+    <Content Include="歷史交易查詢1\Blank1.htm" />
+    <Content Include="歷史交易查詢1\Blank2.htm" />
+    <Content Include="歷史交易查詢1\DefaultDiv.htm" />
+    <Content Include="歷史交易查詢2\am_QueryHistoryTrans.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="歷史交易查詢2\Blank.htm" />
+    <Content Include="歷史交易查詢2\Blank1.htm" />
+    <Content Include="歷史交易查詢2\Blank2.htm" />
+    <Content Include="歷史交易查詢2\DefaultDiv.htm" />
+    <Content Include="當日交易查詢\am_QueryTodayTrans.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="當日交易查詢\Blank.htm" />
+    <Content Include="當日交易查詢\Blank_1.htm" />
+    <Content Include="當日交易查詢\Blank_2.htm" />
+    <Content Include="當日交易查詢\DefaultDiv.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

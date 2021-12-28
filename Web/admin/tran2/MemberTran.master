@@ -1,0 +1,106 @@
+﻿<%@ Master Language="C#" MasterPageFile="tran.master" AutoEventWireup="true" CodeBehind="MemberTran.master.cs" Inherits="MemberTran_master" %>
+
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="BU" %>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        var enum3 = {
+            <% if (_page.IsDeposit) { %>
+            <%=enumlist<LogType>(" logTypes1", true, BU.LogType.Deposit, BU.LogType.Alipay)%>
+            <%=enumlist<LogType>(",logTypes2", true, text.MemberDepositLogTypes)%>
+            <% } else { %>
+            <%=enumlist<LogType>(" logTypes1", true, BU.LogType.Withdrawal)%>
+            <%=enumlist<LogType>(",logTypes2", true, text.MemberWithdrawalLogTypes)%>
+            <% } %>
+            <%=enumlist<TranState>(",states")%>
+        };
+
+        var cm = {
+            '': '        ', 'Action': { name: 'Action       ', label: '<%=lang["colAction       "]%>', colType: 'Buttons' },
+            '': '        ', 'Accept': { name: 'Accept       ', label: '<%=lang["colAccept       "]%>', width: 060, editable: true, formatter: $.empty, edittype: 'checkboxs', editoptions: { multiple: false, value: { 1: '<%=lang["op_Accept"]%>' } } },
+            '': '        ', 'Finish': { name: 'Finish       ', label: '<%=lang["colFinish       "]%>', width: 060, editable: true, formatter: $.empty, edittype: 'checkboxs', editoptions: { multiple: false, value: { 1: '<%=lang["op_Finish"]%>' } } },
+            '': '            ', 'ID': { name: 'ID           ', label: '<%=lang["colID           "]%>', width: 280, fixed: true, hidden: true, key: true },
+            '': '  ', 'SerialNumber': { name: 'SerialNumber ', label: '<%=lang["colSerialNumber "]%>', width: 090, fixed: true, search: true },
+            '': '       ', 'LogType': { name: 'LogType      ', label: '<%=lang["colLogType      "]%>', width: 080, editable: true, editonce: true, edittype: 'select', editoptions: { value: enum3.logTypes1 }, formatter: 'select', formatoptions: { <%=enumlist<LogType>("value")%> }, search: true, stype: 'select', searchoptions: { value: enum3.logTypes2, defaultValue: '-1', nullKey: '-1', nullValue: '--' } },
+            '': '         ', 'State': { name: 'State        ', label: '<%=lang["colState        "]%>', width: 075, editable: false, formatter: 'select', editoptions: { value: enum3.states }, search: true, stype: 'select', searchoptions: { value: enum3.states, defaultValue: '-1', nullKey: '-1', nullValue: '--' } },
+            '': '        ', 'GameID': { name: 'GameID       ', label: '<%=lang["colGameID       "]%>', width: 080, editable: true, editonce: true, formatter: 'select', edittype: 'select', editoptions: { <%=serializeEnum("value", web.game.Names_Active)%> } },
+            '': '    ', 'FinishTime': { name: 'FinishTime   ', label: '<%=lang["colFinishTime   "]%>', colType: 'DateTime2', nowrap: true },
+            '': '    ', 'CreateTime': { name: 'CreateTime   ', label: '<%=lang["colCreateTime   "]%>', colType: 'DateTime2', nowrap: true },
+            '': '      ', 'MemberID': { name: 'MemberID     ', label: '<%=lang["colMemberID     "]%>', width: 050 },
+            '': '        ', 'CorpID': { name: 'CorpID       ', label: '<%=lang["colCorpID       "]%>', colType: 'CorpID' },
+            '': '     ', 'AgentACNT': { name: 'AgentACNT    ', label: '<%=lang["colAgentACNT    "]%>', width: 080, editable: false, search: true },
+            '': '    ', 'MemberACNT': { name: 'MemberACNT   ', label: '<%=lang["colMemberACNT   "]%>', width: 080, editable: true, editonce: true, search: true },
+            '': '    ', 'MemberName': { name: 'MemberName   ', label: '<%=lang["colMemberName   "]%>', width: 080, editable: false },
+            '': '       ', 'Amount1': { name: 'Amount1      ', label: '<%=lang["colAmount1      "]%>', colType: 'Money', editable: true, editonce: true, search: true },
+            '': '       ', 'Amount2': { name: 'Amount2      ', label: '<%=lang["colAmount2      "]%>', colType: 'Money', editable: false, editonce: true, search: true },
+            '': '      ', 'Currency': { name: 'Currency     ', label: '<%=lang["colCurrency     "]%>', colType: 'Currency', editable: false, editonce: false },
+            '': '         ', 'Memo1': { name: 'Memo1        ', label: '<%=lang["colMemo1        "]%>', width: 080, editable: true, edittype: 'textarea' },
+            '': '         ', 'Memo2': { name: 'Memo2        ', label: '<%=lang["colMemo2        "]%>', width: 080, editable: true, edittype: 'textarea' },
+            '': '    ', 'a_BankName': { name: 'a_BankName   ', label: '<%=lang["colBankNameA    "]%>', width: 080, editable: true },
+            '': '      ', 'a_CardID': { name: 'a_CardID     ', label: '<%=lang["colCardIDA      "]%>', width: 080, editable: true },
+            '': '        ', 'a_Name': { name: 'a_Name       ', label: '<%=lang["colNameA        "]%>', width: 080, editable: true },
+            '': '    ', 'a_TranTime': { name: 'a_TranTime   ', label: '<%=lang["colTranTimeA    "]%>', width: 080, editable: true, formatter: 'datejs', formatoptions: { format: 'yyyy-MM-dd HH:mm:ss', formatNaN: '' } },
+            '': '  ', 'a_TranSerial': { name: 'a_TranSerial ', label: '<%=lang["colTranSerialA  "]%>', width: 080, editable: true },
+            '': '    ', 'a_TranMemo': { name: 'a_TranMemo   ', label: '<%=lang["colTranMemoA    "]%>', width: 080, editable: true, edittype: 'textarea' },
+            '': '    ', 'b_BankName': { name: 'b_BankName   ', label: '<%=lang["colBankNameB    "]%>', width: 080, editable: true },
+            '': '      ', 'b_CardID': { name: 'b_CardID     ', label: '<%=lang["colCardIDB      "]%>', width: 080, editable: true },
+            '': '        ', 'b_Name': { name: 'b_Name       ', label: '<%=lang["colNameB        "]%>', width: 080, editable: true },
+            '': '    ', 'b_TranTime': { name: 'b_TranTime   ', label: '<%=lang["colTranTimeB    "]%>', width: 080, editable: true, formatter: 'datejs', formatoptions: { format: 'yyyy-MM-dd HH:mm:ss', formatNaN: '' } },
+            '': '  ', 'b_TranSerial': { name: 'b_TranSerial ', label: '<%=lang["colTranSerialB  "]%>', width: 080, editable: true },
+            '': '    ', 'b_TranMemo': { name: 'b_TranMemo   ', label: '<%=lang["colTranMemoB    "]%>', width: 080, editable: true, edittype: 'textarea' },
+            '': '     ', 'RequestIP': { name: 'RequestIP    ', label: '<%=lang["colRequestIP    "]%>', width: 080, search: true },
+            '': '    ', 'CreateUser': { name: 'CreateUser   ', label: '<%=lang["colCreateUser   "]%>', colType: 'ACNT2', search: true },
+            '': '    ', 'ModifyTime': { name: 'ModifyTime   ', label: '<%=lang["colModifyTime   "]%>', colType: 'DateTime2', nowrap: true },
+            '': '    ', 'ModifyUser': { name: 'ModifyUser   ', label: '<%=lang["colModifyUser   "]%>', colType: 'ACNT2', search: true }
+        };
+        $.fn.tranGrid_init = function (isDeposit, isHist, op) {
+            var $this = this;
+            $this.jqGrid_init($.extend({
+                pager: true, postData: { IsDeposit: isDeposit, IsHist: isHist },                
+                editParams: { delayDeleteRow: 1000 },
+                cmTemplate: { editable: false, editonce: false },
+                SelectCommand: function (postData) { return { MemberTranSelect: postData } }, <% if (!this._page.IsHist) { %>
+                UpdateCommand: function (postData) { return { MemberTranUpdate: postData } },
+                InsertCommand: function (postData) { return { MemberTranInsert: postData } },
+                DeleteCommand: function (postData) { return { MemberTranDelete: postData } }, <% } %>
+            }, op));
+            $(window).resize(function () { $this.gridSize(window); }).trigger('resize');
+            return this;
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <table id="table1">
+        <tr class="colModel">
+            <td name="Action">
+                <span property="action">
+                    <div class="edithide" action="editRow" icon="ui-icon-pencil"><%=lang["Actions_Edit"]%></div>
+                    <div class="edithide" action="delRow" icon="ui-icon-trash"><%=lang["Actions_Delete"]%></div>
+                    <div class="deleteshow" action="saveRow" icon="ui-icon-trash"><%=lang["Actions_Delete"]%></div>
+                    <div class="deleteshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow" action="saveRow" icon="ui-icon-disk"><%=lang["Actions_Save"]%></div>
+                </span>
+            </td>
+        </tr>
+        <tr class="grid-option">
+            <td>
+                <div name="nav1">
+                    <button action="addRow" icon="ui-icon-plus" <% if (this._page.IsHist) { %> disabled="disabled" <% } %>><%=lang["btnAdd"]%></button>
+                    <button action="toggleSearch" icon="ui-icon-search"><%=lang["btnSearch"]%></button>
+                    <button action="reloadGrid" icon="ui-icon-refresh"><%=lang["btnRefresh"]%></button>
+                    <% if (this._page.IsDeposit) { %>
+                    <a action="link" icon="ui-icon-tag" href="MemberDeposit.aspx"><%=lang["menu", "MemberTran Deposit"]%></a>
+                    <a action="link" icon="ui-icon-comment" href="MemberDepositHist.aspx"><%=lang["menu", "MemberTran Deposit History"]%></a>
+                    <% } else { %>
+                    <a action="link" icon="ui-icon-tag" href="MemberWithdrawal.aspx"><%=lang["menu", "MemberTran Withdrawal"]%></a>
+                    <a action="link" icon="ui-icon-comment" href="MemberWithdrawalHist.aspx"><%=lang["menu", "MemberTran Withdrawal History"]%></a>
+                    <% } %>
+                </div>
+                <div name="nav2" class="ui-widget-content" style=""></div>
+            </td>
+        </tr>
+    </table>
+    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

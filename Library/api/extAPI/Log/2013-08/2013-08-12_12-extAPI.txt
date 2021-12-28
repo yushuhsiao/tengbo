@@ -1,0 +1,20 @@
+﻿2013-08-12 12:36:20.56	1	
+Request:	<?xml version="1.0"?><request action="registration"><element><properties name="username" /><properties name="password" /><properties name="mode">1</properties><properties name="firstname" /><properties name="lastname" /><properties name="currencyid">CNY</properties><properties name="affiliateid" /></element></request>
+Response:	
+<?xml version="1.0"?><response action="registration"><element><properties name="username"></properties><properties name="ticket"></properties><properties name="status">201</properties><properties name="errdesc">ERROR_INVALID_FIELD</properties></element></response>
+
+2013-08-12 12:37:39.03	1	
+Request:	<?xml version="1.0"?><request action="registration"><element><properties name="username" /><properties name="password" /><properties name="mode">1</properties><properties name="firstname" /><properties name="lastname" /><properties name="currencyid">CNY</properties><properties name="affiliateid" /></element></request>
+Response:	
+<?xml version="1.0"?><response action="registration"><element><properties name="username"></properties><properties name="ticket"></properties><properties name="status">201</properties><properties name="errdesc">ERROR_INVALID_FIELD</properties></element></response>
+
+2013-08-12 12:39:12.62	2	
+Request:	<?xml version="1.0"?><request action="registration"><element><properties name="username">tf_0000</properties><properties name="password" /><properties name="mode">1</properties><properties name="firstname" /><properties name="lastname" /><properties name="currencyid">CNY</properties><properties name="affiliateid" /></element></request>
+Response:	
+<?xml version="1.0"?><response action="registration"><element><properties name="username">tf_0000</properties><properties name="ticket"></properties><properties name="status">201</properties><properties name="errdesc">ERROR_INVALID_FIELD</properties></element></response>
+
+2013-08-12 12:39:55.07	3	
+Request:	<?xml version="1.0"?><request action="registration"><element><properties name="username">tf_0000</properties><properties name="password" /><properties name="mode">1</properties><properties name="firstname">tf_</properties><properties name="lastname">0000</properties><properties name="currencyid">CNY</properties><properties name="affiliateid" /><properties name="testusr">測試</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="registration"><element><properties name="username">tf_0000</properties><properties name="ticket">Tt4lw1v36lun0f8</properties><properties name="status">0</properties><properties name="errdesc"></properties></element></response>
+

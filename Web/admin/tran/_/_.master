@@ -1,0 +1,206 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/tran/tran.master" AutoEventWireup="true" CodeBehind="MemberDeposit.master.cs" Inherits="tran_master" %>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        var $table;
+        $(document).ready(function () {
+            function onSelectRow(rowid, status, e) { $($(this).getInd(rowid, true)).removeClass('ui-state-highlight'); }
+            function subGridBeforeExpand(pID, id, ind) {
+                return $table.getRowData(id).LogType == 0<%=(int)BU.LogType.Deposit%>;
+            }
+            function subGridRowCreated(pID, id, ind, tablediv) {
+                $(tablediv.parentElement).before('<td class="ui-widget-content subgrid-cell" colspan="2" style="vertical-align:top;"></td>');
+                tablediv.parentElement.colSpan -= 2;
+                var data = $table.getRowData(id);
+                $('.table2').children().clone(true, true).appendTo(tablediv);
+
+                var $table2a = $('.table2a', tablediv).prop('id', 'table2a_' + id).jqGrid_init({
+                    cmTemplate: { sortable: false }, editParams: {}, datatype: 'local', height: 'auto', sortable: false, rownumbers: false, autowidth: false,
+                    pager: false, postData: {}, data: [data],
+                    SelectCommand: $table[0].p.SelectCommand,
+                    UpdateCommand: $table[0].p.UpdateCommand,
+                    InsertCommand: $table[0].p.InsertCommand,
+                    onSelectRow: onSelectRow,
+                    colModel: [
+                        { name: 'a_Card         ', label: '<%=lang["colCardA        "]%>', colType: 'Field', hidden: false },
+                          //{ name: 'Action         ', label: '<%=lang["colAction       "]%>', colType: 'Buttons' },
+                            { name: 'ID             ', label: '<%=lang["colID           "]%>', width: 080, editable: false, fixed: true, hidden: true, key: true },
+                            { name: 'a_BankName     ', label: '<%=lang["colBankNameA    "]%>', width: 080, editable: true },
+                            { name: 'a_CardID       ', label: '<%=lang["colCardIDA      "]%>', width: 160, editable: true },
+                            { name: 'a_Name         ', label: '<%=lang["colNameA        "]%>', width: 080, editable: true },
+                          //{ name: 'a_TranTime     ', label: '<%=lang["colTranTimeA    "]%>', width: 080, editable: true, formatter: 'datejs', formatoptions: { format: 'yyyy-MM-dd HH:mm:ss', formatNaN: '' } },
+                          //{ name: 'a_TranSerial   ', label: '<%=lang["colTranSerialA  "]%>', width: 080, editable: true },
+                          //{ name: 'a_TranMemo     ', label: '<%=lang["colTranMemoA    "]%>', width: 080, editable: true, edittype: 'textarea' }
+                            { name: 'Memo1_         ', label: '<%=lang["colMemo1        "]%>', width: 080, colType: 'Field' },
+                            { name: 'Memo1          ', label: '<%=lang["colMemo1        "]%>', width: 120, editable: true, edittype: 'textarea' },
+                            { name: 'Memo2_         ', label: '<%=lang["colMemo2        "]%>', width: 080, colType: 'Field' },
+                            { name: 'Memo2          ', label: '<%=lang["colMemo2        "]%>', width: 120, editable: true, edittype: 'textarea' },
+                    ]
+                });
+                var $table2b = $('.table2b', tablediv).prop('id', 'table2b_' + id).jqGrid_init({
+                    cmTemplate: { sortable: false }, editParams: {}, datatype: 'local', height: 'auto', sortable: false, rownumbers: false, autowidth: false,
+                    pager: false, postData: {}, data: [data],
+                    SelectCommand: $table[0].p.SelectCommand,
+                    UpdateCommand: $table[0].p.UpdateCommand,
+                    InsertCommand: $table[0].p.InsertCommand,
+                    onSelectRow: onSelectRow,
+                    colModel: [
+                        { name: 'b_Card         ', label: '<%=lang["colCardB        "]%>', colType: 'Field', hidden: false },
+                      //{ name: 'Action         ', label: '<%=lang["colAction       "]%>', colType: 'Buttons' },
+                        { name: 'ID             ', label: '<%=lang["colID           "]%>', width: 080, editable: false, fixed: true, hidden: true, key: true },
+                        { name: 'b_BankName     ', label: '<%=lang["colBankNameB    "]%>', width: 080, editable: true },
+                        { name: 'b_CardID       ', label: '<%=lang["colCardIDB      "]%>', width: 160, editable: true },
+                        { name: 'b_Name         ', label: '<%=lang["colNameB        "]%>', width: 080, editable: true },
+                        { name: 'b_TranTime_    ', label: '<%=lang["colTranTimeB    "]%>', width: 080, colType: 'Field' },
+                        { name: 'b_TranTime     ', label: '<%=lang["colTranTimeB    "]%>', width: 160, editable: true, formatter: 'datejs', formatoptions: { format: 'yyyy-MM-dd HH:mm:ss', formatNaN: '' } },
+                        { name: 'b_TranSerial_  ', label: '<%=lang["colTranSerialB  "]%>', width: 080, colType: 'Field' },
+                        { name: 'b_TranSerial   ', label: '<%=lang["colTranSerialB  "]%>', width: 080, editable: true },
+                        { name: 'b_TranMemo_    ', label: '<%=lang["colTranMemoB    "]%>', width: 080, colType: 'Field' },
+                        { name: 'b_TranMemo     ', label: '<%=lang["colTranMemoB    "]%>', width: 080, editable: true, edittype: 'textarea' }
+                    ]
+                });
+
+                $table2a.gridContainer().removeClass('ui-corner-all').css({ 'border-bottom': 0 });
+                $table2b.gridContainer().removeClass('ui-corner-all').css({ 'border-bottom': 0 });
+                $table2a[0].grid.$rowheader.hide();
+                $table2b[0].grid.$rowheader.hide();
+                $('.ui-th-column', $table2a.gridContainer()).removeClass('ui-state-default').addClass('ui-widget-content');
+                $('.ui-th-column', $table2b.gridContainer()).removeClass('ui-state-default').addClass('ui-widget-content');
+            }
+
+            <% if (this.Page is tranhist_page) { %>
+            var isHist = true;
+            <% } else { %>
+            var isHist = false;
+            <% } %>
+
+            $table = $('#table1').jqGrid_init({
+                useDefValues: true, pager: true, subGrid: false, postData: { IsDeposit: true, IsHist: isHist }, sortname: isHist ? 'FinishTime' : 'CreateTime',
+                editParams: {
+                    delayDeleteRow: 1000,
+                    //beforeEditRow: function (o, rowid) { return this.raiseevent.call(this, pin.editParams, 'beforeEditRow', arguments); },
+                    oneditfunc: function (rowid) {
+                        $table.subGridRow(rowid, function () { $('.table2a', this).editRow(rowid); $('.table2b', this).editRow(rowid); });
+                    },
+                    beforeSaveRow: function (o, rowid) {
+                        $table.subGridRow(rowid, function () { $('.table2a', this).saveRow(rowid); $('.table2b', this).saveRow(rowid); });
+                    },
+                    //aftersavefunc: function (rowid, res) {
+                    //},
+                    beforeCancelRow: function (o, sr, rowid) {
+                        $table.subGridRow(rowid, function () { $('.table2a', this).restoreRow(rowid); $('.table2b', this).restoreRow(rowid); });
+                    }
+                },
+                SelectCommand: function (postData) { return { MemberTranSelect: postData } },
+                UpdateCommand: function (postData) { return { MemberTranUpdate: postData } },
+                InsertCommand: function (postData) { return { MemberTranInsert: postData } },
+                DeleteCommand: function (postData) { return { MemberTranDelete: postData } },
+                subGridBeforeExpand: subGridBeforeExpand, subGridRowCreated: subGridRowCreated,
+                colModel: [
+                        { name: 'Action         ', label: '<%=lang["colAction       "]%>', colType: 'Buttons', hidden: isHist },
+                        { name: 'Finish         ', label: '<%=lang["colFinish       "]%>', width: 060, editable: true, hidden: isHist, formatter: $.empty, edittype: 'checkboxs', editoptions: { multiple: false, value: { 1: '<%=lang["op_Finish"]%>' } } },
+                        { name: 'SerialNumber   ', label: '<%=lang["colSerialNumber "]%>', width: 090, editable: false, fixed: true },
+                        { name: 'LogType        ', label: '<%=lang["colLogType      "]%>', width: 080, editable: true, editonce: true, edittype: 'select', editoptions: { <%=enumlist<BU.LogType>("value", true, BU.LogType.Deposit, BU.LogType.Alipay)%> }, formatter: 'select', formatoptions: { <%=enumlist<BU.LogType>("value")%> } },
+                        { name: 'State          ', label: '<%=lang["colState        "]%>', width: 075, editable: false, formatter: 'select', edittype: 'select', editoptions: { <%=enumlist<BU.TranState>("value")%> } },
+                        { name: 'FinishTime     ', label: '<%=lang["colFinishTime   "]%>', colType: 'DateTime2', nowrap: true, hidden: !isHist },
+                        { name: 'CreateTime     ', label: '<%=lang["colCreateTime   "]%>', colType: 'DateTime2', nowrap: true },
+                        { name: 'RequestIP      ', label: '<%=lang["colRequestIP    "]%>', width: 120, editable: false, hidden: true },
+                        { name: 'CorpID         ', label: '<%=lang["colCorpID       "]%>', colType: 'CorpID' },
+                        { name: 'AgentACNT      ', label: '<%=lang["colAgentACNT    "]%>', width: 080, editable: false },
+                        { name: 'MemberACNT     ', label: '<%=lang["colMemberACNT   "]%>', width: 120, editable: true, editonce: true },
+                        { name: 'MemberName     ', label: '<%=lang["colMemberName   "]%>', width: 080, editable: false },
+                        { name: 'Amount1        ', label: '<%=lang["colAmount1      "]%>', colType: 'Money', editable: true, editonce: true },
+                        { name: 'Fees1          ', label: '<%=lang["colFees1        "]%>', colType: 'Money', editable: !isHist },
+                        { name: 'Fees2          ', label: '<%=lang["colFees2        "]%>', colType: 'Money', editable: !isHist },
+                        { name: 'Currency       ', label: '<%=lang["colCurrency     "]%>', colType: 'Currency', editable: false, editonce: false, hidden: true },
+                        { name: 'Memo1          ', label: '<%=lang["colMemo1        "]%>', width: 080, editable: true, hidden: false, width: 080, edittype: 'textarea' },
+                        { name: 'Memo2          ', label: '<%=lang["colMemo2        "]%>', width: 080, editable: true, hidden: false, width: 080, edittype: 'textarea' },
+                        { name: 'a_BankName     ', label: '<%=lang["colBankNameA    "]%>', width: 080, editable: !isHist, hidden: false },
+                        { name: 'a_CardID       ', label: '<%=lang["colCardIDA      "]%>', width: 120, editable: !isHist, hidden: false },
+                        { name: 'a_Name         ', label: '<%=lang["colNameA        "]%>', width: 080, editable: !isHist, hidden: false },
+                        { name: 'a_TranTime     ', label: '<%=lang["colTranTimeA    "]%>', colType: 'DateTime2', nowrap: true, hidden: true, editable: !isHist, },
+                        { name: 'a_TranSerial   ', label: '<%=lang["colTranSerialA  "]%>', width: 080, editable: !isHist, hidden: true },
+                        { name: 'a_TranMemo     ', label: '<%=lang["colTranMemoA    "]%>', width: 080, editable: !isHist, hidden: true, edittype: 'textarea' },
+                        { name: 'b_BankName     ', label: '<%=lang["colBankNameB    "]%>', width: 080, editable: !isHist, hidden: false },
+                        { name: 'b_CardID       ', label: '<%=lang["colCardIDB      "]%>', width: 120, editable: !isHist, hidden: false },
+                        { name: 'b_Name         ', label: '<%=lang["colNameB        "]%>', width: 080, editable: !isHist, hidden: false },
+                        { name: 'b_TranTime     ', label: '<%=lang["colTranTimeB    "]%>', editable: !isHist, colType: 'DateTime2', nowrap: true },
+                        { name: 'b_TranSerial   ', label: '<%=lang["colTranSerialB  "]%>', width: 080, editable: !isHist, hidden: false },
+                        { name: 'b_TranMemo     ', label: '<%=lang["colTranMemoB    "]%>', width: 080, editable: !isHist, hidden: false, edittype: 'textarea' },
+                        { name: 'CreateUser     ', label: '<%=lang["colCreateUser   "]%>', colType: 'ACNT2' },
+                        { name: 'ModifyTime     ', label: '<%=lang["colModifyTime   "]%>', colType: 'DateTime2', nowrap: true },
+                        { name: 'ModifyUser     ', label: '<%=lang["colModifyUser   "]%>', colType: 'ACNT2' },
+                        { name: 'ID             ', label: '<%=lang["colID           "]%>', width: 280, editable: false, fixed: true <%if (showID) { %>, hidden: false<% }%>, key: true }
+                ]
+            });
+            $table.setGroupHeaders({
+                useColSpanStyle: true,
+                groupHeaders: [
+                    { startColumnName: 'Action', numberOfColumns: 8, titleText: '' },
+                    { startColumnName: 'CorpID', numberOfColumns: 4, titleText: '' },
+                    { startColumnName: 'Amount1', numberOfColumns: 4, titleText: '' },
+                    { startColumnName: 'Memo1', numberOfColumns: 2, titleText: '<%=lang["colMemo"]%>' },
+                    { startColumnName: 'a_BankName', numberOfColumns: 6, titleText: '<%=lang["colBankCardA"]%>' },
+                    { startColumnName: 'b_BankName', numberOfColumns: 6, titleText: '<%=lang["colBankCardB"]%>' },
+                    { startColumnName: 'CreateUser', numberOfColumns: 3, titleText: '' }
+                ]
+            });
+            $(window).resize(function () { $table.gridSize(window); }).trigger('resize');
+        });
+    </script>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+    <table id="table1">
+        <tr class="colModel">
+            <td name="Action">
+                <span property="action">
+                    <div class="edithide" action="editRow" icon="ui-icon-pencil"><%=lang["Actions_Edit"]%></div>
+                    <div class="edithide" action="delRow" icon="ui-icon-trash" <% if (this.Page is tranhist_page) { %> disabled="disabled" <% } %>><%=lang["Actions_Delete"]%></div>
+                    <div class="deleteshow" action="saveRow" icon="ui-icon-trash"><%=lang["Actions_Delete"]%></div>
+                    <div class="deleteshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow" action="saveRow" icon="ui-icon-disk"><%=lang["Actions_Save"]%></div>
+                </span>
+            </td>
+        </tr>
+        <tr class="grid-option">
+            <td>
+                <div name="nav1">
+                    <% MenuRow m1 = MenuRow.Cache.Instance.GetItem(BU.Permissions.Code.promo_agent_betamt), m2 = MenuRow.Cache.Instance.GetItem(BU.Permissions.Code.promo_agent_betamt_hist);
+                         %>
+                    <button action="addRow" icon="ui-icon-plus" <% if (this.Page is tranhist_page) { %> disabled="disabled" <% } %>><%=lang["btnAdd"]%></button>
+                    <button action="toggleSearch" icon="ui-icon-search"><%=lang["btnSearch"]%></button>
+                    <button action="reloadGrid" icon="ui-icon-refresh"><%=lang["btnRefresh"]%></button>
+                    <a action="link" icon="ui-icon-tag" <%     if (this.Page is tranhist_page) { %><% } else { %>disabled="disabled"<% } %> href="<%=ResolveClientUrl(m1.Url)%>"><%=lang["menu", m1.Name]??m1.Name%></a>
+                    <a action="link" icon="ui-icon-comment" <% if (this.Page is tranhist_page) { %>disabled="disabled"<% } else { %><% } %> href="<%=ResolveClientUrl(m2.Url)%>"><%=lang["menu", m2.Name]??m2.Name%></a>
+                </div>
+                <div name="nav2" class="ui-widget-content" style=""></div>
+            </td>
+        </tr>
+    </table>
+    <div class="table2" style="display: none;">
+        <table class="table2a">
+            <tr class="colModel">
+                <td name="Action">
+                    <span property="action">
+                        <div class="edithide" action="editRow"    icon="ui-icon-pencil"><%=lang["Actions_Edit  "]%><%=lang["colCardA"]%></div>
+                        <div class="editshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                        <div class="editshow" action="saveRow"    icon="ui-icon-disk"  ><%=lang["Actions_Save  "]%></div>
+                    </span>
+                </td>
+            </tr>
+        </table>
+        <table class="table2b">
+            <tr class="colModel">
+                <td name="Action">
+                    <span property="action">
+                        <div class="edithide" action="editRow"    icon="ui-icon-pencil"><%=lang["Actions_Edit  "]%><%=lang["colCardB"]%></div>
+                        <div class="editshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                        <div class="editshow" action="saveRow"    icon="ui-icon-disk"  ><%=lang["Actions_Save  "]%></div>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</asp:Content>

@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xml>
+  <BetInfos>
+    <Betinfo>
+      <BetStartDate>01/12/2001 00:00:05</BetStartDate>
+      <BetEndDate>01/12/2001 00:00:34</BetEndDate>
+      <AccountId>abcdef</AccountId>
+      <TableId>bacdhq2j04hjj8c1</TableId>
+      <GameId>sa53o3qjh493j32utsjhnpia</GameId>
+      <BetId>b136pxaccaedif567ahsip6vqnuy8t80</BetId>
+      <BetAmount>150.00</BetAmount>
+      <Payout>142.50</Payout>
+      <Currency>CNY</Currency>
+      <GameType>Baccarat</GameType>
+      <BetSpot>Banker</BetSpot>
+      <BetNo>b136pxaccaedif567ahsip6vqnuy8t80</BetNo>
+    </Betinfo>
+  </BetInfos>
+  <BetInfos BatchID = "10560">
+    <Betinfo>
+      <BetStartDate>20010112 13:46:50</BetStartDate>
+      <BetEndDate>20010112 13:47:33</BetEndDate>
+      <AccountId>abcdef</AccountId>
+      <TableId>bacdhq2j04hjj8c1</TableId>
+      <GameId>sa53o3qjh493j32utsjhnpia</GameId>
+      <BetAmount>150.00</BetAmount>
+      <Payout>142.50</Payout>
+      <Currency>CNY</Currency>
+      <GameType>Baccarat</GameType>
+      <BetSpot>Banker</BetSpot>
+      <BetNo>b136pxaccaedif567ahsip6vqnuy8t80</BetNo>
+    </Betinfo>
+  </BetInfos>
+  <Affiliate>
+    <Affiliate_id>777gaming</Affiliate_id>
+    <Total_PL>-477.50</Total_PL>
+    <Players>
+      <user_id>5wn80d0rwz54e1t7</user_id>
+      <Affiliate_ID>777gaming</Affiliate_ID>
+      <AccountID>88M1l1l2355</AccountID>
+      <TotalBet>53</TotalBet>
+      <BetAmount>531.00</BetAmount>
+      <Payout>-194.00</Payout>
+      <Currency>RMB</Currency>
+      <BetDetails>
+        <user_id>1wn80d0rwz54e1t7</user_id>
+        <Game_id>z23jrluc6yliq3vi31jrakp8</Game_id>
+        <Amount>20.0000</Amount>
+        <Payout>20.0000</Payout>
+        <BetStartDate>01/12/2001 00:00:05</BetStartDate>
+        <BetEndDate>01/12/2001 00:01:15</BetEndDate>
+        <TableId>bacdhq2j04hjj8ca</TableId>
+      </BetDetails>
+      <BetDetails>
+        <user_id>5wn80d0rwz54e1t7</user_id>
+        <Game_id>z23jrluc6yliq3vi31jrakp8</Game_id>
+        <Amount>10.0000</Amount>
+        <Payout>10.0000</Payout>
+        <BetStartDate>01/12/2001 00:02:05</BetStartDate>
+        <BetEndDate>01/12/2001 00:03:15</BetEndDate>
+        <TableId>bacdhq2j04hjj8ca</TableId>
+      </BetDetails>
+    </Players>
+  </Affiliate>
+  <TableInfo>
+    <TableDetails>
+      <Table_Id>0suxq7m815j9vans</Table_Id>
+      <Table_Name> Casino Black Jack 2</Table_Name>
+    </TableDetails>
+  </TableInfo>
+  <PlayerInfo>
+    <PlayerDetails>
+      <PlayerName>Dravid</PlayerName>
+      <Bet_Amount>7416.00</Bet_Amount>
+      <Bet_Payoff>5802.00</Bet_Payoff>
+      <TotalWin>1614.00</TotalWin>
+      <DeductAmount>0.00</DeductAmount>
+      <EvenAmount>0.00</EvenAmount>
+      <TotalAmount>7416.00</TotalAmount>
+    </PlayerDetails>
+  </PlayerInfo>
+  <AgentPlayerInfo>
+    <AgentPlayerDetails>
+      <playername>ANS08AA43896@CT08.com</playername>
+      <Deposit>21000.00</Deposit>
+      <Withdraw>30000.00</Withdraw>
+      <BetAmt>100300.00</BetAmt>
+      <PayoffAmt>109330.00</PayoffAmt>
+      <Netloss>-9030.00</Netloss>
+      <AgentName>KT08</AgentName>
+    </AgentPlayerDetails>
+    <AgentPlayerDetails>
+      <playername>HR22AA132815@CT07.com</playername>
+      <Deposit>4400.00</Deposit>
+      <Withdraw>0.00</Withdraw>
+      <BetAmt>14300.00</BetAmt>
+      <PayoffAmt>9900.00</PayoffAmt>
+      <Netloss>4400.00</Netloss>
+      <AgentName>JB007</AgentName>
+    </AgentPlayerDetails>
+  </AgentPlayerInfo>
+  <AgentPlayerInfo>
+    <AgentPlayerDetails>
+      <PlayerName>Testuser</PlayerName>
+      <Bet_Amount>2000.00</Bet_Amount>
+      <Bet_Payoff>1500.00</Bet_Payoff>
+      <TotalWin>500.00</TotalWin>
+      <DeductAmount>0.00</DeductAmount>
+      <EvenAmount>0.00</EvenAmount>
+      <TotalAmount>2000.00</TotalAmount>
+      <AgentName>XXXXXXX</AgentName>
+    </AgentPlayerDetails>
+  </AgentPlayerInfo>
+  <AgentInfo>
+    <AgentDetails>
+      <MasterName>8821</MasterName>
+      <AgentName>8821</AgentName>
+      <Bet_Amount>1100.00</Bet_Amount>
+      <Bet_Payoff>195.00</Bet_Payoff>
+      <TotalWin>905.00</TotalWin>
+      <DeductAmount>0.00</DeductAmount>
+      <EvenAmount>0.00</EvenAmount>
+      <TotalAmount>1100.00</TotalAmount>
+    </AgentDetails>
+  </AgentInfo>
+  <TotalRecords>1</TotalRecords>
+  <BetInfos>
+    <Betinfo>
+      <BetStartDate>2012/01/24 08:59:20</BetStartDate>
+      <BetEndDate>2012/01/24 08:59:27</BetEndDate>
+      <AccountId>test</AccountId>
+      <TableId>6wjz46hvko913lm4</TableId>
+      <TableName>Rng Carebbean Poker</TableName>
+      <GameId>R-0000000000000010322239</GameId>
+      <BetId>ipsngcvg5yffq6ulsb28c7ce56pbwipd</BetId>
+      <BetAmount>70.00</BetAmount>
+      <Payout>-70.00</Payout>
+      <Currency>CNY</Currency>
+      <GameType>Rng Carebbean Poker</GameType>
+      <BetSpot>Result</BetSpot>
+      <BetNo>ipsngcvg5yffq6ulsb28c7ce56pbwipd</BetNo>
+    </Betinfo>
+  </BetInfos>
+  <TotalRecords>1</TotalRecords>
+  <FundTransferInfos>
+    <GetAllAccountTransferDetails>
+      <Accountid>test</Accountid>
+      <transact_id>tv8vf5yba2dnigec</transact_id>
+      <transacttype_code>Cash purchase</transacttype_code>
+      <TransactionType>Deposit</TransactionType>
+      <transact_time>2012/01/24 07:57:17</transact_time>
+      <amount>100.0000</amount>
+      <currency_code>CNY</currency_code>
+      <reference_no>12dyt46789yokjhg</reference_no>
+    </GetAllAccountTransferDetails>
+  </FundTransferInfos>
+  <TotalRecords></TotalRecords>
+  <GameInfo>
+    <Baccarat>
+      <Game_Id> </Game_Id>
+      <StartTime></StartTime>
+      <EndTime></EndTime>
+      <GameType_Id></GameType_Id>
+      <AccountID> </AccountID>
+      <Dealer> </Dealer>
+      <BankerPoint></BankerPoint>
+      <PlayerPoint></PlayerPoint>
+      <Tie></Tie>
+    </Baccarat>
+    <DragonTiger>
+      <Game_Id> </Game_Id>
+      <StartTime></StartTime>
+      <EndTime></EndTime>
+      <GameType_Id></GameType_Id>
+      <AccountID> </AccountID>
+      <Dealer> </Dealer>
+      <DragonPoint></DragonPoint>
+      <TigerPoint></TigerPoint>
+      <Tie></Tie>
+    </DragonTiger>
+    <Roulette>
+      <Game_Id></Game_Id>
+      <StartTime></StartTime>
+      <EndTime></EndTime>
+      <GameType_Id></GameType_Id>
+      <AccountID> </AccountID>
+      <Dealer> </Dealer>
+      <Result></Result>
+    </Roulette>
+    <Sicbo>
+      <Game_Id> </Game_Id>
+      <StartTime></StartTime>
+      <EndTime></EndTime>
+      <GameType_Id></GameType_Id>
+      <AccountID> </AccountID>
+      <Dealer> </Dealer>
+      <Result> </Result>
+    </Sicbo>
+    <BlackJack>
+      <game_id></game_id>
+      <StartTime></StartTime>
+      <EndTime></EndTime>
+      <AccountID> </AccountID>
+      <Result></Result>
+    </BlackJack>
+  </GameInfo>
+  <PlayerBetInfo>
+    <PlayerBetDetails>
+      <AccountID>test1</AccountID>
+      <StakedAmount>15000</StakedAmount>
+      <LiveGameTotalAmount>5000</LiveGameTotalAmount>
+      <LiveGameExcludeEvenandTieAmount>3500</LiveGameExcludeEvenandTieAmount>
+    </PlayerBetDetails>
+  </PlayerBetInfo>
+  <BonusPTCompleteDetails>
+    <BonusPT>
+      <BonusName>Test Bonus</BonusName>
+      <AccounID>Test1</AccounID>
+      <BonusStartDate>12/12/2011 14:55:00</BonusStartDate>
+      <BonusEndDate>12/29/2011 00:00:00</BonusEndDate>
+      <StatusDate>10/15/2012 12:14:03</StatusDate>
+      <PTRequirement>200.0000</PTRequirement>
+      <CurrentPT>0.0000</CurrentPT>
+      <PTCompleteDate>10/15/2012 12:14:03</PTCompleteDate>
+      <Status>Declined</Status>
+    </BonusPT>
+  </BonusPTCompleteDetails>
+  <BetInfos>
+    <Betinfo>
+      <BetStartDate>01/12/2001 00:00:05</BetStartDate>
+      <BetEndDate>01/12/2001 00:00:34</BetEndDate>
+      <AccountId>abcdef</AccountId>
+      <TableId>bacdhq2j04hjj8c1</TableId>
+      <GameId>sa53o3qjh493j32utsjhnpia</GameId>
+      <BetId>b136pxaccaedif567ahsip6vqnuy8t80</BetId>
+      <BetAmount>150.00</BetAmount>
+      <Payout>142.50</Payout>
+      <Currency>CNY</Currency>
+      <GameType>Baccarat</GameType>
+      <BetSpot>Banker</BetSpot>
+      <BetNo>b136pxaccaedif567ahsip6vqnuy8t80</BetNo>
+    </Betinfo>
+  </BetInfos>
+
+  <playerbetinfo>
+    <playerbetdetails>
+      <accountid>abc83599</accountid>
+      <stakedamount>566.00</stakedamount>
+      <livegametotalamount>500.00</livegametotalamount>
+      <livegameexcludeevenandtieamount>400.00</livegameexcludeevenandtieamount>
+    </playerbetdetails>
+    <playerbetdetails>
+      <accountid>ailpkk</accountid>
+      <stakedamount>170.00</stakedamount>
+      <livegametotalamount>170.00</livegametotalamount>
+      <livegameexcludeevenandtieamount>170.00</livegameexcludeevenandtieamount>
+    </playerbetdetails>
+    <playerbetdetails>
+      <accountid>laoguo18</accountid>
+      <stakedamount>470.00</stakedamount>
+      <livegametotalamount>470.00</livegametotalamount>
+      <livegameexcludeevenandtieamount>445.00</livegameexcludeevenandtieamount>
+    </playerbetdetails>
+    <playerbetdetails>
+      <accountid>tf_3912565</accountid>
+      <stakedamount>27.00</stakedamount>
+      <livegametotalamount>20.00</livegametotalamount>
+      <livegameexcludeevenandtieamount>20.00</livegameexcludeevenandtieamount>
+    </playerbetdetails>
+    <playerbetdetails>
+      <accountid>tf_hjyl123</accountid>
+      <stakedamount>170.00</stakedamount>
+      <livegametotalamount>170.00</livegametotalamount>
+      <livegameexcludeevenandtieamount>150.00</livegameexcludeevenandtieamount>
+    </playerbetdetails>
+    <playerbetdetails>
+      <accountid>tf_wang8888888</accountid>
+      <stakedamount>290.00</stakedamount>
+      <livegametotalamount>290.00</livegametotalamount>
+      <livegameexcludeevenandtieamount>210.00</livegameexcludeevenandtieamount>
+    </playerbetdetails>
+  </playerbetinfo>  
+  
+  <Login>
+    <STATUS_CODE>0001</STATUS_CODE>
+    <STATUS_DESC> Username or password or casino id incorrect</STATUS_DESC>
+  </Login>
+  <BetInfos>
+    <STATUS_CODE>0002</STATUS_CODE>
+    <STATUS_DESC>No record Found</STATUS_DESC>
+  </BetInfos>
+  <PlayInfos>
+    <STATUS_CODE>0003</STATUS_CODE>
+    <STATUS_DESC>The number of days should not exceeds 7 Days</STATUS_DESC>
+  </PlayInfos>
+  <PlayInfos>
+    <STATUS_CODE>0004</STATUS_CODE>
+    <STATUS_DESC>Invalid Player</STATUS_DESC>
+  </PlayInfos>
+  <PlayInfos>
+    <STATUS_CODE>0005</STATUS_CODE>
+    <STATUS_DESC>Agent name not exists</STATUS_DESC>
+  </PlayInfos>
+</xml>

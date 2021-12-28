@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0095)https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/doc/Htmls/Advertizement_Page.htm -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<SCRIPT type=text/javascript src="Advertizement_Page.files/YUI.js"></SCRIPT>
+
+<SCRIPT language=javascript type=text/javascript>
+	  function AD1()
+		{
+			var nWinLeft = 0;
+			var nWinTop = 0;	
+			window.open('https://www.cmbchina.com/personal+business/netbank/pb/configguide.htm','AD','menubar=no,toolbar=no,location=no,directories=no,status=no,resizable=no,scrollbars=yes,width=600,height=500,top='+nWinTop+',left='+nWinLeft);
+		}	
+	  function AD2()
+		{
+			var nWinLeft = 0;
+			var nWinTop = 0;	
+			window.open('https://www.cmbchina.com/Cmb2005web/Templates/personal/netbank.aspx?NRMODE=Published&NRNODEGUID=%7bCFE4F81E-A066-48C9-8909-451B12B1094E%7d&NRORIGINALURL=%2fpersonal%2bbusiness%2fnetbank%2fpb%2fconfigguide%2ehtm&NRCACHEHINT=Guest#3','AD','menubar=no,toolbar=no,location=no,directories=no,status=no,resizable=no,scrollbars=yes,width=600,height=500,top='+nWinTop+',left='+nWinLeft);
+		}
+		/*
+		function WangDunDownLoad()
+		{	
+			var nWinLeft = (screen.width-5)/2;
+			var nWinTop = (screen.height-1)/2;	
+			window.open('http://szdl.cmbchina.com/download/Other/WPSetup.exe','WangDunDownLoad','menubar=no,toolbar=no,location=no,directories=no,status=no,resizable=no,scrollbars=yes,width=5,height=1,top='+nWinTop+',left='+nWinLeft);			
+		}
+		*/
+		function WangDunOpen()
+		{
+			var nWinLeft = (screen.width-660)/2;
+			var nWinTop = (screen.height-550)/2;				
+			window.open('http://app.cmbchina.com/webprotect/download.htm','WangDunOpen','menubar=no,toolbar=no,location=no,directories=no,status=no,resizable=no,scrollbars=yes,width=660,height=490,top='+nWinTop+',left='+nWinLeft);
+		}
+		function crossPlatform()
+		{
+			var nWinLeft = (screen.width-660)/2;
+			var nWinTop = (screen.height-550)/2;
+			var dn = 'https://pbsz.ebank.cmbchina.com';		
+			window.open(dn + '/CmbBank_HelpCenter/UI/GenShellAcc/Default.aspx','WangDunOpen','menubar=no,toolbar=no,location=no,directories=no,status=no,resizable=no,scrollbars=yes,width=660,height=490,top='+nWinTop+',left='+nWinLeft);
+		}
+				</SCRIPT>
+
+<STYLE type=text/css>#MainBanner {
+	BORDER-BOTTOM: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid; MARGIN: 0px; FLOAT: left; OVERFLOW: hidden; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 1px solid
+}
+#SlidePlayer {
+	POSITION: relative; MARGIN: 0px; FLOAT: left; OVERFLOW: hidden
+}
+UL.Slides {
+	LIST-STYLE-TYPE: none; MARGIN: 0px; DISPLAY: block; FLOAT: left; OVERFLOW: hidden
+}
+.Slides LI {
+	LIST-STYLE-TYPE: none; MARGIN: 0px; DISPLAY: inline; FLOAT: left; OVERFLOW: hidden
+}
+.Slides IMG {
+	POSITION: absolute; BORDER-RIGHT-WIDTH: 0px; DISPLAY: none; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; TOP: 0px; LEFT: 0px
+}
+.SlideTriggers {
+	Z-INDEX: 999; POSITION: absolute; LINE-HEIGHT: 17px; MARGIN: 0px; BOTTOM: 8px; FONT-FAMILY: arial; FLOAT: right; FONT-SIZE: 12px; RIGHT: 8px
+}
+.SlideTriggers UL {
+	LIST-STYLE-TYPE: none; HEIGHT: 10px; COLOR: #cc0000
+}
+.SlideTriggers LI {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #222; LIST-STYLE-TYPE: none; MARGIN: 0px 2px; WIDTH: 17px; FLOAT: left; COLOR: #ffffff; FONT-SIZE: 10px; CURSOR: pointer
+}
+.SlideTriggers LI.current {
+	BACKGROUND-COLOR: #cc0000; WIDTH: 17px; COLOR: #ffffff; CURSOR: pointer
+}
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16421"></HEAD>
+<BODY>
+<DIV id=MainBanner>
+<DIV style="WIDTH: 461px; HEIGHT: 258px" id=SlidePlayer>
+<UL style="HEIGHT: 258px" id=Slides class=Slides>
+  <LI style="WIDTH: 461px; HEIGHT: 258px"><A 
+  href="javascript:crossPlatform()"><IMG style="WIDTH: 461px; HEIGHT: 258px" 
+  src="Advertizement_Page.files/wd_adv-1.jpg"> </A></LI>
+  <LI style="WIDTH: 461px; HEIGHT: 258px"><A 
+  href="javascript:WangDunOpen()"><IMG style="WIDTH: 461px; HEIGHT: 258px" 
+  src="Advertizement_Page.files/wd_adv.jpg"> </A></LI></UL>
+<UL style="DISPLAY: block" id=SlideTriggers class=SlideTriggers>
+  <LI class=current>1 </LI>
+  <LI>2 </LI></UL></DIV></DIV>
+<SCRIPT type=text/javascript>
+						function Each(list, fun) {
+        					for (var i = 0, len = list.length; i < len; i++) { fun(list[i], i); }
+    					};
+
+    var Nums = document.getElementById("SlideTriggers").getElementsByTagName("li");
+ 
+    var xsfade = new XsFade(document.getElementById("SlidePlayer").getElementsByTagName("img"), Nums);
+    xsfade.init();
+
+    Each(Nums, function(o, i) {
+        o.onmouseover = function() {
+            xsfade.SetPlayIndex(i);
+        }
+        o.onmouseout = function() {
+            xsfade.Resume();
+        }
+    });
+						</SCRIPT>
+</BODY></HTML>

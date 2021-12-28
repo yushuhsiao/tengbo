@@ -1,0 +1,65 @@
+body, div { font-family: 'lucida grande', helvetica, verdana, arial, sans-serif; line-height: 1.4; }
+body { margin: 0; padding: 0; font-size: small; color: #333;}
+h1, h2 { font-family: 'trebuchet ms', verdana, arial; padding: .5em; margin: 0 }
+h1 { font-size: large }
+h2 { color: #800; padding:1em 0 0; font-size: large; font-weight: normal; clear:left; margin-bottom:.5em;}
+table { border-collapse: collapse; }
+td { vertical-align: top; }
+p, li { margin: 1em 0; }
+dl { margin-top: 0 }
+dt { color: #a00; font-weight: bold }
+dd { margin: 0 0 20px 0; color: #555 }
+dl.options { margin: 1em 25px }
+hr { height: 1px }
+small { font-size: 70%;font-weight:normal; }
+
+#donate {padding: 6px 0 0 5px; line-height:2px;}
+#gads { background: #ccc; padding: 5px 0 4px;}
+#gads .inner { margin:0 0 0 23px; width:728px;}
+.inner .cse-branding-right {padding:1em 4px;}
+iframe {margin: 15px 0 15px 25px;}
+.inner iframe {margin: 0;}
+#main { padding: 0 }
+#main h1 { padding: 30px 1em .5em 0 }
+#banner { padding: 15px; background-color: #06b; color: white; font-size: large; border-bottom: 1px solid #ccc;
+    background: url(../images/bg.gif) repeat-x; text-align: center }
+#backnav { color: #fff; font-size: x-small; position: absolute; left: 1em; text-decoration: none}
+#backnav:hover { color: #fff }
+#logo { float: right; margin-top: 1em; margin-right: 50px; display: block; width: 11em; height: 31px; border:none; }
+#logo img {border:none;}
+#getting-started { padding-bottom: 200px;}
+#content { padding: 20px; }
+#busy { position: absolute; top: 7px; right: 7px; border: 1px ridge #ccc; background-color: #e95555; color: #eee; padding: 3px; display:none }
+#footer { padding-bottom: 5em; margin-top: 30px; color: #888; text-align: center; }
+#footer a img { border: none; }
+#samples { border: 1px solid #ccc; padding: 0;}
+a.external {
+    background-image: url(../images/external.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-right: 12px
+}
+
+.steps {
+	list-style: none;
+	margin:0 0 3em;
+}
+.steps li {
+	margin:0;
+}
+.step-one, .step-two, .step-three {
+    background-repeat: no-repeat; background-position: 0 1em; margin-bottom: 0; 
+    vertical-align: middle; padding: 25px 0 0 50px }
+.step-one { background-image: url(../images/1.gif) }
+.step-two { background-image: url(../images/2.gif) }
+.step-three { background-image: url(../images/3.gif) }
+
+div.tabContent { background: url(../../superfish/img/jQuery-logo.gif) no-repeat 99% 67px; margin: 0 auto 4em; max-width: 55em;}
+.ui-tabs .tabContent {padding-right: 160px;}
+img.logo { float: right; border:none; margin: 1em 1em 0 0 }
+
+@media only screen and (min-width: 1300px){
+    body {
+        font-size: medium;
+    }
+}

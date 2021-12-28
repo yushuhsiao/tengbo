@@ -1,0 +1,116 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/admin/admin.master" AutoEventWireup="true" CodeBehind="tran.master.cs" Inherits="web.masterpage" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        <% web.tran_master tran_master = (web.tran_master)this.Page.Master;
+        if (tran_master.IsHist) { %> var isHist = true; <% } else { %> var isHist = false; <% }
+        if (tran_master.UserID.HasValue) { %>var embedded = true;<% } else { %>var embedded = false;<% }
+        Dictionary<BU.GameID, string> gameid_e = new Dictionary<BU.GameID, string>();
+        foreach (KeyValuePair<BU.GameID, string> p in web.game.Names_Active)
+        {
+            web.game.IUserGameRowCommand n = web.game.GetUserGameRowCommand(tran_master.UserType, p.Key, null, true);
+            if (n == null) continue;
+            if (n.HasAPI) continue;
+            gameid_e[p.Key] = p.Value;
+        }
+        %>var enum2 = {
+            <%=enumlist<BU.LogType>(" logTypes")%>
+            <%=enumlist<BU.LogType>(",logTypes1", true, tran_master.LogTypes1)%>
+            <%=enumlist<BU.LogType>(",logTypes2", true, tran_master.LogTypes2)%>
+            <%=enumlist<BU.UserType>(",userTypes", true, BU.UserType.Agent, BU.UserType.Member)%>
+            <%=enumlist<BU.TranState>(",states")%>
+            <%=serializeEnum(",games_e", gameid_e)%>
+            <%=serializeEnum(",games_s", web.game.Names_Active)%>
+        };
+        var col = {
+            Action: /*       */ function (o) { return $.extend(      { name: 'Action       ', label: '<%=lang["colAction       "]%>', colType: 'Buttons', hidden: isHist }, o); },
+            Accept: /*       */ function (o) { return $.extend(      { name: 'Accept       ', label: '<%=lang["colAccept       "]%>', width: 060, editable: true, hidden: isHist, sortable: false, formatter: $.empty, edittype: 'checkboxs', editoptions: { multiple: false, value: { 1: '<%=lang["op_Accept"]%>' } } }, o); },
+            Finish: /*       */ function (o) { return $.extend(      { name: 'Finish       ', label: '<%=lang["colFinish       "]%>', width: 060, editable: true, hidden: isHist, sortable: false, formatter: $.empty, edittype: 'checkboxs', editoptions: { multiple: false, value: { 1: '<%=lang["op_Finish"]%>' } } }, o); },
+            SerialNumber: /* */ function (o) { return $.extend(      { name: 'SerialNumber ', label: '<%=lang["colSerialNumber "]%>', width: 090, search: true }, o); },
+            UserType: /*     */ function (o) { return $.extend(      { name: 'UserType     ', label: '<%=lang["colUserType     "]%>', width: 080, editable: true, editonce: true, formatter: 'select', formatoptions: { value: enum2.userTypes }, edittype: 'select', editoptions: { value: enum2.userTypes }, search: true, stype: 'select', searchoptions: { value: enum2.userTypes, defaultValue: '-1', nullKey: '-1', nullValue: '--' } }, o); },
+            LogType: /*      */ function (o) { return $.extend(true, { name: 'LogType      ', label: '<%=lang["colLogType      "]%>', width: 100, editable: true, editonce: true, formatter: 'select', formatoptions: { value: enum2.logTypes }, edittype: 'select', editoptions: { value: enum2.logTypes1 }, search: true, stype: 'select', searchoptions: { value: enum2.logTypes2, defaultValue: '-1', nullKey: '-1', nullValue: '--' } }, o); },
+            State: /*        */ function (o) { return $.extend(      { name: 'State        ', label: '<%=lang["colState        "]%>', width: 075, formatter: 'select', editoptions: { value: enum2.states }, search: true, stype: 'select', searchoptions: { value: enum2.states, defaultValue: '-1', nullKey: '-1', nullValue: '--' } }, o); },
+            GameID: /*       */ function (o) { return $.extend(      { name: 'GameID       ', label: '<%=lang["colGameID       "]%>', width: 080, editable: true, editonce: true, formatter: 'select', formatoptions: { value: enum2.games_s }, edittype: 'select', editoptions: { value: enum2.games_e }, search: true, stype: 'select', searchoptions: { value: enum2.games_s, defaultValue: '-1', nullKey: '-1', nullValue: '--' } }, o); },
+            FinishTime: /*   */ function (o) { return $.extend(      { name: 'FinishTime   ', label: '<%=lang["colFinishTime   "]%>', colType: 'DateTime2', nowrap: true, hidden: !isHist }, o); },
+            CreateTime: /*   */ function (o) { return $.extend(      { name: 'CreateTime   ', label: '<%=lang["colCreateTime   "]%>', colType: 'DateTime2', nowrap: true }, o); },
+            CorpID: /*       */ function (o) { return $.extend(      { name: 'CorpID       ', label: '<%=lang["colCorpID       "]%>', colType: 'CorpID', hidden: embedded || $.fn.colTypes.CorpID.hidden }, o); },
+            ProviderID: /*   */ function (o) { return $.extend(      { name: 'ProviderID   ', label: '<%=lang["colProviderID   "]%>', colType: 'ID'<%if (showID) { %>, hidden: embedded<% } %>, search: false, key: false }, o); },
+            ProviderACNT: /* */ function (o) { return $.extend(      { name: 'ProviderACNT ', label: '<%=lang["colProviderACNT "]%>', width: 080, hidden: embedded, editable: false, search: true }, o); },
+            ParentID: /*     */ function (o) { return $.extend(      { name: 'ParentID     ', label: '<%=lang["colParentID     "]%>', colType: 'ID'<%if (showID) { %>, hidden: embedded<% } %>, search: false, key: false }, o); },
+            ParentACNT: /*   */ function (o) { return $.extend(      { name: 'ParentACNT   ', label: '<%=lang["colParentACNT   "]%>', width: 080, hidden: embedded, editable: false, search: true }, o); },
+            ParentName: /*   */ function (o) { return $.extend(      { name: 'ParentName   ', label: '<%=lang["colParentName   "]%>', width: 080, editable: false }, o); },
+            Parent: /*       */ function (o) { return $.extend(      { name: 'Parent       ', label: '<%=lang["colParent       "]%>', width: 080, editable: false, search: true, formatter: function (cellval, opts, rwd, act) { if (rwd.ParentACNT == rwd.ProviderACNT) return rwd.ParentACNT; else return rwd.ParentACNT + '<br>' + rwd.ProviderACNT; } }, o); },
+            UserID: /*       */ function (o) { return $.extend(      { name: 'UserID       ', label: '<%=lang["colUserID       "]%>', colType: 'ID'<%if (showID) { %>, hidden: embedded<% } %>, search: false, key: false }, o); },
+            UserACNT: /*     */ function (o) { return $.extend(      { name: 'UserACNT     ', label: '<%=lang["colUserACNT     "]%>', width: 080, hidden: embedded, editable: true, editonce: true, search: true }, o); },
+            UserName: /*     */ function (o) { return $.extend(      { name: 'UserName     ', label: '<%=lang["colUserName     "]%>', width: 080, hidden: embedded, editable: false }, o); },
+            GameACNT: /*     */ function (o) { return $.extend(      { name: 'GameACNT     ', label: '<%=lang["colGameACNT     "]%>', width: 080, hidden: embedded, editable: false, search: true }, o); },
+            AcceptTime: /*   */ function (o) { return $.extend(      { name: 'AcceptTime   ', label: '<%=lang["colAcceptTime   "]%>', colType: 'DateTime2', nowrap: true }, o); },
+            IsAccepted: /*   */ function (o) { return $.extend(      { name: 'IsAccepted   ', label: '<%=lang["colIsAccepted   "]%>', width: 035, formatter: 'checkbox' }, o); },
+            Amount: /*       */ function (o) { return $.extend(      { name: 'Amount       ', label: '<%=lang["colAmount       "]%>', colType: 'Money', editable: true, editonce: true, search: true }, o); },
+            CashAmount: /*   */ function (o) { return $.extend(      { name: 'CashAmount   ', label: '<%=lang["colCashAmount   "]%>', colType: 'Money', editable: true, editonce: true, search: true }, o); },
+            PCT: /*          */ function (o) { return $.extend(      { name: 'PCT          ', label: '<%=lang["colPCT          "]%>', width: 060, editable: true, editonce: true, formatter: 'integer' }, o); },
+          //Fees1: /*        */ function (o) { return $.extend(      { name: 'Fees1        ', label: '<%=lang["colFees1        "]%>', colType: 'Money', editable: !isHist, search: true }, o); },
+          //Fees2: /*        */ function (o) { return $.extend(      { name: 'Fees2        ', label: '<%=lang["colFees2        "]%>', colType: 'Money', editable: !isHist, search: true }, o); },
+            Fees1: /*        */ function (o) { return $.extend(      { name: 'Fees1        ', label: '<%=lang["colFees1        "]%>', colType: 'Money', editable: true, editable_func: function (rwd, new_row) { if (new_row) return true; if (isHist) return false; return rwd.Fees1x == 0; }, search: true }, o); },
+            Fees2: /*        */ function (o) { return $.extend(      { name: 'Fees2        ', label: '<%=lang["colFees2        "]%>', colType: 'Money', editable: true, editable_func: function (rwd, new_row) { if (new_row) return true; if (isHist) return false; return rwd.Fees1x == 0; }, search: true }, o); },
+            Fees1x: /*       */ function (o) { return $.extend(      { name: 'Fees1x       ', label: '<%=lang["colFees1x       "]%>', colType: 'Money', editable: false, hidden: true }, o); },
+            Fees2x: /*       */ function (o) { return $.extend(      { name: 'Fees2x       ', label: '<%=lang["colFees2x       "]%>', colType: 'Money', editable: false, hidden: true }, o); },
+            BetAmount1: /*   */ function (o) { return $.extend(      { name: 'BetAmount1   ', label: '<%=lang["colBetAmount1   "]%>', colType: 'Money', editable: true, search: true }, o); },
+            BetAmount2: /*   */ function (o) { return $.extend(      { name: 'BetAmount2   ', label: '<%=lang["colBetAmount2   "]%>', colType: 'Money', editable: true, search: true }, o); },
+            BetPayout: /*    */ function (o) { return $.extend(      { name: 'BetPayout    ', label: '<%=lang["colBetPayout    "]%>', colType: 'Money', editable: true, search: true }, o); },
+            Rate: /*         */ function (o) { return $.extend(      { name: 'Rate         ', label: '<%=lang["colRate         "]%>', width: 080, editable: true, formatter: 'integer' }, o); },
+            ACTime1: /*      */ function (o) { return $.extend(      { name: 'ACTime1      ', label: '<%=lang["colACTime1      "]%>', width: 080, editable: true, formatter: 'datejs', formatoptions: { format: 'yyyy-MM-dd', formatNaN: 'N/A' }, editoptions: { defaultValue: '<%=DateTime.Now.AddDays(-1).ToACTime().ToString(web.sqltool.DateFormat)%>' } }, o); },
+            ACTime2: /*      */ function (o) { return $.extend(      { name: 'ACTime2      ', label: '<%=lang["colACTime2      "]%>', width: 080, editable: true, formatter: 'datejs', formatoptions: { format: 'yyyy-MM-dd', formatNaN: 'N/A' }, editoptions: { defaultValue: '<%=DateTime.Now.AddDays(-1).ToACTime().ToString(web.sqltool.DateFormat)%>' } }, o); },
+            Currency: /*     */ function (o) { return $.extend(      { name: 'Currency     ', label: '<%=lang["colCurrency     "]%>', colType: 'Currency', editable: false, editonce: false, hidden: true, search: true }, o); },
+            Memo1: /*        */ function (o) { return $.extend(      { name: 'Memo1        ', label: '<%=lang["colMemo1        "]%>', width: 080, editable: true, edittype: 'textarea', search: true }, o); },
+            Memo2: /*        */ function (o) { return $.extend(      { name: 'Memo2        ', label: '<%=lang["colMemo2        "]%>', width: 080, editable: true, edittype: 'textarea', search: true }, o); },
+            api1: /*         */ function (o) { return $.extend(      { name: 'Memo1        ', label: '<%=lang["colMemo1        "]%>', width: 080, editable: true, edittype: 'textarea', search: true, formatter: 'xml' }, o); },
+            api2: /*         */ function (o) { return $.extend(      { name: 'Memo2        ', label: '<%=lang["colMemo2        "]%>', width: 080, editable: true, edittype: 'textarea', search: true, formatter: 'xml' }, o); },
+            a_BankName: /*   */ function (o) { return $.extend(      { name: 'a_BankName   ', label: '<%=lang["colBankNameA    "]%>', width: 080, editable: !isHist, search: true }, o); },
+            a_CardID: /*     */ function (o) { return $.extend(      { name: 'a_CardID     ', label: '<%=lang["colCardIDA      "]%>', width: 120, editable: !isHist, search: true }, o); },
+            a_Name: /*       */ function (o) { return $.extend(      { name: 'a_Name       ', label: '<%=lang["colNameA        "]%>', width: 080, editable: !isHist, search: true }, o); },
+            a_TranTime: /*   */ function (o) { return $.extend(      { name: 'a_TranTime   ', label: '<%=lang["colTranTimeA    "]%>', colType: 'DateTime2', nowrap: true, editable: !isHist, search: true }, o); },
+            a_TranSerial: /* */ function (o) { return $.extend(      { name: 'a_TranSerial ', label: '<%=lang["colTranSerialA  "]%>', width: 080, editable: !isHist, search: true }, o); },
+            a_TranMemo: /*   */ function (o) { return $.extend(      { name: 'a_TranMemo   ', label: '<%=lang["colTranMemoA    "]%>', width: 080, editable: !isHist, edittype: 'textarea', search: true }, o); },
+            b_BankName: /*   */ function (o) { return $.extend(      { name: 'b_BankName   ', label: '<%=lang["colBankNameB    "]%>', width: 080, editable: !isHist, search: true }, o); },
+            b_CardID: /*     */ function (o) { return $.extend(      { name: 'b_CardID     ', label: '<%=lang["colCardIDB      "]%>', width: 120, editable: !isHist, search: true }, o); },
+            b_Name: /*       */ function (o) { return $.extend(      { name: 'b_Name       ', label: '<%=lang["colNameB        "]%>', width: 080, editable: !isHist, search: true }, o); },
+            b_TranTime: /*   */ function (o) { return $.extend(      { name: 'b_TranTime   ', label: '<%=lang["colTranTimeB    "]%>', colType: 'DateTime2', nowrap: true, editable: !isHist, search: true }, o); },
+            b_TranSerial: /* */ function (o) { return $.extend(      { name: 'b_TranSerial ', label: '<%=lang["colTranSerialB  "]%>', width: 080, editable: !isHist, search: true }, o); },
+            b_TranMemo: /*   */ function (o) { return $.extend(      { name: 'b_TranMemo   ', label: '<%=lang["colTranMemoB    "]%>', width: 080, editable: !isHist, edittype: 'textarea', search: true }, o); },
+            MerhantID: /*    */ function (o) { return $.extend(      { name: 'MerhantID    ', label: '<%=lang["colMerhantID    "]%>', width: 120, editable: false, search: true }, o); },
+            RequestIP: /*    */ function (o) { return $.extend(      { name: 'RequestIP    ', label: '<%=lang["colRequestIP    "]%>', width: 120, editable: false, search: true, search: true }, o); },
+            CreateUser: /*   */ function (o) { return $.extend(      { name: 'CreateUser   ', label: '<%=lang["colCreateUser   "]%>', colType: 'ACNT2', search: true }, o); },
+            ModifyTime: /*   */ function (o) { return $.extend(      { name: 'ModifyTime   ', label: '<%=lang["colModifyTime   "]%>', colType: 'DateTime2', nowrap: true }, o); },
+            ModifyUser: /*   */ function (o) { return $.extend(      { name: 'ModifyUser   ', label: '<%=lang["colModifyUser   "]%>', colType: 'ACNT2', search: true }, o); },
+            CashChannelID: /**/ function (o) { return $.extend(      { name: 'CashChannelID', label: '<%=lang["colCashChannelID"]%>', width: 280, editable: false, fixed: true <%if (showID) { %>, hidden: false<% }%> }, o); },
+            ID: /*           */ function (o) { return $.extend(      { name: 'ID           ', label: '<%=lang["colID           "]%>', width: 280, editable: false, fixed: true <%if (showID) { %>, hidden: false<% }%>, key: true }, o); }
+        };
+
+        var _postData = { IsHist: isHist<% if (tran_master.UserType.In(BU.UserType.Agent, BU.UserType.Member)) { %>, UserType: 0<%=(int)tran_master.UserType%><% } %><% if (tran_master.UserID.HasValue) {%>, UserID: '<%=tran_master.UserID.Value%>' <%}%> };
+        var grid_opt = {
+            useDefValues: true, sortname: isHist ? 'FinishTime' : 'CreateTime', editParams: { delayDeleteRow: 3000 },<% if (tran_master.UserID.HasValue) { %>
+            height: 'auto', pager: false, loadonce: true, rownumbers: false,<% } else { %>
+            pager: true, loadonce: false, rownumbers: true,<% } %>             
+            SelectCommand: function (postData) { return { '<%=tran_master.SelectCommandType.Name%>': $.extend(true, postData, _postData) } },
+            InsertCommand: function (postData) { return { '<%=tran_master.RowCommandType.Name%>': $.extend(true, postData, { op_Insert: true }, _postData) } },
+            UpdateCommand: function (postData) { return { '<%=tran_master.RowCommandType.Name%>': $.extend(true, postData, { op_Update: true }) } },
+            DeleteCommand: function (postData) { return { '<%=tran_master.RowCommandType.Name%>': $.extend(true, postData, { op_Delete: true }) } },
+            RowResponse: function (res, rowid, row) {
+                sendMessage('AgentRowData', { ID: row.ProviderID, Balance: row.ProviderBalance });
+                sendMessage('AgentRowData', { ID: row.UserID, Balance: row.UserBalance });
+                sendMessage('MemberRowData', { ID: row.UserID, Balance: row.UserBalance });
+            }
+        };
+
+        //function RowResponse(res, rowid, o) {
+        //    //console.log(arguments);
+        //    //if (o._row_delete == 1) {
+        //    //    $(this).re
+        //    //}
+        //}
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server"><asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder></asp:Content>

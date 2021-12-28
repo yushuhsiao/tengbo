@@ -1,0 +1,1 @@
+﻿namespace web { public partial class DataGridColumn : web.usercontrol { } }

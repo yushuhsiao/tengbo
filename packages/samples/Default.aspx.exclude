@@ -1,0 +1,46 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui-1.10.2.js" type="text/javascript"></script>
+    <script src="Scripts/json2.js" type="text/javascript"></script>
+    <script src="Scripts/util.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#logout').click(function () {
+                call_api1({ AdminLogout: {} }, function (obj) {
+                    if (obj.LoginResult.t1 == 1)
+                        window.location.reload();
+                });
+            });
+        });
+    </script>
+    <style type="text/css">
+        body {
+            margin: 0px;
+            height:100%;
+        }
+        .menu {
+            width: 250px;
+            position: relative;
+            border-style: double;
+            empty-cells: show;
+            background-color:#dddddd;
+        }
+    </style>
+</head>
+<body>
+    <button id="logout">logout</button>
+    <table class="menu" border="1">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+    </table>
+</body>
+</html>

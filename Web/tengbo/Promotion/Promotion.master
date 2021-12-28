@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/master/default.Master" AutoEventWireup="true" Inherits="SiteMasterPage" %>
+
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        this.RootMasterPage.NavIndex = 5;
+    }
+</script>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head"  runat="server">
+    <style type="text/css">
+        ol.promo_prompt { line-height:30px; font-family:"微软雅黑"; color:#FFF; font-size:13px; text-align:left; padding-left: 25px; margin-top: 0; }
+        ol.promo_prompt li { list-style: decimal; list-style-position: outside; }
+        </style>
+    <asp:ContentPlaceHolder ID="head"  runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body1" runat="server"><asp:ContentPlaceHolder ID="body1" runat="server"></asp:ContentPlaceHolder></asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="body2" runat="server">
+    <div class="promotion">
+        <div class="body">
+            <center class="banner"><asp:ContentPlaceHolder ID="banner" runat="server"></asp:ContentPlaceHolder></center>
+            <div class="content">
+    <asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+</asp:Content>

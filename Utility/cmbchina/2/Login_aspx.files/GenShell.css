@@ -1,0 +1,111 @@
+A:link {
+	COLOR: white; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: white; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: red; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: red; TEXT-DECORATION: none
+}
+A.Login1:link {
+	COLOR: white; TEXT-DECORATION: underline
+}
+A.Login1:visited {
+	COLOR: white; TEXT-DECORATION: underline
+}
+A.Login1:active {
+	COLOR: white; TEXT-DECORATION: underline
+}
+A.Login1:hover {
+	COLOR: white; TEXT-DECORATION: underline
+}
+A.Login2:link {
+	COLOR: white; TEXT-DECORATION: none
+}
+A.Login2:visited {
+	COLOR: white; TEXT-DECORATION: none
+}
+A.Login2:active {
+	COLOR: white; TEXT-DECORATION: underline
+}
+A.Login2:hover {
+	COLOR: white; TEXT-DECORATION: underline
+}
+A.Login3:link {
+	COLOR: #014f8a; TEXT-DECORATION: none
+}
+A.Login3:visited {
+	COLOR: #014f8a; TEXT-DECORATION: none
+}
+A.Login3:active {
+	COLOR: #014f8a; TEXT-DECORATION: underline
+}
+A.Login3:hover {
+	COLOR: #014f8a; TEXT-DECORATION: underline
+}
+A.Login4:link {
+	COLOR: #0783df; TEXT-DECORATION: none
+}
+A.Login4:visited {
+	COLOR: #0783df; TEXT-DECORATION: none
+}
+A.Login4:active {
+	COLOR: #0783df; TEXT-DECORATION: underline
+}
+A.Login4:hover {
+	COLOR: #0783df; TEXT-DECORATION: underline
+}
+A.Login5:link {
+	COLOR: gray; TEXT-DECORATION: none
+}
+A.Login5:visited {
+	COLOR: gray; TEXT-DECORATION: none
+}
+A.Login5:active {
+	COLOR: red; TEXT-DECORATION: underline
+}
+A.Login5:hover {
+	COLOR: red; TEXT-DECORATION: underline
+}
+BODY {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #014f8a; FONT-SIZE: 9pt
+}
+BODY.bdLogin {
+	TEXT-ALIGN: center; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND: url(../images/login_bg1.gif) #ffffff fixed center 50%; COLOR: #575757; FONT-SIZE: 9pt; OVERFLOW: auto
+}
+TABLE {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 12px
+}
+INPUT {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 12px
+}
+SELECT {
+	WIDTH: 160px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 12px
+}
+IMG {
+	BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none
+}
+.hui {
+	LINE-HEIGHT: 19px; COLOR: #575757; TEXT-DECORATION: none
+}
+.blue {
+	FONT: 9pt/13pt "????"
+}
+.headBg01 {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 339px; BACKGROUND: url(../Images/headBg01.gif) no-repeat left center; HEIGHT: 90px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.leftBg {
+	BACKGROUND-COLOR: #cbebff
+}
+.show {
+	DISPLAY: block
+}
+.hide {
+	DISPLAY: none
+}
+.showFF {
+	
+}

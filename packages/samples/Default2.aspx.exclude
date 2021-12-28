@@ -1,0 +1,157 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/main.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<asp:Content ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        body {
+            font-family: arial;
+            margin: 0;
+            height: 100%;
+        }
+        table.main {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+        }
+        td.nav {
+            height: 50px;
+        }
+        table.main, td.main, iframe.main {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .nav-root {
+            position: fixed;
+            width: 100%;
+            top: 0px;
+            height: 50px;
+            color: #cccccc;
+            background-color: #333333;
+        }
+            .nav-root ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .nav-root li {
+                float: left;
+            }
+        .nav-logo {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 200px;
+        }
+        .nav-menu {
+            position: absolute;
+            bottom: 0px;
+            left: 200px;
+        }
+        .nav-info {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+        .nav-info-name {
+            border-width: thick;
+            font-weight: bold;
+            border-right-style: double;
+            border-left-style: double;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin-right: 10px;
+        }
+        .nav-info-ico {
+            width: 20px;
+            height: 20px;
+        }
+        .nav-info-menu {
+            position: fixed;
+            top:50px;
+            right: 0px;
+            border-style: solid;
+            border-top-style: none;
+            color: #cccccc;
+            background-color: #333333;
+        }
+            .nav-info-menu li {
+                padding: 5px;
+                margin: 5px;
+                float:none;
+            }
+        .hover {
+            cursor: pointer;
+        }
+            .hover:hover {
+                background-color: #666666;
+            }
+        .init-button {
+        }
+    </style>
+    <script type="text/javascript">
+
+        $.fn.menu_1 = function (dst) {
+            obj = {
+                a: $(this),
+                b: $(dst),
+                timer: null,
+                toggle: function () {
+                    obj.b.fadeToggle('fast');
+                    window.event.cancelBubble = true;
+                },
+                hide: function () {
+                    obj.b.fadeOut('fast');
+                    return this;
+                }
+            };
+            obj.hide();
+            obj.a.click(obj.toggle).hover(function () {
+            }, function () {
+            });
+            $(window).click(obj.hide);
+            return obj;
+        }
+
+        $.fn.button_1 = function () {
+            this.addClass('hover');
+        }
+
+        $(document).ready(function () {
+            $('.nav-info-ico').menu_1('.nav-info-menu');
+            $('.init-button').button_1();
+        });
+
+        function logout() {
+            $.api.sExecute({ AdminLogout: {} }, function (obj) {
+                if (obj.LoginResult.t1 == 1)
+                    window.location.reload();
+            });
+        }
+    </script>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="Server">
+    <table class="main">
+        <tr><td class="nav"></td></tr>
+        <tr><td class="main"><iframe class="main" src="xxx.aspx"></iframe></td></tr>
+    </table>
+    <div class="nav-root">
+        <ul>
+            <li class="nav-logo">logo</li>
+            <li class="nav-menu">menu</li>
+            <li class="nav-info">
+                <ul>
+                    <li class="nav-info-name"><%=UserInfo.Current.Name %></li>
+                    <li><img class="icon_settings" alt="" src="images/icon_settings.png" />
+                        <ul class="nav-info-menu">
+                            <li class="init-button"><%=Resources.res.change_password %></li>
+                            <li class="init-button"><%=Resources.res.login_hist %></li>
+                            <li class="init-button" onclick="logout()"><%=Resources.res.logout_text %></li>
+                        </ul>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</asp:Content>

@@ -1,0 +1,159 @@
+﻿2013-08-12 11:31:15.85	1	
+Request:	<?xml version="1.0"?><request action="registration"><element><properties name="username">tf_0000</properties><properties name="mode">0</properties><properties name="firstname">tf_</properties><properties name="lastname">0000</properties><properties name="currencyid">CNY</properties></element></request>
+Error:	System.Net.WebException: 無法連接至遠端伺服器 ---> System.Net.Sockets.SocketException: 無法連線，因為目標電腦拒絕連線。 61.14.185.86:4431
+   於 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   於 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- 內部例外狀況堆疊追蹤的結尾 ---
+   於 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   於 System.Net.HttpWebRequest.GetRequestStream()
+   於 extAPI.apiRequest.GetResponse(String url) 於 c:\tengfa\Library\extAPI\hg\tools.cs: 行 148
+2013-08-12 11:33:02.92	1	
+Request:	<?xml version="1.0"?><request action="registration"><element><properties name="username">tf_0000</properties><properties name="mode">0</properties><properties name="firstname">tf_</properties><properties name="lastname">0000</properties><properties name="currencyid">CNY</properties></element></request>
+Response:	
+<?xml version="1.0"?><response><error>Unauthorized Access.</error></response>
+
+2013-08-12 11:41:34.54	1	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0001</properties><properties name="mode">0</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">608</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc">ERR_WITH_USER</properties></element></response>
+
+2013-08-12 11:42:03.11	2	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">0</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">7000.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:42:23.58	3	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:44:10.23	1	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:44:29.67	2	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:44:33.69	3	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:44:37.03	4	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:49:29.49	5	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:51:19.96	6	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:51:23.99	7	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:52:34.37	8	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:52:36.41	9	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:52:40.25	10	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:52:44.65	11	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:52:46.16	12	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:52:54.70	13	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:52:58.41	14	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:54:29.47	15	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:54:31.53	16	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:54:37.12	17	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:54:44.87	18	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:54:45.43	19	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:54:46.08	20	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:54:46.74	21	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:54:47.28	22	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:55:09.09	23	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:56:31.02	24	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:57:19.19	25	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+
+2013-08-12 11:57:22.99	26	
+Request:	<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">tf_0000</properties><properties name="mode">1</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="accountbalance"><element><properties name="status">0</properties><properties name="balance">0.00</properties><properties name="currencyid"></properties><properties name="errdesc"></properties></element></response>
+

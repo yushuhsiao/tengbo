@@ -1,0 +1,6 @@
+--select billNo from ag_BetDetail nolock group by billNo having count(*) > 1
+--select transferId from ag_AccountTransfer nolock group by transferId having count(*) > 1
+--select * from ag_ftp nolock
+--select * from ag_BetDetail nolock
+--select * from ag_AccountTransfer nolock
+--truncate table ag_ftp truncate table ag_BetDetail truncate table ag_AccountTransfer

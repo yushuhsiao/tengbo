@@ -1,0 +1,498 @@
+﻿(function ($) {
+
+    // 預先定義的 colModel
+    $.colModels = {
+        rowid: function (colModel) {
+            return { name: 'rowid', width: 050, sorttype: "int", frozen: true, hidden: true, key: true };
+        },
+        ID: function (colModel) {
+            return { label: 'ID', width: 050, frozen: true, name: 'ID', sorttype: "int", editable: true, hidden: true, key: true };
+        },
+        Action: function (colModel) {
+            return { label: ' ', width: 090, frozen: true, name: 'Action', search: false, editable: false, sortable: false, fixed: true, formatter: 'actions2', align: 'left', };
+        },
+        Currency: function (colModel) {
+            var currencys = $.extend(true, { CNY: 'CNY', USD: 'USD', HKD: 'HKD', TWD: 'TWD' }, colModel._list)
+            return {
+                label: 'Currency', width: 075, name: 'Currency', sorttype: 'text',
+                editable: true, editonce: true, edittype: 'select', editoptions: { value: currencys }, formatter: 'select',
+            };
+        },
+        Locked: function (colModel) {
+            return { width: 050, name: 'Locked', sorttype: 'text', editable: true, edittype: 'checkbox', formatter: 'checkbox' };
+        },
+        CreateTime: function (colModel) {
+            return { label: 'CreateTime', width: 100, sorttype: "date", editable: false, formatter: 'date2', };
+        },
+        CreateUser: function (colModel) {
+            return { label: 'CreateUser', width: 080, sorttype: "text", editable: false };
+        },
+        ModifyTime: function (colModel) {
+            return { label: 'ModifyTime', width: 100, sorttype: "date", editable: false, formatter: 'date2', };
+        },
+        ModifyUser: function (colModel) {
+            return { label: 'ModifyUser', width: 080, sorttype: "text", editable: false };
+        },
+        ModifyTimeA: function (colModel) {
+            return { label: 'ModifyTimeA', width: 100, sorttype: "date", editable: false, formatter: 'date2', };
+        },
+        ModifyUserA: function (colModel) {
+            return { label: 'ModifyUserA', width: 080, sorttype: "text", editable: false };
+        },
+        _unknown: function (colModel) { return colModel; }
+    }
+
+    if ($.jgrid) {
+        $.jgrid.colModel = {
+            align: 'left',  // left, center, right
+            cellattr: function (rowId, tv, rawObject, cm, rdata) { },
+            classes: '',
+            datefmt: 'Y-m-d',
+            defval: null,
+            editable: false,
+            editoptions: null,
+            editrules: null,
+            edittype: 'text',   // 'text', 'textarea', 'select', 'checkbox', 'password', 'button', 'image', 'file', 'custom'
+            firstsortorder: null,
+            fixed: false,
+            formoptions: null,
+            formatoptions: null,
+            formatter: null,    // 'integer', 'number', 'currency', 'date', 'email', 'link', 'showlink', 'checkbox', 'select', 'actions'
+            frozen: false,
+            hidedlg: false,
+            hidden: false,
+            index: null,
+            jsonmap: null,
+            key: false,
+            label: null,
+            name: 'Required',
+            resizable: true,
+            search: true,
+            searchoptions: null,
+            sortable: true,
+            sorttype: '',   // 'int', 'integer', 'float', 'number', 'currency', 'date', 'text', function()
+            stype: '',
+            surl: null,
+            template: null,
+            title: true,
+            width: 150,
+            xmlmap: null,
+            unformat: function () { },
+            viewable: true,
+        };
+
+        $.jgrid.gridOptions = {
+            url: "",
+            height: 150,
+            page: 1,
+            rowNum: 20,
+            rowTotal: null,
+            records: 0,
+            recordtext: null,
+            pager: "",
+            pgtext: null,
+            pgbuttons: true,
+            pginput: true,
+            colModel: [],
+            rowList: [],
+            colNames: [],
+            sortable: false,
+            sortorder: "asc",
+            sortname: "",
+            datatype: "xml",
+            mtype: "GET",
+            altRows: false,
+            selarrrow: [],
+            savedRow: [],
+            shrinkToFit: true,
+            xmlReader: {},
+            jsonReader: {},
+            subGrid: false,
+            subGridOptions: null,
+            subGridType: null,
+            subGridUrl: null,
+            subGridModel: [],
+            reccount: 0,
+            lastpage: 0,
+            lastsort: 0,
+            selrow: null,
+            beforeSelectRow: null,
+            onSelectRow: null,
+            onSortCol: null,
+            ondblClickRow: null,
+            onRightClickRow: null,
+            onPaging: null,
+            onSelectAll: null,
+            onInitGrid: null,
+            loadComplete: null,
+            gridComplete: null,
+            loadError: null,
+            loadBeforeSend: null,
+            afterInsertRow: null,
+            beforeRequest: null,
+            beforeProcessing: null,
+            onHeaderClick: null,
+            viewrecords: false,
+            loadonce: false,
+            multiselect: false,
+            multikey: false,
+            editurl: null,
+            search: false,
+            caption: "",
+            hidegrid: true,
+            hiddengrid: false,
+            postData: {},
+            userData: {},
+            treeGrid: false,
+            treeGridModel: 'nested',
+            treeReader: {},
+            treeANode: -1,
+            treeIcons: null,
+            treedatatype: null,
+            ExpandColumn: null,
+            tree_root_level: 0,
+            prmNames: { page: "page", rows: "rows", sort: "sidx", order: "sord", search: "_search", nd: "nd", id: "id", oper: "oper", editoper: "edit", addoper: "add", deloper: "del", subgridid: "id", npage: null, totalrows: "totalrows" },
+            forceFit: false,
+            gridstate: "visible",
+            cellEdit: false,
+            cellurl: null,
+            cellsubmit: "remote",
+            nv: 0,
+            loadui: "enable",
+            loadtext: null,
+            toolbar: [false, ""],
+            scroll: false,
+            multiboxonly: false,
+            deselectAfterSort: true,
+            scrollrows: false,
+            autowidth: false,
+            scrollOffset: 18,
+            cellLayout: 5,
+            subGridWidth: 20,
+            multiselectWidth: 20,
+            gridview: false,
+            rownumWidth: 25,
+            rownumbers: false,
+            pagerpos: 'center',
+            recordpos: 'right',
+            footerrow: false,
+            userDataOnFooter: false,
+            hoverrows: true,
+            altclass: 'ui-priority-secondary',
+            viewsortcols: [false, 'vertical', true],
+            resizeclass: '',
+            autoencode: false,
+            remapColumns: [],
+            ajaxGridOptions: {},
+            direction: "ltr",
+            toppager: false,
+            headertitles: false,
+            scrollTimeout: 40,
+            data: [],
+            datastr: null,
+            _index: {},
+            grouping: false,
+            groupingView: { groupField: [], groupOrder: [], groupText: [], groupColumnShow: [], groupSummary: [], showSummaryOnHide: false, sortitems: [], sortnames: [], summary: [], summaryval: [], plusicon: 'ui-icon-circlesmall-plus', minusicon: 'ui-icon-circlesmall-minus', displayField: [] },
+            ignoreCase: false,
+            cmTemplate: {},
+            idPrefix: "",
+            multiSort: false,
+            deepempty: false,
+            emptyrecords: null,
+            ExpandColClick: true,
+            ExpandColumn: null,
+            inlineData: null,
+            totaltime: null,
+        };
+    }
+
+
+
+    $.fn.init_grid = function (pin) {
+        var $table = this;
+
+        function _invoke(func, sender, args) {
+            if (pin.debug) writelog(func, args);
+            if ($.isFunction(pin[func]))
+                pin[func].apply(sender, args);
+        }
+
+        var colModels = [];
+        if (pin.colModel) {
+            for (var n in pin.colModel) {
+                var cm = pin.colModel[n];
+                var name = $.trim(cm.name);
+                var fn = $.colModels[name] || $.colModels._unknown;
+                colModels[n] = $.extend(true, fn.call(null, cm), cm);
+                colModels[n].name = name;
+            }
+        }
+
+        //if ($.isArray(pin.colModel)) {
+        //    for (var i = 0; i < pin.colModel.length; i++) {
+        //        var cm = pin.colModel[i];
+        //        cm.name = $.trim(cm.name);
+        //        var fn = $.colModels[pin.colModel[i].name] || $.colModels._unknown;
+        //        pin.colModel[i] = $.extend(true, fn.call(null, cm), cm);
+        //    }
+        //}
+
+        var pin0 = {
+            url: 'api', editurl: 'api', mtype: 'POST', datatype: 'json', colModel: colModels,
+            cmTemplate: { align: 'center', },
+
+            serializeGridData: function (postData) {
+                if (pin.debug) writelog("serializeGridData", arguments);
+                if ($.isFunction(pin.serializeGridData))
+                    return { str: JSON.stringify(pin.serializeGridData.apply(this, [postData])) };
+            },
+            afterInsertRow: function (rowid, rowdata, rowelem) {
+                if (pin.debug) writelog("afterInsertRow", this);
+                var $row = $($table.getInd(rowid, true));
+                $row.find('div.ui-inline-edit').hover2().click(editRow);
+                $row.find('div.ui-inline-cancel').hover2().click(restoreRow);
+                $row.find('div.ui-inline-save').hover2().click(saveRow);
+                if ($.isFunction(pin.afterInsertRow))
+                    pin.afterInsertRow.apply(this, arguments);
+            },
+            serializeRowData: function (postData) {
+                if (pin.debug) writelog("serializeRowData", this);
+                if ($.isFunction(pin.beforesave))
+                    return { str: JSON.stringify(pin.beforesave.apply(this, [postData])) };
+            },
+
+            beforeRequest: function () { return _invoke("beforeRequest", this, arguments); },
+            loadBeforeSend: function (xhr, settings) { return _invoke("loadBeforeSend", this, arguments); },
+            beforeProcessing: function (data, status, xhr) { return _invoke("beforeProcessing", this, arguments); },
+            gridComplete: function () { return _invoke("gridComplete", this, arguments); },
+            loadComplete: function (data) { return _invoke("loadComplete", this, arguments); },
+            beforeSelectRow: function (rowid, e) { return _invoke("beforeSelectRow", this, arguments) || true; },
+            onCellSelect: function (rowid, iCol, cellcontent, e) { return _invoke("onCellSelect", this, arguments); },
+            loadError: function (xhr, status, error) { return _invoke("loadError", this, arguments); },
+            ondblClickRow: function (rowid, iRow, iCol, e) { return _invoke("ondblClickRow", this, arguments); },
+            onHeaderClick: function (gridstate) { return _invoke("onHeaderClick", this, arguments); },
+            onPaging: function (pgButton) { return _invoke("onPaging", this, arguments); },
+            onRightClickRow: function (rowid, iRow, iCol, e) { return _invoke("onRightClickRow", this, arguments); },
+            onSelectAll: function (aRowids, status) { return _invoke("onSelectAll", this, arguments); },
+            onSortCol: function (index, iCol, sortorder) { return _invoke("onSortCol", this, arguments); },
+            resizeStart: function (event, index) { return _invoke("resizeStart", this, arguments); },
+            resizeStop: function (newwidth, index) { return _invoke("resizeStop", this, arguments); },
+
+
+
+            subGridOptions: {
+                plusicon: "ui-icon-triangle-1-e",
+                minusicon: "ui-icon-triangle-1-s",
+                openicon: "ui-icon-arrowreturn-1-e",
+                expandOnLoad: false,
+                delayOnLoad: 50,
+                selectOnExpand: false,
+                reloadOnExpand: true
+            },
+            subGridBeforeExpand: function (pID, id) { return _invoke("subGridBeforeExpand", this, arguments); },
+            subGridRowExpanded: function (pID, id) { return _invoke("subGridRowExpanded", this, arguments); },
+            subGridRowColapsed: function (pID, id) { return _invoke("subGridRowColapsed", this, arguments); },
+            serializeSubGridData: function (sPostData) { return _invoke("serializeSubGridData", this, arguments); },
+        }
+
+        function updateActionCell(rowid, $row) {
+            var $editables = $table.find('tr.jqgrow[editable=1]');
+            //if ($editables.length > 0)
+            //    $table.showCol("Password");
+            //else
+            //    $table.hideCol("Password");
+
+            if ($row == null) {
+                var row = $table.getInd(rowid, true);
+                if (row === false) return;
+                $row = $(row);
+            }
+            //writelog("rowact.update", [$row, $table.getRowData(rowid)]);
+            var editable = $row.attr("editable");
+            //writelog("editable", editable);
+            if (editable == 1) {
+                $row.find('.row_act').addClass('editable');
+                var isNew = $row.hasClass('jqgrid-new-row');
+                var $acnt = $row.find('#' + rowid + "_ACNT");
+                var $first = $acnt;
+                if (isNew == false) {
+                    //$acnt.attr('readonly', true);
+                    //$acnt.addClass('ui-state-disabled');
+                    //$first = $row.find('#' + rowid + '_UserType');
+                }
+                $first.focus();
+            }
+            else
+                $row.find('.row_act').removeClass('editable');
+        }
+
+        var editParam = {
+            keys: true,
+            oneditfunc: null,
+            successfunc: null,
+            aftersavefunc: null,
+            errorfunc: null,
+            beforeCancelRow: null,
+            afterrestorefunc: null,
+            restoreAfterError: false,
+        }
+        editParam.oneditfunc = function (rowid) {
+            writelog("oneditfunc", arguments);
+            updateActionCell(rowid);
+        }
+        editParam.successfunc = function (res) {
+            writelog("successfunc", obj);
+            var cm = $table.getGridParam('colModel');
+            var tmp = {};
+            for (var i = 0; i < cm.length; i++) {
+                if (cm[i].editable === true)
+                    tmp[cm[i].name] = '';
+            }
+            var obj = $.parseJSON(res.responseText);
+            if ($.isFunction(pin.updateSuccess))
+                return pin.updateSuccess.apply(this, [obj, tmp]);
+            //else if ($.isArray(data)) {
+            //    data[1] = $.extend(true, tmp, data[1]);
+            //    return data;
+            //}
+            return obj;
+            //if (obj.jqRowUpdateSuccess) {
+            //    obj = obj.jqRowUpdateSuccess;
+            //    if (obj.row)
+            //        return [true, pin.updateSuccess.apply(this, [obj.rowid, obj.row])];
+            //}
+            //else if (obj.jqRowUpdateFailed) {
+            //    obj = obj.jqRowUpdateFailed;
+            //}
+            //return false;
+        }
+        editParam.aftersavefunc = function (rowid, res) {
+            writelog("aftersavefunc", arguments);
+            updateActionCell(rowid);
+        }
+        editParam.errorfunc = function (rowid, res, stat) {
+            var obj = $.parseJSON(res.responseText);
+            writelog("errorfunc", arguments);
+            //writelog(arguments.callee.caller, arguments.callee.arguments);
+            //try {
+            //    if (res._result) {
+            //        if (res._result[2] == 3) {
+            //            var s = '#' + rowid + '_' + res._result[3];
+            //            var $row = $(grid.$table.getInd(rowid, true));
+            //            //var a = $row.find(s);
+            //            //a.val("123");
+            //            //a.focus();
+            //        }
+            //    }
+            //} catch (err) { }
+            updateActionCell(rowid);
+        }
+        //editParam.beforeCancelRow = function (cancelPrm, sr) { }
+        editParam.afterrestorefunc = function (rowid) {
+            writelog("afterrestorefunc", arguments);
+            updateActionCell(rowid);
+        }
+
+        function get_rowid(obj) { return $(obj).closest("tr.jqgrow").attr("id"); }
+
+        function editRow() {
+            $table.editRow(get_rowid(this), editParam);
+        }
+        function saveRow() {
+            $table.saveRow(get_rowid(this), editParam);
+        }
+        function restoreRow() {
+            $table.restoreRow(get_rowid(this), editParam);
+        }
+        function addRow() {
+            $table.addRow({ addRowParams: editParam });
+        }
+
+
+        var $pager;
+        var pin_import = {
+            pager: function (p_name) {
+                if (pin.pager == true) {
+                    var name = $.jgrid.jqID($table[0].id) + "_pager"
+                    $table.after('<div id="' + name + '"></div>');
+                    $pager = $('#' + name);
+                }
+                else
+                    $pager = $(pin[p_name])
+                return $pager.selector;
+            },
+            _default: function (p_name) { return pin[p_name]; }
+        }
+
+        for (var p_name in pin)
+            if (pin0[p_name] == null)
+                pin0[p_name] = (pin_import[p_name] || pin_import._default)(p_name);
+
+
+        this.jqGrid(pin0);
+
+
+        function pager_obj($p) {
+            var $left, $center, $right;
+            return {
+                $elem: $p,
+                left: $p.find($p.selector + '_left'),
+                center: $p.find($p.selector + '_center'),
+                right: $p.find($p.selector + '_right'),
+            }
+        }
+
+        //$topPager = $('#' + $.jgrid.jqID($table[0].id) + "_toppager");
+
+        $pager = $pager || $();
+        var nav_obj;
+        var grid = {
+            $table: $table,
+            pager: pager_obj($pager),
+            topPager: pager_obj($('#' + $.jgrid.jqID($table[0].id) + "_toppager")),
+            $toolbar1: $('#t_' + $.jgrid.jqID($table[0].id)),
+            $toolbar2: $('#tb_' + $.jgrid.jqID($table[0].id)),
+            reloadGrid: function () {
+                $table.trigger("reloadGrid");
+            },
+            width: function (value) {
+                if (value)
+                    $table.setGridWidth(value - 3, false);
+                return $table.getGridParam('width');
+            },
+            height: function (value) {
+                if (value) {
+                    var gbox_height = grid.height();
+                    var grid_height = $table.getGridParam('height');
+                    var diff = gbox_height - grid_height;
+                    $table.setGridHeight(Math.max(value - diff, 30), false);
+                }
+                return $("#gbox_" + $.jgrid.jqID($table[0].p.id)).height();
+            },
+            navGrid: function (o) {
+                $table.navGrid(pin.pager, o);
+            },
+            getSelectRow: function () {
+                return $table.getGridParam('selrow');
+            },
+            getData: function () {
+                return $table.getGridParam('data');
+            },
+            setData: function (data) {
+                $table.setGridParam({ data: data });
+            },
+            addRow: addRow,
+            editRow: editRow,
+            saveRow: saveRow,
+            restoreRow: restoreRow,
+
+            navGrid: function (pager_obj, o, pEdit, pAdd, pDel, pSearch, pView) {
+                nav_obj = nav_obj || pager_obj;
+                return $table.navGrid(nav_obj.$elem.selector, o, pEdit, pAdd, pDel, pSearch, pView);
+            },
+            navButtonAdd: function (p) { return $table.navButtonAdd(nav_obj.$elem.selector, p); },
+            navSeparatorAdd: function (p) { return $table.navSeparatorAdd(nav_obj.$elem.selector, p); },
+        }
+        return grid;
+    };
+})(jQuery);

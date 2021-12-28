@@ -1,0 +1,285 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/master/root.Master" AutoEventWireup="true" Inherits="SiteMasterPage" %>
+
+<%@ Register Src="~/Login.ascx" TagPrefix="uc1" TagName="Login" %>
+
+
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        this._header.Visible = this.RootMasterPage.ShowHeader;
+        this._nav.Visible = this.RootMasterPage.ShowNav;
+        this._notice.Visible = this.RootMasterPage.ShowNotice;
+        this._footer.Visible = this.RootMasterPage.ShowFooter;
+        HtmlGenericControl nav_ = null;
+        switch (this.RootMasterPage.NavIndex)
+        {
+            case 0: nav_ = nav0; break;
+            case 1: nav_ = nav1; break;
+            case 2: nav_ = nav2; break;
+            case 3: nav_ = nav3; break;
+            case 4: nav_ = nav4; break;
+            case 5: nav_ = nav5; break;
+            case 6: nav_ = nav6; break;
+            case 7: nav_ = nav7; break;
+        }
+        if (nav_ != null)
+            nav_.Attributes["class"] += "cur";
+    }
+</script>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <style type="text/css">
+        body, .font1, .table1, .main_games .bg1, .main_games .bg2, .main_games .bg3, .privatetable .txt, .promotion .title, .promotion h1, .promotion ol.rules li, .register .reg-title .title1,  .membercenter .user_nav_a, .membercenter .user_nav_b, .membercenter .log_detail, .button2 {
+            font-family: "微软雅黑";
+        }
+        .font2, .promotion .item-title, .register .reg-left span, .register .reg-left a {
+            font-family: "宋体";
+        }
+        .nav li {
+            font-family:Arial, sans-serif, STHeiti, 华文黑体, 微软雅黑, 黑体;
+        }
+
+        .header_nav{ padding:2px 5px 0px 20px; width:1045px; height:31px; margin:0 auto;}
+        .header_nav ul{ float:left; display:inline; text-align:left; margin:0;}
+        .header_nav ul li{ float:left; display:inline-block; cursor:pointer; border-left:1px #5c0303 solid; border-right:1px #5c0303 solid; padding:0px; height:31px; z-index:10; text-indent:-999em;}
+
+         #header{ width:100%; height:32px; background:#3f0000; margin:0 auto; border-bottom:1px #7f0303 solid;}
+        .header_nav ul li.t1{ width:82px; background:url(<%=GetImage("~/image/t1_hover.png")%>) center no-repeat; border:none;}
+        .header_nav ul li.t2{ width:82px; height:30px; background:url(<%=GetImage("~/image/t2.png")%>) center no-repeat; border-left:none;}
+        .header_nav ul li a{ display:block; height:30px;}
+
+        /*.collect{ width:470px; float:right;height:30px; display:inline; background:#3f0000;margin-right:2px; line-height:30px;}*/
+        .front_collect{ font-family:"微软雅黑"; font-size:14px; color:#FFF; line-height:27px;}
+
+        .div_Notice_Hover span {display: block; width: 845px; color: white; font-size: 14px; line-height: 25px; }
+
+        .main_games .game1 { background-image: url(<%=GetImage("~/image/img2.jpg")%>); }
+        .main_games .game2 { background-image: url(<%=GetImage("~/image/img1.jpg")%>); }
+        .main_games .game3 { background-image: url(<%=GetImage("~/image/img3.jpg")%>); }
+        .main_games .game456 { background-image: url(<%=GetImage("~/image/k.gif")%>); }
+        .main_games .game4 { background-image: url(<%=GetImage("~/image/img4.jpg")%>); }
+        .main_games .game5 { background-image: url(<%=GetImage("~/image/img5.jpg")%>); }
+        .main_games .game6 { background-image: url(<%=GetImage("~/image/img6.jpg")%>); }
+        .main_games .bg1 { background-image: url(<%=GetImage("~/image/game_bg.png")%>); }
+        .main_games .bg2 { background-image: url(<%=GetImage("~/image/game_bg.png")%>); }
+        .main_games .bg3 { background-image: url(<%=GetImage("~/image/game_bg2.png")%>); }
+    </style>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-18196593-13']);
+        _gaq.push(['_addOrganic', 'sogou', 'query']);
+        _gaq.push(['_addOrganic', 'youdao', 'q']);
+        _gaq.push(['_addOrganic', 'soso', 'w']);
+        _gaq.push(['_addOrganic', 'sina', 'q']);
+        _gaq.push(['_trackPageview']);
+
+        $(window).load(function () {
+            $('.TplFloatSet').float_ad({ duration: 1000, easing: 'easeInOutQuad', queue: false })
+
+            <% if (!global::Member.DebugMode2) { %>
+            //延迟加载追踪脚本
+            setTimeout(function () {
+                $('#cnzz').prop('src', 'http://s17.cnzz.com/stat.php?id=5773386&web_id=5773386');
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            }, 3000);
+            <% } %>
+        });
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <div id="header">
+        <div class="header_nav">
+            <ul>
+                <li class="t1"><a href="javascript:void(0)">腾博</a></li>
+                <li class="t2"><a target="_self" href="http://www.tengfa8.com">腾发</a></li>
+            </ul>
+            <div class="collect_Bak" style="float: right; margin-top: 2px; margin-right: 2px;">
+                <table width="490" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="310" height="30"><img src="<%=GetImage("~/image/phone.png")%>" width="340" height="16" /></td>
+                        <td width="38" style="text-align: center;"><img src="<%=GetImage("~/image/tubiao.gif")%>" width="11" height="11" /></td>
+                        <td width="75" valign="top"><a href="javascript:addBookmark();" class="front_collect">加入收藏</a></td>
+                        <td width="35"><a href="#"><img src="<%=GetImage("~/image/china_flag.gif")%>" width="22" height="15" title="Chinese" style="border: none;" /></a></td>
+                        <td><a href="#"><img src="<%=GetImage("~/image/english_flag.gif")%>" width="20" height="15" title="English" style="border: none;" /></a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="B"></div>
+        </div>
+    </div>
+    <div class="root">
+        <div id="_header" runat="server" class="header">
+            <img class="logo" src="<%=GetImage("~/image/logo.png")%>" />
+            <div class="chat">
+                <button class="button0" onclick="live800_chat()"></button>
+                <a class="button1" href="http://wpa.qq.com/msgrd?v=3&amp;uin=77683735&amp;site=qq&amp;menu=yes" target="_blank"></a>
+            </div>
+            <div class="login_panel">
+                <uc1:Login runat="server" ID="Login" />
+            </div>
+        </div>
+        <div id="_nav" runat="server" class="nav">
+            <ul>
+                <li id="nav0" runat="server" class="home"><a href="<%=ResolveClientUrl("~/")%>">首 页</a></li>
+                <li id="nav1" runat="server"><a href="<%=ResolveClientUrl("~/LiveCasino.aspx")%>">真人娱乐</a></li>
+                <li id="nav2" runat="server"><a onclick="$('#playgame02').playgame()">电子游艺</a></li>
+                <li id="nav3" runat="server"><a onclick="$('#playgame03').playgame()">彩票游戏</a></li>
+                <li id="nav4" runat="server"><a onclick="$('#playgame04').playgame()">体育赛事</a></li>
+                <li id="nav5" runat="server"><a href="<%=ResolveClientUrl("~/Promotion")%>">优惠活动</a></li>
+                <li id="nav6" runat="server"><a href="<%=ResolveClientUrl("~/PrivateTable.aspx")%>">包桌服务</a></li>
+                <li id="nav7" runat="server"><a href="<%=ResolveClientUrl("~/Help/5.aspx")%>">新手指南</a></li>
+            </ul>
+        </div>
+        <asp:ContentPlaceHolder ID="body1" runat="server"></asp:ContentPlaceHolder>
+        <div id="_notice" runat="server" class="notice">
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    var hover1 = false;
+                    var hover2 = false;
+                    var h = 0;
+                    function full_notice() {
+                        h = 0;
+                        if (hover1 == true)
+                            $('.div_Notice_Hover').show({ effect: 'slide', direction: 'up', duration: 250 });
+                        else if ((hover1 == false) && (hover2 == false))
+                            $('.div_Notice_Hover').hide({ effect: 'slide', direction: 'up', duration: 250 });
+                    }
+
+                    $('.notice_marquee').hover(
+                        function () {
+                            this.stop();
+                            hover1 = true;
+                            if (h != 0) clearTimeout(h);
+                            h = setTimeout(full_notice, 500);
+                        },
+                        function () {
+                            this.start();
+                            hover1 = false;
+                            if (h != 0) clearTimeout(h);
+                            h = setTimeout(full_notice, 500);
+                        });
+                    $('.div_Notice_Hover').hover(
+                        function () {
+                            hover2 = true;
+                            if (h != 0) clearTimeout(h);
+                            h = setTimeout(full_notice, 500);
+                        },
+                        function () {
+                            hover2 = false;
+                            if (h != 0) clearTimeout(h);
+                            h = setTimeout(full_notice, 500);
+                        });
+                });
+            </script>
+            <div class="div_Notice_Hover" style="display: none; position: absolute; z-index:500; width: 1090px;">
+                <div style="margin-left: 180px; margin-top: 10px; padding: 20px; border: 1px solid red; background-color: #670c0c;">
+                <% foreach (string s in web.cache.Anno.Instance.Rows)
+                    { %><span style="padding-right: 40px; font: bold;"><%=s%></span><% } %>
+                </div>
+            </div>
+            <div class="notice_container">
+                <div class="notice_content">
+                    <marquee class="notice_marquee" style="cursor: pointer;" direction="left" scrolldelay="100" scrollamount="5" behavior="scroll">
+                        <% foreach (string s in web.cache.Anno.Instance.Rows)
+                           { %><span style="padding-right: 40px; font: bold;"><%=s%></span><% } %>
+                    </marquee>
+                </div>
+            </div>
+            <div class="lights">
+                <ul>
+                    <li class="left"></li>
+                    <li class="right"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <asp:ContentPlaceHolder ID="body2" runat="server"></asp:ContentPlaceHolder>
+        <div id="_footer" runat="server" class="footer">
+            <div class="links">
+                <div class="left">
+                    <img src="<%=GetImage("~/image/link_1.jpg")%>" width="43" height="41" />
+                    <img src="<%=GetImage("~/image/link_2.jpg")%>" width="61" height="40" />
+                    <img src="<%=GetImage("~/image/link_3.jpg")%>" width="102" height="46" />
+                    <img src="<%=GetImage("~/image/link_4.jpg")%>" width="124" height="43" />
+                    <img src="<%=GetImage("~/image/link_5.jpg")%>" width="131" height="47" />
+                    <img src="<%=GetImage("~/image/link_6.jpg")%>" width="43" height="54" />
+                </div>
+                <div class="right">
+                    <a href="<%=ResolveClientUrl("~/Help/1.aspx")%>">关于腾博会</a>|
+                    <a href="<%=ResolveClientUrl("~/Help/3.aspx")%>">博彩责任</a>|
+                    <a href="<%=ResolveClientUrl("~/Help/9.aspx")%>">规则与声明</a>|
+                    <a href="<%=ResolveClientUrl("~/Help/5.aspx")%>">常见问题</a>|
+                    <a href="javascript:void(0);" onclick="$(this).loadBox(443, 273, '<%=ResolveUrl("~/clearcache.aspx")%>', '<%=ResolveUrl("~/")%>');">清除缓存</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <table class="desc">
+                <tr>
+                    <td class="a">
+                        <h3>关于腾博会</h3>
+                        <h4>开户注册</h4>
+                        免费注册账户即可享受我们高品质、高赔率的娱乐游戏及所有线上投注的优惠。我们致力于提供全球客户最有价值的游戏体验及各类优惠服务。
+                        <h4>责任博彩</h4>
+                        腾博会致力于为客户提供优质的娱乐平台，并设置和升级多项安全设施，以确保游戏的公正性。
+                        <h4>安全保密</h4>
+                        我们采用坚实、稳定与安全的博彩系统。由于您的信息保密度至关重要，我们将坚持实行隐私严格保密制度。
+                        <h4>试玩体验</h4>
+                        游戏全面开放，让您无需注册，即可免费参观体验我们为您提供的各种游戏。
+                    </td>
+                    <td class="b">
+                        <h3>全线产品</h3>
+                        <h4>真人娱乐城</h4>
+                        腾博会提供多个最受欢迎的真人娱乐场游戏，包括真人娱乐百家乐﹑二十一点﹑骰宝﹑龙虎及轮盘等等游戏。 我们还为您提供VIP至尊包桌服务， 可咪牌，自由飞牌，任换荷官，任换牌靴等。
+                        <h4>老虎机及电子游戏</h4>
+                        我们的游戏包括轮盘、21点、电子扑克、老虎机等在线娱乐场游戏，并有对战游戏如扎金花，斗牛，二八杠，幸运骰等。
+                        <h4>体育博弈</h4>
+                        腾博会网罗世界各类体育赛事，玩家可以选择其喜爱体育项目进行游戏。腾博会开出盘口多，高水赔率及选择丰富。
+                        <h4>彩票</h4>
+                        腾博会提供各种精彩的快乐彩，100%官方赛果玩法新颖。
+                    </td>
+                    <td class="c">
+                        <h3>信息中心</h3>
+                        <h4>优惠活动</h4>
+                        新用户享有首次存款红利及开户礼品。老客户同样享有多种优惠服务。
+                        <h4>支付方式</h4>
+                        腾博会为客户提供众多的存取款方式并保障您存取过程顺利及时，使资金安全快捷到达。一旦成功存款，您即可享有腾博会提供的所有游戏项目。
+                        <h4>联系我们</h4>
+                        如果您有任何关于娱乐场的疑问，可通过在线客服、QQ、电话及电邮方式与我们取得联系。腾博会提供7*24小时不间断的贴心客户服务。
+                        <h4>常见问题</h4>
+                        通过常见问题可即时解答玩家关于腾博会账号，存提款，有关投资游戏等等问题。
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <%--右边漂浮广告--%>
+    <ul id="TplFloatPic_Right" class="TplFloatSet" style="position: absolute; cursor: pointer; z-index: 1000; top: 630.35px; right: 5px; width: 110px;" picfloat="right">
+        <li style="height: 253px;"><a href="http://www.tengfa8.com" target="_blank" style="width: 110px;">
+            <img src="<%=GetImage("~/image/tengfa_link.png")%>" style="border: 0px" />
+        </a></li>
+        <li><a onclick="$(this).float_close();" style="width: 110px;">
+            <img src="<%=GetImage("~/image/tengfa_close.png")%>" style="border: 0px" />
+        </a></li>
+    </ul>
+    <%--左边漂浮广告--%>
+    <%--<ul id="TplFloatPic_Left" class="TplFloatSet" style="position: absolute; cursor: pointer; z-index: 1000; top: 630.35px; left: 5px; width: 110px;" picfloat="left">
+        <li style="height: 253px;"><a href="<%=ResolveClientUrl("~/Register.aspx")%>" target="_self" style="width: 110px;">
+            <img src="<%=GetImage("~/image/float_left.jpg")%>" style="border: 0px" />
+        </a></li>
+        <li><a onclick="$(this).float_close();" style="width: 110px;">
+            <img src="<%=GetImage("~/image/tengfa_close.png")%>" style="border: 0px" />
+        </a></li>
+    </ul>--%>
+
+    <% if (!global::Member.DebugMode2) { %>
+    <div style="display: none">
+        <script id="cnzz" language="JavaScript"></script>
+        <script type="text/javascript" src="http://kf1.learnsaas.com/chat/chatClient/monitor.js?jid=8086264846&companyID=293933&configID=49705&codeType=custom"></script>
+        <%--<script type="text/javascript" src="http://www.123456.la/face.aspx?id=64a4acfb-dff5-4c08-b0f9-fc1ac82d5fa3"></script>--%>
+    </div>
+    <% } %>
+</asp:Content>

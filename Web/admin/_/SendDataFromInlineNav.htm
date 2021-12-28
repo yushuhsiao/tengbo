@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>http://stackoverflow.com/q/8477443/315935</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/redmond/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="http://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.3.0/css/ui.jqgrid.css" />
+    <link rel="stylesheet" type="text/css" href="http://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.3.0/plugin/ui.multiselect.css" />
+    <style type="text/css">
+        html, body {
+            font-size: 75%;
+        }
+        .ui-jqgrid .ui-pg-table td {
+            padding: 1px;
+        }
+        .ui-jqgrid .ui-jqgrid-toppager .ui-pg-div {
+            margin-top: 2px;
+        }
+        .ui-jqgrid .ui-jqgrid-toppager .ui-pg-div span.ui-icon {
+            margin-top: -2px;
+        }
+        .ui-jqgrid .ui-jqgrid-pager .ui-pg-div {
+            margin-top: 2px;
+        }
+        .ui-jqgrid .ui-jqgrid-pager .ui-pg-div span.ui-icon,
+        .ui-jqgrid .ui-jqgrid-toppager .ui-pg-div span.ui-icon {
+            float: none;
+            display: inline-block;
+            margin-top: -2px;
+        }
+        .ui-jqgrid .ui-jqgrid-toppager .ui-pg-div span.ui-pg-button-text,
+        .ui-jqgrid .ui-jqgrid-pager .ui-pg-div span.ui-pg-button-text {
+            padding-left: 0.2em;
+            padding-right: 0.2em;
+            margin-top: 0px;
+            float: none;
+        }
+        .ui-jqgrid .ui-paging-info {
+            height: auto;
+            margin-top: 0px;
+        }
+        .ui-jqgrid .ui-jqgrid-pager {
+            height: auto;
+        }
+        .ui-jqgrid .ui-jqgrid-toppager {
+            height: auto !important; /* remove default 25px !important setting */
+        }
+        .ui-jqgrid .ui-pg-table {
+            padding-bottom: 0px;
+        }
+        .ui-jqgrid .ui-pg-button {
+            height: auto !important; /* remove default 19px !important setting */
+        }
+        .ui-jqgrid .ui-pg-div {
+            //float: none;
+            text-align: center;
+            display: inline-block;
+            white-space: pre;
+        }
+        text-align: center;
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="Scripts/ui.multiselect.js"></script>
+    <script type="text/javascript" src="http://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.3.0/js/i18n/grid.locale-en.js"></script>
+    <script type="text/javascript">
+        $.jgrid.no_legacy_api = true;
+        $.jgrid.useJSON = true;
+    </script>
+    <script type="text/javascript" src="Scripts/jquery.jqGrid.js"></script>
+    <!--<script type="text/javascript" src="http://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.3.0/js/jquery.jqGrid.src-multiselect1.js"></script>-->
+    <script type="text/javascript" src="http://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.3.0/plugins/jquery.contextmenu-fixed2.js"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+        /*global $ */
+        /*jslint devel: true, browser: true, unparam: true */
+        $(document).ready(function () {
+            'use strict';
+            var mydata = [
+                    { id: "1",  invdate: "2007-10-01", name: "test",   note: "note",   amount: "200.00", tax: "10.00", closed: true,  ship_via: "TN", total: "210.00" },
+                    { id: "2",  invdate: "2007-10-02", name: "test2",  note: "note2",  amount: "300.00", tax: "20.00", closed: false, ship_via: "FE", total: "320.00" },
+                    { id: "3",  invdate: "2007-09-01", name: "test3",  note: "note3",  amount: "400.00", tax: "30.00", closed: false, ship_via: "FE", total: "430.00" },
+                    { id: "4",  invdate: "2007-10-04", name: "test4",  note: "note4",  amount: "200.00", tax: "10.00", closed: true,  ship_via: "TN", total: "210.00" },
+                    { id: "5",  invdate: "2007-10-31", name: "test5",  note: "note5",  amount: "300.00", tax: "20.00", closed: false, ship_via: "FE", total: "320.00" },
+                    { id: "6",  invdate: "2007-09-06", name: "test6",  note: "note6",  amount: "400.00", tax: "30.00", closed: false, ship_via: "FE", total: "430.00" },
+                    { id: "7",  invdate: "2007-10-04", name: "test7",  note: "note7",  amount: "200.00", tax: "10.00", closed: true,  ship_via: "TN", total: "210.00" },
+                    { id: "8",  invdate: "2007-10-03", name: "test8",  note: "note8",  amount: "300.00", tax: "20.00", closed: false, ship_via: "FE", total: "320.00" },
+                    { id: "9",  invdate: "2007-09-01", name: "test9",  note: "note9",  amount: "400.00", tax: "30.00", closed: false, ship_via: "TN", total: "430.00" },
+                    { id: "10", invdate: "2007-09-08", name: "test10", note: "note10", amount: "500.00", tax: "30.00", closed: true,  ship_via: "TN", total: "530.00" },
+                    { id: "11", invdate: "2007-09-08", name: "test11", note: "note11", amount: "500.00", tax: "30.00", closed: false, ship_via: "FE", total: "530.00" },
+                    { id: "12", invdate: "2007-09-10", name: "test12", note: "note12", amount: "500.00", tax: "30.00", closed: false, ship_via: "FE", total: "530.00" }
+                ],
+                $grid = $("#list"),
+                initDateEdit = function (elem) {
+                    setTimeout(function () {
+                        $(elem).datepicker({
+                            dateFormat: 'dd-M-yy',
+                            autoSize: true,
+                            //showOn: 'button', // it dosn't work in searching dialog
+                            changeYear: true,
+                            changeMonth: true,
+                            showButtonPanel: true,
+                            showWeek: true
+                        });
+                    }, 100);
+                },
+                initDateSearch = function (elem) {
+                    setTimeout(function () {
+                        $(elem).datepicker({
+                            dateFormat: 'dd-M-yy',
+                            autoSize: true,
+                            changeYear: true,
+                            changeMonth: true,
+                            showWeek: true,
+                            showButtonPanel: true
+                        });
+                    }, 100);
+                },
+                numberTemplate = {formatter: 'number', align: 'right', sorttype: 'number', editable: true,
+                    searchoptions: { sopt: ['eq', 'ne', 'lt', 'le', 'gt', 'ge', 'nu', 'nn', 'in', 'ni'] }},
+                topPagerSelector = '#' + $.jgrid.jqID($grid[0].id) + "_toppager",
+                normalizePagers = function (grid) {
+                    var $gridView = grid.closest("div.ui-jqgrid-view"),
+                        $gbox = grid.closest("div.ui-jqgrid"),
+                        $tds = $(">.ui-jqgrid-pager>.ui-pager-control>.ui-pg-table>tbody>tr>td", $gbox[0]).each(function () {
+                            this.style.width = "";
+                        }),
+                        tableWidth = $($tds[0]).children("table.ui-pg-table").width(),
+                        tdWidth = $($tds[0]).width(),
+                        $firstLeftRow;
+
+                    if (tableWidth > tdWidth) {
+                        $firstLeftRow = $($tds[0]).children("table.ui-pg-table").children("tbody").children("tr");
+                        $($tds[1]).children("table.ui-pg-table").children("tbody").children("tr").children("td")
+                            .appendTo($firstLeftRow);
+                        $($tds[1]).remove();
+                    }
+
+                    $tds = $(">.ui-jqgrid-toppager>.ui-pager-control>.ui-pg-table>tbody>tr>td", $gridView[0]).each(function () {
+                        this.style.width = "";
+                    });
+                    tableWidth = $($tds[0]).children("table.ui-pg-table").width();
+                    tdWidth = $($tds[0]).width();
+                    if (tableWidth > tdWidth) {
+                        $firstLeftRow = $($tds[0]).children("table.ui-pg-table").children("tbody").children("tr");
+                        $($tds[1]).children("table.ui-pg-table").children("tbody").children("tr").children("td")
+                            .appendTo($firstLeftRow);
+                        $($tds[1]).remove();
+                    }
+                },
+                updateButtonState = function (grid) {
+                    var isNonEditable, isEditing, $row, selectedId = grid.jqGrid('getGridParam', 'selrow'),
+                        rid = $.jgrid.jqID(selectedId), rowSelector = 'tr#' + rid;
+                    if (selectedId === null) {
+                        // no rows in grid - no View, no Edit, no Delete, but Add
+                        $("#add_list, #add_list_top, #list_iladd").removeClass('ui-state-disabled');
+                        $("#view_list_top, #del_list, #del_list_top, #edit_list, #edit_list_top, #list_iledit, #list_ilsave, list_ilcancel").addClass('ui-state-disabled');
+                    } else {
+                        $row = $(rowSelector);
+                        isEditing = $row.attr('editable') || '0';
+                        isNonEditable = $row.hasClass('not-editable-row');
+                        // no row selected or selected row has - no View, no Delete
+                        $("#view_list_top").removeClass('ui-state-disabled');
+                        if (isNonEditable) {
+                            $("#del_list, #del_list_top, #edit_list, #edit_list_top, #list_iledit").addClass('ui-state-disabled');
+                        } else if (isEditing === '1') {
+                            $("#list_ilsave, list_ilcancel").removeClass('ui-state-disabled');
+                            $("#add_list, #add_list_top, #list_iladd, #del_list, #del_list_top, #edit_list, #edit_list_top, #list_iledit").addClass('ui-state-disabled');
+                        } else {
+                            $("#list_ilsave, #list_ilcancel").addClass('ui-state-disabled');
+                            $("#add_list, #add_list_top, #list_iladd, #del_list, #del_list_top, #edit_list, #edit_list_top, #list_iledit").removeClass('ui-state-disabled');
+                            //$(rowSelector + " div.ui-inline-edit, " + rowSelector+" div.ui-inline-del","+rowSelector+ ".ui-jqgrid-btable:first").hide();
+                            //$(rowSelector + " div.ui-inline-save, " + rowSelector+" div.ui-inline-cancel","+rowSelector+ ".ui-jqgrid-btable:first").show();
+                        }
+                    }
+                },
+                lastSel,
+                myEditParams = {
+                    keys: true,
+                    oneditfunc: function () {
+                        updateButtonState($(this));
+                    },
+                    aftersavefunc: function () {
+                        updateButtonState($(this));
+                    },
+                    afterrestorefunc: function () {
+                        updateButtonState($(this));
+                    },
+                    extraparam: {
+                        _dokdata: function () {
+                            alert("in myEditParams:extraparam");
+                            return "Bla";
+                        }
+                    }
+                };
+
+            $grid.jqGrid({
+                datatype: 'local',
+                data: mydata,
+                colNames: [/*'Inv No', */'', 'Client', 'Date', 'Amount', 'Tax', 'Total', 'Closed', 'Shipped via', 'Notes'],
+                colModel: [
+                    //{ name: 'id', index: 'id', width: 70, align: 'center', sorttype: 'int', searchoptions: { sopt: ['eq', 'ne']} },
+                    { name: 'act', width: 55, formatter: 'actions', formatoptions: myEditParams },
+                    { name: 'name', index: 'name', align: 'center', editable: true, width: 65, editrules: { required: true} },
+                    { name: 'invdate', index: 'invdate', width: 80, align: 'center', sorttype: 'date',
+                        formatter: 'date', formatoptions: { newformat: 'd-M-Y' }, editable: true, datefmt: 'd-M-Y',
+                        editoptions: { dataInit: initDateEdit },
+                        searchoptions: { sopt: ['eq', 'ne', 'lt', 'le', 'gt', 'ge'], dataInit: initDateSearch } },
+                    { name: 'amount', index: 'amount', width: 75, template: numberTemplate },
+                    { name: 'tax', index: 'tax', width: 52, template: numberTemplate },
+                    { name: 'total', index: 'total', width: 60, template: numberTemplate },
+                    {name: 'closed', index: 'closed', width: 70, align: 'center', editable: true, formatter: 'checkbox',
+                        edittype: 'checkbox', editoptions: {value: 'Yes:No', defaultValue: 'Yes'},
+                        stype: 'select', searchoptions: { sopt: ['eq', 'ne'], value: ':Any;true:Yes;false:No' } },
+                    {name: 'ship_via', index: 'ship_via', width: 105, align: 'center', editable: true, formatter: 'select',
+                        edittype: 'select', editoptions: { value: 'FE:FedEx;TN:TNT;IN:Intim', defaultValue: 'IN' },
+                        stype: 'select', searchoptions: { sopt: ['eq', 'ne'], value: ':Any;FE:FedEx;TN:TNT;IN:IN' } },
+                    { name: 'note', index: 'note', width: 60, sortable: false, editable: true, edittype: 'textarea' }
+                ],
+                rowNum: 10,
+                rowList: [5, 10, 20],
+                pager: '#pager',
+                toppager: true,
+                gridview: true,
+                rownumbers: true,
+                //multiselect: true,
+                autoencode: true,
+                ignoreCase: true,
+                sortname: 'invdate',
+                //viewrecords: true,
+                sortorder: 'desc',
+                height: '100%',
+                caption: 'Demonstrate how to build contex menu which corresponds to navigator toolbar',
+                //editurl: 'clientArray',
+                editurl: 'dummyEditURL',
+                //multiselect: true,
+                onSelectRow: function (rowid) {
+                    updateButtonState($(this));
+                },
+                ondblClickRow: function (rowid, iRow, iCol, e) {
+                    var $this = $(this);
+                    $this.jqGrid('editRow', rowid, true, function () {
+                        $("input, select", e.target).focus();
+                        updateButtonState($this);
+                    }, null, null, {}, function () {
+                        updateButtonState($this);
+                    });
+                    return;
+                },
+                loadComplete: function () {
+                    updateButtonState($(this));
+                }
+            });
+
+            $grid.jqGrid('navGrid', topPagerSelector, {
+                view: true,
+                add: false,
+                edit: false,
+                addtext: '<span class="ui-pg-button-text">Add</span>',
+                edittext: '<span class="ui-pg-button-text">Edit</span>',
+                deltext: '<span class="ui-pg-button-text">Delete</span>',
+                searchtext: '<span class="ui-pg-button-text">Search</span>',
+                refreshtext: '<span class="ui-pg-button-text">Reload</span>',
+                viewtext: '<span class="ui-pg-button-text">View</span>'
+            });
+            $grid.jqGrid('inlineNav', topPagerSelector, {
+                addtext: '<span class="ui-pg-button-text">Add</span>',
+                edittext: '<span class="ui-pg-button-text">Edit</span>',
+                savetext: '<span class="ui-pg-button-text">Save</span>',
+                canceltext: '<span class="ui-pg-button-text">Cancel</span>',
+                addParams: {
+                    useDefValues: true,
+                    addRowParams: {
+                        keys: true,
+                        oneditfunc: function () {
+                            updateButtonState($(this));
+                        },
+                        aftersavefunc: function () {
+                            updateButtonState($(this));
+                        },
+                        afterrestorefunc: function () {
+                            updateButtonState($(this));
+                        },
+                        extraparam: {
+                            _dokdata: function () {
+                                alert("in addRowParams:extraparam");
+                                return "Bla";
+                            }
+                        }
+                    }
+                },
+                editParams: myEditParams
+            });
+            normalizePagers($grid);
+        });
+    //]]>
+    </script>
+</head>
+<body>
+    <table id="list"><tr><td /></tr></table>
+    <div id="pager"></div>
+</body>
+</html>

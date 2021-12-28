@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>jqueryui</title>
+    <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.3.custom.css" />
+    <script src="script/jquery-1.9.1.min.js"></script>
+    <script src="script/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $(function() {
+            $("#btn").click(function(){
+                $( "#dialog" ).dialog({
+                    title:"注意",//标题
+                    bgiframe:true,
+                    modal: true, //遮罩层开启
+                    overlay: {   //遮罩层参数
+                        backgroundColor: '#000',
+                        opacity: 0.5
+                    },
+                    buttons: { //按钮
+                        '确定': function() {
+                            $(this).dialog('close');
+                        }
+                    },
+                    open: function() {
+                        $(this).html("<div id='dialogtext'>请输入账号</div>"); //弹窗内容
+                        $(".ui-dialog").css('position', "fixed");
+                    }
+                });
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div id="dialog" title="Basic dialog">
+
+</div>
+<button id="btn">弹窗</button>
+</body>
+</html>

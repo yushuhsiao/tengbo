@@ -1,0 +1,5 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/tran/tran.master" AutoEventWireup="true" Inherits="masterpage" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="BU" %>
+<asp:Content ContentPlaceHolderID="head" runat="server"><asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder></asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server"><asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder></asp:Content>

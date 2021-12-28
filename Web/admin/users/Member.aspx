@@ -1,0 +1,123 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/admin.master" AutoEventWireup="true" CodeBehind="Member.aspx.cs" Inherits="web.page" %>
+<%@ Import Namespace="web" %>
+
+<script runat="server">
+    MenuRow menu_a;
+    MenuRow menu_m;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        MenuRow.Cache m = MenuRow.Cache.Instance;
+        menu_a = m.GetItem(this.User, BU.Permissions.Code.agents_list);
+        menu_m = m.GetItem(this.User, BU.Permissions.Code.members_list);
+    }
+</script>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script type="text/javascript">
+
+        var $table = null;
+        var parentID = null;
+        var recvMessage = {
+            AgentTree_Select: function (data) {
+                if (parentID != data) {
+                    parentID = data;
+                    if ($table) {
+                        $table.clearGridData();
+                        $table.reloadGrid();
+                    }
+                }
+            },
+            MemberRowData: function (data) { $table.restoreRow(data.ID); $table.setRowData(data.ID, data); }
+        }
+        function onPostData(command, postData) {
+            postData.ParentID = parentID;
+            var cmd = {};
+            cmd[command] = postData;
+            return cmd;
+        }
+
+        $(document).ready(function () {
+            sendMessage('AgentTree_GetSelect');
+            $table = $('#table01').jqGrid_init({
+                pager: true, subGrid: true, detail_root: '.details-m-root', autowidth: false, forceFit: false,
+                colModel: [
+                    { name: 'Action       ', label: '<%=lang["colAction       "]%>', colType: 'Buttons' },
+                    { name: 'ID           ', label: '<%=lang["colID           "]%>', colType: 'ID'<%if (showID) { %>, hidden: false<% }%>, search: false },
+                    { name: 'CorpID       ', label: '<%=lang["colCorpID       "]%>', colType: 'CorpID' },
+                    { name: 'ParentACNT   ', label: '<%=lang["colParentACNT   "]%>', colType: 'ACNT', search: true, editable: true, editonce: true },
+                    { name: 'ACNT         ', label: '<%=lang["colACNT         "]%>', colType: 'ACNT', width: 120, search: true },
+                    { name: 'Name         ', label: '<%=lang["colName         "]%>', width: 080, search: true, editable: true },
+                    { name: 'GroupID      ', label: '<%=lang["colGroupID      "]%>', width: 080, editable: true, editable_func: function (rwd, new_row) { return !new_row; }, formatter: 'select', formatoptions: {<%=serializeEnum<Guid, string>("value", web.MemberGroupRow.Cache.Instance.Value2)%> }, edittype: 'select', editoptions: { value_func: function (rowdata) { return <%=web.api.SerializeObject(web.MemberGroupRow.Cache.Instance.Value1)%>[rowdata.CorpID] || {}; } } },
+                    { name: 'Locked       ', label: '<%=lang["colLocked       "]%>', colType: 'Locked' },
+                    { name: 'Balance      ', label: '<%=lang["colBalance      "]%>', width: 080, editable: false, formatter: 'currency' },
+                    { name: 'Currency     ', label: '<%=lang["colCurrency     "]%>', colType: 'Currency', hidden: true },
+                    { name: 'Memo         ', label: '<%=lang["colMemo         "]%>', width: 080, editable: true },
+                    { name: 'CreateTime   ', label: '<%=lang["colCreateTime   "]%>', colType: 'DateTime2', sortable: true },
+                    { name: 'RegisterIP   ', label: '<%=lang["colRegisterIP   "]%>', width: 100, editable: false },
+                    { name: 'LoginTime    ', label: '<%=lang["colLoginTime    "]%>', colType: 'DateTime2' },
+                    { name: 'LoginIP      ', label: '<%=lang["colLoginIP      "]%>', width: 100, editable: false },
+                    { name: 'LoginCount   ', label: '<%=lang["colLoginCount   "]%>', width: 050, editable: false, editonce: false },
+                    { name: 'CreateUser   ', label: '<%=lang["colCreateUser   "]%>', colType: 'ACNT2' },
+                    { name: 'ModifyTime   ', label: '<%=lang["colModifyTime   "]%>', colType: 'DateTime2' },
+                    { name: 'ModifyUser   ', label: '<%=lang["colModifyUser   "]%>', colType: 'ACNT2' },
+                    { label: '.', width: 1500 }
+                ],
+                SelectCommand: function (postData) { return onPostData('MemberSelect', postData); },
+                UpdateCommand: function (postData) { return onPostData('MemberUpdate', postData); },
+                InsertCommand: function (postData) { return onPostData('MemberInsert', postData); },
+                subGridBeforeExpand: function (pID, id, ind) { },
+                subGridRowCreated: function (pID, id, ind, tablediv) {
+                    $('.tmp').clone().children().appendTo(tablediv);
+                    $('iframe', tablediv).load(function () {
+                        $(this).show();
+                        $('.detail-content-loading', tablediv).hide();
+                    }).prop('src', 'MemberDetails.aspx?id=' + id);
+                },
+                subGridRowExpanded: function (pID, id, ind, tablediv) { },
+                subGridBeforeColapsed: function (pID, id, ind, tablediv) { },
+                subGridRowRemoved: function (pID, id, ind, tablediv) { },
+                subGridRowColapsed: function (pID, id, ind, tablediv) { },
+                //loadBeforeSend: function (xhr, settings) {
+                //    if ($table == null) sendMessage('AgentTree_GetSelect');
+                //    return $table != null;
+                //}
+            });
+            $table.gridContainer().removeClass('ui-corner-all');
+
+            $(window).resize(function () { $table.gridSize(window); }).trigger('resize');
+        });
+   </script>
+    <style type="text/css">
+        .detail-content-loading div { background: url(../images/loading3_000000.gif) #fff no-repeat center center; width: 32px; height: 32px; margin: 1px; border-width: 1px; }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
+    <div class="tmp" style="display:none">
+        <div class="ui-widget-content ui-state-active detail-content-loading" style="display: inline-block;"><div></div></div>
+        <iframe frameBorder="0" style="display: none; width:100%; height:1px; border: 0;"></iframe>
+    </div>
+
+    <table id="table01">
+        <tr class="colModel">
+            <td name="Action">
+                <span property="action">
+                    <div class="edithide" action="editRow"    icon="ui-icon-pencil"><%=lang["Actions_Edit"]%></div>
+                    <div class="editshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow" action="saveRow"    icon="ui-icon-disk"  ><%=lang["Actions_Save"]%></div>
+                </span>
+            </td>
+        </tr>
+        <tr class="grid-option">
+            <td>
+                <div name="nav1" style="padding-left: 10px;">
+                    <button action="addRow"         icon="ui-icon-plus"><%=lang["btnAdd"]+lang["btnMember"]%></button>
+                    <% if (menu_a != null) { %><a action="link" icon="ui-icon-comment" href="<%=ResolveClientUrl(menu_a.Url)%>"><%=menu_a.GetLabel()%></a><% } %>
+                    <% if (menu_m != null) { %><a action="link" icon="ui-icon-comment" disabled="true"                         ><%=menu_m.GetLabel()%></a><% } %>
+                    <button action="toggleSearch"   icon="ui-icon-search"                 ><%=lang["btnSearch"]%></button>
+                    <button action="reloadGrid"     icon="ui-icon-refresh"                ><%=lang["btnRefresh"]%></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+

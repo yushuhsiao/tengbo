@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/tran/tran.master" AutoEventWireup="true" Inherits="web.AgentWithdrawal_master" %>
+
+<script runat="server">
+</script>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        var $table;
+        $(document).ready(function () {
+            $table = $('#table1').jqGrid_init($.extend(grid_opt, {
+                colModel: [
+                    col.Action(), col.Accept(), col.Finish(), col.AcceptTime(), //col.IsAccepted(),
+                    col.SerialNumber(), col.LogType({ hidden: true }), col.State(), col.FinishTime(), col.CreateTime(),
+                    col.CorpID(),
+                    col.ParentACNT(),
+                    col.UserType({ hidden: true }),
+                    col.UserACNT(),
+                    col.UserName(),
+                    col.Amount(),
+                    col.PCT(),
+                    col.CashAmount(),
+                    col.Fees1(), col.Fees2(), col.Fees1x(), col.Fees2x(),
+                    col.Currency(),
+                    col.Memo1(), col.Memo2(),
+                    col.ProviderACNT(),
+                    col.ProviderID(),
+                    col.ParentID(),
+                    col.UserID(),
+                    col.b_BankName(), col.b_CardID(), col.b_Name(),
+                    col.a_BankName(), col.a_CardID(), col.a_Name(), col.a_TranTime(), col.a_TranSerial(), col.a_TranMemo(),
+                    col.RequestIP(), col.CreateUser(), col.ModifyTime(), col.ModifyUser(), col.CashChannelID(), col.ID()
+                ]
+            }));
+            //$table.setGroupHeaders({
+            //    useColSpanStyle: true,
+            //    groupHeaders: [
+            //        { startColumnName: 'Action', numberOfColumns: 8, titleText: '' },
+            //        { startColumnName: 'CorpID', numberOfColumns: 9, titleText: '' },
+            //        { startColumnName: 'Amount', numberOfColumns: 6, titleText: '' },
+            //        { startColumnName: 'Memo1', numberOfColumns: 2, titleText: '<%=lang["grpMemo_AgentWithdrawal"]%>' },
+            //        { startColumnName: 'a_BankName', numberOfColumns: 6, titleText: '<%=lang["grpBankCardA_AgentWithdrawal"]%>' },
+            //        { startColumnName: 'b_BankName', numberOfColumns: 3, titleText: '<%=lang["grpBankCardB_AgentWithdrawal"]%>' },
+            //        { startColumnName: 'RequestIP', numberOfColumns: 4, titleText: '' }
+            //    ]
+            //});
+            <% if (this.UserID.HasValue) { %>
+            iframe_auto_height();
+            //$table.hideCol('CorpID');
+            //$table.hideCol('AgentACNT');
+            //$table.hideCol('UserACNT');
+            //$table.hideCol('UserName');
+            //$('.ui-th-column,.ui-th-column-header', $table[0].grid.$rowheader).removeClass('ui-state-default').addClass('ui-widget-content');
+            <% } else { %>
+            $(window).resize(function () { $table.gridSize(window); }).trigger('resize');
+            <% } %>
+        });
+    </script>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <table id="table1">
+        <tr class="colModel">
+            <td name="Action">
+                <span property="action">
+                    <div class="edithide"   action="editRow"    icon="ui-icon-pencil"><%=lang["Actions_Edit"]%></div>
+                    <div class="edithide"   action="delRow"     icon="ui-icon-trash" <% if (this.IsHist) { %> disabled="disabled" <% } %>><%=lang["Actions_Delete"]%></div>
+                    <div class="deleteshow" action="saveRow"    icon="ui-icon-trash" ><%=lang["Actions_Delete"]%></div>
+                    <div class="deleteshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow"   action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow"   action="saveRow"    icon="ui-icon-disk"  ><%=lang["Actions_Save"]%></div>
+                </span>
+            </td>
+        </tr>
+        <tr class="grid-option">
+            <td>
+                <div name="nav1">
+                    <button action="addRow" icon="ui-icon-plus" <% if (this.IsHist) { %> disabled="disabled" <% } %>><%=lang["btnAdd"]%></button>
+                    <button action="toggleSearch" icon="ui-icon-search"><%=lang["btnSearch"]%></button>
+                    <button action="reloadGrid" icon="ui-icon-refresh"><%=lang["btnRefresh"]%></button>
+                    <a action="link" icon="ui-icon-tag" <%    if (!this.IsHist) { %>disabled="disabled"<% } %> href="<%=ResolveClientUrl(link1.Url)%><%=url_id%>"><%=link1.GetLabel()%></a>
+                    <a action="link" icon="ui-icon-comment" <% if (this.IsHist) { %>disabled="disabled"<% } %> href="<%=ResolveClientUrl(link2.Url)%><%=url_id%>"><%=link2.GetLabel()%></a>
+                </div>
+                <%--<div name="nav2" class="ui-widget-content" style=""></div>--%>
+            </td>
+        </tr>
+    </table>
+</asp:Content>

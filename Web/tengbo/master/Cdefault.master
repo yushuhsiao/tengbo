@@ -1,0 +1,17 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/master/root.Master" AutoEventWireup="true" Inherits="SiteMasterPage" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(function () {
+            $(document).bind("contextmenu", function (e) {
+                return false;
+            });
+            $(window).resize(function () {
+                $(".window").centerY();
+            }).trigger("resize");
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

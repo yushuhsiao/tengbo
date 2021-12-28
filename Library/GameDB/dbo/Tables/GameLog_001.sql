@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[GameLog_001] (
+    [ID]           BIGINT          IDENTITY (1, 1) NOT NULL,
+    [ACTime]       SMALLDATETIME   NOT NULL,
+    [CorpID]       INT             NOT NULL,
+    [MemberID]     INT             NOT NULL,
+    [ACNT]         VARCHAR (20)    NOT NULL,
+    [AgentID]      INT             NOT NULL,
+    [AgentACNT]    VARCHAR (20)    NOT NULL,
+    [AccountId]    VARCHAR (50)    NULL,
+    [UserID]       VARCHAR (100)   NULL,
+    [BetStartTime] DATETIME        NULL,
+    [BetEndTime]   DATETIME        NULL,
+    [TableId]      CHAR (16)       NULL,
+    [TableName]    VARCHAR (100)   NULL,
+    [GameId]       CHAR (24)       NULL,
+    [BetId]        CHAR (32)       NULL,
+    [BetAmount]    DECIMAL (19, 6) NULL,
+    [BetAmountAct] DECIMAL (19, 6) NULL,
+    [Payout]       DECIMAL (19, 6) NULL,
+    [Currency]     VARCHAR (3)     NULL,
+    [GameType]     VARCHAR (100)   NULL,
+    [BetSpot]      VARCHAR (80)    NULL,
+    [BetNo]        CHAR (32)       NULL,
+    CONSTRAINT [PK_GameLog_001] PRIMARY KEY CLUSTERED ([ID] ASC),
+    CONSTRAINT [IX_GameLog_001] UNIQUE NONCLUSTERED ([MemberID] ASC, [BetId] ASC)
+);
+

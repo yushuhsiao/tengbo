@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{124FF339-1706-4E7D-8637-85C448468A08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>web</RootNamespace>
+    <AssemblyName>api</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;api</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;api</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net35\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="com.yeepay\com.yeepay.icc\Buy.cs" />
+    <Compile Include="com.yeepay\com.yeepay.icc\BuyCallbackResult.cs" />
+    <Compile Include="com.yeepay\com.yeepay.icc\BuyQueryOrdDetailResult.cs" />
+    <Compile Include="com.yeepay\com.yeepay.icc\ICCBuyRefundOrdResult.cs" />
+    <Compile Include="com.yeepay\com.yeepay.utils\Digest.cs" />
+    <Compile Include="com.yeepay\com.yeepay.utils\FormatQueryString.cs" />
+    <Compile Include="com.yeepay\com.yeepay.utils\HmacMD5.cs" />
+    <Compile Include="com.yeepay\com.yeepay.utils\HttpUtils.cs" />
+    <Compile Include="extAPI\pt.cs" />
+    <Compile Include="game\PT.cs" />
+    <Compile Include="tran\dinpay_v3.ashx.cs" />
+    <Compile Include="tran\ecpss.ashx.cs" />
+    <Compile Include="tran\yeepay.ashx.cs" />
+    <None Include="..\Tools\LinqBridge\ExtensionAttribute.cs">
+      <Link>ExtensionAttribute.cs</Link>
+    </None>
+    <Compile Include="api.cs" />
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Currency.cs" />
+    <Compile Include="DB.cs" />
+    <Compile Include="Defines.cs" />
+    <Compile Include="tran\dinpay.ashx.cs" />
+    <Compile Include="extAPI\ag.cs" />
+    <Compile Include="extAPI\bbin.cs" />
+    <Compile Include="extAPI\ea.cs" />
+    <Compile Include="extAPI\enum.cs" />
+    <Compile Include="game\KENO.cs" />
+    <Compile Include="game\WFT.cs" />
+    <Compile Include="game\BBIN.cs" />
+    <Compile Include="game\AG.cs" />
+    <Compile Include="game\EA.cs" />
+    <Compile Include="game\HG.cs" />
+    <Compile Include="game\UserGame.cs" />
+    <Compile Include="logs\BetAmtDG.aspx.cs" />
+    <Compile Include="logs\GameLogRow.cs" />
+    <Compile Include="extAPI\hg.cs" />
+    <Compile Include="extAPI\hg.defines.cs" />
+    <Compile Include="extAPI\keno.cs" />
+    <Compile Include="extAPI\MakeAndParsXMLHG.cs" />
+    <Compile Include="extAPI\util.cs" />
+    <Compile Include="extAPI\WinningFT.cs" />
+    <Compile Include="extAPI\_base.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="jgrid.cs" />
+    <Compile Include="MenuRow.cs" />
+    <Compile Include="page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Permissions.cs" />
+    <Compile Include="Poker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="protocol.cs" />
+    <Compile Include="RowError.cs" />
+    <Compile Include="sqltool.cs" />
+    <Compile Include="Text.cs" />
+    <Compile Include="tran\Game.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tran\CashChannel.cs" />
+    <Compile Include="tran\TranLog.cs" />
+    <Compile Include="tran\TranCore.cs" />
+    <Compile Include="tran\TranPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tran\Cash.cs" />
+    <Compile Include="tran\Promo.cs" />
+    <Compile Include="Users.cs" />
+    <Compile Include="webAPI\Anno.cs" />
+    <Compile Include="webAPI\Bank.cs" />
+    <Compile Include="webAPI\BankCard.cs" />
+    <Compile Include="webAPI\Billboard.cs" />
+    <Compile Include="webAPI\Config.cs" />
+    <Compile Include="admin\Corp.aspx.cs" />
+    <Compile Include="webAPI\Game.cs" />
+    <Compile Include="webAPI\GameTran.cs" />
+    <Compile Include="admin\Group.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow_BBIN.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow_EA.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow_HG.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow_KENO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="webAPI\subacc\MemberGameRow_WFT.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow_AG.cs" />
+    <Compile Include="webAPI\Tran.cs" />
+    <Compile Include="admin\UserList.aspx.cs" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tools\Tools.csproj">
+      <Project>{c7be9b7b-151d-45bd-b098-5e8a90959ed6}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

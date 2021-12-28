@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[ID1] (
+    [I] INT              IDENTITY (1, 1) NOT NULL,
+    [G] UNIQUEIDENTIFIER NOT NULL,
+    [T] VARCHAR (10)     NULL,
+    [C] INT              NULL,
+    [A] VARCHAR (20)     NULL,
+    CONSTRAINT [PK_ID1] PRIMARY KEY CLUSTERED ([I] ASC),
+    CONSTRAINT [IX_ID1] UNIQUE NONCLUSTERED ([G] ASC)
+);
+

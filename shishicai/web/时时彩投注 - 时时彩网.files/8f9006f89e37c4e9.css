@@ -1,0 +1,1440 @@
+a {
+	outline: 0px; color: silver; text-decoration: none;
+}
+a:hover {
+	color: rgb(255, 186, 38); text-decoration: underline;
+}
+em {
+	font-size: 12px; font-style: normal;
+}
+i {
+	font-size: 12px; font-style: normal;
+}
+.f_highlight {
+	color: rgb(255, 204, 0);
+}
+.f-red {
+	color: red;
+}
+.icos {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/kuaikai/ico_clock.gif") no-repeat 0px; width: 16px; height: 16px; line-height: 200px; overflow: hidden; display: inline-block;
+}
+.headerInner h1 {
+	width: 190px; height: 61px; line-height: 300em; overflow: hidden; float: left;
+}
+.headerInner h1 a {
+	float: left; display: block;
+}
+a.cqsscLogo {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/cqsscLogo.png") no-repeat left top; width: 190px; height: 61px;
+}
+.cLoading {
+	margin: 15px 0px; width: 98%; text-align: center; color: rgb(255, 255, 255); float: left;
+}
+.cLoading span {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/loading.gif") no-repeat 0px; padding: 8px 0px 8px 30px; display: inline-block;
+}
+.liHighlight li {
+	background: rgb(235, 171, 0); border-width: 1px; border-style: solid; border-color: rgb(245, 211, 20) rgb(183, 126, 59) rgb(183, 126, 59) rgb(245, 211, 20); color: rgb(0, 0, 0); line-height: 20px; overflow: hidden;
+}
+.deftlight li {
+	background: rgb(71, 71, 71); border-width: 1px; border-style: solid; border-color: rgb(99, 99, 99) rgb(52, 52, 52) rgb(52, 52, 52) rgb(99, 99, 99); height: 21px; color: rgb(204, 204, 204); line-height: 21px; overflow: hidden;
+}
+.frameInner {
+	background: rgb(71, 71, 71);
+}
+.lottery {
+	background: rgb(241, 241, 241); border-width: 1px 1px 3px; border-style: solid; border-color: rgb(0, 0, 0); width: 978px; height: 202px; float: left; position: relative; z-index: 10; _float: none;
+}
+.lotNow {
+	padding: 7px 0px 0px 7px; width: 478px; height: 195px; text-align: center; color: rgb(255, 255, 255); line-height: 190px; font-family: Arial,Tahoma; font-size: 16px; font-weight: 700; float: left;
+}
+.sumInfo {
+	padding: 11px 7px 0px 0px; width: 475px; height: 191px; float: right;
+}
+.sumInfo .sListt {
+	background: rgb(241, 241, 241); width: 100%; height: 20px; overflow: hidden; padding-top: 2px; float: left;
+}
+.sListt a {
+	background: rgb(75, 75, 75); padding: 0px 10px; height: 20px; color: rgb(153, 153, 153); line-height: 20px; margin-right: 5px; float: left; display: inline-block;
+}
+.sListt a.active {
+	background: rgb(36, 36, 36); height: 22px; color: rgb(235, 171, 0); line-height: 22px; margin-top: -2px; float: left;
+}
+.sListt a:hover {
+	text-decoration: none;
+}
+.sListc {
+	border: 1px solid rgb(36, 36, 36); width: 473px; height: 156px; float: left; display: none; _width: 470px;
+}
+.sListc p.cpt {
+	background: rgb(36, 36, 36); margin: 0px; padding: 0px; height: 19px; line-height: 19px;
+}
+.sListTH {
+	background: rgb(218, 158, 0); height: 18px; padding-right: 11px; overflow-y: hidden;
+}
+.sListTH table {
+	width: 100%; color: rgb(17, 17, 17);
+}
+.sListTD {
+	background: rgb(235, 171, 0); width: 100%; height: 119px; color: rgb(17, 17, 17); overflow: hidden; position: relative;
+}
+.sListTD .jscroll-h {
+	background: orange;
+}
+.sListTD table {
+	width: 100%; border-collapse: separate; border-spacing: 0;
+}
+.sListTD table tr td {
+	border-top-color: rgb(245, 211, 20); border-bottom-color: rgb(183, 126, 59); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; white-space: pre-line; word-wrap: break-word;
+}
+.sListTD table tr.win {
+	background: rgb(169, 0, 3); color: rgb(255, 255, 255);
+}
+.sListTD table tr.win td {
+	border-top-color: rgb(199, 62, 68); border-bottom-color: rgb(134, 0, 0); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.sListTD table tr.false {
+	background: rgb(221, 221, 221);
+}
+.sListTD table tr.false td {
+	border-top-color: rgb(246, 246, 246); border-bottom-color: rgb(178, 178, 178); border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid;
+}
+.sListTH th {
+	text-align: center;
+}
+.sListTD td {
+	text-align: center;
+}
+.i1 {
+	width: 15%;
+}
+.sListTH .i1 {
+	width: 15%;
+}
+.sListTD .i1 {
+	width: 15%;
+}
+.i2 {
+	width: 28%;
+}
+.sListTH .i2 {
+	width: 28%;
+}
+.sListTD .i2 {
+	width: 28%;
+}
+.i3 {
+	width: 7%;
+}
+.sListTH .i3 {
+	width: 7%;
+}
+.sListTD .i3 {
+	width: 7%;
+}
+.i4 {
+	width: 15%;
+}
+.sListTH .i4 {
+	width: 15%;
+}
+.sListTD .i4 {
+	width: 15%;
+}
+.i5 {
+	width: 12%;
+}
+.sListTH .i5 {
+	width: 12%;
+}
+.sListTD .i5 {
+	width: 12%;
+}
+.i6 {
+	width: 18%;
+}
+.sListTH .i6 {
+	width: 18%;
+}
+.sListTD .i6 {
+	width: 18%;
+}
+.sListTD .i5 a {
+	color: red;
+}
+.shadowBottom {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/shadow_b.gif") no-repeat 100% 0px; width: 100%; height: 6px; right: -5px; float: left; display: none; position: relative;
+}
+.shadowBottom .shadowBottomL {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/shadow_bl.gif") no-repeat 0px 0px; left: -5px; top: 0px; width: 12px; height: 6px; float: left; position: absolute;
+}
+.section {
+	background: rgb(71, 71, 71); border-width: 1px 1px 3px; border-style: solid; border-color: rgb(0, 0, 0); width: 978px; color: rgb(204, 204, 204); padding-bottom: 10px; margin-top: 10px; float: left;
+}
+.classCheck {
+	background: rgb(241, 241, 241); width: 100%; height: 60px; float: left;
+}
+.classCheck li {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/class_ibg01.png") no-repeat 0px 0px; width: 100px; height: 58px; padding-left: 54px; border-left-color: rgb(168, 168, 168); border-left-width: 1px; border-left-style: solid; float: left;
+}
+.classCheck .c1 {
+	width: 70px; border-left-color: currentColor; border-left-width: 0px; border-left-style: none; background-image: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/class_ibg01.png");
+}
+.classCheck .c2 {
+	width: 80px; background-image: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/class_ibg02.png");
+}
+.classCheck .c3 {
+	width: 196px; background-image: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/class_ibg03.png");
+}
+.classCheck .c4 {
+	width: 100px; background-image: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/class_ibg04.png");
+}
+.classCheck .c5 {
+	width: 70px; background-image: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/class_ibg05.png");
+}
+.classCheck .c6 {
+	width: 129px; background-image: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/class_ibg06.png");
+}
+.classCheck li a {
+	margin: 8px 6px 0px 0px; padding: 0px 5px; height: 16px; color: rgb(0, 0, 0); line-height: 17px; float: left; white-space: nowrap;
+}
+.classCheck li a:hover {
+	color: rgb(217, 6, 19); text-decoration: none;
+}
+.classCheck li a.active {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/btn_pall.gif") no-repeat right -69px; color: rgb(255, 234, 0); padding-right: 0px; padding-left: 0px; margin-left: 5px; display: inline-block; cursor: pointer;
+}
+.classCheck li a.active span {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/btn_pall.gif") no-repeat -104px -69px; left: -5px; padding-left: 5px; float: left; white-space: nowrap; position: relative;
+}
+.classCheck li a.tr {
+	margin-left: 28px;
+}
+.section .subTab li a {
+	position: relative;
+}
+.classCheck li .award {
+	top: -12px; width: 27px; height: 18px; right: -4px; display: inline-block; position: absolute;
+}
+.classCheck li .addmoney {
+	top: -12px; width: 27px; height: 18px; right: -4px; display: inline-block; position: absolute;
+}
+.subTab li .award {
+	top: -12px; width: 27px; height: 18px; right: -4px; display: inline-block; position: absolute;
+}
+.subTab li .addmoney {
+	top: -12px; width: 27px; height: 18px; right: -4px; display: inline-block; position: absolute;
+}
+.classTab li .award {
+	top: -12px; width: 27px; height: 18px; right: -4px; display: inline-block; position: absolute;
+}
+.classTab li .addmoney {
+	top: -12px; width: 27px; height: 18px; right: -4px; display: inline-block; position: absolute;
+}
+.classCheck li .addmoney {
+	background-image: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/ico_addmoney.gif");
+}
+.subTab li .addmoney {
+	background-image: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/ico_addmoney.gif");
+}
+.classTab li .award {
+	background-image: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/ico_addmoney.gif");
+}
+.classTab li .addmoney {
+	background-image: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/ico_addmoney.gif");
+}
+.nPanel {
+	padding-left: 10px;
+}
+.panelItem {
+	width: 978px; color: rgb(208, 208, 208); padding-bottom: 4px; margin-top: 4px; margin-left: -10px; border-bottom-color: rgb(84, 84, 84); border-bottom-width: 1px; border-bottom-style: solid; float: left; display: inline;
+}
+.panelItem em {
+	margin: 0px 10px; font-size: 14px; font-weight: 700; float: left;
+}
+.panelItem q {
+	color: rgb(170, 170, 170); margin-left: 8px;
+}
+.panelItem q::after {
+	content: "";
+}
+.panelItem q::before {
+	content: "";
+}
+.panelItem .instruction {
+	color: rgb(221, 221, 221); font-weight: 700; position: relative; z-index: 100;
+}
+.panelItem .instruction .pop {
+	left: 0px; top: 14px; font-size: 12px; position: absolute;
+}
+.panelItem .instruction .pop table {
+	background: rgb(255, 255, 255); border: 1px solid rgb(237, 153, 43); color: rgb(51, 51, 51); font-weight: 400; border-collapse: separate; border-spacing: 0;
+}
+.panelItem .instruction .pop th {
+	background: rgb(255, 239, 202); border-width: 1px; border-style: solid; border-color: rgb(255, 239, 202) rgb(255, 239, 202) rgb(247, 214, 157); padding: 1px 10px; text-align: left; color: rgb(209, 0, 0); font-size: 12px; font-weight: 400; white-space: nowrap;
+}
+.panelItem .instruction .pop td {
+	border-width: 1px; border-style: solid; border-color: rgb(255, 255, 255) rgb(255, 255, 255) rgb(247, 214, 157) rgb(247, 214, 157); padding: 1px 10px; white-space: nowrap;
+}
+.panelItem .instruction .pop .orange {
+	color: rgb(209, 0, 0);
+}
+.panelItem .panelItemr {
+	margin-right: 10px; float: right;
+}
+.panelItem a {
+	color: rgb(208, 208, 208); font-size: 13px; font-weight: 700; text-decoration: none; margin-left: 15px;
+}
+.panelItem a:hover {
+	color: rgb(235, 171, 0);
+}
+.panelItem a.active {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/ico_sub.gif") no-repeat bottom; color: rgb(235, 171, 0); padding-bottom: 4px;
+}
+.panelLeft {
+	width: 434px; color: rgb(204, 204, 204); margin-top: 12px; float: left; display: inline; position: relative; z-index: 10;
+}
+.tab_panel {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/kuaikai/tab_panel.gif") repeat-x bottom; margin: 0px; width: 420px; padding-left: 10px; float: left;
+}
+.tab_panel li {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/tab_panel_li.png") no-repeat 0px 0px; margin: 0px 0px 0px -1px; padding: 0px; width: 80px; height: 26px; text-align: center; color: rgb(193, 193, 193); line-height: 25px; float: left; display: inline-block; cursor: pointer;
+}
+.tab_panel li.active {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/tab_panel_li.png") no-repeat -79px 0px; margin: 0px 0px 0px -1px; height: 26px; color: rgb(255, 204, 99); line-height: 25px; font-weight: 400;
+}
+.tab_panel li span {
+	padding: 0px; float: none;
+}
+.tab_panel li.active span {
+	padding: 0px; float: none;
+}
+.tab_panel li.sumInfoMore {
+	margin-right: 12px; float: right;
+}
+.tab_panel li.sumInfoMore a {
+	top: -4px; color: rgb(204, 204, 204); position: relative;
+}
+.panelList {
+	background: rgb(85, 85, 85); border-width: 0px 1px 1px; border-style: none solid solid; border-color: currentColor rgb(102, 102, 102) rgb(102, 102, 102); padding: 10px 5px 0px 0px; width: 423px; color: rgb(204, 204, 204); float: left;
+}
+.panelList .pItem {
+	width: 128px; margin-bottom: 15px; margin-left: 10px; float: left; display: inline;
+}
+.panelList .pItem li {
+	width: 128px; height: 19px; line-height: 19px; clear: left; margin-top: 2px; float: left; display: inline; position: relative;
+}
+.panelList .pItem .plnum {
+	width: 38px; text-align: right; margin-right: 8px; display: inline-block;
+}
+.panelList .pItem .plitemt {
+	width: 82px; display: inline-block;
+}
+.panelList .pItem .plitem {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/btn_pall.gif") no-repeat 0px -183px; width: 66px; height: 19px; text-align: center; color: rgb(0, 0, 0); line-height: 19px; display: inline-block; position: relative; z-index: 10; cursor: pointer;
+}
+.panelList .pItem .active {
+	background-position: 0px -207px; color: rgb(255, 255, 255);
+}
+.panelList .pItem .active span {
+	background-image: none;
+}
+.panelList .pItem .active em {
+	background-image: none;
+}
+.panelList .pItem .item {
+	text-align: center; color: rgb(235, 171, 0); font-weight: 700;
+}
+.panelList .p1 li {
+	z-index: 30;
+}
+.panelList .p2 li {
+	z-index: 20;
+}
+.panelList .p3 li {
+	z-index: 10;
+}
+.panelList .pItem .tip {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/tip_pItem.gif") no-repeat 0px 0px; left: 115px; top: -10px; width: 207px; overflow: hidden; padding-top: 22px; float: left; display: none; position: absolute; z-index: 210;
+}
+.panelList .pItem .tip .tip_in {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/tip_pItem.gif") no-repeat 0px bottom; width: 207px; padding-bottom: 10px; float: left;
+}
+.panelList .pItem .tip .tip_inC {
+	margin: -12px 1em 0px 18px; color: rgb(0, 0, 0); float: left; position: relative;
+}
+.panelList .panelTble {
+	margin: -2px 0px 0px 8px; width: 411px; padding-bottom: 10px; float: left; display: inline; _position: relative;
+}
+.panelList .panelTble table {
+	width: 100%;
+}
+.panelList .panelTble th {
+	background: rgb(156, 156, 156); text-align: center; color: rgb(0, 0, 0); font-weight: 400;
+}
+.panelList .panelTble td {
+	background: rgb(185, 185, 185); border-width: 1px 1px 0px 0px; border-style: solid solid none none; border-color: rgb(152, 152, 152) rgb(152, 152, 152) currentColor currentColor; text-align: center; color: rgb(0, 0, 0);
+}
+.panelList .panelTble td.n {
+	color: rgb(119, 119, 119);
+}
+.panelList .panelTble td.n strong {
+	color: rgb(0, 0, 0); font-weight: 400;
+}
+.panelList .t_comn {
+	margin-top: 3px;
+}
+.panelList .t_comn th {
+	background: rgb(187, 187, 187); color: rgb(0, 0, 0);
+}
+.panelList .t_comn td {
+	padding: 0px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 0px; border-bottom-style: solid;
+}
+.panelList .t_comn .bdr {
+	border-left-color: rgb(204, 204, 204); border-left-width: 1px; border-left-style: solid;
+}
+.panelList .t_comn th.bdr {
+	border-left-color: rgb(170, 170, 170); border-left-width: 1px; border-left-style: solid;
+}
+.panelList .t_comn .s_th th {
+	background: rgb(217, 217, 217);
+}
+.panelList .t_comn .s_th th.bdr {
+	border-left-color: rgb(204, 204, 204); border-left-width: 1px; border-left-style: solid;
+}
+.panelList .panelTble2 table {
+	background: rgb(228, 228, 228); width: 24.7%; margin-left: 1px; float: left;
+}
+.panelList .panelTble2 th {
+	background: rgb(36, 36, 36); color: rgb(204, 204, 204); font-weight: 400;
+}
+.panelList .panelTble2 td {
+	padding: 0px; color: rgb(51, 51, 51);
+}
+.numCheck {
+	width: 500px; color: rgb(204, 204, 204); margin-top: 12px; margin-right: 10px; float: right; _position: relative; _margin-left: 0;
+}
+.numAreaTab {
+	width: 100%; margin-bottom: 10px; margin-left: -4px; float: left;
+}
+.numAreaTab li {
+	margin-right: 15px; float: left; cursor: pointer;
+}
+.numAreaTab li.fr {
+	margin-right: 0px; float: right;
+}
+.numAreaTab li a.random {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/random.png") no-repeat; width: 65px; height: 20px; text-align: center; color: rgb(0, 0, 0); line-height: 20px; text-decoration: none; display: inline-block;
+}
+.numAreaTab li a.random:hover {
+	background-position: 0px -36px; color: rgb(0, 0, 0);
+}
+.numAreaTab li a.random:active {
+	background-position: 0px -68px; color: rgb(0, 0, 0);
+}
+.numAreaTab li input {
+	bottom: -2px; position: relative;
+}
+.numArea {
+	width: 100%; float: left;
+}
+.numArea .limitation {
+	background: rgb(51, 51, 51); border-width: 1px 1px 3px; border-style: solid; border-color: rgb(83, 83, 83); padding: 3px 10px;
+}
+.numArea .limitation a {
+	color: rgb(204, 204, 204); text-decoration: underline; float: right;
+}
+.numArea .btn_numlist {
+	width: 100%; padding-top: 6px; margin-bottom: 1px; border-bottom-color: rgb(83, 83, 83); border-bottom-width: 1px; border-bottom-style: solid; float: left;
+}
+.btn_numlist li {
+	width: 24px; text-align: center; margin-right: 14px; float: left; display: inline;
+}
+.btn_numlist li span {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/btn_pall.gif") no-repeat -45px -6px; font: 14px/24px Arial; width: 26px; height: 26px; color: rgb(0, 0, 0); text-indent: -1px; display: inline-block; cursor: pointer; font-size-adjust: none; font-stretch: normal; -moz-user-select: none;
+}
+.btn_numlist li span.active {
+	background-position: -45px -46px; color: rgb(255, 255, 255);
+}
+.btn_numlist li p {
+	color: rgb(153, 153, 153); padding-top: 0px; margin-top: -2px;
+}
+.btn_numlist li .hot {
+	color: red;
+}
+.btn_numlist .nums {
+	width: auto;
+}
+.btn_numlist .nums em {
+	height: 26px; color: rgb(235, 171, 0); line-height: 26px; font-size: 14px; font-weight: 700; display: inline-block;
+}
+.btn_numlist .nums p {
+	color: rgb(214, 214, 214); margin-top: -2px;
+}
+.btn_numlist .selectAll {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/kuaikai/selectAllbg.gif") no-repeat 100% 0px; width: 40px; height: 30px; margin-right: 5px; float: right; position: relative;
+}
+.btn_numlist .s_all {
+	background: rgb(255, 247, 179); padding: 5px; border-radius: 3px; border: 1px solid rgb(51, 51, 51); left: -30px; top: 0px; width: 72px; float: left; display: none; position: absolute; z-index: 200; -moz-border-radius: 3px; -webkit-border-radius: 3px;
+}
+.btn_numlist .s_all li {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/btn_pall.gif") no-repeat -82px -6px; margin: 2px; width: 20px; height: 20px; color: rgb(0, 0, 0); display: inline; cursor: pointer;
+}
+.btn_numlist .z1 {
+	z-index: 30;
+}
+.btn_numlist .z2 {
+	z-index: 20;
+}
+.btn_numlist .z3 {
+	z-index: 15;
+}
+.btn_numlist .z4 {
+	z-index: 10;
+}
+.btn_numlist .z5 {
+	z-index: 5;
+}
+.numCheck .switch {
+	float: right;
+}
+.numCheck .switch input {
+	bottom: -2px; position: relative;
+}
+.siftTool {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/shadow_r.gif") no-repeat 100% 0px rgb(36, 36, 36); width: 495px; color: rgb(204, 204, 204); padding-right: 5px; float: left;
+}
+.siftTool .siftTab {
+	background: rgb(0, 0, 0); width: 100%; height: 26px; line-height: 26px; float: left;
+}
+.siftTool .siftTab .sift_tool {
+	margin-left: 5px; float: left;
+}
+.siftTool .siftTab .sift_tool input {
+	bottom: -3px; position: relative;
+}
+.siftTool .siftTab .sift_tool label {
+	cursor: pointer;
+}
+.siftTool .siftTab .tab {
+	margin-left: 15px; float: left;
+}
+.siftTool .siftTab .tab a {
+	height: 22px; color: rgb(204, 204, 204); line-height: 20px; margin-top: 4px; margin-right: 10px; float: left;
+}
+.siftTool .siftTab .tab .active {
+	background: rgb(46, 46, 46); padding: 0px 10px;
+}
+.siftTool .siftTab .tab a:hover {
+	color: rgb(204, 204, 204); text-decoration: none;
+}
+.siftTool .siftList {
+	background: rgb(46, 46, 46); padding: 5px 0px; width: 100%; float: left;
+}
+.siftTool .siftList dt {
+	width: 5.5em; font-weight: 700; margin-left: 8px; float: left; display: inline;
+}
+.siftTool .siftList dt p {
+	text-align: right; color: rgb(170, 170, 170); font-weight: 400; margin-top: -3px; margin-right: 2px;
+}
+.siftTool .siftList dt li p {
+	font-weight: 400; margin-right: 8px;
+}
+.siftTool .siftList dd {
+	width: 420px; float: left;
+}
+.siftTool .siftList dd li {
+	margin-right: 8px; float: left;
+}
+.siftTool .siftList dd li p {
+	text-align: center; color: rgb(170, 170, 170); margin-top: -3px; margin-left: 18px;
+}
+.siftTool .siftList dd li input {
+	float: left;
+}
+div.chartCheck {
+	width: 100%; height: 35px; text-align: center; margin-top: 13px; float: left;
+}
+.btnChartCheck {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/btn_ChartCheck.png") no-repeat 0px 0px; width: 139px; height: 32px; line-height: 100em; overflow: hidden; font-size: 0px; display: inline-block; zoom: 1;
+}
+.btnChartCheck:hover {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/btn_ChartCheck.png") no-repeat 0px -35px;
+}
+.btnChartCheck:active {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/btn_ChartCheck.png") no-repeat 0px -71px;
+}
+.btnChartCheckAuto {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/btn_ChartCheck.png") no-repeat right 0px;
+}
+div.chartCheck .suml {
+	padding: 0px; height: 40px; text-align: center; overflow: hidden; display: block;
+}
+div.chartCheck .sum {
+	padding: 20px 15px; text-align: center; line-height: 22px; overflow: hidden; display: block;
+}
+div.chartCheck .sum em {
+	margin: 0px 2px; color: rgb(255, 204, 0);
+}
+.btnChartCheckChart {
+	height: 32px; display: block;
+}
+.panelTrend div.chartCheck {
+	width: 100%; padding-top: 15px;
+}
+.panelTrend div.chartCheck .suml {
+	text-align: center;
+}
+.pick_input {
+	margin: 18px 0px 0px 18px; display: inline;
+}
+.pick_input div {
+	margin-bottom: 10px; float: left;
+}
+.pick_input label {
+	width: 5em; float: left;
+}
+.pick_input .pick_input_n {
+	width: 320px; height: 135px; font-size: 12px;
+}
+.pick_input .ins {
+	margin: 5px 0px 0px 5em; color: rgb(153, 153, 153);
+}
+.pick_input_ins {
+	margin: 18px 0px 0px -15px; float: left; display: inline;
+}
+.pick_input_ins .indt {
+	margin-left: 1.5em;
+}
+.pick_input_ins .indtt {
+	margin-top: 1.5em;
+}
+.pick_input_ins .chartCheck {
+	padding-top: 15px;
+}
+.pick_input_ins .btnChartCheck {
+	height: 32px;
+}
+.panelLeftYilou {
+	width: 455px;
+}
+.panelList .panelYilou {
+	margin: -5px 0px 0px 10px; color: rgb(204, 204, 204); border-bottom-color: rgb(102, 102, 102); border-bottom-width: 1px; border-bottom-style: solid; float: left; display: inline;
+}
+.panelList .panelYilou th {
+	text-align: right; font-weight: 400;
+}
+.panelList .panelYilou td {
+	padding: 1px 2px; text-align: center;
+}
+.panelList .panelYilou .ybtn {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/btn_pall.gif") no-repeat -83px -183px; margin: 8px 0px; width: 42px; height: 19px; color: rgb(0, 0, 0); line-height: 19px; display: block; cursor: pointer;
+}
+.panelList .panelYilou .ybtn_active {
+	background-position: -83px -206px; color: rgb(0, 0, 0);
+}
+.panelList .panelYilou .hlight {
+	color: rgb(197, 0, 0);
+}
+.panelList .panelYilou2 {
+	margin: 0px 0px 10px 10px; border-top-color: currentColor; border-bottom-color: currentColor; border-top-width: 0px; border-bottom-width: 0px; border-top-style: none; border-bottom-style: none;
+}
+.numCheckDS {
+	margin-top: 30px; float: right;
+}
+.numCheckDS .btn_numlist {
+	padding-bottom: 10px; margin-bottom: 12px; border-bottom-color: rgb(83, 83, 83); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.numCheckDS .btn_numlist li {
+	width: 38px; text-align: left; margin-right: 30px;
+}
+.numCheckDS .btn_numlist .nums em {
+	height: 38px; display: block;
+}
+.numCheckDS .btn_numlist li p {
+	text-align: center;
+}
+.numCheckDS .btn_numlist li span {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/btn_pall.gif") no-repeat 0px -5px; width: 38px; height: 38px; color: rgb(0, 0, 0); line-height: 33px; text-indent: 9px; font-size: 16px; font-weight: 700; display: block; position: relative; cursor: pointer; -moz-user-select: none; text-shadow: 1px 1px 0 #fff;
+}
+.numCheckDS .btn_numlist li span.active {
+	background-position: 0px -46px; color: rgb(255, 255, 255); line-height: 35px; text-indent: 10px; text-shadow: 1px 1px 0 #666;
+}
+.numCheckDS .btnChartCheck {
+	height: 32px;
+}
+.panelTrend {
+	width: 958px;
+}
+.panelTrend .panelList {
+	width: 953px;
+}
+.panelTrend .trendShow {
+	width: 535px; margin-bottom: 8px; float: left;
+}
+.panelTrend .trendShow table {
+	width: 100%; border-collapse: collapse;
+}
+.panelTrend .trendShow table th {
+	padding: 1px 3px; border: 1px solid rgb(58, 58, 58); text-align: center; font-weight: 400;
+}
+.panelTrend .trendShow table td {
+	padding: 1px 3px; border: 1px solid rgb(58, 58, 58); text-align: center; font-weight: 400;
+}
+.panelTrend .trendShow table th {
+	text-align: left; padding-left: 6px;
+}
+.drawTrend {
+	width: 958px; float: left;
+}
+.drawTrend .chart {
+	width: 100%; border-collapse: collapse;
+}
+.drawTrend .chart th {
+	width: 65px; text-align: right; font-weight: 400;
+}
+.drawTrend .chart td {
+	text-align: center;
+}
+.drawTrend .c1 table {
+	width: 100%;
+}
+.drawTrend .c1 table th {
+	width: 72px; text-align: right; font-weight: 400; vertical-align: bottom;
+}
+.drawTrend .c1 td {
+	text-align: center; padding-bottom: 0px; vertical-align: bottom; border-bottom-color: rgb(27, 27, 27); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.drawTrend .c1 th {
+	vertical-align: bottom;
+}
+.drawTrend .c1 i {
+	background: rgb(39, 39, 39); border-width: 1px 1px 0px; border-style: solid solid none; border-color: rgb(63, 63, 63) rgb(27, 27, 27) currentColor; margin: 0px auto; width: 9px; height: 5px; overflow: hidden; display: block; position: relative;
+}
+.drawTrend .c1 i em {
+	background: rgb(55, 55, 55); left: 1px; top: 0px; width: 7px; height: 100%; border-top-color: rgb(77, 77, 77); border-top-width: 1px; border-top-style: solid; display: block; position: absolute;
+}
+.drawTrend .c1 .lger {
+	color: rgb(235, 171, 0);
+}
+.drawTrend .c1 .lger i {
+	background: rgb(183, 126, 59); border-width: 1px 1px 0px; border-style: solid solid none; border-color: rgb(113, 103, 77) rgb(95, 84, 55) currentColor;
+}
+.drawTrend .c1 .lger i em {
+	background: rgb(235, 171, 0); border-top-color: rgb(245, 211, 20); border-top-width: 1px; border-top-style: solid;
+}
+.drawTrend .c2 th {
+	color: rgb(235, 171, 0); font-weight: 700;
+}
+.drawTrend .c2 td {
+	padding: 5px 0px 0px;
+}
+.drawTrend .c2 .num {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/btn_pall.gif") no-repeat -45px -6px; font: bold 14px/22px Arial; width: 26px; height: 26px; text-align: center; color: rgb(0, 0, 0); text-indent: -1px; display: inline-block; position: relative; cursor: pointer; font-size-adjust: none; font-stretch: normal; -moz-user-select: none;
+}
+.drawTrend .c2 .num_on {
+	background-position: -45px -46px; color: rgb(255, 255, 255); line-height: 24px;
+}
+.drawTrend .c3 td {
+	padding: 0px;
+}
+.drawTrend .c4 td {
+	padding-bottom: 0px; border-bottom-color: rgb(57, 57, 57); border-bottom-width: 1px; border-bottom-style: dotted;
+}
+.drawTrend .c4 .lger {
+	color: rgb(235, 171, 0);
+}
+.sectionChart {
+	background: rgb(71, 71, 71);
+}
+.sectionChart h3.stn {
+	background: rgb(241, 241, 241); height: 30px; color: rgb(0, 0, 0); line-height: 30px; text-indent: 15px; font-size: 14px; position: relative;
+}
+.section .stnmain {
+	padding: 3px 0px 0px; width: 100%; float: left;
+}
+.sectionChart .stnmain {
+	padding: 10px 0px 0px;
+}
+.sectionChart .chartIn {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/shadow_r.gif") repeat-y 100% 0px rgb(36, 36, 36); width: 420px; padding-right: 5px; margin-left: 12px; float: left; display: inline; _position: relative;
+}
+.chartIn .thc {
+	background: rgb(36, 36, 36); border: 0px currentColor; height: 29px; color: rgb(204, 204, 204); line-height: 29px; font-size: 14px; font-weight: 700;
+}
+.chartIn .thc .l {
+	font-size: 12px; margin-left: 8px; float: left;
+}
+.chartIn .thc .r {
+	margin-right: 6px; float: right; cursor: pointer;
+}
+.chartIn li {
+	height: auto; margin-top: 1px;
+}
+.chartIn li span {
+	vertical-align: middle; display: inline-block; word-wrap: break-word;
+}
+.chartIn .c1 {
+	width: 105px; margin-left: 6px;
+}
+.chartIn .c2 {
+	width: 140px;
+}
+.chartIn .c3 {
+	width: 58px; margin-left: 6px;
+}
+.chartIn .c4 {
+	width: 82px; margin-left: 5px;
+}
+.chartIn .c5 {
+	width: 14px; font-weight: 700; cursor: pointer;
+}
+.chartIn li.empty {
+	background: rgb(221, 221, 221); border-color: rgb(246, 246, 246) rgb(178, 178, 178) rgb(178, 178, 178) rgb(246, 246, 246); text-align: center;
+}
+.sectionChart .multiple {
+	width: 520px; margin-right: 8px; float: right; display: inline; _position: relative;
+}
+.sectionChart .multipleC {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/shadow_r.gif") no-repeat 100% 0px rgb(36, 36, 36); width: 515px; padding-right: 5px; float: left;
+}
+.tab_multiple {
+	margin: -27px 5px 0px 6.5em; float: left; display: inline;
+}
+.tab_multiple li {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/tab_multiple.gif") no-repeat; width: 59px; height: 18px; text-align: center; color: rgb(0, 0, 0); margin-right: 3px; float: left; cursor: pointer;
+}
+.tab_multiple .active {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/tab_multiple_on.gif") no-repeat; width: 64px; height: 22px; color: rgb(204, 204, 204); line-height: 23px; font-weight: 700; margin-top: -3px; position: relative;
+}
+.tab_tool_multiple {
+	margin: 0px 5px 5px; float: left;
+}
+.tab_multiple li {
+	width: 75px; height: 25px; text-align: left; color: rgb(204, 204, 204); margin-right: 3px; cursor: pointer;
+}
+.tab_multiple .active {
+	width: 80px; height: 25px; color: rgb(235, 171, 0); margin-top: 0px; position: relative;
+}
+.tab_multiple input {
+	bottom: -2px; position: relative;
+}
+.multiple div.thc {
+	background: rgb(36, 36, 36); border: 0px currentColor; height: 29px; color: rgb(204, 204, 204); line-height: 29px; font-size: 14px; font-weight: 700;
+}
+.multiple div.thc .l {
+	font-size: 12px; margin-left: 8px; float: left;
+}
+.multiple div.thc .r {
+	margin-right: 6px; float: right; cursor: pointer;
+}
+.multiple div.thc .r a {
+	margin: 6px 0px 0px 6px; width: 16px; height: 16px; line-height: 200px; overflow: hidden; display: inline-block;
+}
+.multiple div.thc .r .ico_import {
+	
+}
+.multiple div.thc .r .ico_save {
+	background-position: -23px 0px;
+}
+.multiple div.thc .r .ico_help {
+	background-position: 100% 0px;
+}
+.multiple .condtn li {
+	padding: 4px 8px;
+}
+.multiple .condtn li input {
+	width: 40px; height: 1em; text-align: center;
+}
+.multiple .itemBox {
+	width: 515px; float: right;
+}
+.multiple .itemList {
+	clear: left;
+}
+.multiple .itemList li {
+	background: rgb(71, 71, 71); border-width: 1px; border-style: solid; border-color: rgb(99, 99, 99) rgb(52, 52, 52) rgb(52, 52, 52) rgb(99, 99, 99); height: 22px; color: rgb(204, 204, 204); line-height: 22px; overflow: hidden;
+}
+.multiple .itemList li span {
+	text-align: center; float: left; display: inline-block;
+}
+.multiple .itemList .i1 {
+	width: 5%;
+}
+.multiple .itemList .i2 {
+	width: 96px;
+}
+.multiple .itemList .i3 {
+	width: 11%;
+}
+.multiple .itemList .i2 input {
+	background: rgb(255, 255, 255); padding: 0px; width: 45px; height: 16px; text-align: center; color: red; font-family: Tahoma,Arial,Verdana; font-size: 13px; font-weight: 700; margin-top: 1px; _position: relative; _margin-top: -1px;
+}
+.multiple .itemList .i3 input {
+	background: rgb(255, 255, 255); padding: 0px; width: 45px; height: 16px; text-align: center; color: red; font-family: Tahoma,Arial,Verdana; font-size: 13px; font-weight: 700; margin-top: 1px; _position: relative; _margin-top: -1px;
+}
+.multiple .itemList .i4 {
+	width: 16%;
+}
+.multiple .itemList .i5 {
+	width: 16%;
+}
+.multiple .itemList .i6 {
+	width: 16%;
+}
+.multiple .itemList .i7 {
+	width: 16%;
+}
+.multiple .itemList li.selected {
+	background: rgb(235, 171, 0); border-color: rgb(245, 211, 20) rgb(183, 126, 59) rgb(183, 126, 59) rgb(245, 211, 20); color: rgb(0, 0, 0);
+}
+.itemListC {
+	overflow: auto; overflow-x: hidden;
+}
+.multiple .chase {
+	margin: 8px 0px; width: 99.4%; height: 28px; clear: both; float: left;
+}
+.multiple .chase li {
+	background: rgb(222, 222, 222); border-color: rgb(222, 222, 222) rgb(145, 145, 145) rgb(222, 222, 222) rgb(241, 241, 241); height: 25px; color: rgb(0, 0, 0); line-height: 25px;
+}
+.multiple .chase li label {
+	padding-left: 5px; cursor: pointer;
+}
+.multiple .chase li input {
+	bottom: -3px; margin-right: 8px; position: relative;
+}
+.multiple .chase li a {
+	color: rgb(51, 51, 51); text-decoration: underline;
+}
+.multiple .stp {
+	height: auto;
+}
+.multiple .stp li {
+	height: auto; line-height: 25px; vertical-align: middle;
+}
+.multiple .stp li .m {
+	margin-left: 10px; float: left;
+}
+.multiple .itemList li .csel {
+	float: left;
+}
+.multiple .itemList li .cse {
+	float: right;
+}
+.multiple .itemList li .cse a {
+	color: rgb(235, 171, 0); margin-left: 5px;
+}
+.multiple .itemList li .cse a.active {
+	color: rgb(255, 102, 0); font-weight: 700;
+}
+.multiple .chase li .r {
+	float: right;
+}
+.multiple .chase li .r .ico_help {
+	margin: 3px 6px 0px 0px; width: 16px; height: 16px; line-height: 200px; overflow: hidden; display: inline-block;
+}
+.multiple .project {
+	margin: 2px 0px 10px;
+}
+.multiple .project li {
+	background: rgb(61, 61, 61); border-color: rgb(83, 83, 83) rgb(43, 43, 43) rgb(43, 43, 43) rgb(83, 83, 83); color: rgb(204, 204, 204);
+}
+.multiple .project li a {
+	color: rgb(204, 204, 204);
+}
+.multiple .project li .r .ico_help {
+	background-position: 0px -269px;
+}
+div.chartCheck {
+	width: 97%; height: auto; text-align: center; clear: both; float: left;
+}
+.multiple div.chartCheck {
+	padding-top: 0px !important; margin-top: 0px !important;
+}
+.multipleCTool .itemBox {
+	width: 100%;
+}
+.multipleCTool .condtn li {
+	background: rgb(222, 222, 222); padding: 4px 8px; height: auto; color: rgb(51, 51, 51);
+}
+.multipleCTool .condtn ul {
+	background: rgb(246, 246, 246); padding: 5px; border: 1px solid rgb(204, 204, 204); height: auto;
+}
+.multipleCTool .condtn ul.c {
+	background: rgb(241, 241, 241); border: 1px solid rgb(179, 179, 179); margin-bottom: 5px;
+}
+.multipleCTool .condtn ul.d {
+	padding: 0px; border: 0px currentColor;
+}
+.shade {
+	position: relative; z-index: 2;
+}
+.shadeBox {
+	background: rgba(0, 0, 0, 0.89); padding: 10px 0px; left: 0px; top: 0px; width: 515px; text-align: center; filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#CF000000,endcolorstr=#CF000000); position: absolute;
+}
+.shadeBox h5 {
+	font-size: 15px;
+}
+.shadeBox p {
+	padding: 5px 0px 2px;
+}
+p.shadBtn {
+	padding: 15px 0px 5px;
+}
+.shadeP label.l {
+	display: block;
+}
+.shadeP label.r {
+	display: block;
+}
+.shadeP label {
+	color: rgb(255, 186, 38);
+}
+.shadeP label em {
+	color: rgb(255, 149, 38);
+}
+.shadeBox p input[type='checkbox'] {
+	bottom: -2px; position: relative;
+}
+.multipleCTool .condtn ul li {
+	padding: 0px; border: 0px currentColor; height: auto; color: rgb(136, 136, 136);
+}
+.multipleCTool .condtn ul.c li {
+	padding-right: 10px;
+}
+.multipleCTool .condtn ul li.active {
+	color: rgb(0, 0, 0);
+}
+.multipleCTool .condtn ul.c li label {
+	margin-right: 5px;
+}
+.multipleCTool .condtn ul.c li label.active {
+	color: rgb(0, 0, 0);
+}
+.multipleCTool .condtn ul.d li label.active {
+	color: rgb(0, 0, 0);
+}
+.multipleCTool .condtn ul.c li label a.more {
+	color: rgb(0, 0, 0); text-decoration: underline; margin-left: 25px;
+}
+.multipleCTool .condtn ul li input {
+	width: auto; color: rgb(136, 136, 136);
+}
+.multipleCTool .condtn ul li input.cdn_ipt {
+	width: 40px;
+}
+.multipleCTool .condtn ul li.active input {
+	color: rgb(0, 0, 0);
+}
+.multipleCTool .condtn .cdn_go {
+	margin: 10px auto 5px; text-align: center;
+}
+.multipleCTool .condtn .cdn_go input {
+	width: auto; height: auto; cursor: pointer;
+}
+.multipleCTool .itemList .i1 {
+	width: 18%; font-size: 11px;
+}
+.multipleCTool .itemList .i2 {
+	width: 11%;
+}
+.multipleCTool .itemList .i3 {
+	width: 14%;
+}
+.multipleCTool .itemList .i4 {
+	width: 14%;
+}
+.multipleCTool .itemList .i5 {
+	width: 14%;
+}
+.multipleCTool .itemList .i6 {
+	width: 14%;
+}
+.multipleCTool .itemList .i7 {
+	width: 14%;
+}
+.multiple .zh {
+	color: rgb(255, 255, 0); font-size: 16px; font-weight: 700; margin-bottom: 5px; position: relative;
+}
+.multiple .zh label {
+	cursor: pointer;
+}
+.multiple .zh .advice {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/ico_advice.png") no-repeat 0px; top: 0px; right: 10px; padding-left: 18px; position: absolute;
+}
+.multiple .zh .advice a {
+	color: rgb(249, 249, 249); font-size: 12px; font-weight: 400;
+}
+.zhuihao0 {
+	margin: 10px 0px; clear: both; font-family: Tahoma,Arial,Verdana; font-size: 14px;
+}
+.zhuihao0 .z1 {
+	margin-bottom: 12px;
+}
+.zhuihao0 .z2 {
+	margin-bottom: 12px;
+}
+.zhuihao0 .z3 {
+	margin-bottom: 12px;
+}
+.zhuihao0 input.bs {
+	background: rgb(255, 255, 255); padding: 0px; width: 45px; height: 16px; text-align: center; color: red; font-size: 13px; font-weight: 700; margin-top: 1px; _position: relative; _margin-top: -1px;
+}
+.zhuihao0 .z1 input {
+	bottom: -2px; position: relative; _bottom: 0;
+}
+.zhuihao0 .z2 {
+	text-align: center;
+}
+.zhuihao0 .z3 {
+	text-align: center;
+}
+.zhuihao0 .z2 span {
+	margin-right: 15px;
+}
+.zhuihao0 .flt {
+	margin: 0px 3px; color: rgb(255, 204, 0); display: inline-block;
+}
+.zhuihao0 .vra {
+	background: rgb(85, 83, 83); margin: 0px 85px 25px; padding: 1px 15px 5px; border: 1px dashed rgb(102, 102, 102); color: rgb(255, 255, 0); font-weight: 700; display: block;
+}
+.update {
+	margin-bottom: 20px;
+}
+.updateElement {
+	width: 955px; margin-left: 12px; float: left; display: inline; _position: relative;
+}
+.updateElement table {
+	background: rgb(228, 228, 228); width: 158px; text-align: center; overflow: hidden; margin-left: 1px; float: left;
+}
+.updateElement th {
+	background: rgb(36, 36, 36); font-weight: 400;
+}
+.updateElement td {
+	padding: 0px; color: rgb(51, 51, 51); border-top-color: rgb(238, 238, 238); border-top-width: 1px; border-top-style: solid;
+}
+.updateElement .num {
+	font-family: Arial,Tahoma,Verdana; font-size: 15px;
+}
+.updateElement .y1 {
+	color: rgb(255, 18, 0);
+}
+.updateElement .y2 {
+	color: rgb(255, 150, 0);
+}
+.updateElement .y3 {
+	color: rgb(31, 111, 0);
+}
+.updateElement .shadowBottom {
+	right: 0px;
+}
+.updateElement .shadowBottom .shadowBottomL {
+	left: 0px;
+}
+#footer {
+	padding: 15px 0px 30px; width: 984px; text-align: center; color: rgb(204, 204, 204); clear: both; margin-top: 20px; float: left;
+}
+#footer a {
+	color: rgb(204, 204, 204);
+}
+#footer .abt a {
+	margin: 0px 10px;
+}
+#footer .copyright {
+	margin: 5px 0px; padding: 5px; text-align: right; border-top-color: rgb(71, 71, 71); border-top-width: 1px; border-top-style: solid;
+}
+#footer .cpr {
+	padding: 2px 0px 15px; text-align: left; float: left;
+}
+#footer img {
+	margin: 2px 3px;
+}
+.frameChart {
+	padding-right: 5px; margin-top: 15px; margin-left: -11px; float: left;
+}
+.frameChart .chartCaption {
+	border-color: rgb(36, 36, 36); width: 976px;
+}
+.frameChart .trendCharts {
+	border-color: rgb(36, 36, 36); width: 976px;
+}
+.frameChart .chartCaption {
+	width: 974px;
+}
+.frameChart .chartActive {
+	margin: 0px 0px 8px 15px;
+}
+.frameChart .shadowBottom {
+	width: 99.6%;
+}
+.frameChart .trendCharts .getNum td {
+	background: rgb(95, 130, 190);
+}
+.frameChart .trendCharts .getNum .td-first {
+	color: rgb(255, 255, 255);
+}
+.frameChart .trendCharts .getNum td {
+	background: rgb(95, 130, 190); border-bottom-color: rgb(95, 130, 190); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.frameChart .trendCharts .getNum-td-last td {
+	border-bottom-color: rgb(95, 130, 190); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.frameChart .trendCharts .getNum td {
+	border-right-color: rgb(95, 130, 190); border-right-width: 1px; border-right-style: solid;
+}
+.frameChart .getNum .num {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/getNum_numbg.gif") no-repeat right top; height: 20px; color: rgb(0, 0, 0); line-height: 20px; padding-right: 3px; font-size: 12px; display: inline-block; cursor: pointer; -moz-user-select: none;
+}
+.frameChart .getNum .num i {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/getNum_numbg.gif") no-repeat left top; height: 20px; padding-left: 3px; font-style: normal; float: left; position: relative;
+}
+.frameChart .getNum .num_on {
+	background-position: right -41px; color: rgb(255, 255, 255);
+}
+.frameChart .getNum .num_on i {
+	background-position: 0px -41px;
+}
+#containerLotteryChoose li h4 {
+	margin: 8px 0px 2px 1em; font-size: 12px;
+}
+.chartCheck {
+	padding-bottom: 15px;
+}
+.winning {
+	left: 0px; width: 100%; text-align: center; bottom: 0px; line-height: 31px; position: fixed;
+}
+.winning p {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/winning.png") repeat-x top; width: 100%; height: 31px; color: rgb(0, 0, 0); line-height: 31px; font-size: 14px; font-weight: 700; display: block; position: relative;
+}
+.winning p em {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/win_icon.png") no-repeat 0px 0px; width: 20px; height: 16px; bottom: -4px; display: inline-block; position: relative;
+}
+.winning a {
+	color: rgb(149, 0, 0); text-decoration: underline; margin-left: 3px;
+}
+.winning a.close {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/close.png") no-repeat; top: 9px; width: 12px; height: 12px; right: 10px; display: inline-block; position: absolute;
+}
+.winning a:hover {
+	color: rgb(149, 0, 0); text-decoration: none;
+}
+a.btnSecretary {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/secretary.png") no-repeat; width: 94px; height: 28px; line-height: 100em; overflow: hidden; font-size: 0px; margin-left: 10px; display: inline-block;
+}
+.SecretaryWrap {
+	background: rgb(85, 85, 85); width: 780px; height: 480px; color: silver;
+}
+.Smarquee {
+	margin: 0px 10px;
+}
+.Smarquee ul li {
+	padding-right: 30px; float: left;
+}
+.SecTab {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/SecTab_bg.png") repeat-x bottom; height: 26px; padding-left: 10px;
+}
+.SecTab li {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/kuaikai/SecTab_li.png") no-repeat left 0px; height: 26px; color: rgb(193, 193, 193); padding-left: 10px; margin-left: -1px; float: left; display: inline-block; cursor: pointer;
+}
+.SecTab li i {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/kuaikai/SecTab_li.png") no-repeat right 0px; height: 26px; line-height: 25px; padding-right: 10px; float: left; display: inline-block;
+}
+.SecTab li.active {
+	background-position: left -32px; color: rgb(255, 204, 99); margin-right: 1px;
+}
+.SecTab li.active i {
+	background-position: right -32px;
+}
+.SecNumStyle {
+	padding: 10px 0px 5px; height: 20px;
+}
+.SecNumStyle span {
+	color: silver; padding-right: 18px; float: left;
+}
+.SecNumStyle span input {
+	float: left;
+}
+.SecNumStyle span label {
+	float: left;
+}
+.SecNtop {
+	background: rgb(42, 42, 42); margin: 5px 0px 10px; padding: 5px; border-radius: 5px; height: 25px; text-align: center;
+}
+.SecNumCon {
+	height: 330px;
+}
+.Smybet {
+	height: 330px;
+}
+.SecTabBox .chartCheck {
+	margin: 0px; padding: 0px; width: 100%; float: none;
+}
+.SecTabBox .chartCheck .sum {
+	padding: 10px 0px;
+}
+.SecNtop em {
+	text-align: center; overflow: hidden; display: inline-block;
+}
+.SecNtop span {
+	text-align: center; overflow: hidden; display: inline-block;
+}
+.SecNtop i {
+	text-align: center; overflow: hidden; display: inline-block;
+}
+.SecNtop a {
+	text-align: center; overflow: hidden; display: inline-block;
+}
+.SecNtop em {
+	width: 60px; height: 25px; color: silver; line-height: 25px; padding-right: 10px; font-weight: 700; float: left;
+}
+.SecNtop span {
+	width: 600px; height: 25px; text-align: center; padding-left: 1px; float: left; white-space: nowrap;
+}
+.SecNtop span i {
+	background: rgb(160, 160, 160); border: 1px solid rgb(25, 25, 25); width: 29px; height: 23px; color: rgb(21, 21, 21); line-height: 23px; margin-left: -1px; cursor: pointer;
+}
+.SecNtop span i.on {
+	background: rgb(255, 204, 99); color: rgb(0, 0, 0); box-shadow: inset 1px 1px 1px #907338;
+}
+.SecNtop a {
+	height: 23px; overflow: hidden; margin-top: 2px; margin-right: 20px; float: right; display: inline-block;
+}
+.hz.SecNtop span i {
+	width: 20px;
+}
+.hmd.SecNtop ul {
+	background: rgb(160, 160, 160); border: 1px solid rgb(25, 25, 25); width: 201px; height: 25px; overflow: hidden; display: inline-block; white-space: nowrap;
+}
+.hmd.SecNtop ul li {
+	width: 100px; height: 25px; color: rgb(21, 21, 21); line-height: 25px; margin-left: -1px; border-left-color: rgb(65, 65, 65); border-left-width: 1px; border-left-style: solid; display: inline-block; cursor: pointer;
+}
+.hmd.SecNtop ul li {
+	
+}
+.hmd.SecNtop ul li.on {
+	background: rgb(255, 204, 99); color: rgb(0, 0, 0); box-shadow: inset 1px 1px 1px #907338;
+}
+.hmd_L {
+	width: 365px; float: left;
+}
+.hmd_R {
+	width: 365px; padding-left: 10px; float: left;
+}
+.hmd_box .SecN_td {
+	height: 220px; margin-bottom: 10px; display: none;
+}
+.hmd_box .SecN_td {
+	_position: static;
+}
+.btmhmd {
+	border: 0px currentColor; overflow: hidden; position: relative;
+}
+.SecN_tit {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/SecN_tit.png") repeat-x; padding: 0px 10px; border-radius: 3px 3px 0px 0px; height: 29px; text-align: right; line-height: 29px;
+}
+.hmd_L .SecN_tit {
+	cursor: pointer;
+}
+.hmd_R .SecN_tit {
+	cursor: pointer;
+}
+.Smybet_box .SecN_tit {
+	cursor: pointer;
+}
+.SecN_tit span {
+	float: left;
+}
+.SecN_tit span i {
+	font-weight: 700;
+}
+.SecN_tit i {
+	margin: 0px 3px; color: rgb(255, 204, 99);
+}
+.SecN_tit b {
+	margin: 0px 3px; color: rgb(255, 204, 99);
+}
+.SecN_tit em {
+	padding-left: 20px;
+}
+.SecN_tit em.white {
+	color: rgb(220, 220, 220); font-weight: 700;
+}
+.SecN_tit a.open {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/ico_ga.gif") no-repeat 0px 2px; width: 15px; height: 12px; margin-top: 6px; display: inline-block;
+}
+.SecN_tit a.on.open {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/ico_sub.gif") no-repeat 0px 4px;
+}
+.SecN_tit input {
+	margin-top: 4px;
+}
+.SecN_th {
+	padding-right: 18px;
+}
+.SecN_td .jscroll-c {
+	padding-right: 18px;
+}
+.SecN_th {
+	background: rgb(156, 156, 156); border-right-color: rgb(14, 14, 14); border-left-color: rgb(14, 14, 14); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid;
+}
+.SecN_td {
+	background: rgb(185, 185, 185); border-width: 0px 1px 1px; border-style: none solid solid; border-color: currentColor rgb(14, 14, 14) rgb(14, 14, 14);
+}
+.Sectable {
+	width: 100%; color: rgb(0, 0, 0);
+}
+.Sectable th {
+	background: rgb(156, 156, 156); border: 1px solid rgb(152, 152, 152); text-align: center; font-weight: 400;
+}
+.Sectable tbody {
+	background: rgb(185, 185, 185);
+}
+.Sectable tbody td {
+	border-width: 0px 1px 1px; border-style: none solid solid; border-color: currentColor rgb(152, 152, 152) rgb(152, 152, 152); text-align: center;
+}
+.sw1 {
+	width: 160px;
+}
+.sw2 {
+	width: 120px;
+}
+.sw3 {
+	width: 120px;
+}
+.sw4 {
+	width: 100px;
+}
+.Smybet {
+	overflow: hidden; position: relative;
+}
+.Smytit {
+	padding: 0px 10px; height: 24px; color: silver; position: relative;
+}
+.Smytit b {
+	margin: 0px 3px; color: rgb(255, 204, 99);
+}
+.Smybet_box {
+	margin-bottom: 1px;
+}
+.Smybet_box .SecN_td {
+	display: none;
+}
+.SecTabBox .Smybetloading {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/loading.gif") no-repeat center; height: 50px;
+}
+.SecTabBox p.Snobet {
+	text-align: center; color: rgb(211, 211, 211); padding-top: 50px;
+}
+.sup {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/sub_bup.png") no-repeat; padding-right: 10px; display: inline-block; cursor: pointer;
+}
+.sub {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/sub_bup.png") no-repeat; padding-right: 10px; display: inline-block; cursor: pointer;
+}
+.sup {
+	background-position: right 7px;
+}
+.sub {
+	background-position: right -13px;
+}

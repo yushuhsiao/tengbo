@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://users.tpg.com.au/j_birch/plugins/superfish/# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Superfish - Suckerfish on 'roids</title>
+<meta name="description" content="A demonstration of Superfish, a jQuery plugin by Joel Birch that creates Suckerfish-style dropdown menus with added features. Now touch-friendly!">
+<link rel="stylesheet" href="http://users.tpg.com.au/j_birch/plugins/assets/css/prism.css">
+<link rel="stylesheet" href="http://users.tpg.com.au/j_birch/plugins/assets/components/jquery-ui-1.10.0.custom/css/smoothness/jquery-ui-1.10.0.custom.css">
+<link rel="stylesheet" href="http://users.tpg.com.au/j_birch/plugins/assets/css/jq.css">
+<link rel="stylesheet" href="http://users.tpg.com.au/j_birch/plugins/superfish/css/superfish.css">
+<link rel="stylesheet" href="http://users.tpg.com.au/j_birch/plugins/superfish/css/superfish-vertical.css">
+<link rel="stylesheet" href="http://users.tpg.com.au/j_birch/plugins/superfish/css/superfish-navbar.css">
+<script type="text/javascript" async="" src="./sf_17_files/ga.js"></script><script src="./sf_17_files/jquery.min.js"></script><style type="text/css"></style>
+<script src="./sf_17_files/jquery-ui-1.10.0.custom.js"></script>
+<script src="./sf_17_files/prism.js"></script>
+<script src="./sf_17_files/hoverIntent.js"></script>
+<script src="./sf_17_files/superfish.js"></script>
+<script src="./sf_17_files/supersubs.js"></script>
+
+<script>
+
+$(function() {	
+
+	// initialise supersubs before it gets hidden by tabs or superfish. Need to measure widths while visible.
+	$('#sample-menu-5').supersubs({
+		minWidth:    12,
+		maxWidth:    27,
+		extraWidth:  1
+	}).superfish();	
+	
+    // initialise the tabs
+    var main = $('#main').tabs();
+    $('#samples').tabs( { selectedClass: 'sample-tab-selected', bookmarkable: true });
+
+	// initialise examples
+	$('#sample-menu-1').superfish();
+
+	$('#sample-menu-3').superfish({
+		animation: {height:'show'},
+		delay: 1200
+	});
+	
+	$('#sample-menu-4').superfish({
+		pathClass: 'current'
+	});	
+
+});
+
+</script>
+</head>
+
+<body>
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1058715-8']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+	<h1 id="banner">Superfish v1.7 <small>– jQuery menu plugin by Joel Birch</small></h1>
+
+	<div id="main" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+    <ul id="nav" class="anchors ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+	    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="getting-started" aria-labelledby="ui-id-1" aria-selected="false"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#getting-started" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1">Getting Started</a></li>
+	    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="options" aria-labelledby="ui-id-2" aria-selected="false"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#options" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-2">Options</a></li>
+	    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="examples" aria-labelledby="ui-id-3" aria-selected="false"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#examples" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-3">Examples</a></li>
+	    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="faq" aria-labelledby="ui-id-4" aria-selected="false"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#faq" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-4">FAQ</a></li>
+	    <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="download" aria-labelledby="ui-id-5" aria-selected="true"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#download" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-5">Download &amp; Support</a></li>
+		<li id="donate">
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="2006952">
+			<input title="Surprise and delight me!" type="image" src="./sf_17_files/btn_donate_SM.gif" border="0" name="submit" alt="Donate">
+			</form>
+		</li>
+    </ul>
+    <div id="getting-started" class="tabContent ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-1" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+  		<p><small><strong>Note:</strong> there is now an <a href="https://github.com/joeldbirch/superfish/" rel="external">official GitHub repository for Superfish</a>.</small></p>
+      <h1>Overview</h1>
+      <p>Superfish is an enhanced <a class="external" href="http://alistapart.com/articles/dropdowns">Suckerfish</a>-style menu jQuery plugin that takes an existing pure CSS drop-down menu (so it degrades gracefully without JavaScript) and adds the following much-sought-after enhancements:</p>
+      <ul>
+				<li><strong>Supports touch devices</strong>. On Android, iOS, Windows Phone 7 and IE10 (with touchscreen), first touch will open an associated submenu, second will follow the link. Mouse and keyboard accessibility works as normal. Note that you currently need to include Brian Cherne’s <a class="external" href="https://github.com/briancherne/jquery-hoverIntent">hoverIntent plugin</a> to support certain Android browsers' and IE10's touch interaction. This may change.</li>
+				<li><del><strong>Optionally require click</strong> to open and close submenus. Added in version 1.5.2, perfected in 1.5.4.</del> <ins><a class="external" href="https://github.com/joeldbirch/superfish/issues/47">Removed in v1.7. See issue 47 for details</a></ins>.</li>
+				<li><strong>Timed delay on mouseout</strong> to be more forgiving of mouse-piloting errors. Default is 800 milliseconds but can be changed via the options object</li>
+				<li><strong>Animations</strong> when showing submenus (and when hiding them, as of version 1.5.2). uses a fade by default but can be given custom objects to be used by the animate functions. The animation speed is also customisable.</li>
+				<li><strong>Keyboard accessibility</strong>. Tab through the links and the relevant submenus are revealed and hidden as needed</li>
+				<li>Supports the <strong>hoverIntent plugin</strong>. Superfish automatically detects the presence of Brian Cherne’s <a class="external" href="https://github.com/briancherne/jquery-hoverIntent" title="visit the home of hoverIntent">hoverIntent plugin</a> and uses its advanced hover behaviour for the mouseovers (mouseout delays are handled by Superfish regardless of the presence of hoverIntent). Using this is only an option, but a nice one. The examples on this page <em>are</em> using hoverIntent. If for some reason you want to use hoverIntent on your page for other plugins but do not want Superfish to use it you can set the option <code class=" language-javascript">disableHI</code> to <code class=" language-javascript"><span class="token boolean">true</span></code>. <strong>Important note:</strong> As of v1.5.1 you must use the <a href="https://github.com/briancherne/jquery-hoverIntent">updated version (r7) of hoverIntent</a> which supports event delegation.</li>
+				<li><strong>Indicates the presence of submenus</strong> by adding CSS-based arrows to relevant anchors. You can turn off the arrows via the “cssArrows” option, if required.</li>
+				<li>Can <strong>show the path to your current page</strong> while the menu is idle. The easiest way to understand this is to view the nav-bar example. Note that you need to add 'current' (or similar) classes to the relevant list item elements yourself, ideally server-side.</li>
+				<li>Optional <strong>callback functions</strong>. These callbacks allow for further enhancements and functionality to be added without needing to alter the core Superfish code.</li>
+				<li>Provides <strong>public methods</strong> <code class=" language-javascript">hide</code> and <code class=" language-javascript">show</code> that you can call on list items that have submenu children. Also provides a <code class=" language-javascript">destroy</code> method for uninitialising Superfish.</li>
+				<li>Uses <strong>event delegation</strong> as of v1.5.1 for greater performance and flexibility.</li>
+			</ul>
+      <h1>Quick Start Guide</h1>
+			<ol class="steps">
+        <li class="step-one">
+        	Begin with a working pure CSS dropdown menu just like you would if creating a Suckerfish menu. For each li:hover selector, add an equivalent li.sfHover selector. Use <code class="language-css">display:none</code> rather than <code class="language-css">left:-9999em</code> to hide submenus. To make this step easy, there are cross-browser CSS files for a variety of menu types available in the download section of this site.
+        	<pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>screen<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></code></pre>
+        </li>
+        <li class="step-two">
+        	Link to the superfish.js file (after including jQuery) using a script tag in the head of your document.
+              <pre class=" language-markup"><code class=" language-markup"><span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jQuery.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span></code></pre>
+        </li>
+        <li class="step-three">
+			Call superfish() on the containing <acronym title="unordered list">ul</acronym> element.
+			<pre class=" language-markup"><code class=" language-markup"><span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
+
+	jQuery<span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span>ready<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		jQuery<span class="token punctuation">(</span><span class="token string">'ul.sf-menu'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>superfish<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span></code></pre>
+		There are many options available to customise your menu. You can find out about them in the Options tab of this site.
+				</li>
+      </ol>
+    </div>
+
+    <div id="options" class="tabContent ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-2" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+      <h1>Options</h1>
+      <p>Superfish’s default options:</p>
+      <pre class=" language-javascript"><code class=" language-javascript">$<span class="token punctuation">.</span>fn<span class="token punctuation">.</span>superfish<span class="token punctuation">.</span>defaults <span class="token operator">=</span> <span class="token punctuation">{</span>
+	hoverClass<span class="token punctuation">:</span>    <span class="token string">'sfHover'</span><span class="token punctuation">,</span>          <span class="token comment" spellcheck="true">// the class applied to hovered list items
+</span>	pathClass<span class="token punctuation">:</span>     <span class="token string">'overideThisToUse'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// the class you have applied to list items that lead to the current page
+</span>	pathLevels<span class="token punctuation">:</span>    <span class="token number">1</span><span class="token punctuation">,</span>                  <span class="token comment" spellcheck="true">// the number of levels of submenus that remain open or are restored using pathClass
+</span>	delay<span class="token punctuation">:</span>         <span class="token number">800</span><span class="token punctuation">,</span>                <span class="token comment" spellcheck="true">// the delay in milliseconds that the mouse can remain outside a submenu without it closing
+</span>	animation<span class="token punctuation">:</span>     <span class="token punctuation">{</span>opacity<span class="token punctuation">:</span><span class="token string">'show'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">// an object equivalent to first parameter of jQuery’s .animate() method. Used to animate the submenu open
+</span>	animationOut<span class="token punctuation">:</span>  <span class="token punctuation">{</span>opacity<span class="token punctuation">:</span><span class="token string">'hide'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">// an object equivalent to first parameter of jQuery’s .animate() method Used to animate the submenu closed
+</span>	speed<span class="token punctuation">:</span>         <span class="token string">'normal'</span><span class="token punctuation">,</span>           <span class="token comment" spellcheck="true">// speed of the opening animation. Equivalent to second parameter of jQuery’s .animate() method
+</span>	speedOut<span class="token punctuation">:</span>      <span class="token string">'fast'</span><span class="token punctuation">,</span>             <span class="token comment" spellcheck="true">// speed of the closing animation. Equivalent to second parameter of jQuery’s .animate() method
+</span>	cssArrows<span class="token punctuation">:</span>     <span class="token boolean">true</span><span class="token punctuation">,</span>               <span class="token comment" spellcheck="true">// set to false if you want to remove the CSS-based arrow triangles
+</span>	disableHI<span class="token punctuation">:</span>     <span class="token boolean">false</span><span class="token punctuation">,</span>              <span class="token comment" spellcheck="true">// set to true to disable hoverIntent detection
+</span>	onInit<span class="token punctuation">:</span>        $<span class="token punctuation">.</span>noop<span class="token punctuation">,</span>             <span class="token comment" spellcheck="true">// callback function fires once Superfish is initialised – 'this' is the containing ul
+</span>	onBeforeShow<span class="token punctuation">:</span>  $<span class="token punctuation">.</span>noop<span class="token punctuation">,</span>             <span class="token comment" spellcheck="true">// callback function fires just before reveal animation begins – 'this' is the ul about to open
+</span>	onShow<span class="token punctuation">:</span>        $<span class="token punctuation">.</span>noop<span class="token punctuation">,</span>             <span class="token comment" spellcheck="true">// callback function fires once reveal animation completed – 'this' is the opened ul
+</span>	onBeforeHide<span class="token punctuation">:</span>  $<span class="token punctuation">.</span>noop<span class="token punctuation">,</span>             <span class="token comment" spellcheck="true">// callback function fires just before closing animation – 'this' is the ul about to close
+</span>	onHide<span class="token punctuation">:</span>        $<span class="token punctuation">.</span>noop<span class="token punctuation">,</span>             <span class="token comment" spellcheck="true">// callback function fires after a submenu has closed – 'this' is the ul that just closed
+</span>	onIdle<span class="token punctuation">:</span>        $<span class="token punctuation">.</span>noop<span class="token punctuation">,</span>             <span class="token comment" spellcheck="true">// callback function fires when the 'current' submenu is restored (if using pathClass functionality)
+</span>	onDestroy<span class="token punctuation">:</span>     $<span class="token punctuation">.</span>noop              <span class="token comment" spellcheck="true">// callback function fires after the 'destroy' method is called on the menu container
+</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+			<p>You can override any of these options by passing an object into the Superfish method upon initialisation. For example:</p>
+			<pre class=" language-markup"><code class=" language-markup">//link to the CSS files for this menu type
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>screen<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+// link to the JavaScript files (hoverIntent is optional)
+// if you use hoverIntent, use the updated r7 version (see FAQ)
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hoverIntent.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+
+// initialise Superfish
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
+
+	jQuery<span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span>ready<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		jQuery<span class="token punctuation">(</span><span class="token string">'ul.sf-menu'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>superfish<span class="token punctuation">(</span><span class="token punctuation">{</span>
+			delay<span class="token punctuation">:</span>       <span class="token number">1000</span><span class="token punctuation">,</span>                            <span class="token comment" spellcheck="true">// one second delay on mouseout
+</span>			animation<span class="token punctuation">:</span>   <span class="token punctuation">{</span>opacity<span class="token punctuation">:</span><span class="token string">'show'</span><span class="token punctuation">,</span>height<span class="token punctuation">:</span><span class="token string">'show'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// fade-in and slide-down animation
+</span>			speed<span class="token punctuation">:</span>       <span class="token string">'fast'</span><span class="token punctuation">,</span>                          <span class="token comment" spellcheck="true">// faster animation speed
+</span>			autoArrows<span class="token punctuation">:</span>  <span class="token boolean">false</span>                            <span class="token comment" spellcheck="true">// disable generation of arrow mark-up
+</span>		<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span></code></pre>
+    </div>
+
+    <div id="examples" class="tabContent ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-3" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+    	<h1>Examples</h1>
+
+	    <div id="samples" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+        <ul class="sampleAnchors ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+          <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="sample1" aria-labelledby="ui-id-6" aria-selected="false"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#sample1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-6">Basic</a></li>
+          <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="sample3" aria-labelledby="ui-id-7" aria-selected="false"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#sample3" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-7">Vertical</a></li>
+          <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="sample4" aria-labelledby="ui-id-8" aria-selected="true"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#sample4" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-8">Nav-bar</a></li>
+          <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="sample5" aria-labelledby="ui-id-9" aria-selected="false"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#sample5" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-9">With Supersubs</a></li>
+        </ul>
+
+       	<div id="sample1" class="sampleTabContent ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-6" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+					<h2>The result:</h2>
+  <ul id="sample-menu-1" class="sf-menu sf-js-enabled sf-arrows">
+    <li class="current">
+      <a href="http://users.tpg.com.au/j_birch/plugins/superfish/#a" class="sf-with-ul">menu item</a>
+      <ul style="display: none;">
+        <li>
+          <a href="http://users.tpg.com.au/j_birch/plugins/superfish/#aa">menu item</a>
+        </li>
+        <li class="current">
+          <a href="http://users.tpg.com.au/j_birch/plugins/superfish/#ab" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li class="current"><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#aba">menu item</a></li>
+            <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abb">menu item</a></li>
+            <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abc">menu item</a></li>
+            <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abd">menu item</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="./sf_17_files/sf_17.html">menu item</a>
+    </li>
+    <li>
+      <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+      <ul style="display: none;">
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="./sf_17_files/sf_17.html">menu item</a>
+    </li> 
+  </ul>
+  <h2>The code:</h2>
+  <p>The simplest use, and a good starting point for new users:</p>
+  <pre class=" language-markup"><code class=" language-markup">//link to the CSS files for this menu type
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>screen<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+// link to the JavaScript files (hoverIntent is optional)
+// if you use hoverIntent, use the updated r7 version (see FAQ)
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hoverIntent.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+
+// initialise Superfish
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
+
+  jQuery<span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span>ready<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    jQuery<span class="token punctuation">(</span><span class="token string">'ul.sf-menu'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>superfish<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span></code></pre>          </div>
+
+      	<div id="sample3" class="sampleTabContent ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-7" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+					<h2>The result:</h2>
+  <ul id="sample-menu-3" class="sf-menu sf-vertical sf-js-enabled sf-arrows">
+    <li class="current">
+      <a href="http://users.tpg.com.au/j_birch/plugins/superfish/#a" class="sf-with-ul">menu item</a>
+      <ul style="display: none;">
+        <li>
+          <a href="http://users.tpg.com.au/j_birch/plugins/superfish/#aa">menu item</a>
+        </li>
+        <li class="current">
+          <a href="http://users.tpg.com.au/j_birch/plugins/superfish/#ab" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li class="current"><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#aba">menu item</a></li>
+            <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abb">menu item</a></li>
+            <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abc">menu item</a></li>
+            <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abd">menu item</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="./sf_17_files/sf_17.html">menu item</a>
+    </li>
+    <li>
+      <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+      <ul style="display: none;">
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+          <ul style="display: none;">
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+            <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="./sf_17_files/sf_17.html">menu item</a>
+    </li> 
+  </ul>
+  <h2>The code:</h2>
+  <p>To create an all-vertical menu, simply add the class <code class=" language-markup">sf-vertical</code> to the parent ul along with the usual <code class=" language-markup">sf-menu</code> class (space-separated, eg. class="sf-menu sf-vertical"), and initialise as normal. For this example I will also demonstrate altering some of the options in order to create a slide-down animation and a longer delay on mouseout:</p>
+  <pre class=" language-markup"><code class=" language-markup">//link to the CSS files for this menu type
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>screen<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>screen<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish-vertical.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+// link to the JavaScript files (hoverIntent is optional)
+// if you use hoverIntent, use the updated r7 version (see FAQ)
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hoverIntent.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+
+// initialise Superfish
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
+
+  jQuery<span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span>ready<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    jQuery<span class="token punctuation">(</span><span class="token string">'ul.sf-menu'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>superfish<span class="token punctuation">(</span><span class="token punctuation">{</span>
+      animation<span class="token punctuation">:</span> <span class="token punctuation">{</span>height<span class="token punctuation">:</span><span class="token string">'show'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">// slide-down effect without fade-in
+</span>      delay<span class="token punctuation">:</span>     <span class="token number">1200</span>               <span class="token comment" spellcheck="true">// 1.2 second delay on mouseout
+</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span></code></pre>          </div>
+
+				<div id="sample4" class="sampleTabContent ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-8" role="tabpanel" aria-expanded="true" aria-hidden="false" style="display: block;">
+					<h2>The result:</h2>
+<ul id="sample-menu-4" class="sf-menu sf-navbar sf-js-enabled sf-arrows">
+  <li class="">
+    <a href="./sf_17_files/sf_17.html" class="sf-with-ul">long menu item</a>
+    <ul style="display: none;">
+      <li><a href="./sf_17_files/sf_17.html">subitem 1a</a></li>
+      <li><a href="./sf_17_files/sf_17.html">subitem 1b</a></li>
+      <li><a href="./sf_17_files/sf_17.html">subitem 1c</a></li>
+      <li><a href="./sf_17_files/sf_17.html">subitem 1d</a></li>
+    </ul>
+  </li>
+  <li class="sf-breadcrumb sfHover">
+    <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+    <ul style="display: block;">
+      <li class="">
+        <a href="./sf_17_files/sf_17.html" class="sf-with-ul">subitem 2a</a>
+        <ul style="display: none;">
+          <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#aba">menu item</a></li>
+          <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abb">menu item</a></li>
+          <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abc">menu item</a></li>
+          <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abd">menu item</a></li>
+        </ul>
+      </li>
+      <li class="current">
+        <a href="./sf_17_files/sf_17.html" class="sf-with-ul">path to current</a>
+        <ul style="display: none;">
+          <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#aba">menu item</a></li>
+          <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abb">menu item</a></li>
+          <li class="current"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abc">current page</a></li>
+          <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abd">menu item</a></li>
+        </ul>
+      </li>
+      <li class="">
+        <a href="./sf_17_files/sf_17.html" class="sf-with-ul">subitem 2c</a>
+        <ul style="display: none;">
+          <li><a href="./sf_17_files/sf_17.html">menu item</a></li>
+          <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#aba">menu item</a></li>
+          <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abb">menu item</a></li>
+          <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abc">menu item</a></li>
+          <li><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abd">menu item</a></li>
+        </ul>
+      </li>
+      <li><a href="./sf_17_files/sf_17.html">subitem 2d</a></li>
+    </ul>
+  </li>
+  <li class="">
+    <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+    <ul style="display: none;">
+      <li><a href="./sf_17_files/sf_17.html">if no subitems, duplicate parent item href and use this as descriptive label</a></li>
+    </ul>
+  </li>
+  <li class="">
+    <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+    <ul style="display: none;">
+      <li><a href="./sf_17_files/sf_17.html">subitem 4a</a></li>
+      <li><a href="./sf_17_files/sf_17.html">subitem 4b</a></li>
+      <li><a href="./sf_17_files/sf_17.html">subitem 4c</a></li>
+      <li><a href="./sf_17_files/sf_17.html">subitem 4d</a></li>
+    </ul>
+  </li>
+  <li class="">
+    <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+    <ul style="display: none;">
+      <li><a href="./sf_17_files/sf_17.html">subitem 5a</a></li>
+      <li><a href="./sf_17_files/sf_17.html">subitem 5b</a></li>
+      <li><a href="./sf_17_files/sf_17.html">subitem 5c</a></li>
+      <li><a href="./sf_17_files/sf_17.html">subitem 5d</a></li>
+    </ul>
+  </li>
+</ul>
+<p>Notice that if you disable JavaScript this menu degrades very nicely – as do all the other examples.</p>
+<h2>The code:</h2>
+<p>To create a horizontal nav-bar with a horizontal second tier and optional vertical third tier, simply include the superfish-navbar.css file after the main superfish.css file and add the class <code class=" language-markup">sf-navbar</code> to the parent ul along with the usual <code class=" language-markup">sf-menu</code> class (space-separated, eg. class="sf-menu sf-navbar"), and initialise as normal.</p>
+<p>A nice option to add to this types of menu is restoring the relevant submenu when the user is not exploring other submenus. This can be done by telling Superfish the name of the class you are adding to the relevant <code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span></code> elements to indicate the path to the current page. I often have the server add the class name 'current' for this purpose, so I would initialise this menu thusly:</p>
+<pre class=" language-markup"><code class=" language-markup">//link to the CSS files for this menu type
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>screen<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>screen<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish-navbar.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+// link to the JavaScript files (hoverIntent is optional)
+// if you use hoverIntent, use the updated r7 version (see FAQ)
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hoverIntent.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+
+// initialise Superfish
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
+
+  jQuery<span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span>ready<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    jQuery<span class="token punctuation">(</span><span class="token string">'ul.sf-menu'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>superfish<span class="token punctuation">(</span><span class="token punctuation">{</span>
+      pathClass<span class="token punctuation">:</span>  <span class="token string">'current'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span></code></pre>        	</div>
+
+      	<div id="sample5" class="sampleTabContent ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-9" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+					<h2>The result:</h2>
+<ul id="sample-menu-5" class="sf-menu sf-js-enabled sf-arrows">
+  <li class="current">
+    <a href="http://users.tpg.com.au/j_birch/plugins/superfish/#a" class="sf-with-ul">menu item</a>
+    <ul style="display: none; float: none; width: 16.846153846153847em;">
+      <li style="white-space: normal; float: none; width: 100%;">
+        <a href="http://users.tpg.com.au/j_birch/plugins/superfish/#aa" style="float: none; width: auto;">menu item that is quite long</a>
+      </li>
+      <li class="current" style="white-space: normal; float: none; width: 100%;">
+        <a href="http://users.tpg.com.au/j_birch/plugins/superfish/#ab" style="float: none; width: auto;" class="sf-with-ul">menu item</a>
+        <ul style="display: none; left: 100%; float: none; width: 20em;">
+          <li class="current" style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item that is even longer still!</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#aba" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abb" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abc" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="http://users.tpg.com.au/j_birch/plugins/superfish/#abd" style="float: none; width: auto;">menu item</a></li>
+        </ul>
+      </li>
+      <li style="white-space: normal; float: none; width: 100%;">
+        <a href="./sf_17_files/sf_17.html" style="float: none; width: auto;" class="sf-with-ul">menu item</a>
+        <ul style="display: none; left: 100%; float: none; width: 13em;">
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+        </ul>
+      </li>
+      <li style="white-space: normal; float: none; width: 100%;">
+        <a href="./sf_17_files/sf_17.html" style="float: none; width: auto;" class="sf-with-ul">menu item</a>
+        <ul style="display: none; left: 100%; float: none; width: 13em;">
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="./sf_17_files/sf_17.html">menu item</a>
+  </li>
+  <li>
+    <a href="./sf_17_files/sf_17.html" class="sf-with-ul">menu item</a>
+    <ul style="display: none; float: none; width: 13em;">
+      <li style="white-space: normal; float: none; width: 100%;">
+        <a href="./sf_17_files/sf_17.html" style="float: none; width: auto;" class="sf-with-ul">menu item</a>
+        <ul style="display: none; left: 100%; float: none; width: 13em;">
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">short</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">short</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">short</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">short</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">short</a></li>
+        </ul>
+      </li>
+      <li style="white-space: normal; float: none; width: 100%;">
+        <a href="./sf_17_files/sf_17.html" style="float: none; width: auto;" class="sf-with-ul">menu item</a>
+        <ul style="display: none; left: 100%; float: none; width: 13em;">
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+        </ul>
+      </li>
+      <li style="white-space: normal; float: none; width: 100%;">
+        <a href="./sf_17_files/sf_17.html" style="float: none; width: auto;" class="sf-with-ul">menu item</a>
+        <ul style="display: none; left: 100%; float: none; width: 13em;">
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+        </ul>
+      </li>
+      <li style="white-space: normal; float: none; width: 100%;">
+        <a href="./sf_17_files/sf_17.html" style="float: none; width: auto;" class="sf-with-ul">menu item</a>
+        <ul style="display: none; left: 100%; float: none; width: 13em;">
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+        </ul>
+      </li>
+      <li style="white-space: normal; float: none; width: 100%;">
+        <a href="./sf_17_files/sf_17.html" style="float: none; width: auto;" class="sf-with-ul">menu item</a>
+        <ul style="display: none; left: 100%; float: none; width: 13em;">
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+          <li style="white-space: normal; float: none; width: 100%;"><a href="./sf_17_files/sf_17.html" style="float: none; width: auto;">menu item</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="./sf_17_files/sf_17.html">menu item</a>
+  </li> 
+</ul>
+<h2>The code:</h2>
+<p><strong>Important note: Unless you really need the submenus to have a max-width, this plugin is no longer needed. The CSS that comes with v1.6.0+ includes a couple of lines that emulate this behaviour.</strong> Otherwise, read on.</p>
+<p>This menu uses the optional Supersubs plugin (currently beta) to make the submenu widths variable. The fixed width set in the CSS is overridden and all menu items within a submenu are altered to match the width of their widest sibling. This is most commonly used to make all menu items fit on one line so that they are all of equal height.</p>
+<p>Note that Supersubs needs to be called before Superfish in the initialisation chain, as shown below:</p>
+<pre class=" language-markup"><code class=" language-markup">//link to the CSS files for this menu type
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>screen<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+// link to the JavaScript files (hoverIntent is optional)
+// if you use hoverIntent, use the updated r7 version (see FAQ)
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hoverIntent.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>superfish.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>supersubs.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+
+// initialise Superfish
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
+
+  jQuery<span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span>ready<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    jQuery<span class="token punctuation">(</span><span class="token string">'ul.sf-menu'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>supersubs<span class="token punctuation">(</span><span class="token punctuation">{</span>
+      minWidth<span class="token punctuation">:</span>    <span class="token number">12</span><span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">// minimum width of submenus in em units
+</span>      maxWidth<span class="token punctuation">:</span>    <span class="token number">27</span><span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">// maximum width of submenus in em units
+</span>      extraWidth<span class="token punctuation">:</span>  <span class="token number">1</span>     <span class="token comment" spellcheck="true">// extra width can ensure lines don't sometimes turn over
+</span>                               <span class="token comment" spellcheck="true">// due to slight rounding differences and font-family
+</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>superfish<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// call supersubs first, then superfish, so that subs are
+</span>                         <span class="token comment" spellcheck="true">// not display:none when measuring. Call before initialising
+</span>                         <span class="token comment" spellcheck="true">// containing tabs for same reason.
+</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span></code></pre>          </div>
+
+    	</div>
+		</div>
+
+    <div id="faq" class="tabContent ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-4" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+      <h1>Frequently Asked Questions</h1>
+      <dl>
+        <dt>Which versions of jQuery is the Superfish plugin compatible with?</dt>
+        <dd>The Superfish plugin is compatible with jQuery v1.7 and later. It also works with jQuery v1.9.0+ as of Superfish v1.5.0 and I strongly recommend you use it.</dd>
+
+        <dt>Does the Superfish plugin have any dependencies on other plugins?</dt>
+        <dd>Nope.</dd>
+
+        <dt>What about touch device support?</dt>
+        <dd>Superfish has robust support for all Android browsers, iOS browsers and IE10 on touch devices. Be aware that you need to include <a href="https://github.com/briancherne/jquery-hoverIntent">hoverIntent</a> to support IE10 and certain Android browsers (although this may change).</dd>
+
+        <dt>Does the Superfish plugin work with any other plugins?</dt>
+				<dd>Yes – here are a few useful plugins that you may wish to add to your menu:
+					<ol>
+	      		<li><strong>HoverIntent</strong>. The nicest thing you can do for your menu is include Brian Cherne’s hoverIntent plugin in your page and Superfish will automatically use it to make the user interaction more pleasing. <strong>Important note:</strong> As of v1.5.1 you must use the newly updated <a href="https://github.com/briancherne/jquery-hoverIntent">r7 version of hoverIntent</a> which supports event delegation.</li>
+						<li><strong>Supersubs</strong>. If you want the submenu widths to change to suit their contents, simply start with the CSS that comes with v1.6.0 or up. Or, you can add the Supersubs plugin as shown in the example of the same name on this site.</li>
+		      </ol>
+				</dd>
+				
+				<dt>How can I make the menu look better?</dt>
+				<dd>The demo style is very basic by design – you should use it as a base to build upon and skin it to suit your project. I strongly recommend testing in the earliest version of Internet Explorer you dare support in addition to modern browsers at every step of the way so that when IE bugs occur you can tell which CSS rules trigger them and work around them before moving on.</dd>
+
+				<dt>What if something goes wrong?</dt>
+				<dd>Please do not use GitHub issues to get help with your menu implementation. The cause of 99.9% of all Superfish problems are basic CSS issues. Disable JavaScript and concentrate on getting the menu working in pure CSS. If you are not a CSS expert then I advise that you follow the method described in the previous question’s answer, ie. begin with the demo CSS file and make small incremental changes, checking in a variety of browsers at every step.</dd>
+				
+				<dt>In Internet Explorer the submenus appear underneath main content div. Why? How do I solve it?</dt>
+				<dd>This very common issue is thanks to the IE Z-index Bug and the solution does not involve adjusting any of the Superfish code, but rather, you need to apply certain CSS to some of your main site structure elements (usually the header div and the main content div). Please follow this link to an article that clearly explains the <a class="external" href="http://webdemar.com/webdesign/superfish-jquery-menu-ie-z-index-bug/">IE z-index bug fix for Superfish</a>.</dd>
+				
+				<dt>What if I still need help?</dt>
+				<dd>If you need help with the jQuery/JavaScript aspect of the plugin, post a message to the <a class="external" href="http://forum.jquery.com/">jQuery Forum</a> with the word “Superfish” somewhere in the subject line. There are many Superfish users on the forum who may be able to help you.</dd>
+				<dd>If your issues are related to styling and CSS, then you will need to post your questions to a purely CSS related group instead. CSS for Superfish is mainly just regular Suckerfish-style dropdown menu code so there are plenty of resources out there to learn from.</dd>
+				
+				<dt>Can I count on Superfish being supported into the future?</dt>
+				<dd>Yes, it’s here for the long haul – or at least as long as it’s relevant. I will also be adding further features in the form of modular optional add-on plugins.</dd>
+				
+				<dt>Have you made any other plugins?</dt>
+				<dd>Why yes, I’m thrilled that you asked. Check out my <a href="http://nofollowr.com/">WordPress plugin “NoFollowr”</a> for making judicious application of nofollow attributes a breeze. It is also powered by the mighty jQuery.</dd>
+      </dl>
+    </div>
+
+    <div id="download" class="tabContent ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-5" role="tabpanel" aria-expanded="true" aria-hidden="false" style="display: block;">
+      <h1>Download</h1>
+      <p>The <a href="https://github.com/joeldbirch/superfish/">canonical version of Superfish</a> lives on GitHub. Here is a shortcut to the <a href="https://github.com/joeldbirch/superfish/archive/master.zip">zip archive</a> of everything you need.</p>
+			<p>The zip archive contains the following files:</p>
+			<ul>
+				<li><a href="https://raw.github.com/joeldbirch/superfish/master/changelog.txt">changelog.txt</a></li>
+				<li><a href="https://raw.github.com/joeldbirch/superfish/master/example.html">example.html</a> containing examples of using the available public methods 'show', 'hide' and 'destroy'.</li>
+				<li><a href="https://raw.github.com/joeldbirch/superfish/master/css/superfish.css">superfish.css</a></li>
+				<li><a href="https://raw.github.com/joeldbirch/superfish/master/css/superfish-vertical.css">superfish-vertical.css</a></li>
+				<li><a href="https://raw.github.com/joeldbirch/superfish/master/css/superfish-navbar.css">superfish-navbar.css</a></li>
+				<li>jquery-1.9.1.min.js, but you should look for and use <a href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">the latest version of jQuery</a>.</li>
+				<li><a href="https://raw.github.com/joeldbirch/superfish/master/js/superfish.js">superfish.js</a></li>
+				<li><a href="https://raw.github.com/joeldbirch/superfish/master/js/supersubs.js">supersubs.js</a></li>
+				<li><a href="https://github.com/briancherne/jquery-hoverIntent">hoverIntent.js</a> – by <a href="http://cherne.net/">Brian Cherne</a>, recently updated (r7) to support event delegation</li>
+			</ul>
+
+      <h1>Support</h1>
+			<p>Demonstrable bugs with the JavaScript component of the Superfish plugin can be <a class="external" href="https://github.com/joeldbirch/superfish/issues/">reported via GitHub</a>. However, most issues you encounter will likely relate to the CSS of your particular menu. These issues are best discussed on a dedicated CSS forum, Stack Exchange, jQuery forum, etc.</p>
+    </div>
+
+</div> <!-- main -->
+<a href="https://github.com/joeldbirch/superfish"><img style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;" src="./sf_17_files/right-red@2x.png" alt="Fork me on GitHub"></a>
+
+
+</body></html>

@@ -1,0 +1,204 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="SiteMasterPage" %>
+
+<%@ Register Src="~/Login.ascx" TagPrefix="uc1" TagName="Login" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        this.header.Visible = this.ShowHeader;
+        this.footer.Visible = this.ShowFooter;
+    }
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><%=SitePage.GetRes("res", this.Page)%></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="<%=SitePage.GetRes("res", "meta_keywords")%>" />
+<meta name="description" content="<%=SitePage.GetRes("res", "meta_description")%>" />
+<link href="css/jquery-ui/jquery-ui.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+<link href="css/com.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+<script type="text/javascript" language="javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" language="javascript" src="js/jquery.blockUI.js"></script>
+<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <!--[if lt IE 7]>
+    <script src="js/ie7/IE7.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <script src="js/ie7/IE8.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="js/ie7/IE9.js"></script>
+    <![endif]-->
+<script type="text/javascript" language="javascript" src="js/script.js"></script>
+<style type="text/css">
+<!--
+#menu_ticket > table { position:absolute; width:133px; height:32px; z-index:1000; background:url(image/xiala_bg.png) no-repeat; zoom:1; top: 37px; visibility: hidden; border-spacing: 0; border-collapse: collapse; }
+#menu_ticket:hover > table { visibility: visible; }
+#menu_ticket > table a{ line-height:32px; width:65px; letter-spacing:1px; float:left; display:block; font-size:14px; font-weight:normal;}
+#menu_ticket > table a:hover{ background-image:none; color:#fac968;}
+
+/*#login_panel { position: relative; border: 0px solid green; width: 400px; height: 75px; }*/
+/*.user-state-login td { text-align: center; vertical-align: central; white-space: nowrap; }*/
+/*.user-state-login .user_account1 , .user-state-login .user_balance1 { width: 130px; height: 35px; }*/
+/*.user-state-login a { cursor: pointer; display: block; width: 99%; height: 99%; }*/
+/*.user-state-login table { width: auto; margin-left: 15px; margin-right: 15px; }*/
+
+/*.user-state-login table td { width: 73px; height: 25px; line-height: 25px; font-size: 12px; font-weight: bold; text-align: center; white-space: nowrap; }*/
+/*.user-state-login table td a       { width: 68px; height: 25px; background: url(image/user_bt.gif)       no-repeat center center; border: 1px solid transparent; }*/
+/*.user-state-login table td a:hover { width: 68px; height: 25px; background: url(image/user_bt_hover.gif) no-repeat center center; border: 1px ridge #ffff00;     color: #ffff00;}*/
+
+.button01 { color: #FFF; background: url(image/user_bt.gif) no-repeat; width: 68px; height: 25px; display: block; margin: 3px 5px; font-size: 12px; font-weight: bold; line-height: 25px; text-align: center; letter-spacing: 1px; cursor: pointer; border: 1px; } 
+.button01:hover { color: #FF0; }
+
+/*.login_button { padding: 5px 0; }*/
+
+/*.header { margin:0 auto; height:115px; background:url(image/top_bg.gif) no-repeat; position: relative; }*/
+/*.logo { float: left; width:381px; height:113px; margin-top:1px; margin-left:25px; }*/
+/*.header_right { float: right; width: 647px; overflow: hidden; }*/
+/*.header1 { width: 350px; float: right; height: 37px; line-height:37px; margin-right: 24px; }*/
+/*.header2 { float: right; margin-right: 30px; }*/
+/*.header2a { width: 100px; }*/
+/*.header2a > div { width: 100%; text-align: center; height: 30px; cursor: pointer; vertical-align: central; margin: 5px; padding-right: 20px; }*/
+/*.header2b { width: 400px; }*/
+
+-->
+</style>
+<script type="text/javascript">
+</script>
+</head>
+
+<body>
+    <div class="root">
+        <div id="header" runat="server" class="_header">
+            1
+            <img class="_logo" src="image/logo.png" width="381" height="113"></img>
+            <table class="_header1" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="180"><img src="image/phone.png" width="170" height="21" /></td>
+                    <td width="96"><a onclick="addBookmark('<%=Request.Url.Host%>', 'tengbo');" class="_collect tubiao">加入收藏</a></td>
+                    <td width="35"><a><img src="image/china_flag.gif" width="22" height="15" title="Chinese" /></a></td>
+                    <td width="35"><a><img src="image/english_flag.gif" width="20" height="15" title="English" /></a></td>
+                </tr>
+            </table>
+            <div class="_header2">
+                <input type="button" class="button-1" onclick="live800_chat()"/>
+                <input type="button" class="button-2"></input>
+            </div>
+            <div id="login_panel"><uc1:Login runat="server" /></div>
+        </div>
+        <div class="header">
+            <div class="logo"><img src="image/logo.png" width="381" height="113" /></div>
+            <div class="header_right">
+                <table class="header1" border="0" cellspacing="0" cellpadding="0" >
+                    <tr>
+                        <td width="180"><img src="image/phone.png" width="170" height="21" /></td>
+                        <td width="18"><img src="image/tubiao.gif" width="11" height="11" /></td>
+                        <td width="78"><a onclick="addBookmark('<%=Request.Url.Host%>', 'tengbo');" class="front_collect">加入收藏</a></td>
+                        <td width="35"><a><img src="image/china_flag.gif" width="22" height="15" title="Chinese" /></a></td>
+                        <td><a><img src="image/english_flag.gif" width="20" height="15" title="English" /></a></td>
+                    </tr>
+                </table>
+                <table class="header2" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="header2a">
+                            <div><img src="image/kefu_bt.gif" width="82" height="27" onclick="live800_chat()" /></div>
+                            <div><img src="image/qq_bt.gif" width="82" height="23" /></div>
+                        </td>
+                        <td class="header2b" id="login_panel1"><uc1:Login runat="server" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <% if (this.ShowNav) { %>
+        <div id="nav">
+            <div class="main" style="position: relative">
+                <ul>
+                    <li class="home <%if (this.NavIndex == 0) { %>cur<% } %>"><a href="<%=ResolveClientUrl("~/")%>">首 页</a></li>
+                    <li <% if (this.NavIndex == 1) { %>class="cur" <% } %>><a href="LiveCasino.aspx">真人娱乐</a></li>
+                    <li <% if (this.NavIndex == 2) { %>class="cur" <% } %>><a href="EGames.aspx">电子游艺</a></li>
+                    <li id="menu_ticket" class="caip <% if (this.NavIndex == 3) { %>cur<% } %>"><a>彩票游戏</a>
+                        <table border="0"><tr><td align="center"><a>BB彩票</a><a>彩 票</a></td></tr></table>
+                    </li>
+                    <li <% if (this.NavIndex == 4) { %>class="cur" <% } %>><a>体育赛事</a></li>
+                    <li <% if (this.NavIndex == 5) { %>class="cur" <% } %>><a href="Promotion.aspx">优惠活动</a></li>
+                    <li <% if (this.NavIndex == 6) { %>class="cur" <% } %>><a href="PrivateTable.aspx">包桌服务</a></li>
+                    <li <% if (this.NavIndex == 7) { %>class="cur" <% } %>><a href="<%=ResolveClientUrl("~/Help/Help5.aspx") %>">新手指南</a></li>
+                </ul>
+            </div>
+        </div>
+        <% } %>
+        <asp:ContentPlaceHolder ID="body1" runat="server"></asp:ContentPlaceHolder>
+        <% if (this.ShowNotice) { %>
+        <div class="notice">
+            <div class="notice_hold">
+                <marquee style="cursor: pointer;" onmouseout="this.start()" onmouseover="this.stop()" direction="left" scrolldelay="100" scrollamount="5" behavior="scroll"><span style="padding-right: 40px; font: bold;"> 1、温馨提示：招行将于2013年11月1日20：00至11月3日20：00对上海市、浙江省、安徽省、福建省、江西省、甘肃省、宁夏回族自治区所辖机构实施系统升级，升级期间无法进行存取款操作，升级结束后会立即处理相关业务。给您带来不便，敬请谅解！ </span>
+				
+				    <span style="padding-right: 40px; font: bold;"> 2、尊敬的玩家，由于近期部分玩家反馈客服热线通话效果欠佳，因此网站新增一条服务热线：0755-33048219，欢迎玩家来电！ </span></marquee>
+            </div>
+        </div>
+        <% } %>
+        <asp:ContentPlaceHolder ID="body2" runat="server"></asp:ContentPlaceHolder>
+        <div id="footer" runat="server" class="_footer">
+            <div class="_links">
+                <div class="left">
+                    <img src="image/link_1.jpg" width="43" height="41" />
+                    <img src="image/link_2.jpg" width="61" height="40" />
+                    <img src="image/link_3.jpg" width="102" height="46" />
+                    <img src="image/link_4.jpg" width="124" height="43" />
+                    <img src="image/link_5.jpg" width="131" height="47" />
+                    <img src="image/link_6.jpg" width="43" height="54" />
+                </div>
+                <div class="right">
+                    <a href="Help1.aspx">关于腾博会</a>|
+                    <a href="Help3.aspx">博彩责任</a>|
+                    <a href="Help9.aspx">规则与声明</a>|
+                    <a href="Help5.aspx">常见问题</a>|
+                    <a href="">清除缓存</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="_desc">
+                <div class="_content">
+                    <h3>关于腾博会</h3>
+                    <h4>开户注册</h4>
+                    免费注册账户即可享受我们高品质、高赔率的娱乐游戏及所有线上投注的优惠。我们致力于提供全球客户最有价值的游戏体验及各类优惠服务。
+                    <h4>责任博彩</h4>
+                    腾博会致力于为客户提供优质的娱乐平台，并设置和升级多项安全设施，以确保游戏的公正性。
+                    <h4>安全保密</h4>
+                    我们采用坚实、稳定与安全的博彩系统。由于您的信息保密度至关重要，我们将坚持实行隐私严格保密制度。
+                    <h4>试玩体验</h4>
+                    游戏全面开放，让您无需注册，即可免费参观体验我们为您提供的各种游戏。
+                </div>
+                <div class="_content">
+                    <h3>全线产品</h3>
+                    <h4>真人娱乐城</h4>
+                    腾博会提供多个最受欢迎的真人娱乐场游戏，包括真人娱乐百家乐﹑二十一点﹑骰宝﹑龙虎及轮盘等等游戏。 我们还为您提供VIP至尊包桌服务， 可咪牌，自由飞牌，任换荷官，任换牌靴等。
+                    <h4>老虎机及电子游戏</h4>
+                    我们的游戏包括轮盘、21点、电子扑克、老虎机等在线娱乐场游戏，并有对战游戏如扎金花，斗牛，二八杠，幸运骰等。
+                    <h4>体育博弈</h4>
+                    腾博会网罗世界各类体育赛事，玩家可以选择其喜爱体育项目进行游戏。腾博会开出盘口多，高水赔率及选择丰富。
+                    <h4>彩票</h4>
+                    腾博会提供各种精彩的快乐彩，100%官方赛果玩法新颖。
+                </div>
+                <div class="_content">
+                    <h3>信息中心</h3>
+                    <h4>优惠活动</h4>
+                    新用户享有首次存款红利及开户礼品。老客户同样享有多种优惠服务。
+                    <h4>支付方式</h4>
+                    腾博会为客户提供众多的存取款方式并保障您存取过程顺利及时，使资金安全快捷到达。一旦成功存款，您即可享有腾博会提供的所有游戏项目。
+                    <h4>联系我们</h4>
+                    如果您有任何关于娱乐场的疑问，可通过在线客服、QQ、电话及电邮方式与我们取得联系。腾博会提供7*24小时不间断的贴心客户服务。
+                    <h4>常见问题</h4>
+                    通过常见问题可即时解答玩家关于腾博会账号，存提款，有关投资游戏等等问题。
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/admin/admin.master" AutoEventWireup="true" Inherits="web.masterpage" %>
+<%@ Import Namespace="web" %>
+
+<script runat="server">
+    int? user_level = null;
+
+    int userID;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        this.userID = Request.QueryString["id"].ToInt32() ?? 0;
+    }
+</script>
+
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var id = '<%=userID%>';
+            $('.detail-content iframe').load(function () {
+                $('.detail-content-loading').hide();
+            });
+            $('.detail-nav div').each(function () {
+                $(this)
+                    .button({ icons: { primary: $(this).attr('icon') } }).removeClass('ui-corner-all').removeClass('ui-state-default').addClass('ui-widget-content')
+                    .click(function () {
+                        var url = $(this).attr('url');
+                        if (url == null) return;
+                        $('.detail-nav div').removeClass('ui-state-highlight');
+                        $(this).addClass('ui-state-highlight');
+                        $('.detail-content iframe').prop('src', (url + "?id=" + id));
+                        $('.detail-content-loading').show();
+                    });
+            });
+            setTimeout(function () {
+                $('.detail-nav div.ui-state-highlight:eq(0)').trigger('click');
+            }, 300);
+            iframe_auto_height();
+        });
+    </script>
+    <style type="text/css">
+        body { padding-bottom: 10px; }
+        .detail-table { width: 100%; border: 0; border-collapse: collapse; }
+        .detail-nav { width:130px; padding-left: 1px; }
+        .detail-nav, .detail-content { vertical-align: top; position: relative; }
+        .detail-content { padding-left: 3px; }
+        .detail-content iframe { width:98%; height:1px; }
+        .detail-nav div { width: 100%; }
+        .detail-content-loading { position: absolute; left: 8px; top: 5px; }
+        .detail-content-loading div { background: url(../images/loading3_000000.gif) #fff no-repeat center center; width: 32px; height: 32px; margin: 1px; border-width: 1px; }
+        .gametran { }
+        .gametran .a { width: 60px; }
+        .gametran .a:disabled { background: url(../images/loading1_000000.gif) no-repeat center center; border-color: transparent; }
+        .gamebalance-load { cursor: pointer; }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+    <% if (this.Page is web.UserDetails_page) { %>
+    <div class="ui-jqgrid">
+        <table class="ui-jqgrid-view ui-widget-content detail-table">
+            <tr>
+                <td class="detail-nav">
+                    <% web.UserDetails_page page = (web.UserDetails_page)this.Page;
+                       MenuRow.Cache m = MenuRow.Cache.Instance; %>
+                    <% if (page.UserType == BU.UserType.Admin) {
+                           MenuRow m01 = m.GetItem(this.User, BU.Permissions.Code.admin1);
+                           MenuRow m02 = m.GetItem(this.User, BU.Permissions.Code.admin2);
+                           MenuRow m03 = m.GetItem(this.User, BU.Permissions.Code.admin3); %>
+                    <% if (m01 != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(m01.Url)%>" class="ui-state-highlight"><%=m01.GetLabel() ?? m01.Name%></div><% } %>
+                    <% if (m02 != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(m02.Url)%>" class=""                  ><%=m02.GetLabel() ?? m02.Name%></div><% } %>
+                    <% if (m03 != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(m03.Url)%>" class=""                  ><%=m03.GetLabel() ?? m03.Name%></div><% } %>
+                    <% } else if (page.UserType == BU.UserType.Agent) {
+                           MenuRow mcd = m.GetItem(this.User, BU.Permissions.Code.tran_agent_deposit);
+                           MenuRow mcw = m.GetItem(this.User, BU.Permissions.Code.tran_agent_withdrawal);
+                           MenuRow mgd = m.GetItem(this.User, BU.Permissions.Code.tran_agent_gamedeposit);
+                           MenuRow mgw = m.GetItem(this.User, BU.Permissions.Code.tran_agent_gamewithdrawal);
+                           MenuRow m01 = m.GetItem(this.User, BU.Permissions.Code.agent1);
+                           MenuRow m02 = m.GetItem(this.User, BU.Permissions.Code.agent2);
+                           MenuRow m03 = null; /* m.GetItem(this.User, BU.Permissions.Code.agent3);*/ %>
+                    <% if (m01 != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(m01.Url)%>" class=""                  ><%=m01.GetLabel() ?? m01.Name%></div><% } %>
+                    <% if (m02 != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(m02.Url)%>" class="ui-state-highlight"><%=m02.GetLabel() ?? m02.Name%></div><% } %>
+                    <% if (mgd != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(mgd.Url)%>" class=""                  ><%=mgd.GetLabel() ?? mgd.Name%></div><% } %>
+                    <% if (mgw != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(mgw.Url)%>" class=""                  ><%=mgw.GetLabel() ?? mgw.Name%></div><% } %>
+                    <% if (mcd != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(mcd.Url)%>" class=""                  ><%=mcd.GetLabel() ?? mcd.Name%></div><% } %>
+                    <% if (mcw != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(mcw.Url)%>" class=""                  ><%=mcw.GetLabel() ?? mcw.Name%></div><% } %>
+                    <% if (m03 != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(m03.Url)%>" class=""                  ><%=m03.GetLabel() ?? m03.Name%></div><% } %>
+                    <% } else if (page.UserType == BU.UserType.Member) {
+                           MenuRow mcd = m.GetItem(this.User, BU.Permissions.Code.tran_member_deposit);
+                           MenuRow mcw = m.GetItem(this.User, BU.Permissions.Code.tran_member_withdrawal);
+                           MenuRow mgd = m.GetItem(this.User, BU.Permissions.Code.tran_member_gamedeposit);
+                           MenuRow mgw = m.GetItem(this.User, BU.Permissions.Code.tran_member_gamewithdrawal);
+                           MenuRow m01 = m.GetItem(this.User, BU.Permissions.Code.member1);
+                           MenuRow m02 = m.GetItem(this.User, BU.Permissions.Code.member2);
+                           MenuRow m03 = null; /*m.GetItem(this.User, BU.Permissions.Code.member3);*/
+                           MenuRow m04 = null; /* m.GetItem(this.User, "member2_");*/ %>
+                    <% if (m01 != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(m01.Url)%>" class=""                  ><%=m01.GetLabel() ?? m01.Name%></div><% } %>
+                    <% if (m02 != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(m02.Url)%>" class="ui-state-highlight"><%=m02.GetLabel() ?? m02.Name%></div><% } %>
+                    <% if (m04 != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(m04.Url)%>" class=""                  ><%=m04.GetLabel() ?? m04.Name%></div><% } %>
+                    <% if (mgd != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(mgd.Url)%>" class=""                  ><%=mgd.GetLabel() ?? mgd.Name%></div><% } %>
+                    <% if (mgw != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(mgw.Url)%>" class=""                  ><%=mgw.GetLabel() ?? mgw.Name%></div><% } %>
+                    <% if (mcd != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(mcd.Url)%>" class=""                  ><%=mcd.GetLabel() ?? mcd.Name%></div><% } %>
+                    <% if (mcw != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(mcw.Url)%>" class=""                  ><%=mcw.GetLabel() ?? mcw.Name%></div><% } %>
+                    <% if (m03 != null) { %><div icon="ui-icon-comment" url="<%=ResolveClientUrl(m03.Url)%>" class=""                  ><%=m03.GetLabel() ?? m03.Name%></div><% } %>
+                    <% } %>
+                    <asp:ContentPlaceHolder ID="detail_nav" runat="server"></asp:ContentPlaceHolder>
+                    <div class="ui-corner-bottom">&nbsp;</div>
+                </td>
+                <td class="detail-content">
+                    <div class="ui-widget-content ui-state-active detail-content-loading" style="display: none;"><div></div></div>
+                    <iframe frameBorder="0"></iframe>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <% } %>
+</asp:Content>

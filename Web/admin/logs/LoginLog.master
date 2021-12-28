@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/admin/admin.master" AutoEventWireup="true" Inherits="web.masterpage" %>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        var $table;
+        $(document).ready(function (ind, rowid) {
+
+            $table = $('#table1').jqGrid_init({
+                pager: true, loadonce: false, 
+                SelectCommand: SelectCommand,
+                cmTemplate: { editable: false, editonce: false },
+                filterToolbar: { enabled: true, initVisible: true },
+
+                colModel: [
+                        { name: 'sn       ', label: '<%=lang["colSN       "]%>', width: 060, fixed: true, hidden: false, key: true, sortable: false },
+                        { name: 'ID       ', label: '<%=lang["colID       "]%>', colType: 'ID', key: false },
+                        { name: 'UserType ', label: '<%=lang["colUserType "]%>', width: 080, hidden: true },
+                        { name: 'CorpID   ', label: '<%=lang["colCorpID   "]%>', colType: 'CorpID' },
+                        { name: 'ACNT     ', label: '<%=lang["colACNT     "]%>', width: 100, search: true },
+                        { name: 'LoginTime', label: '<%=lang["colLoginTime"]%>', colType: 'DateTime2', nowrap: true },
+                        { name: 'LoginIP  ', label: '<%=lang["colLoginIP  "]%>', width: 100, search: true },
+                        { name: 'Result   ', label: '<%=lang["colResult   "]%>', width: 090, search: true },
+                        { name: 'Message  ', label: '<%=lang["colMessage  "]%>', width: 200, search: true },
+                        { name: 'json     ', label: 'json', width: 200, sorttype: 'text', hidden: true }
+                ]
+            });
+
+            $table[0].grid.$toolbar.css('height', 'auto');
+            $(window).resize(function () { $table.gridSize(window); }).trigger('resize');
+        });
+    </script>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <table id="table1">
+        <tr class="grid-option">
+            <td>
+                <div name="nav1"></div>
+                <div name="nav2" class="ui-widget-content" style=""></div>
+            </td>
+        </tr>
+    </table>
+</asp:Content>

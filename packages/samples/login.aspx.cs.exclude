@@ -1,0 +1,158 @@
+﻿using System.Web;
+
+public partial class login : System.Web.UI.Page
+{
+    public override void ProcessRequest(HttpContext context)
+    {
+        if (UserInfo.GetCurrent(context).IsGuest)
+            base.ProcessRequest(context);
+        else
+            context.Server.TransferRequest("~/");
+    }
+
+    //protected void Page_Load(object sender, EventArgs e)
+    //{
+    //    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+    //    Response.Cache.SetExpires(DateTime.Now);
+    //    if (this.user == null)
+    //        Response.End();
+    //    else
+    //    {
+    //        string s = Request.Headers["t"];
+    //        if (!string.IsNullOrEmpty(s))
+    //        {
+    //            if (s == "logout")
+    //            {
+    //            }
+    //            else
+    //            {
+    //                LoginResult result = LoginResult.Unknown;
+    //                try
+    //                {
+    //                    UserLogin login = JsonConvert.DeserializeObject<UserLogin>(s);
+    //                    using (SqlCmd sql = new SqlCmd("GameDB"))
+    //                    {
+    //                        UserData data = sql.ToObject<UserData>("exec sp_get_admin {CorpName},{UserName}".SqlExport(null, login));
+
+    //                        if (data == null)
+    //                            result = LoginResult.UserNotExist;
+
+    //                        if (result == LoginResult.Unknown)
+    //                            if (!data.ActiveTime.HasValue)
+    //                                result = LoginResult.NotActive;
+
+    //                        if (result == LoginResult.Unknown)
+    //                            if (data.ExpireTime.HasValue)
+    //                                if (data.ExpireTime >= data.CurrentTime)
+    //                                    result = LoginResult.Expired;
+
+    //                        if (result == LoginResult.Unknown)
+    //                        {
+    //                            string password = Convert.ToBase64String(login.Password.TripleDESEncrypt(data.ACNT, null).MD5());
+    //                            if (password != data.Password)
+    //                                result = LoginResult.PasswordError;
+    //                        }
+
+    //                        if (result == LoginResult.Unknown)
+    //                        {
+    //                            result = LoginResult.Success;
+    //                            // login success
+    //                            Response.Write(result.ToString());
+    //                        }
+    //                        else
+    //                        {
+    //                            // login failed
+    //                            Response.Write(result);
+    //                            //Response.Write(s);
+    //                            //Response.Write("\r\n");
+    //                            //Response.Write(JsonConvert.SerializeObject(login));
+    //                        }
+
+    //                        //Cashino.API.CallAPI(user, cmd, null);
+    //                    }
+    //                }
+    //                catch (Exception ex)
+    //                {
+    //                    result = LoginResult.SystemError;
+    //                }
+    //            }
+    //            Response.End();
+    //            return;
+    //        }
+    //    }
+    //}
+}
+
+//enum userType { Corp = 0, Admin = 1 }
+//class UserData
+//{
+//    [DbImport]
+//    public userType? UserType;
+
+//    [DbImport]
+//    public int? CorpID;
+
+//    [DbImport]
+//    public string ACNT;
+
+//    [DbImport]
+//    public string Domain;
+
+//    [DbImport]
+//    public string Name;
+
+//    [DbImport]
+//    public string Password;
+
+//    [DbImport]
+//    public DateTime? ActiveTime;
+
+//    [DbImport]
+//    public DateTime? ExpireTime;
+
+//    [DbImport]
+//    public DateTime? CurrentTime;
+//}
+
+//[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+//public class UserLogin
+//{
+//    [StringExport]
+//    public string CorpName { get; set; }
+
+//    [StringExport]
+//    public string UserName { get; set; }
+
+//    [JsonProperty("t1")]
+//    public string FullName
+//    {
+//        get { return string.Format("{0}@{1}", this.UserName, this.CorpName); }
+//        set
+//        {
+//            int n = value.IndexOf('@');
+//            if (n >= 0)
+//            {
+//                this.CorpName = value.Substring(n + 1);
+//                this.UserName = value.Substring(0, n);
+//            }
+//            else
+//            {
+//                this.CorpName = value;
+//                this.UserName = "";
+//            }
+//            this.CorpName = this.CorpName.Replace("'", "''").Trim();
+//            this.UserName = this.UserName.Replace("'", "''").Trim();
+//        }
+//    }
+
+//    [JsonProperty("t2")]
+//    public string Password { get; set; }
+
+//    [JsonProperty("t3")]
+//    public string VerifyCode { get; set; }
+
+//    [ObjectInvoke]
+//    void _login(object sender, UserLogin cmd, object result, string json)
+//    {
+//    }
+//}

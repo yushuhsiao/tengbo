@@ -1,0 +1,111 @@
+﻿<%@ Master Language="C#" MasterPageFile="admin.master" AutoEventWireup="true" Inherits="web.masterpage" %>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        var $table;
+        $(document).ready(function () {
+            function row_bits(row) {
+                if ($.isArray(row.Flags)) {
+                    for (var i = 0; i < row.Flags.length; i++) {
+                        var f = i.toString();
+                        if (i < 10) f = '0' + f;
+                        f = 'Flag' + f;
+                        row[f] = row.Flags[i];
+                    }
+                }
+            }
+            $table = $('#table01').jqGrid_init({
+                pager: true, toppager: false, pginput: false, rowList: [], shrinkToFit: true, loadonce: false, subGrid: true,
+                sortname: 'ID', sortorder: "asc",                
+
+                SelectCommand: SelectCommand,
+                UpdateCommand: UpdateCommand,
+                InsertCommand: InsertCommand,
+                colModel: colModel,
+                subGridBeforeExpand: function (pID, id, ind) { },
+                subGridRowCreated: function (pID, id, ind, tablediv) {
+                    var $table02 = $('.table02').clone(true, true).removeClass('table02').prop('id', pID).appendTo(tablediv).show().jqGrid_init({
+                        pager: false, autowidth: true, shrinkToFit: false, loadonce: true, subGrid: false, height: '300', rownumbers: false,
+                        cmTemplate: { align: 'left' },
+                        treeGridModel: 'adjacency',
+                        treeGrid: true,
+                        ExpandColumn: 'ID',
+                        treeReader: { level_field: "level", parent_id_field: "Parent", leaf_field: "isLeaf", expanded_field: "expanded", loaded: "loaded", icon_field: "icon" },
+                        editParams: { url: 'api' },
+                        RowResponse: function (res, rowid, o) { row_bits(o); },
+                        SelectCommand: function (postData) { postData.GroupID = id; return GroupPermissionSelect(postData); },
+                        UpdateCommand: function (postData) { postData.GroupID = id; return GroupPermissionUpdate(postData); },
+                        beforeProcessing: function (data, status, xhr) {
+                            //console.log(arguments);
+                            data.rows.push({ ID: 0, Code: 'root', Name: 'root' });
+                            $table02.treeGridConvertRows(data);
+                            var rows = [];
+                            for (var i = 0; i < data.rows.length; i++) {
+                                var row = data.rows[i];
+                                if (row.ID == 0) continue;
+                                data.rows[i][$table02[0].p.treeReader.level_field]--;
+                                row_bits(row);
+                                rows.push(row);
+                            }
+                            data.rows = rows;
+                        },
+                        colModel: [
+                            { name: 'Action    ', label: '<%=lang["colAction"]%>', colType: 'Buttons', frozen: true },
+                            { name: 'ID        ', label: '<%=lang["colID    "]%>', width: 250, editable: false, hidden: false, frozen: true, colType: 'ID', formatter: 'alias', formatoptions: 'Name' },
+                            { name: 'Parent    ', label: '<%=lang["colParent"]%>', width: 100, editable: false, hidden: true },
+                            { name: 'Name      ', label: '<%=lang["colName  "]%>', width: 100, editable: false, hidden: true },
+                            { name: 'Sort      ', label: '<%=lang["colSort  "]%>', width: 080, editable: false, hidden: true },
+                            { name: 'Flag      ', label: '<%=lang["colFlag  "]%>', width: 080, editable: false, hidden: true },
+                            { name: 'Code      ', label: '<%=lang["colCode  "]%>', width: 100, editable: false, hidden: true },
+                            <%for (int i = 0; i < MenuRow.DisplayCount; i++) { string ii = i.ToString("00"); %>{ name: 'Flag<%=ii%>', label: '<%=lang["colFlag"+ii]%>', width: 35, editable: true, align: 'center', formatter: 'checkbox', edittype: 'checkbox' },
+                            <%}%>
+                        ]
+                    }).setFrozenColumns();
+                },
+                subGridRowExpanded: function (pID, id, ind, tablediv) { },
+                subGridBeforeColapsed: function (pID, id, ind, tablediv) { },
+                subGridRowRemoved: function (pID, id, ind, tablediv) { },
+                subGridRowColapsed: function (pID, id, ind, tablediv) { }
+            });
+
+            // 工具列
+            //$('#btnAdd').button({ icons: { primary: 'ui-icon-plus' } }).click($table[0].addRow).css('border', 0);
+            $(window).resize(function () { $table.gridSize(window); }).trigger('resize');
+        });
+    </script>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <table id="table01">
+        <tr class="colModel">
+            <td name="Action">
+                <span property="action">
+                    <div class="edithide"   action="editRow"    icon="ui-icon-pencil"><%=lang["Actions_Edit"]%></div>
+                    <div class="editshow"   action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow"   action="saveRow"    icon="ui-icon-disk"  ><%=lang["Actions_Save"]%></div>
+                </span>
+            </td>
+        </tr>
+        <tr class="grid-option">
+            <td>
+                <div name="nav1">
+                    <button action="toggleSearch" icon="ui-icon-search" ><%=lang["btnSearch"]%></button>
+                    <button action="reloadGrid"   icon="ui-icon-refresh"><%=lang["btnRefresh"]%></button>
+                    <button action="addRow"       icon="ui-icon-plus"   ><%=lang["btnAdd"]%></button>
+                </div>
+                <div name="nav2" class="ui-widget-content" style=""></div>
+            </td>
+        </tr>
+    </table>
+    <table class="table02"">
+        <tr class="colModel">
+            <td name="Action">
+                <span property="action">
+                    <div class="edithide"   action="editRow"    icon="ui-icon-pencil"><%=lang["Actions_Edit"]%></div>
+                    <div class="editshow"   action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow"   action="saveRow"    icon="ui-icon-disk"  ><%=lang["Actions_Save"]%></div>
+                </span>
+            </td>
+        </tr>
+    </table>
+</asp:Content>

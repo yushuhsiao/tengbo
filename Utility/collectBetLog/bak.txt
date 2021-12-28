@@ -1,0 +1,639 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
+
+namespace collecReportLog
+{
+    public partial class collectReportLog : Form
+    {
+        List<string> listOfJson = new List<string>();
+        List<BetAmtDG_Command> list = new List<BetAmtDG_Command>();
+
+        //List<ToolStripButton> tsGame;
+
+        public collectReportLog()
+        {
+            InitializeComponent();
+            //tsGame = new List<ToolStripButton>() { tsGame1, tsGame2, tsGame3, tsGame4, tsGame5 };
+        }
+
+        //public class BetAmtDG
+        //{
+        //    public string GameID { get; set; }
+        //    public DateTime ACTime { get; set; }
+        //    public string GameType { get; set; }
+        //    public string ACNT { get; set; }
+        //    public string BetAmount { get; set; }
+        //    public string BetAmountAct { get; set; }
+        //    public string Payout { get; set; }
+
+        //    //public override bool Equals(object obj)
+        //    //{
+        //    //    BetAmtDG obj2 = obj as BetAmtDG;
+        //    //    if (obj2 != null)
+        //    //    {
+        //    //        return
+        //    //            this.PlatformId.Equals(obj2.PlatformId) &&
+        //    //            this.ACTime.Equals(obj2.ACTime) &&
+        //    //            this.ACNT.Equals(obj2.ACNT) &&
+        //    //            this.BetAmount.Equals(obj2.BetAmount) &&
+        //    //            this.BetAmountAct.Equals(obj2.BetAmountAct) &&
+        //    //            this.Payout.Equals(obj2.Payout);
+        //    //    }
+        //    //    return base.Equals(obj);
+        //    //}
+        //}
+
+        /// <summary>
+        /// 初始化操作
+        /// </summary>
+        public void InitialCollec()
+        {
+            //tsGame1_Click(tsGame1, EventArgs.Empty);
+        }
+
+        private void collecReportLog_Load(object sender, EventArgs e)
+        {
+            InitialCollec();
+        }
+
+        public void AddJson(BetAmtDG_Command g)
+        {
+            string gJson = web.api.SerializeObject(g);
+            if (listOfJson.Contains(gJson)) return;
+            listOfJson.Add(gJson);
+            list.Add(g);
+        }
+
+        /// <summary>
+        /// 采集AG
+        /// </summary>
+        public void CollectAG()
+        {
+            try
+            {
+                if (wbReportPage.Url.AbsoluteUri != "http://gdc.asia-gaming.com:8083/order/groupByLoginNameOrderAction.htm")
+                {
+                    throw new Exception("请进入到报表页面再进行采集");
+                }
+
+                HtmlDocument doc = wbReportPage.Document;
+
+                //账务日
+                DateTime actime = Convert.ToDateTime(doc.GetElementById("begin_time").GetAttribute("value").Substring(0, 10));
+
+                HtmlElementCollection trs = doc.GetElementById("tableWork").GetElementsByTagName("tr");
+
+                if (trs.Count <= 0)
+                {
+                    throw new Exception("暂无数据，请稍候再试！");
+                }
+                foreach (HtmlElement tr in trs)
+                {
+                    //到小计部分截止采集
+                    if (tr.GetAttribute("id") != "pro")
+                    {
+                        continue;
+                    }
+
+                    HtmlElementCollection tds = tr.GetElementsByTagName("td");
+
+                    BetAmtDG_Command g = new BetAmtDG_Command()
+                    {
+                        GameID = BU.GameID.AG_AG,
+                        GameType = "无",
+                        ACTime = actime,
+                        ACNT = tds[1].InnerText,
+                        BetAmount = tds[10].InnerText.ToDecimal(),
+                        BetAmountAct = tds[11].InnerText.ToDecimal(),
+                        Payout = tds[12].InnerText.ToDecimal()
+                    };
+                    string gJson = web.api.SerializeObject(g);
+                    if (!listOfJson.Contains(gJson))
+                    {
+                        listOfJson.Add(gJson);
+                        list.Add(g);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 采集BBIN
+        /// </summary>
+        public void CollectBBIN()
+        {
+            try
+            {
+                HtmlDocument doc = wbReportPage.Document;
+
+                if (doc.Window.Frames.Count == 0)
+                {
+                    throw new Exception("请进入到报表页面再进行采集");
+                }
+                foreach (HtmlWindow h in doc.Window.Frames)
+                {
+                    if (h.Name == "net_topFrame")
+                    {
+                        HtmlElementCollection trs = null;
+                        try
+                        {
+                            trs = h.Frames[1].Document.GetElementById("MainTbody_ID_All").GetElementsByTagName("tr");
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("请进入到报表页面再进行采集");
+                        }
+
+                        if (trs.Count <= 0)
+                        {
+                            throw new Exception("暂无数据，请稍候再试！");
+                        }
+
+                        //账务日
+                        DateTime actime = Convert.ToDateTime(h.Frames[1].Document.GetElementById("myTableAll").GetElementsByTagName("span")[0].InnerText.Substring(6, 10));
+
+                        foreach (HtmlElement tr in trs)
+                        {
+                            HtmlElementCollection tds = tr.GetElementsByTagName("td");
+
+                            BetAmtDG_Command g = new BetAmtDG_Command()
+                            {
+                                GameID = BU.GameID.BBIN,
+                                GameType = "无",
+                                ACTime = actime,
+                                ACNT = tds[0].InnerText,
+                                BetAmount = tds[2].InnerText.ToDecimal(),
+                                BetAmountAct = tds[4].InnerText.ToDecimal(),
+                                Payout = tds[3].InnerText.ToDecimal()
+                            };
+                            string gJson = web.api.SerializeObject(g);
+                            if (!listOfJson.Contains(gJson))
+                            {
+                                listOfJson.Add(gJson);
+                                list.Add(g);
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 采集HG
+        /// </summary>
+        public void CollectHG()
+        {
+            try
+            {
+                if (wbReportPage.Url.AbsoluteUri != "https://reports.virtuagaming.com/PlayerReport.aspx")
+                {
+                    throw new Exception("请进入到玩家报告页面再进行采集");
+                }
+
+                HtmlDocument doc = wbReportPage.Document;
+
+                //三个checkbox都勾选获取的是有效投注额
+                bool allChecked = doc.GetElementById("chkExcludTieBet").GetAttribute("checked") == "True" && doc.GetElementById("chkExcludEvenBet").GetAttribute("checked") == "True" && doc.GetElementById("chkBonusBet").GetAttribute("checked") == "True";
+                //三个checkbox都未勾选获取的是总投注额和输赢额度
+                bool allNoChecked = doc.GetElementById("chkExcludTieBet").GetAttribute("checked") == "False" && doc.GetElementById("chkExcludEvenBet").GetAttribute("checked") == "False" && doc.GetElementById("chkBonusBet").GetAttribute("checked") == "False";
+
+                if (!allChecked && !allNoChecked)
+                {
+                    throw new Exception("请勾选全部复选框，或者全不勾选在进行采集");
+                }
+
+                //账务日
+                DateTime actime = Convert.ToDateTime(doc.GetElementById("txt_stdate").GetAttribute("value").Substring(0, 10));
+
+                HtmlElementCollection trs = doc.GetElementById("UpdatePanel2").GetElementsByTagName("table")[1].GetElementsByTagName("table")[0].GetElementsByTagName("tr");
+
+                if (trs.Count == 2)
+                {
+                    throw new Exception("暂无数据，请稍候再试！");
+                }
+
+                int flag = 0;
+                foreach (HtmlElement tr in trs)
+                {
+                    flag++;
+                    if (flag == 1)
+                    {
+                        continue;
+                    }
+                    if (flag == trs.Count)
+                    {
+                        break;
+                    }
+                    HtmlElementCollection tds = tr.GetElementsByTagName("td");
+
+                    BetAmtDG_Command oldGb = null;
+
+                    //检查当前该玩家基本资料是否已经插入
+                    foreach (BetAmtDG_Command gb in list)
+                    {
+                        if (gb.GameID == BU.GameID.HG && gb.ACTime == actime && gb.ACNT == tds[1].InnerText)
+                        {
+                            oldGb = gb;
+                            break;
+                        }
+                    }
+
+                    //如果存在
+                    if (oldGb != null)
+                    {
+                        list.Remove(oldGb);
+                        if (allNoChecked)
+                        {
+                            oldGb.BetAmount = tds[6].InnerText.ToDecimal();
+                            oldGb.Payout = tds[7].InnerText.ToDecimal();
+
+                        }
+                        if (allChecked)
+                        {
+                            oldGb.BetAmountAct = tds[6].InnerText.ToDecimal();
+                        }
+                        list.Add(oldGb);
+
+                        if (oldGb.BetAmount != 0 && oldGb.BetAmountAct != 0 && oldGb.Payout != 0)
+                        {
+                            string gJson = web.api.SerializeObject(oldGb);
+                            if (!listOfJson.Contains(gJson))
+                            {
+                                listOfJson.Add(gJson);
+                            }
+                        }
+                    }
+                    //不存在直接插入数据
+                    else
+                    {
+                        BetAmtDG_Command g = new BetAmtDG_Command()
+                        {
+                            GameID = BU.GameID.HG,
+                            GameType = "无",
+                            ACTime = actime,
+                            ACNT = tds[1].InnerText,
+                            BetAmount = allNoChecked ? tds[6].InnerText.ToDecimal() : 0,
+                            BetAmountAct = allChecked ? tds[6].InnerText.ToDecimal() : 0,
+                            Payout = allNoChecked ? tds[7].InnerText.ToDecimal() : 0
+                        };
+                        list.Add(g);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 采集SunCity
+        /// </summary>
+        public void CollectSunCity()
+        {
+            try
+            {
+                HtmlDocument doc = wbReportPage.Document;
+
+                if (doc.Window.Frames.Count == 0)
+                {
+                    throw new Exception("请进入到报表页面再进行采集");
+                }
+
+                foreach (HtmlWindow h in doc.Window.Frames)
+                {
+                    if (h.Name == "middle")
+                    {
+                        try
+                        {
+                            if (h.Frames[0].Document.GetElementById("Label3").InnerText != "輸贏報表" && h.Frames[0].Document.GetElementById("Label3").InnerText != "输赢报表")
+                            {
+                                throw new Exception("请进入到报表页面再进行采集");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("请进入到报表页面再进行采集");
+                        }
+
+                        //账务日      
+                        DateTime actime = Convert.ToDateTime(h.Frames[0].Document.GetElementById("wFromDate").GetAttribute("value"));
+
+                        HtmlElementCollection trs = h.Frames[0].Document.GetElementById("form1").GetElementsByTagName("div")[2].GetElementsByTagName("table")[2].GetElementsByTagName("div")[1].GetElementsByTagName("tr");
+
+                        foreach (HtmlElement tr in trs)
+                        {
+                            MessageBox.Show(tr.InnerHtml);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 采集平台选择
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //private void tsGame_Click(object sender, EventArgs e)
+        //{
+        //    ToolStripButton n1 = sender as ToolStripButton;
+        //    if (n1 == null) return;
+        //    if (!this.tsGame.Contains(n1)) return;
+        //    string key = n1.Tag as string;
+        //    if (string.IsNullOrEmpty(key)) return;
+        //    try
+        //    {
+        //        wbReportPage.Url = new Uri(ConfigurationManager.AppSettings[key]);
+
+        //        foreach (ToolStripButton n2 in tsGame)
+        //            n2.Checked = n1 == n2;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        /// <summary>
+        /// 浏览器进度条
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void wbReportPage_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
+        {
+            tsp_WebProcress.Visible = true;
+            if ((e.CurrentProgress > 0) && (e.MaximumProgress > 0))
+            {
+                tsp_WebProcress.Maximum = Convert.ToInt32(e.MaximumProgress);
+                tsp_WebProcress.Step = Convert.ToInt32(e.CurrentProgress);
+                tsp_WebProcress.PerformStep();
+            }
+            else if (wbReportPage.ReadyState == WebBrowserReadyState.Complete)
+            {
+                tsp_WebProcress.Value = 0;
+                tsp_WebProcress.Visible = false;
+            }
+        }
+
+        /// <summary>
+        /// 开始采集
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Collect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                collectWebBrowser w = this.GetCurrentPage();
+                if (w == null)
+                    MessageBox.Show("请选择要采集的平台");
+                else
+                    w.Collect();
+                //if (tsGame1.Checked)
+                //{
+                //    CollectBBIN();
+                //}
+                //else if (tsGame2.Checked)
+                //{
+                //    CollectAG();
+                //}
+                //else if (tsGame3.Checked)
+                //{
+                //    CollectHG();
+                //}
+                //else if (tsGame4.Checked)
+                //{
+                //    CollectSunCity();
+                //}
+                //else if (tsGame5.Checked)
+                //{
+                //    MessageBox.Show("Salon采集暂不实现");
+                //    return;
+                //}
+                //else
+                //{
+                //    MessageBox.Show("请选择要采集的平台");
+                //    return;
+                //}
+
+
+                dgvBetAmtDG.DataSource = null;
+
+                dgvBetAmtDG.DataSource = list;
+
+                int rowNumber = 1;
+                foreach (DataGridViewRow row in dgvBetAmtDG.Rows)
+                {
+                    row.HeaderCell.Value = rowNumber.ToString();
+                    rowNumber++;
+                }
+                dgvBetAmtDG.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
+
+                //MessageBox.Show(listOfDgv.Count.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void tabReportPage_Selected(object sender, TabControlEventArgs e)
+        {
+            try { this.GetCurrentPage().StartBrowse(); } catch { }
+        }
+
+        collectWebBrowser GetCurrentPage()
+        {
+            try
+            {
+                TabPage p = tabReportPage.SelectedTab;
+                if (p != null)
+                    foreach (Control c in p.Controls)
+                        if (c is collectWebBrowser)
+                            return (collectWebBrowser)c;
+            }
+            catch { }
+            return null;
+        }
+    }
+
+    [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+    public class BetAmtDG_Command : GameLog_BetAmtDG_RowCommand { }
+
+    public abstract class collectWebBrowser : System.Windows.Forms.WebBrowser
+    {
+        bool isStartBrowse = false;
+        public void StartBrowse()
+        {
+            if (this.isStartBrowse) return;
+            this.isStartBrowse = true;
+            base.Url = new Uri(this.SiteUrl);
+        }
+
+        public abstract void Collect();
+
+        public abstract string SiteUrl { get; }
+
+        public collectReportLog OwnerWindow
+        {
+            get
+            {
+                for (Control c = this.Parent; c != null; c = c.Parent)
+                    if (c is collectReportLog)
+                        return (collectReportLog)c;
+                return null;
+            }
+        }
+
+        protected override void OnProgressChanged(WebBrowserProgressChangedEventArgs e)
+        {
+            base.OnProgressChanged(e);
+            collectReportLog form = this.OwnerWindow;
+            form.tsp_WebProcress.Visible = true;
+            if ((e.CurrentProgress > 0) && (e.MaximumProgress > 0))
+            {
+                form.tsp_WebProcress.Maximum = Convert.ToInt32(e.MaximumProgress);
+                form.tsp_WebProcress.Step = Convert.ToInt32(e.CurrentProgress);
+                form.tsp_WebProcress.PerformStep();
+            }
+            else if (this.ReadyState == WebBrowserReadyState.Complete)
+            {
+                form.tsp_WebProcress.Value = 0;
+                form.tsp_WebProcress.Visible = false;
+            }
+        }
+    }
+
+    public class collect_HG : collectWebBrowser
+    {
+        public override void Collect()
+        {
+            throw new NotImplementedException();
+        }
+
+        [AppSetting("url_HG")]
+        public override string SiteUrl
+        {
+            get { return app.config.GetValue<string>(MethodBase.GetCurrentMethod()); }
+        }
+    }
+    public class collect_AG : collectWebBrowser
+    {
+        public override void Collect()
+        {
+            throw new NotImplementedException();
+        }
+
+        [AppSetting("url_AG")]
+        public override string SiteUrl
+        {
+            get { return app.config.GetValue<string>(MethodBase.GetCurrentMethod()); }
+        }
+    }
+    public class collect_BBIN : collectWebBrowser
+    {
+        public override void Collect()
+        {
+            try
+            {
+                HtmlDocument doc = this.Document;
+
+                if (doc.Window.Frames.Count == 0)
+                {
+                    throw new Exception("请进入到报表页面再进行采集");
+                }
+                foreach (HtmlWindow h in doc.Window.Frames)
+                {
+                    if (h.Name == "net_topFrame")
+                    {
+                        HtmlElementCollection trs = null;
+                        try
+                        {
+                            trs = h.Frames[1].Document.GetElementById("MainTbody_ID_All").GetElementsByTagName("tr");
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception("请进入到报表页面再进行采集");
+                        }
+
+                        if (trs.Count <= 0)
+                        {
+                            throw new Exception("暂无数据，请稍候再试！");
+                        }
+
+                        //账务日
+                        DateTime actime = Convert.ToDateTime(h.Frames[1].Document.GetElementById("myTableAll").GetElementsByTagName("span")[0].InnerText.Substring(6, 10));
+
+                        foreach (HtmlElement tr in trs)
+                        {
+                            HtmlElementCollection tds = tr.GetElementsByTagName("td");
+                            this.OwnerWindow.AddJson(
+                            new BetAmtDG_Command()
+                            {
+                                GameID = BU.GameID.BBIN,
+                                GameType = "无",
+                                ACTime = actime,
+                                ACNT = tds[0].InnerText,
+                                BetAmount = tds[2].InnerText.ToDecimal(),
+                                BetAmountAct = tds[4].InnerText.ToDecimal(),
+                                Payout = -tds[3].InnerText.ToDecimal()
+                            });
+                        }
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        [AppSetting("url_BBIN")]
+        public override string SiteUrl
+        {
+            get { return app.config.GetValue<string>(MethodBase.GetCurrentMethod()); }
+        }
+    }
+    public class collect_SunCity : collectWebBrowser
+    {
+        public override void Collect()
+        {
+            throw new NotImplementedException();
+        }
+
+        [AppSetting("url_SunCity")]
+        public override string SiteUrl
+        {
+            get { return app.config.GetValue<string>(MethodBase.GetCurrentMethod()); }
+        }
+    }
+
+}

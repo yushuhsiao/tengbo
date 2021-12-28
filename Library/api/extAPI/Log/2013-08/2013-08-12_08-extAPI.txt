@@ -1,0 +1,5 @@
+﻿2013-08-12 08:48:05.16	1	
+Request:	<?xml version="1.0"?><request action="registration"><element><properties name="username">tf_0000</properties><properties name="mode">0</properties><properties name="firstname">tf_</properties><properties name="lastname">0000</properties><properties name="currencyid">CNY</properties></element></request>
+Response:	
+<?xml version="1.0"?><response action="registration"><element><properties name="username">tf_0000</properties><properties name="ticket">Tbqsha3o995b9mw</properties><properties name="status">0</properties><properties name="errdesc"></properties></element></response>
+

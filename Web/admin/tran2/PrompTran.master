@@ -1,0 +1,80 @@
+﻿<%@ Master Language="C#" MasterPageFile="tran.master" AutoEventWireup="true" CodeBehind="PrompTran.master.cs" Inherits="PrompTran_master" %>
+
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="BU" %>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        var enum3 = {
+            <%=enumlist("logType", true, LogType.全勤優惠, LogType.存款優惠, LogType.洗碼優惠, LogType.首存優惠, LogType.彩金贈送, LogType.VIP直通车, LogType.好友推荐, LogType.复活礼金, LogType.生日礼金, LogType.晋级奖金,LogType.周周红利, LogType.绿色通道入款/*, LogType.全勤優惠_前置單, LogType.存款優惠_前置單, LogType.洗碼優惠_前置單, LogType.首存優惠_前置單*/)%>
+            <%=enumlist<TranState>(",states")%>
+        };
+        var cm = {
+            '': '        ', 'Action': { name: 'Action       ', label: '<%=lang["colAction       "]%>', colType: 'Buttons', sortable: false },
+            '': '        ', 'Finish': { name: 'Finish       ', label: '<%=lang["colFinish       "]%>', width: 060, editable: true, sortable: false, formatter: $.empty, edittype: 'checkboxs', editoptions: { multiple: false, value: { 1: '<%=lang["op_Finish"]%>' } } },
+            '': '            ', 'ID': { name: 'ID           ', label: '<%=lang["colID           "]%>', width: 280, fixed: true, hidden: true, key: true },
+            '': '  ', 'SerialNumber': { name: 'SerialNumber ', label: '<%=lang["colSerialNumber "]%>', width: 090, fixed: true, search: true },
+            '': '       ', 'LogType': { name: 'LogType      ', label: '<%=lang["colLogType      "]%>', width: 120, editable: true, editonce: true, formatter: 'select', edittype: 'select', editoptions: { value: enum3.logType }, search: true, stype: 'select', searchoptions: { value: enum3.logType, defaultValue: '-1', nullKey: '-1', nullValue: '--' } },
+            '': '         ', 'State': { name: 'State        ', label: '<%=lang["colState        "]%>', width: 075, formatter: 'select', editoptions: { value: enum3.states }, search: true, stype: 'select', searchoptions: { value: enum3.states, defaultValue: '-1', nullKey: '-1', nullValue: '--' } },
+            '': '    ', 'FinishTime': { name: 'FinishTime   ', label: '<%=lang["colFinishTime   "]%>', colType: 'DateTime2', nowrap: true },
+            '': '    ', 'CreateTime': { name: 'CreateTime   ', label: '<%=lang["colCreateTime   "]%>', colType: 'DateTime2', nowrap: true },
+            '': '      ', 'MemberID': { name: 'MemberID     ', label: '<%=lang["colMemberID     "]%>', width: 050, search: true },
+            '': '        ', 'CorpID': { name: 'CorpID       ', label: '<%=lang["colCorpID       "]%>', colType: 'CorpID' },
+            '': '     ', 'AgentACNT': { name: 'AgentACNT    ', label: '<%=lang["colAgentACNT    "]%>', width: 080, search: true },
+            '': '    ', 'MemberACNT': { name: 'MemberACNT   ', label: '<%=lang["colMemberACNT   "]%>', width: 080, editable: true, editonce: true, search: true },
+            '': '       ', 'Amount1': { name: 'Amount1      ', label: '<%=lang["colAmount1      "]%>', colType: 'Money', editable: true, editonce: true, search: true },
+            '': '       ', 'Amount2': { name: 'Amount2      ', label: '<%=lang["colAmount2      "]%>', colType: 'Money', editable: false, editonce: false, search: true },
+            '': '      ', 'Currency': { name: 'Currency     ', label: '<%=lang["colCurrency     "]%>', colType: 'Currency' },
+            '': '     ', 'RequestIP': { name: 'RequestIP    ', label: '<%=lang["colRequestIP    "]%>', width: 080, search: true },
+            '': '         ', 'Memo1': { name: 'Memo1        ', label: '<%=lang["colMemo1        "]%>', width: 080, editable: true, edittype: 'textarea', search: true },
+            '': '         ', 'Memo2': { name: 'Memo2        ', label: '<%=lang["colMemo2        "]%>', width: 080, editable: true, edittype: 'textarea', search: true },
+            '': '    ', 'CreateUser': { name: 'CreateUser   ', label: '<%=lang["colCreateUser   "]%>', colType: 'ACNT2', search: true },
+            '': '    ', 'ModifyTime': { name: 'ModifyTime   ', label: '<%=lang["colModifyTime   "]%>', colType: 'DateTime2', nowrap: true },
+            '': '    ', 'ModifyUser': { name: 'ModifyUser   ', label: '<%=lang["colModifyUser   "]%>', colType: 'ACNT2', search: true }
+        };
+        $.fn.tranGrid_init = function (isHist, op) {
+            var $this = this;
+            $this.jqGrid_init($.extend({
+                pager: true, postData: { IsHist: isHist },                
+                editParams: { delayDeleteRow: 1000 },
+                cmTemplate: { editable: false, editonce: false },
+                SelectCommand: function (postData) { return { PromoTranSelect: postData } }, <% if (!this._page.IsHist) { %>
+                UpdateCommand: function (postData) { return { PromoTranUpdate: postData } },
+                InsertCommand: function (postData) { return { PromoTranInsert: postData } },
+                DeleteCommand: function (postData) { return { PromoTranDelete: postData } }, <% } %>
+            }, op));
+            $(window).resize(function () { $this.gridSize(window); }).trigger('resize');
+            return this;
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <table id="table1">
+        <tr class="colModel">
+            <td name="Action">
+                <span property="action">
+                    <div class="edithide" action="editRow" icon="ui-icon-pencil"><%=lang["Actions_Edit"]%></div>
+                    <div class="edithide" action="delRow" icon="ui-icon-trash"><%=lang["Actions_Delete"]%></div>
+                    <div class="deleteshow" action="saveRow" icon="ui-icon-trash"><%=lang["Actions_Delete"]%></div>
+                    <div class="deleteshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow" action="saveRow" icon="ui-icon-disk"><%=lang["Actions_Save"]%></div>
+                </span>
+            </td>
+        </tr>
+        <tr class="grid-option">
+            <td>
+                <div name="nav1">
+                    <button action="addRow" icon="ui-icon-plus" <% if (this._page.IsHist)
+                                                                   { %> disabled="disabled" <% } %>><%=lang["btnAdd"]%></button>
+                    <button action="toggleSearch" icon="ui-icon-search"><%=lang["btnSearch"]%></button>
+                    <button action="reloadGrid" icon="ui-icon-refresh"><%=lang["btnRefresh"]%></button>
+                    <a action="link" icon="ui-icon-tag" href="PromoTran.aspx"><%=lang["menu", "Promo"]%></a>
+                    <a action="link" icon="ui-icon-comment" href="PromoTranHist.aspx"><%=lang["menu", "Promo History"]%></a>
+                </div>
+                <div name="nav2" class="ui-widget-content" style=""></div>
+            </td>
+        </tr>
+    </table>
+    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

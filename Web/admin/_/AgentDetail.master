@@ -1,0 +1,14 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage/admin.master" AutoEventWireup="true" Inherits="masterpage" %>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <style type="text/css">
+        body { padding-bottom: 10px; }
+        .gametran { }
+        .gametran .a { width: 60px; }
+        .gametran .a:disabled { background: url(../images/loading1_000000.gif) no-repeat center center; border-color: transparent; }
+        .gamebalance-load { cursor: pointer; }
+    </style>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/tran/tran.master" AutoEventWireup="true" Inherits="tran_master" %>
+
+<asp:Content ContentPlaceHolderID="enum" runat="server">
+    <script type="text/javascript">
+        var enum3 = {
+            <%=enumlist<BU.LogType>(" logTypes1", true, BU.LogType.Withdrawal)%>
+            <%=enumlist<BU.LogType>(",logTypes2", true, BU.text.MemberGameWithdrawalLogTypes)%>
+        };
+    </script>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        var $table;
+        $(document).ready(function () {
+            $table = $('#table1').jqGrid_init({
+                useDefValues: true, pager: true, subGrid: false, postData: { IsHist: isHist }, sortname: isHist ? 'FinishTime' : 'CreateTime',
+                editParams: { delayDeleteRow: 1000 },
+                SelectCommand: function (postData) { return { AgentGameWithdrawal_Select: postData } },
+                UpdateCommand: function (postData) { return { AgentGameWithdrawal_Update: postData } },
+                InsertCommand: function (postData) { return { AgentGameWithdrawal_Insert: postData } },
+                DeleteCommand: function (postData) { return { AgentGameWithdrawal_Delete: postData } },
+                colModel: [
+                    col.Action(), col.Finish(), col.SerialNumber(), col.LogType(), col.State(), col.GameID(), col.FinishTime(), col.CreateTime(),
+                    col.CorpID(), col.ParentACNT(), col.ACNT_a(), col.AgentName(),
+                    col.Amount1(), col.Currency(),
+                    col.RequestIP(), col.CreateUser(), col.ModifyTime(), col.ModifyUser(), col.ID()
+                ]
+            });
+            $(window).resize(function () { $table.gridSize(window); }).trigger('resize');
+        });
+    </script>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+    <table id="table1">
+        <tr class="colModel">
+            <td name="Action">
+                <span property="action">
+                    <div class="edithide"   action="editRow"    icon="ui-icon-pencil"><%=lang["Actions_Edit"]%></div>
+                    <div class="edithide"   action="delRow"     icon="ui-icon-trash" <% if (this.Page is tranhist_page) { %> disabled="disabled" <% } %>><%=lang["Actions_Delete"]%></div>
+                    <div class="deleteshow" action="saveRow"    icon="ui-icon-trash" ><%=lang["Actions_Delete"]%></div>
+                    <div class="deleteshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow"   action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow"   action="saveRow"    icon="ui-icon-disk"  ><%=lang["Actions_Save"]%></div>
+                </span>
+            </td>
+        </tr>
+        <tr class="grid-option">
+            <td>
+                <div name="nav1">
+                    <% MenuRow m1 = MenuRow.Cache.Instance.GetItem(BU.Permissions.Code.tran_agent_gamewithdrawal), m2 = MenuRow.Cache.Instance.GetItem(BU.Permissions.Code.tran_agent_gamewithdrawal_hist); %>
+                    <button action="addRow" icon="ui-icon-plus" <% if (this.Page is tranhist_page) { %> disabled="disabled" <% } %>><%=lang["btnAdd"]%></button>
+                    <button action="toggleSearch" icon="ui-icon-search"><%=lang["btnSearch"]%></button>
+                    <button action="reloadGrid" icon="ui-icon-refresh"><%=lang["btnRefresh"]%></button>
+                    <a action="link" icon="ui-icon-tag" <%     if (this.Page is tranhist_page) { %><% } else { %>disabled="disabled"<% } %> href="<%=ResolveClientUrl(m1.Url)%>"><%=lang["menu", m1.Name]??m1.Name%></a>
+                    <a action="link" icon="ui-icon-comment" <% if (this.Page is tranhist_page) { %>disabled="disabled"<% } else { %><% } %> href="<%=ResolveClientUrl(m2.Url)%>"><%=lang["menu", m2.Name]??m2.Name%></a>
+                </div>
+                <div name="nav2" class="ui-widget-content" style=""></div>
+            </td>
+        </tr>
+    </table>
+</asp:Content>

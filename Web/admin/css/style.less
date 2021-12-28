@@ -1,0 +1,85 @@
+body {
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+/*button text element */
+.ui-button .ui-button-text
+{
+	display: block;
+	line-height: 1.4;
+}
+
+@p1:0;
+.ui-button-text-only .ui-button-text
+{
+	padding: @p1 1em; //padding: .4em 1em;
+}
+.ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text
+{
+	padding: .4em;
+	text-indent: -9999999px;
+}
+.ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text
+{
+	padding: @p1 1em @p1 2.1em;
+}
+.ui-button-text-icon-secondary .ui-button-text, .ui-button-text-icons .ui-button-text
+{
+	padding: @p1 2.1em @p1 1em;
+}
+.ui-button-text-icons .ui-button-text
+{
+	padding-left: 2.1em;
+	padding-right: 2.1em;
+}
+.ui-jqgrid .ui-state-disabled:hover {
+ padding: 0px; 
+}
+
+
+.inline-buttons {
+	/*& .ui-icon { float:left; }*/
+	/*& .inline-button { cursor: pointer; border-width: 1px; }*/
+
+	& .edithide { display: inline-block }
+	& .editshow { display: none }
+    & .deleteshow { display:none }
+    
+    //& .ui-button { border: 1px solid transparent }
+    & .ui-button-text-icon-primary .ui-button-icon-primary, .ui-button-text-icons .ui-button-icon-primary, .ui-button-icons-only .ui-button-icon-primary { left: 0; }
+    & .ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text { padding-left: 1.2em; padding-right: .5em; }
+}
+[editable="1"] .inline-buttons {
+	& .edithide { display: none }
+	& .editshow { display: inline-block }
+    & .deleteshow { display:none }
+}
+[deleting="1"] .inline-buttons {
+	& .edithide { display: none }
+	& .editshow { display: none }
+    & .deleteshow { display:inline-block }
+}
+
+.grid-option { display: none; }
+
+/*.msg_area {
+    overflow:auto;
+    width:100%;
+    height:3em;
+}*/
+
+/*.inline-button {
+	 cursor: pointer;
+
+	&.edithide { display: inline-block }
+	&.editshow { display: none }
+}
+[editable="1"] .inline-button {
+	&.edithide { display: none }
+	&.editshow { display: inline-block }
+}*/
+
+//.ui-jqgrid .ui-jqgrid-pager .ui-pg-div {padding:1px 0;float:left;position:relative;}
+//.ui-jqgrid .ui-jqgrid-pager .ui-pg-button { cursor:pointer; }
+//.ui-jqgrid .ui-jqgrid-pager .ui-pg-div  span.ui-icon {float:left;margin:0 2px;}

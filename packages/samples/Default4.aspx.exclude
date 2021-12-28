@@ -1,0 +1,230 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default4.aspx.cs" Inherits="samples_Default4" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="Scripts/superfish/css/superfish.css" rel="stylesheet" />
+    <script type="text/javascript" src="Scripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="Scripts/json2.js"></script>
+    <script type="text/javascript" src="Scripts/util.js"></script>
+    <script type="text/javascript" src="Scripts/superfish/js/superfish.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /*.root {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 50px;
+            color: white;
+            background-color: black;
+        }
+        table.root {
+            border-collapse: collapse;
+            width:100%;
+            height:100%;
+        }
+        td.root {
+        }*/
+            /*table.root td {
+                padding: 0px;
+                margin: 0px;
+                background-repeat: no-repeat;
+                white-space: nowrap;
+            }*/
+        div.root {
+            position: fixed;
+            left:3%;
+            top:3%;
+            width: 94%;
+            height: 94%;
+            background-color:lightgray;
+        }
+        .left { float: left; }
+        .right { float: right; }
+        .hover { cursor: pointer; }
+        .hover:hover { background-color: #666666; }
+        .btn { }
+        .main-frame {
+            position: absolute;
+            left: 0px;
+            width: 100%;
+        }
+
+
+        div.nav-frame, iframe.main-frame, div.bottom-frame { position: absolute; left: 0px; width: 100%; }
+        div.nav-frame, div.bottom-frame, ul.nav-setting-menu { background-color: #333333; color: white; }
+        div.nav-frame       { top: 0px; height: 50px; }
+        iframe.main-frame   { top: 50px; }
+        div.bottom-frame    { bottom: 0px; height: 20px; }
+        .nav-frame ul { list-style:none; padding:0; margin:0; }
+        .nav-frame li { white-space:nowrap; }
+
+        nav-logo, .nav-menu, .nav-info, .nav-setting {
+            position: absolute;
+        }
+        .nav-logo {
+            bottom: 0px;
+            left: 0px;
+        }
+        .nav-menu {
+            top: 0px;
+            left: 200px;
+        }
+        .nav-info {
+            bottom: 0px;
+            right: 30px;
+        }
+        .nav-setting {
+            top: 30px;
+            right: 0px;
+        }
+
+        .nav-username {
+            border-style: none double none double;
+            padding: 0px 5px 0px 5px;
+            /*margin: 0px 10px 0px 0px;*/
+            border-width: thick;
+            font-weight: bold;
+        }
+        ul.nav-setting-menu {
+        }
+        li.nav-setting-menu {
+            text-align: right;
+        }
+    </style>
+    <script type="text/javascript">
+        $.fn.menu_1 = function (dst) {
+            obj = {
+                a: $(this),
+                b: $(dst),
+                timer: null,
+                toggle: function () {
+                    obj.b.fadeToggle('fast');
+                    window.event.cancelBubble = true;
+                },
+                hide: function () {
+                    obj.b.fadeOut('fast');
+                    return this;
+                }
+            };
+            obj.hide();
+            obj.a.click(obj.toggle).hover(function () {
+            }, function () {
+            }).addClass('hover');
+            $(window).click(obj.hide);
+            return obj;
+        }
+
+        $.fn.button_1 = function () {
+            this.addClass('hover');
+        }
+
+        function adj_main_frame(e) {
+            $('iframe.main-frame').css({ height: $('.root').height() - $('div.nav-frame').height() - $('div.bottom-frame').height() + 'px' });
+            //$('.main-frame').css({ height: '100px' });
+        };
+
+        function logout() {
+            $.api.sExecute({ AdminLogout: {} }, function (obj) {
+                if (obj.LoginResult.t1 == 1)
+                    window.location.reload();
+            });
+        }
+
+        $(document).ready(function () {
+            $('.nav-menu').superfish();
+            $('.nav-setting').superfish();
+            //$(window).resize(adj_main_frame);
+            //adj_main_frame();
+            //$('img.nav-setting-menu').menu_1('ul.nav-setting-menu');
+            //$('.btn').button_1();
+            //$('ul.nav-setting-menu').superfish();
+        });
+    </script>
+</head>
+<body>
+    <div class="root">
+        <iframe class="main-frame" src="xxx.aspx" frameborder="0"></iframe>
+        <div class="nav-frame">
+            <ul>
+                <li class="nav-logo">logo</li>
+                <li class="nav-menu">
+                    <ul>
+                        <li>aaa
+                            <ul>
+                                <li>aaa1</li>
+                                <li>aaa2</li>
+                                <li>aaa3</li>
+                                <li>aaa4</li>
+                                <li>aaa5</li>
+                            </ul>
+                        </li>
+                        <li>bbb
+                            <ul>
+                                <li>bbb1</li>
+                                <li>bbb2</li>
+                                <li>bbb3</li>
+                                <li>bbb4</li>
+                                <li>bbb5</li>
+                            </ul>
+                        </li>
+                        <li>ccc
+                            <ul>
+                                <li>ccc1</li>
+                                <li>ccc2</li>
+                                <li>ccc3</li>
+                                <li>ccc4</li>
+                                <li>ccc5</li>
+                            </ul>
+                        </li>
+                        <li>ddd
+                            <ul>
+                                <li>ddd1</li>
+                                <li>ddd2</li>
+                                <li>ddd3</li>
+                                <li>ddd4</li>
+                                <li>ddd5</li>
+                            </ul>
+                        </li>
+                        <li>eee
+                            <ul>
+                                <li>eee1</li>
+                                <li>eee2</li>
+                                <li>eee3</li>
+                                <li>eee4</li>
+                                <li>eee5</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-info "><span class="nav-username"><%=_UserInfo.Current.Name%></span></li>
+                <li class="nav-setting">
+                    <ul>
+                        <li class="nav-setting-menu"><img class="nav-setting-menu" alt="" src="images/icon_settings.png" width="20px" height="20px" />
+                            <ul class="nav-setting-menu" style="">
+                                <li></li>
+                                <li class="btn" ><%=Resources.res.change_password %></li>
+                                <li class="btn"><%=Resources.res.login_hist %></li>
+                                <li></li>
+                                <li class="btn" onclick="logout()"><%=Resources.res.logout_text %></li>
+                                <li></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="bottom-frame">2</div>
+    </div>
+</body>
+</html>

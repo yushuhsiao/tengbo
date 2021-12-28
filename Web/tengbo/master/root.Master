@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="SiteMasterPage" %>
+
+<!DOCTYPE html>
+<script runat="server">
+    bool ie7_js = true;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+    }
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="<%=SitePage.GetRes("res", "meta_keywords")%>" />
+    <meta name="description" content="<%=SitePage.GetRes("res", "meta_description")%>" />
+    <title><%=SitePage.GetRes("res", this.Page)%></title>
+    <link href="../css/jquery-ui/jquery-ui.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
+    <% if (this.Page is root_aspx) { %>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <% if (ie7_js) { %>
+    <!--[if lt IE 7]> <script src="js/ie7/IE7.js"></script> <![endif]-->
+    <!--[if lt IE 8]> <script src="js/ie7/IE8.js"></script> <![endif]-->
+    <!--[if lt IE 9]> <script src="js/ie7/IE9.js"></script> <![endif]-->
+    <% } %>
+    <% } else { %>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <% if (ie7_js) { %>
+    <!--[if lt IE 7]> <script src="../js/ie7/IE7.js"></script> <![endif]-->
+    <!--[if lt IE 8]> <script src="../js/ie7/IE8.js"></script> <![endif]-->
+    <!--[if lt IE 9]> <script src="../js/ie7/IE9.js"></script> <![endif]-->
+    <% } %>
+    <% } %>
+<%--<link href="../css/css.css" rel="stylesheet" type="text/css" />--%>
+<%--<link href="../css/com.css" rel="stylesheet" type="text/css" />--%>
+    <script type="text/javascript">(function ($) { jQuery.extend({ invoke_api: function (command, options) { return $.ajax($.extend(true, { type: 'post', url: '<%=ResolveClientUrl("~/api.ashx")%>', dataType: 'json', cache: false, async: true, data: { str: JSON.stringify(command) } }, options)); } }); })(jQuery);</script>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+</body>
+</html>

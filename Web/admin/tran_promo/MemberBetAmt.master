@@ -1,0 +1,144 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/tran/tran.master" AutoEventWireup="true" Inherits="web.MemberBetAmt_master" %>
+<%@ Import Namespace="web" %>
+
+<script runat="server">
+</script>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        var $table;
+        $(document).ready(function () {
+
+            $table = $('#table1').jqGrid_init($.extend(grid_opt, {
+                navButton_action: {
+                    <% if (!this.IsHist) { %> import_betamt: function () { _import.toggle(); } <% } %>
+                },
+                colModel: [
+                    col.Action(), col.Finish(),
+                    col.SerialNumber(), col.LogType({ hidden: true }), col.State(), col.FinishTime(), col.CreateTime(),
+                    col.CorpID(),
+                    col.ParentACNT(),
+                    col.UserType({ hidden: true }),
+                    col.UserACNT(),
+                    col.UserName(),
+                    col.ACTime1(), col.ACTime2(),
+                    col.BetAmount1(), col.BetAmount2(), col.BetPayout(),
+                    col.Rate(),
+                    col.Amount({ editable: false, editonce: false }),
+                    col.Currency(),
+                    col.Memo1(), col.Memo2(),
+                  //col.ProviderACNT(),
+                  //col.ProviderID(),
+                    col.ParentID(),
+                    col.UserID(),
+                    col.RequestIP(), col.CreateUser(), col.ModifyTime(), col.ModifyUser(), col.ID()
+                ]
+            }));
+
+            <% if (!this.IsHist) { %>
+            var _import = new function () {
+                var _box = $('#import_box');
+                var visible = false;
+                function _show() { visible = true; _box.show(); $('._busy', _box).hide(); }
+                function _hide() { visible = false; _box.hide(); }
+                function _toggle() { if (visible) this.hide(); else this.show(); }
+
+                _box.position({
+                    my: "left bottom",
+                    at: "left top",
+                    of: "#import_btn",
+                    collision: "flip flip",
+                });
+                $('._date', _box).datepicker({
+                    firstDay: 0,
+                    defaultDate: '<%=DateTime.Now.AddDays(-1).ToACTime().ToString("yyyy/MM/dd")%>',
+                    showOtherMonths: true,
+                    selectOtherMonths: true,
+                    altField: $('._value', _box)
+                });
+                $('._corps', _box).buttonset();
+                $('._cancel', _box).button().click(_hide);
+                $('._ok', _box).button().click(function () {
+                    var actime;
+                    try { actime = $.datepicker.parseDate('yy/mm/dd', $('._value', _box).val()); }
+                    catch (e) { return; }
+                    var corps = [];
+                    console.log(corps);
+                    $('._corps input:checked', _box).each(function () {
+                        corps.push($(this).val());
+                    });
+                    console.log(corps);
+
+                    $('._busy', _box).show();
+                    $.invoke_api({ MemberBetAmt_Import: { CorpID: corps, ACTime: $.datepicker.formatDate('yy/mm/dd', actime) } }, {
+                        success: function (data, textStatus, jqXHR) {
+                            if (data.Status == 1) {
+                                $table.reloadGrid();
+                                _hide();
+                            }
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                        },
+                        complete: function (jqXHR, textStatus) {
+                        }
+                    });
+                });
+
+                $('._cancel, ._ok, ._corps label', _box).removeClass('ui-state-default').addClass('ui-widget-content');
+
+                _hide();
+                return { show: _show, hide: _hide, toggle: _toggle }
+            }
+            <% } %>
+
+            $(window).resize(function () { $table.gridSize(window); }).trigger('resize');
+        });
+    </script>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <table id="table1">
+        <tr class="colModel">
+            <td name="Action">
+                <span property="action">
+                    <div class="edithide"   action="editRow"    icon="ui-icon-pencil"><%=lang["Actions_Edit"]%></div>
+                    <div class="edithide"   action="delRow"     icon="ui-icon-trash" <% if (this.IsHist) { %> disabled="disabled" <% } %>><%=lang["Actions_Delete"]%></div>
+                    <div class="deleteshow" action="saveRow"    icon="ui-icon-trash" ><%=lang["Actions_Delete"]%></div>
+                    <div class="deleteshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow"   action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow"   action="saveRow"    icon="ui-icon-disk"  ><%=lang["Actions_Save"]%></div>
+                </span>
+            </td>
+        </tr>
+        <tr class="grid-option">
+            <td>
+                <div name="nav1">
+                    <button action="addRow" icon="ui-icon-plus" <% if (this.IsHist) { %> disabled="disabled" <% } %>><%=lang["btnAdd"]%></button>
+                    <button action="toggleSearch" icon="ui-icon-search"><%=lang["btnSearch"]%></button>
+                    <button action="reloadGrid" icon="ui-icon-refresh"><%=lang["btnRefresh"]%></button>
+                    <a action="link" icon="ui-icon-tag" <%    if (!this.IsHist) { %>disabled="disabled"<% } %> href="<%=ResolveClientUrl(link1.Url)%><%=url_id%>"><%=link1.GetLabel()%></a>
+                    <a action="link" icon="ui-icon-comment" <% if (this.IsHist) { %>disabled="disabled"<% } %> href="<%=ResolveClientUrl(link2.Url)%><%=url_id%>"><%=link2.GetLabel()%></a>
+                    <% if (!this.IsHist) { %>
+                    <button id="import_btn" action="import_betamt" icon="ui-icon-plusthick"><%=lang["betImport"]%></button>
+                    <div id="import_box" class="ui-widget-content" style="position:absolute; z-index: 1; padding: 10px;">
+                        <div class="_date"></div>
+                        <div class="_corps" style="padding-top: 10px; "><% foreach (CorpRow corp in CorpRow.Cache.Instance.Rows) {
+                        if (User.CorpID == 0)
+                        { if (corp.ID == 0) continue; }
+                        else
+                        { if (User.CorpID != corp.ID) continue; } %>
+                            <input type="checkbox" value="<%=corp.ID%>" id="_corp_<%=corp.ID%>" <%if (User.CorpID == corp.ID) { %> checked="checked" <% } %> /><label for="_corp_<%=corp.ID%>"><%=corp.Name%></label> <% } %>
+                        </div>
+                        <%=lang["colACTime"]%>
+                        <input class="_value" type="text" size="12" /><br />
+                        <button class="_ok"><%=lang["import_ok"]%></button>
+                        <button class="_cancel"><%=lang["import_cancel"]%></button>
+                        <div class="_busy" style="display: none; position:absolute; left: 0; top: 0; width: 100%; height: 100%; text-align: center; ">
+                            <img src="../images/loading3_000000.gif" style="position: absolute; bottom: 20px;" />
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+                <div name="nav2" class="ui-widget-content" style=""></div>
+            </td>
+        </tr>
+    </table>
+</asp:Content>

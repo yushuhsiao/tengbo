@@ -1,0 +1,31 @@
+﻿https://pbsz.ebank.cmbchina.com/CmbBank_GenShell/UI/GenShellPC/doc/Htmls/Advertizement_Page.htm
+
+
+<BODY><DIV id=MainBanner>
+<DIV style="WIDTH: 461px; HEIGHT: 258px" id=SlidePlayer>
+<UL style="HEIGHT: 258px" id=Slides class=Slides>
+<LI style="WIDTH: 461px; HEIGHT: 258px"><A href="javascript:crossPlatform()"><IMG style="FILTER: alpha(opacity=-1.0000000000000328); WIDTH: 461px; DISPLAY: none; HEIGHT: 258px; opacity: -1.00000000000003e-02; MozOpacity: -1.00000000000003e-02" src="../images/wd_adv-1.jpg" xOpacity="-1.00000000000003e-02"> </A></LI>
+<LI style="WIDTH: 461px; HEIGHT: 258px"><A href="javascript:WangDunOpen()"><IMG style="FILTER: alpha(opacity=95.00000000000003); WIDTH: 461px; DISPLAY: block; HEIGHT: 258px; opacity: 0.95; MozOpacity: 0.95" src="../images/wd_adv.jpg" xOpacity="0.99"> </A></LI></UL>
+<UL style="DISPLAY: block" id=SlideTriggers class=SlideTriggers>
+<LI>1 </LI>
+<LI class=current>2 </LI></UL></DIV></DIV>
+<SCRIPT type=text/javascript>
+						function Each(list, fun) {
+        					for (var i = 0, len = list.length; i < len; i++) { fun(list[i], i); }
+    					};
+
+    var Nums = document.getElementById("SlideTriggers").getElementsByTagName("li");
+ 
+    var xsfade = new XsFade(document.getElementById("SlidePlayer").getElementsByTagName("img"), Nums);
+    xsfade.init();
+
+    Each(Nums, function(o, i) {
+        o.onmouseover = function() {
+            xsfade.SetPlayIndex(i);
+        }
+        o.onmouseout = function() {
+            xsfade.Resume();
+        }
+    });
+						</SCRIPT>
+</BODY>

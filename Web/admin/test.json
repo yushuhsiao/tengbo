@@ -1,0 +1,135 @@
+﻿[
+    {
+        "id": 8,
+        "label": "工作區",
+        "items": [
+            { "id": 9, "href": "notes/Note0.aspx", "label": "事件處理" },
+            { "id": 55, "href": "notes/Note1.aspx", "label": "事件通知" },
+            { "id": 56, "href": "notes/Note2.aspx", "label": "客戶意見反映" },
+            { "id": 84, "href": "notes/Note4.aspx", "label": "常見問題" }
+        ]
+    },
+    {
+        "id": 7,
+        "label": "帳戶",
+        "items": [
+            { "id": 114, "href": "users/UserList.aspx", "label": "用戶列表" },
+            { "id": 187, "href": "users/Member.aspx", "label": "會員列表" },
+            { "id": 40, "href": "logs/MemberLogin.aspx", "label": "會員登入紀錄" },
+            { "id": 10, "href": "users/MemberGroup.aspx", "label": "會員群組" },
+            { "id": 41, "href": "users/Agent.aspx", "label": "代理列表" },
+            { "id": 42, "href": "logs/AgentLogin.aspx", "label": "代理登入紀錄" },
+            { "id": 43, "href": "users/AgentGroup.aspx", "label": "代理群組" }
+        ]
+    },
+    {
+        "id": 121,
+        "label": "存提款",
+        "items": [
+            { "id": 123, "href": "tran_cash/MemberDeposit.aspx", "label": "會員存款" },
+            { "id": 124, "href": "tran_cash/MemberWithdrawal.aspx", "label": "會員提款" },
+            { "id": 128, "href": "tran_cash/AgentDeposit.aspx", "label": "代理存款" },
+            { "id": 129, "href": "tran_cash/AgentWithdrawal.aspx", "label": "代理提款" },
+            { "id": 188, "href": "tran_cash/ThirdPayment.aspx", "label": "第三方支付" },
+            { "id": 159, "href": "tran/CashChannel.aspx", "label": "金流通道" }
+        ]
+    },
+    {
+        "id": 156,
+        "label": "戶內轉帳",
+        "items": [
+            { "id": 125, "href": "tran_game/MemberGameDeposit.aspx", "label": "會員轉帳到遊戲" },
+            { "id": 126, "href": "tran_game/MemberGameWithdrawal.aspx", "label": "會員轉回主帳戶" },
+            { "id": 130, "href": "tran_game/AgentGameDeposit.aspx", "label": "代理轉帳到遊戲" },
+            { "id": 131, "href": "tran_game/AgentGameWithdrawal.aspx", "label": "代理轉回主帳戶" }
+        ]
+    },
+    {
+        "id": 63,
+        "label": "優惠",
+        "items": [
+            { "id": 67, "href": "tran_promo/MemberBetAmt.aspx", "label": "會員洗碼" },
+            { "id": 65, "href": "tran_promo/MemberDeposit1.aspx", "label": "首存&次存" },
+            { "id": 127, "href": "tran_promo/MemberPromo.aspx", "label": "會員優惠" },
+            { "id": 134, "href": "tran_promo/AgentBetAmt.aspx", "label": "代理洗碼" },
+            { "id": 133, "href": "tran_promo/AgentShare.aspx", "label": "代理佣金" },
+            { "id": 132, "href": "tran_promo/AgentPromo.aspx", "label": "代理優惠" }
+        ]
+    },
+    {
+        "id": 122,
+        "label": "報表",
+        "items": [
+            { "id": 152, "href": "logs/TranLog.aspx", "label": "點數明細" },
+            {
+                "id": 88,
+                "label": "投注明細",
+                "items": [
+                    { "id": 94, "href": "logs/011.aspx", "label": "AG 投注明細" },
+                    { "id": 95, "href": "logs/009.aspx", "label": "BBIN 投注明細" },
+                    { "id": 50, "href": "logs/001.aspx", "label": "HG 投注明細" }
+                ]
+            },
+            { "id": 52, "href": "logs/BetAmtDG.aspx", "label": "會員單日投注(依遊戲)" },
+            {
+                "id": 80,
+                "href": "logs/BetAmtD.aspx",
+                "label": "會員單日投注",
+                "items": [
+                    { "id": 189, "href": "logs/BetAmtW.aspx", "label": "會員單週投注" },
+                    { "id": 91, "href": "logs/BetAmtM.aspx", "label": "會員單月投注" }
+                ]
+            },
+            {
+                "id": 98,
+                "href": "logs/PointsD.aspx",
+                "label": "會員單日統計",
+                "items": [
+                    { "id": 108, "href": "logs/PointsW.aspx", "label": "會員單週統計" },
+                    { "id": 99, "href": "logs/PointsM.aspx", "label": "會員單月統計" }
+                ]
+            },
+            {
+                "id": 92,
+                "href": "logs/BetAmtAD.aspx",
+                "label": "代理單日投注",
+                "items": [
+                    { "id": 110, "href": "logs/BetAmtAW.aspx", "label": "代理單週投注" },
+                    { "id": 93, "href": "logs/BetAmtAM.aspx", "label": "代理單月投注" }
+                ]
+            },
+            {
+                "id": 100,
+                "href": "logs/PointsAD.aspx",
+                "label": "代理單日統計",
+                "items": [
+                    { "id": 109, "href": "logs/PointsAW.aspx", "label": "代理單週統計" },
+                    { "id": 101, "href": "logs/PointsAM.aspx", "label": "代理單月統計" }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "label": "活動",
+        "items": [
+            { "id": 24, "href": "sys/Anno.aspx", "label": "公告" },
+            { "id": 23, "href": "sys/Billboard.aspx", "label": "投注排名" },
+            { "id": 85, "label": "推廣鏈結" }
+        ]
+    },
+    {
+        "id": 1,
+        "label": "管理",
+        "items": [
+            { "id": 34, "href": "sys/Corp.aspx", "label": "網站" },
+            { "id": 30, "href": "sys/Config.aspx", "label": "參數設定" },
+            { "id": 29, "href": "sys/MenuEdit.aspx", "label": "功能表" },
+            { "id": 107, "href": "sys/LangEdit.aspx", "label": "語系" },
+            { "id": 32, "href": "sys/Game.aspx", "label": "遊戲管理" },
+            { "id": 44, "href": "users/Admin.aspx", "label": "管理帳號" },
+            { "id": 45, "href": "logs/AdminLogin.aspx", "label": "管理登入紀錄" },
+            { "id": 46, "href": "users/AdminGroup.aspx", "label": "管理群組" }
+        ]
+    }
+]

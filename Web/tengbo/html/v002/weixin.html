@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div id="float_right" style="width: 188px; height: 445px; z-index: 100000; right: 5px; top: -23px; position: fixed; ">
+        <a target="_blank" href="weixin.aspx">
+        <img src="file:///C|/Users/lidandan/Desktop/腾博会/web/image/weixin.png" border="0">
+        </a>
+    </div>
+    <script type="text/javascript">
+
+        function float_right(obj, rtopobj) {
+            var mtop = document.documentElement.clientHeight - 600; //此处是悬浮距顶端的值
+
+            var IO = document.getElementById(obj), rt = document.getElementById(rtopobj), Y = IO, H = mtop, IE6;
+            IO.style.right = 5 + "px"; //此处是距非ie6窗口左边框的距离
+            IO.style.top = mtop + "px";
+            IE6 = window.ActiveXObject && !window.XMLHttpRequest;
+            while (Y) { H += Y.offsetTop; Y = Y.offsetParent };
+            if (IE6) {
+                IO.style.cssText = "position:absolute;top:expression((document" +
+			".documentElement.scrollTop+(this.javascript||" + mtop + ")))";
+                IO.style.right = 5 + "px"; //此处是距ie6窗口左边框的距离
+            }
+            var d = document, s = Math.max(d.documentElement.scrollTop, document.body.scrollTop);
+            if (s > H && IO.fix || s <= H && !IO.fix) return;
+            if (!IE6) IO.style.position = IO.fix ? "" : "fixed";
+            IO.fix = !IO.fix;
+            try { document.execCommand("BackgroundImageCache", false, true) } catch (e) { };
+        };
+        float_right("float_right", "float_right");
+    </script>
+</body>
+</html>

@@ -1,0 +1,785 @@
+﻿// jqxwidgets extension
+(function ($) {
+    console.log_call = function () {
+        return console.log.apply(this, arguments)
+    };
+
+    var _uniqueid = 0;
+
+    $.fn.addClass_jqx = function (e) { return this.addClass(e + ' ' + e + '-' + $.jqx.theme); }
+
+    $.fn.removeClass_jqx = function (e) { return this.removeClass(e + ' ' + e + '-' + $.jqx.theme); }
+
+    if (!$.jqx) return;
+
+    $.fn.jqxButton2 = function () {
+        var icon = this.attr('icon');
+        var $ret = this.jqxButton(arguments);
+        if (icon) {
+            this.addClass('button-icon-text');
+            this.wrapInner('<span class="button-text"></span>');
+            var $icon = $('<span class="button-icon" style="' + this.attr('icon-style') + '"></span>').addClass_jqx('jqx-icon-' + icon);
+            $icon.insertBefore(this.children().first());
+        }
+        this.removeAttr('icon icon-style');
+        return $ret;
+    };
+
+    $.fn.jqxMenu2 = function (o) {
+        this.jqxMenu(o);
+        this.removeClass_jqx('jqx-widget-header');//.addClass_jqx('jqx-widget-content');
+        return this;
+    };
+
+    $.replace_function($.jqx, 'jqxWidget', function (b, d, j) {
+        arguments.callee._original.apply(this, arguments);
+        a.jqx["_" + g].prototype.getInstance = function () { return this; };
+    });
+
+    $.replace_function($.jqx._jqxGrid.prototype, 'deleterow', function (rowid) {
+        this._CleanupEditor(rowid);
+        return arguments.callee._original.apply(this, arguments);
+    });
+
+
+    function _cell(row, column) {
+        this._uniqueid = _uniqueid++;
+        this.row = row;
+        this.column = column;
+        this.editor = null;
+        this.text = null;
+        this.value = null;
+        this.width = null;
+        this.height = null;
+    };
+
+    function _row(bound) {
+        bound._uniqueid = _uniqueid++;
+        //bound._row = new _row(bound);
+        bound._cells = new Array();
+        bound._state = '';
+        bound.BeginEdit = function () {
+            if (bound._state !== '') return;
+            bound._state = 'edit';
+            bound.owner.Update();
+        }
+        bound.EndEdit = function () {
+            if (bound._state !== 'edit') return;
+            bound._state = '';
+            bound.owner.Update();
+        }
+        bound.CommitEdit = function () {
+            bound.EndEdit();
+        }
+
+        bound.BeginRemove = function () {
+            if (bound._state !== '') return;
+            bound._state = 'remove';
+            bound.owner.Update();
+        }
+        bound.EndRemove = function () {
+            if (bound._state !== 'remove') return;
+            bound._state = '';
+            bound.owner.Update();
+        }
+        bound.CommitRemove = function () {
+            bound.EndRemove();
+        }
+
+        //bound.GetCell = function (column) {
+        //	var cell = null;
+        //	for (var i = 0; i < bound._cells.length; i++) {
+        //		if (bound._cells[i].column == column) {
+        //			cell = bound._cells[i];
+        //			break;
+        //		}
+        //	}
+        //	if (cell == null)
+        //		bound._cells.push(cell = new _cell(bound, column));
+        //	if (cell.editor != null) {
+        //		if (cell.editor.length == 0)
+        //			cell.editor = null;
+        //		else if (!$.contains(bound.owner.editor, cell.editor[0]))
+        //			cell.editor = null;
+        //	}
+        //	return cell;
+        //}
+    }
+
+    $.jqx._jqxGrid.prototype.GetCell = function (bound, column) {
+        var cell = null;
+        for (var i = 0; i < bound._cells.length; i++) {
+            if (bound._cells[i].column == column) {
+                cell = bound._cells[i];
+                break;
+            }
+        }
+        if (cell == null)
+            bound._cells.push(cell = new _cell(bound, column));
+        if (cell.editor != null) {
+            if (cell.editor.length == 0)
+                cell.editor = null;
+            else if (!$.contains(bound.owner.element, cell.editor[0]))
+                cell.editor = null;
+        }
+        return cell;
+    }
+
+    // init rows
+    function init_rows(name, args) {
+        //console.log_call(name);
+        var ret = args.callee._original.apply(this, args);
+        for (var i in this.rows.records) {
+            if (this.rows.records[i]._cells == null) {
+                new _row(this.rows.records[i]);
+            }
+        }
+        return ret;
+    }
+    $.replace_function($.jqx._jqxGrid.prototype, 'setrowheight', function () { return init_rows.call(this, 'setrowheight', arguments); });
+    $.replace_function($.jqx._jqxGrid.prototype, '_loadrows', function () { return init_rows.call(this, '_loadrows', arguments); });
+
+    $.trace_function = function (prefix, src, prop) { var _original = src[prop]; src[prop] = function () { console.log(prefix + '.' + prop, arguments); return _original.apply(this, arguments); } }
+
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_updatefilterrowui');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, 'clearfilterrow');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_applyfilterfromfilterrow');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_updatefilterrow');
+    ////$.trace_function('filter', $.jqx._jqxGrid.prototype, '_addfilterwidget', function (column, element, width) { });
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, 'refreshfilterrow');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_destroyedfilters');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_updatelistfilters');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_renderfiltercolumn');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_initcolumntypes');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_getcolumntypebydatafield', function (column) { });
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_getfiltersbytype');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_getfiltertype');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_buildfilter');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_clearfilter');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, 'addfilter');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, 'removefilter');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, 'applyfilters');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, 'getfilterinformation');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, 'clearfilters');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_destroyfilterpanel');
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_updatefilterpanel', function (datagrid, menuitem, column) { });
+    //$.trace_function('filter', $.jqx._jqxGrid.prototype, '_initfilterpanel');
+
+    //var cellelement_all = new Array();
+
+    $.replace_function($.jqx._jqxGrid.prototype, '_rendercell', function (datagrid, column, bound, cellvalue, cellelement, q) {
+        var formatvalue = function () {
+            var celltext;
+            if ($.isFunction(column.formatvalue))
+                celltext = column.formatvalue.call(column, bound, cellvalue);
+            if (celltext == null)
+                return cellvalue;
+            return celltext;
+        }
+        var editmode = false;
+        if (column.alwaysEditMode)
+            editmode = true;
+        else if ((bound._state !== '') && column.editable) {
+            editmode = true;
+            if (column.cellbeginedit)
+                if (column.cellbeginedit.call(column, row, column.datafield, column.columntype) === false)
+                    editmode = false;
+        }
+        var _cell = cellelement._cell; cellelement._cell = null;
+        if (_cell != null) {
+            if (_cell.element == cellelement) {
+                _cell.element = null;
+                if (_cell.editor != null)
+                    _cell.editor.hide().appendTo(cellelement.parentElement);
+            }
+        }
+        if (editmode) {
+            var $cellelement = $(cellelement);
+            var row = datagrid.getboundindex(bound);
+            $cellelement.empty();
+            _cell = datagrid.GetCell(bound, column);
+            _cell.element = cellelement;
+            _cell.value = cellvalue;
+            _cell.text = formatvalue();
+            _cell.width = $cellelement.innerWidth() - 5;
+            _cell.height = $cellelement.innerHeight() - 5;
+
+            if (_cell.editor == null) {
+                //console.log('createeditor_' + _cell.column.datafield, _cell);
+                (column._CreateEditor || _CreateEditor[column.columntype] || _CreateEditor.textbox).call(column, _cell, row);
+            }
+            else {
+            }
+            _cell.editor.appendTo(cellelement).show();
+            cellelement._cell = _cell;
+            //cellelement._editor = _cell._editor;
+
+            if (column._InitEditor)
+                column._InitEditor.call(column, _cell, row);
+            if (column.initeditor)
+                column.initeditor.call(column, row, cellvalue, _cell.editor, _cell.text, null);
+        }
+        else {
+            arguments[3] = formatvalue();
+            return arguments.callee._original.apply(this, arguments);
+        }
+    });
+
+    $.extend(true, $.jqx._jqxGrid.prototype, {
+        Update: function () { this._renderrows(this.virtualsizeinfo); },
+        BeginEditRow: function (bound) { return bound.BeginEdit(); },
+        EndEditRow: function (bound) { return bound.EndEdit(); },
+        CommitEditRow: function (bound) { return bound.CommitEdit(); },
+        BeginRemoveRow: function (bound) { return bound.BeginRemove(); },
+        EndRemoveRow: function (bound) { return bound.EndRemove(); },
+        CommitRemoveRow: function (bound) { return bound.CommitRemove(); },
+    });
+
+    $.replace_function($.jqx._jqxGrid.prototype, 'defineInstance', function () {
+        $.extend(true, this, arguments.callee._original.apply(this, arguments), {
+            //disabled: false,
+            //width: 600,
+            //height: 400,
+            //groupsheaderheight: 34,
+            //rowsheight: 25,
+            //columnsheight: 25,
+            //groupindentwidth: 30,
+            //rowdetails: false,
+            //enablerowdetailsindent: true,
+            //enablemousewheel: true,
+            //initrowdetails: null,
+            //layoutrowdetails: null,
+            editable: true, //false,
+            editmode: ['click', 'selectedcell', 'selectedrow', 'dblclick', 'programmatic'][4],//"selectedcell",
+            pageable: true, //false,
+            pagermode: ['simple', 'default'][0],
+            pagesize: 50, //10,
+            pagesizeoptions: [10, 20, 30, 50, 100, 500],//["5", "10", "20"],
+            //pagerbuttonscount: 5,
+            //pagerheight: 28,
+            pagerrenderer: null,
+            //groupable: false,
+            //filterrowheight: 31,
+            sortable: true, // false
+            filterable: true, //false,
+            //filtermode: ['default', 'excel'][0],
+            //showfilterrow: true,
+            showfiltermenuitems: true,
+            //autoshowfiltericon: false,
+            //showfiltercolumnbackground: true,
+            //showpinnedcolumnbackground: false, //true,
+            //showsortcolumnbackground: true,
+            //altrows: false,
+            //altstart: 1,
+            //altstep: 1,
+            //showrowdetailscolumn: true,
+            //showtoolbar: false,
+            //toolbarheight: 34,
+            //showstatusbar: false,
+            //statusbarheight: 34,
+            //enableellipsis: true,
+            //groups: [],
+            //groupsrenderer: null,
+            //groupcolumnrenderer: null,
+            //groupsexpandedbydefault: false,
+            //touchmode: "auto",
+            //selectedrowindex: -1,
+            //selectedrowindexes: new Array(),
+            //selectedcells: new Array(),
+            //autobind: true,
+            //selectedcell: null,
+            //tableZIndex: 799,
+            //headerZIndex: 199,
+            //updatefilterconditions: null,
+            //showaggregates: false,
+            //autorowheight: false,
+            //autokoupdates: true,
+            //handlekeyboardnavigation: null,
+            //showsortmenuitems: true,
+            //showgroupmenuitems: true,
+            //enablebrowserselection: false,
+            //enablekeyboarddelete: true,
+            //clipboard: true,
+            //ready: null,
+            //updatefilterpanel: null,
+            //autogeneratecolumns: false,
+            //rowdetailstemplate: null,
+            //scrollfeedback: null,
+            //rendertoolbar: null,
+            //renderstatusbar: null,
+            //rendered: null,
+            //multipleselectionbegins: null,
+            //columngroups: null,
+            //cellhover: null,
+            //source: {
+            //    beforeprocessing: null,
+            //    beforesend: null,
+            //    loaderror: null,
+            //    localdata: null,
+            //    data: null,
+            //    datatype: "array",
+            //    datafields: [],
+            //    url: "",
+            //    root: "",
+            //    record: "",
+            //    id: "",
+            //    totalrecords: 0,
+            //    recordstartindex: 0,
+            //    recordendindex: 0,
+            //    loadallrecords: true,
+            //    sortcolumn: null,
+            //    sortdirection: null,
+            //    sort: null,
+            //    filter: null,
+            //    sortcomparer: null
+            //},
+            //dataview: null,
+            //updatedelay: null,
+            //autoheight: false,
+            //autowidth: false,
+            //showheader: true,
+            //showgroupsheader: true,
+            //closeablegroups: true,
+            //scrollbarsize: $.jqx.utilities.scrollBarSize,
+            //touchscrollbarsize: $.jqx.utilities.touchScrollBarSize,
+            virtualmode: true, //false,
+            rendergridrows: function (params) {
+                //if ($.isArray(params.data)) {
+                //    if ($.lists.Corps) {
+                //        for (var i in params.data) {
+                //            if (params.data[i].CorpID) {
+                //                var corp = $.lists.getCorp(params.data[i].CorpID);
+                //                if (corp)
+                //                    params.data[i].CorpIDs = corp.Name;
+                //                //console.log(params.data[i].CorpID, $.lists.Corps[params.data[i].CorpID]);
+                //            }
+                //        }
+                //    }
+                //}
+                //console.log(params.data);
+                return params.data;
+            },
+            //sort: null,
+            //columnsmenu: true,
+            columnsresize: true, //false,
+            //columnsreorder: false,
+            //columnsmenuwidth: 15,
+            //autoshowcolumnsmenubutton: true,
+            //popupwidth: "auto",
+            //sorttogglestates: 2,
+            //enableanimations: true,
+            enabletooltips: true, //false,
+            selectionmode: ['none', 'singlerow', 'multiplerows', 'multiplerowsextended', 'singlecell', 'multiplecells', 'multiplecellsextended', 'multiplecellsadvanced', 'checkbox'][7],
+            enablehover: true,
+            //loadingerrormessage: "The data is still loading. When the data binding is completed, the Grid raises the 'bindingcomplete' event. Call this function in the 'bindingcomplete' event handler.",
+            //verticalscrollbarstep: 25,
+            //verticalscrollbarlargestep: 400,
+            //horizontalscrollbarstep: 10,
+            //horizontalscrollbarlargestep: 50,
+            //keyboardnavigation: true,
+            //touchModeStyle: "auto",
+            //autoshowloadelement: true,
+            //showdefaultloadelement: true,
+            //showemptyrow: true,
+            //autosavestate: false,
+            //autoloadstate: false,
+            //_updating: false,
+            //_pagescache: new Array(),
+            //_pageviews: new Array(),
+            //_cellscache: new Array(),
+            //_rowdetailscache: new Array(),
+            //_rowdetailselementscache: new Array(),
+            //_requiresupdate: false,
+            //_hasOpenedMenu: false,
+            //scrollmode: "physical",
+            //deferreddatafields: null,
+            //localization: null,
+            //rtl: false,
+            //menuitemsarray: [],
+            //events: ["initialized", "rowClick", "rowSelect", "rowUnselect", "groupExpand", "groupCollapse", "sort", "columnClick", "cellClick", "pageChanged", "pageSizeChanged", "bindingComplete", "groupsChanged", "filter", "columnResized", "cellSelect", "cellUnselect", "cellBeginEdit", "cellEndEdit", "cellValueChanged", "rowExpand", "rowCollapse", "rowDoubleClick", "cellDoubleClick", "columnReordered", "pageChanging"],
+            extra: {
+                source: {}, settings: {}, events: {},
+            },
+            pkey: [],
+        });
+    });
+
+    $.replace_function($.jqx._jqxGrid.prototype, 'createInstance', function () {
+        var _this = this;
+        //var opts = arguments[0][0];
+        var source = $.extend(true, {
+            //id: 'ID',
+            //root: "rows",
+            //record: "",
+            url: 'api',
+            datatype: "json",
+            type: 'post',
+            datafields: [],
+            mapChar: '.',
+            //localdata: [],
+            //data: { a: 1, b: 2 },
+            loadallrecords: false,
+        }, this.extra.source);
+        var settings = $.extend(true, {
+            //async: true,
+            //autoBind: false,
+            //contentType: "application/x-www-form-urlencoded",
+            //processData: function () { },
+            //beforeSend: function () { },
+            //loadError: function (xhr, status, error) { },
+            //beforeLoadComplete: function () { },
+            downloadComplete: function (data, status, xhr) {
+                //console.log(arguments);
+            },
+            //loadComplete: function (data) { },
+            //loadServerData: function () { },
+        }, this.extra.settings);
+        if (settings.SelectCommand) {
+            delete settings.SelectCommand;
+            settings.formatData = function (data) {
+                if (_this.dataview.filters.length > 0) {
+                    data._filter = new Array();
+                    for (var i = 0; i < _this.dataview.filters.length; i++) {
+                        var f1 = _this.dataview.filters[i];
+                        var f2 = f1.filter.getfilters();
+                        if (f2.length > 0) {
+                            var o = {
+                                operator: f1.operator,
+                                datafield: f1.datafield,
+                                filters: f2,
+                            }
+                            data._filter.push(o);
+                        }
+                    }
+                }
+                data._sort = _this.getsortinformation();
+                //data._pager = datagrid.getpaginginformation();
+                var command = {
+                };
+                command[_this.extra.settings.SelectCommand] = data;
+                return {
+                    str: JSON.stringify(command)
+                };
+            }
+        }
+        var events = this.extra.events;
+
+        for (var i = 0; i < this.columns.length; i++) {
+            var col = this.columns[i];
+            if (col.source) {
+                if (col.source.type != 'none') {
+                    col.source.name = col.datafield;
+                    source.datafields.push(col.source);
+                }
+                delete col.source;
+            }
+        }
+        for (var i = 0; i < source.datafields.length; i++) {
+            var col = source.datafields[i];
+            col['name'] = $.trim(col['name']);
+            col['type'] = $.trim(col['type']);
+        }
+
+        if (!$.isArray(this.pkey))
+            this.pkey = [this.pkey];
+
+
+        this.source = new $.jqx.dataAdapter(source, settings);
+        var ret = arguments.callee._original.call(this, arguments);
+        for (var e in events)
+            this.host.on(e, events[e]);
+        return ret;
+    });
+
+    $.replace_function($.jqx._jqxGrid.prototype, '_initializeColumns', function () {
+        //console.log('_initializeColumns');
+        var c1, c2, col1, col2;
+        if (this.source_columns == null) {
+            this.source_columns = this.columns;
+            for (c2 = 0; c2 < this.source_columns.length; c2++) {
+                col2 = this.source_columns[c2];
+                if (col2.datafield)
+                    col2.datafield = $.trim(col2.datafield);
+                if (col2.text && (col2.text != ' '))
+                    col2.text = $.trim(col2.text);
+                if ((col2.text == '') || (col2.text == null))
+                    col2.text = col2.datafield;
+            }
+        }
+
+        var ret = arguments.callee._original.apply(this, arguments);
+        for (c1 = 0; c1 < this.columns.records.length; c1++) {
+            col1 = this.columns.records[c1];
+            for (c2 = 0; c2 < this.source_columns.length; c2++) {
+                col2 = this.source_columns[c2];
+                if (col1.datafield === col2.datafield) {
+                    $.extend(true, col2, col1);
+                    $.extend(true, col1, col2);
+                    //col1._src = col2;
+                    col1._uniqueid = _uniqueid++;
+                    break;
+                }
+            }
+            //console.log(col1);
+        }
+        return ret;
+    });
+
+    var _CreateEditor = {
+        dropdownlist: function (_cell, row) {
+        },
+        combobox: function (_cell, row) {
+        },
+        datetimeinput: function (_cell, row) {
+        },
+        numberinput: function (_cell, row) {
+        },
+        custom: function (_cell, row) {
+            _cell.editor = $("<div style='margin: 2px; border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px;'></div>")
+				.appendTo(_cell.element).show();
+            if (this.createeditor)
+                this.createeditor.call(this, row, _cell.value, _cell.editor, _cell.text, _cell.width, _cell.height);
+        },
+        // template: function (_cell, row) { },
+        textbox: function (_cell, row) {
+            (_cell.editor = $("<input style='margin: 2px; border-radius:0; -moz-border-radius: 0px; -webkit-border-radius: 0px;' autocomplete='off' autocorrect='off' autocapitalize='off' spellcheck='false' type='textbox'/>")
+				.appendTo(_cell.element).show()
+				.jqxInput({ width: _cell.width, height: _cell.height }))
+				.val(_cell.text);
+        },
+    }
+
+    $.col = function (type, opts) {
+        if (typeof type != 'string') {
+            opts = type;
+            type = '';
+        }
+        type = $.trim(type);
+        var obj = $.col.defines[type];
+        if ($.isFunction(obj))
+            obj = obj();
+        var ret = $.extend(true, {}, $.col.defines._default, obj, opts);
+        return ret;
+    }
+
+    $.col.defines = (function () {
+
+
+
+        //_addfilterwidget: function (element, width) {
+        //    console.log("action1_addfilterwidget", arguments);
+        //    element.css({ 'background-color': 'red' });
+        //},
+
+        return {
+        }
+    })();
+    function createfilterwidget_args(column, columnElement, widget) {
+        //var margin = 4,
+        //    width = columnElement.innerWidth(),
+        //    height = column.owner.filterrowheight;
+        return {
+            margin: 4,
+            width: columnElement.innerWidth(),
+            height: column.owner.filterrowheight,
+            //css: { margin: margin, width: width - 8 - margin * 2, height: height - 8 - margin * 2 },
+        }
+    }
+
+    function __Action(o) {
+        return $.extend(true, {
+            ActionIndex: 0, source: { type: 'none' }, columntype: 'custom', filterable: false, filtertype: 'custom', alwaysEditMode: true,
+            width: 40, text: ' ', cellsalign: 'center', editable: false,
+            pinned: true, sortable: false, hideable: false, groupable: false, exportable: false, resizable: false, enabletooltips: false, menu: false,
+            buttons: { edit: true, remove: true, text: ['Edit', 'Cancel', 'Save', 'Remove', 'Cancel', 'Remove!'], onclick: [[0, 1, 5], [2, 3, 4]] },
+            filterable: true, filters: { text: ['apply', 'clear'], icon: ['search', 'close'], action: ['applyfilters', 'clearfilters'] },
+            __init: function () {
+                if (this.Action1 == null) this.Action1 = this.owner.getcolumn('_Action1');
+                if (this.Action2 == null) this.Action2 = this.owner.getcolumn('_Action2');
+            },
+            _CreateEditor: function (_cell, row) {
+                this.__init();
+                _cell.editor = $('<div style="padding: 0; width:100%; height: 100%;"></div>').appendTo(_cell.element);
+                var _onclick = ['BeginEdit', 'EndEdit', 'CommitEdit', 'BeginRemove', 'EndRemove', 'CommitRemove', ];
+                var onclick = this.buttons.onclick[this.ActionIndex];
+                for (var i = 0; i < onclick.length; i++) {
+                    var index = onclick[i];
+                    $('<button index="' + index + '" style="border-radius: 0;">' + this.Action1.buttons.text[index] + '</button>')
+                        .appendTo(_cell.editor)
+                        .jqxButton({ width: '100%', height: '100%' })
+                        .on('click', _cell.row[_onclick[index]]);
+                }
+            },
+            _InitEditor: function (_cell, row) {
+                _cell.editor.children().hide();
+                switch (_cell.row._state) {
+                    case 'edit': $('[index="1"], [index="2"]', _cell.editor).show(); break;
+                    case 'remove': $('[index="4"], [index="5"]', _cell.editor).show(); break;
+                    default:
+                        if (this.Action1.buttons.edit === true) $('[index="0"]', _cell.editor).show();
+                        if (this.Action1.buttons.remove === true) $('[index="3"]', _cell.editor).show();
+                }
+            },
+            createfilterwidget: function (column, columnElement, widget) {
+                var arg2 = createfilterwidget_args.apply(this, arguments);
+                //var margin = 4, width = columnElement.innerWidth(), height = column.owner.filterrowheight;
+                column.__init();
+                var txt = column.Action1.filters.text[column.ActionIndex];
+                var act = column.Action1.filters.action[column.ActionIndex];
+                var $div = $('<div></div>').css('margin', arg2.margin).appendTo(columnElement)
+                $div.jqxButton({
+                    width: arg2.width - 8 - arg2.margin * 2,
+                    height: arg2.height - 8 - arg2.margin * 2,
+                }).on('click', function () { column.owner[act](); });
+                $('<div class="jqx-icon"></div>').appendTo($div).addClass(column.owner.toThemeProperty('jqx-icon-' + column.Action1.filters.icon[column.ActionIndex]));
+            },
+        }, o);
+    };
+
+    $.col.defines = {
+        _default: {
+            width: 80, align: 'center', cellsalign: 'center', source: {
+                type: 'string'
+            },
+            //cellbeginedit: function (row, datafield, columntype) {
+            //    return this.owner.getRowEditor(null, row).isEditing;
+            //},
+            //cellendedit: function (row, datafield, columntype, oldvalue, newvalue) {
+            //    return true;
+            //},
+            //_rendercell: function (datagrid, column, bound, cellvalue, cellelement, q) { },
+        },
+        Number: {
+            source: { type: 'none' }, columntype: 'int',
+            width: 40, datafield: '_RowNumber', text: ' ', cellsalign: 'center', editable: false,
+            pinned: true, sortable: false, hideable: false, groupable: false, exportable: false, resizable: false, enabletooltips: false, filterable: false, menu: false,
+            formatvalue: function (bound, cellvalue) {
+                return this.owner.getboundindex(bound) + 1;
+            },
+        },
+        Action1: __Action({ ActionIndex: 0, datafield: '_Action1' }),
+        Action2: __Action({ ActionIndex: 1, datafield: '_Action2' }),
+        ID: {
+            datafield: 'ID', source: { type: 'int' }, sortable: false, editable: false, filterable: false,
+            filtertype: 'none', filtercondition: 'NOT_EQUAL'//,NOT_EQUAL,LESS_THAN', 'LESS_THAN_OR_EQUAL', 'GREATER_THAN', 'GREATER_THAN_OR_EQUAL']
+        },
+        CorpID: {
+            source: { type: 'int' }, columntype: 'custom', displayfield: 'CorpID_str',
+            formatvalue: function (bound, cellvalue) {
+                try { return $.lists.getCorp(bound.bounddata.CorpID).Name; } catch (e) { }
+            },
+            initeditor: function (row, cellvalue, editor, celltext, pressedChar) {
+                editor.jqxDropDownList('selectItem', { value: this.owner.getrowdata(row).CorpID });
+            },
+            createeditor: function (row, cellvalue, editor, celltext, cellwidth, cellheight) {
+                editor.jqxDropDownList({
+                    enableBrowserBoundsDetection: true,
+                    dropDownHorizontalAlignment: 'center',
+                    keyboardSelection: true,
+                    source: $.lists.Corps,
+                    autoDropDownHeight: true,
+                    width: cellwidth,
+                    height: cellheight,
+                    selectedIndex: -1,
+                    displayMember: 'Name',
+                    valueMember: 'ID',
+                });
+            },
+            destroyeditor: function (editor, n) {
+                //console.log('initeditor', arguments);
+            },
+            geteditorvalue: function (row, cellvalue, editor) {
+                return editor.jqxDropDownList('val');
+            },
+            filterable: true,
+            filtertype: 'checkedlist',
+            filteritems: function () {
+                var data = new Array();
+                for (var i = 0; i < $.lists.Corps.length; i++) {
+                    data.push({ CorpID: $.lists.Corps[i].ID, CorpID_str: $.lists.Corps[i].Name });
+                }
+                return new $.jqx.dataAdapter(data, {});
+            },
+        },
+        GroupID: {
+            source: { type: 'string' }, columntype: 'custom',
+            formatvalue: function (bound, cellvalue) {
+                var g = $.lists.getGroup(null, cellvalue);
+                if (g) return g.Name;
+            },
+            initeditor: function (row, cellvalue, editor, celltext, pressedChar) {
+                //console.log('initeditor', arguments);
+                var obj = editor.jqxDropDownList('getInstance');
+                var corpID = this.owner.getcellvalue(row, 'CorpID');
+                var grp = $.lists.getGroup(corpID, cellvalue);
+                if ((grp == null) || (obj.getItemByValue(cellvalue) == null)) {
+                    var corp = $.lists.getCorp(corpID);
+                    if (corp.Groups) {
+                        obj.clear();
+                        for (var i = 0; i < corp.Groups.length; i++) {
+                            obj.addItem({
+                                value: corp.Groups[i].ID, label: corp.Groups[i].Name
+                            });
+                        }
+                    }
+                }
+                obj.selectItem({
+                    value: cellvalue
+                });
+                //console.log(grp);
+                //console.log(obj.getItemByValue(cellvalue));
+                //var opt;
+                //    if (!corp.Groups.hasOwnProperty(cellvalue)) {
+                //    }
+                //}
+            },
+            createeditor: function (row, cellvalue, editor, celltext, cellwidth, cellheight) {
+                //obj = $.data(editor[0], 'jqxDropDownList').instance;
+                //console.log('createeditor', arguments);
+                editor.jqxDropDownList({
+                    enableBrowserBoundsDetection: true,
+                    dropDownHorizontalAlignment: 'center',
+                    keyboardSelection: true,
+                    source: new Array(),
+                    autoDropDownHeight: true,
+                    width: cellwidth,
+                    height: cellheight,
+                    selectedIndex: -1,
+                });
+                //var obj = editor.jqxDropDownList('getInstance');
+                //var corpID = this.owner.getcellvalue(row, 'CorpID');
+                //var corp = $.lists.getCorp(corpID);
+                //var grp = null;
+                //if (grp == null) {
+                //    if (corp.Groups) {
+                //        obj.clear();
+                //        for (var i = 0; i < corp.Groups.length; i++) {
+                //            obj.addItem({ value: corp.Groups[i].ID, label: corp.Groups[i].Name });
+                //        }
+                //    }
+                //}
+                //obj.selectItem(obj.getItemByValue(cellvalue));
+            },
+            destroyeditor: function (editor, n) {
+                //console.log('initeditor', arguments);
+            },
+            geteditorvalue: function (row, cellvalue, editor) {
+                return editor.jqxDropDownList('val');
+            },
+        },
+        Locked: {
+            source: { type: 'int' },
+        },
+        Balance: {
+            source: { type: 'float' }, cellsformat: 'f2', editable: false
+        },
+        DateTime: {
+            source: { type: 'date' }, width: 160, cellsformat: 'yyyy-MM-dd HH:mm:ss',
+            filterable: true,
+            //cellformatter: function (column, col_editor, bound, cellvalue) {
+            //    return $.lists.Groups[cellvalue];
+            //},
+        },
+    }
+
+})(jqxBaseFramework);

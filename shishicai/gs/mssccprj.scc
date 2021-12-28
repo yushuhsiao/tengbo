@@ -1,0 +1,6 @@
+SCC = This is a Source Code Control file.
+
+[gs.csproj]
+SCC_Aux_Path = server01:8877:Cashino
+SCC_Project_Name = $/shishicai/gs
+

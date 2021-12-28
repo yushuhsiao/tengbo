@@ -1,0 +1,123 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/master/default.Master" AutoEventWireup="true" CodeBehind="~/Help/Help.master.cs" Inherits="SiteMasterPage" %>
+
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        this.RootMasterPage.NavIndex = 7;
+        HelpPage p = this.Page as HelpPage;
+        if (p != null)
+        {
+            int? index = p.HelpIndex;
+            var hh = h1;
+            switch (index)
+            {
+                case 1: hh = h1; break;
+                case 2: hh = h2; break;
+                case 3: hh = h3; break;
+                case 4: hh = h4; break;
+                case 5: hh = h5; break;
+                case 6: hh = h6; break;
+                case 7: hh = h7; break;
+                case 9: hh = h9; break;
+            }
+            if (hh != null)
+            {
+                hh.Attributes["class"] = "active";
+                hh.HRef = null;
+            }
+        }
+    }
+</script>
+
+<asp:Content ContentPlaceHolderID="head" runat="server"><asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder></asp:Content>
+
+<asp:Content ContentPlaceHolderID="body2" runat="server">
+    <div class="help">
+        <div class="body">
+            <div class="help1 font2">
+                <div class="ta"></div>
+                <div class="t1">关于腾博会</div>
+                <div class="t2"><a id="h1" runat="server" href="1.aspx">关于我们</a></div>
+                <div class="t2" style=""><a id="h2" runat="server" href="2.aspx">营业执照</a></div>
+                <div class="t2"><a id="h3" runat="server" href="3.aspx">博彩责任</a></div>
+                <div class="t2"><a id="h9" runat="server" href="9.aspx">规则与声明</a></div>
+                <div class="t2" style="display:none;"><a id="h4" runat="server" href="4.aspx">联系我们</a></div>
+                <div class="tb"></div>
+                <div class="t1">新手指南</div>
+                <div class="t2"><a id="h5" runat="server" href="5.aspx">常见问题</a></div>
+                <div class="t2" style=""><a id="h6" runat="server" href="6.aspx">存款流程</a></div>
+                <div class="t2" style=""><a id="h7" runat="server" href="7.aspx">提款流程</a></div>
+                <div class="tb"></div>
+                <div class="t3">7x24小时在线客服</div>
+                <div class="t3">400-6571318</div>
+                <div class="t3">QQ: 77683735</div>
+            </div>
+            <div class="help2 font2">
+                <asp:ContentPlaceHolder ID="help2" runat="server"></asp:ContentPlaceHolder>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <%--    <div class="main_games">
+    <div class="main_index">
+      <div class="main_lights">
+        <div class="lights_left"></div>
+        <div class="lights_right"></div>
+      </div>
+      <div class="content">
+        <div class="quest">
+          <div class="quest_left">
+            <div class="quest_box">
+            <dl>
+              <dt>关于腾博会</dt>
+              <dd><a <% if (this.PageUrl==urls.help1) { %>class="cur"<% } else { %>href="1.aspx"<% } %>>关于我们</a></dd>
+              <dd><a <% if (this.PageUrl==urls.help2) { %>class="cur"<% } else { %>href="2.aspx"<% } %>>营业执照</a></dd>
+              <dd><a <% if (this.PageUrl==urls.help3) { %>class="cur"<% } else { %>href="3.aspx"<% } %>>博彩责任</a></dd>
+              <dd><a <% if (this.PageUrl==urls.help9) { %>class="cur"<% } else { %>href="9.aspx"<% } %>>规则与声明</a></dd>
+              <dd><a class="<%if (this.PageUrl==urls.help4) { %>cur <% } %>none_b" <%if (this.PageUrl!=urls.help4) {%>href="4.aspx"<% } %>>联系我们</a></dd>
+            </dl>
+            </div>
+            <div class="quest_box">
+            <dl>
+              <dt>新手指南</dt>
+              <dd><a <% if (this.PageUrl==urls.help5) { %>class="cur"<% } else { %>href="5.aspx"<% } %>>常见问题</a></dd>
+              <dd><a <% if (this.PageUrl==urls.help6) { %>class="cur"<% } else { %>href="6.aspx"<% } %>>存款流程</a></dd>
+              <%--<dd><a <% if (this.PageUrl==urls.help7) { %>class="cur"<% } else { %>href="Help7.aspx"<% } %>>提款流程</a></dd>
+              <dd><a class="<%if (this.PageUrl==urls.help7) { %>cur <% } %>none_b" <%if (this.PageUrl!=urls.help7) {%>href="7.aspx"<% } %>>提款流程</a></dd>
+            </dl>
+            </div>
+            <div class="quest_box1">
+            <dl>
+              <dd>7x24小时在线客服</dd>
+              <dd>400-6571318</dd>
+              <dd class="none_b">QQ: 77683735</dd>
+            </dl>
+            </div>
+          </div>
+          <div class="quest_right">
+              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                      <td height="35">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                  <td width="80" class="quest_xian">&nbsp;</td>
+                                  <td width="80" class="quest_tit"><asp:ContentPlaceHolder ID="help_title" runat="server"></asp:ContentPlaceHolder></td>
+                                  <td class="quest_xian">&nbsp;</td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <asp:ContentPlaceHolder ID="help_content" runat="server"></asp:ContentPlaceHolder>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+          <div class="B"></div>
+      </div></div>
+    </div>
+  </div>--%>
+</asp:Content>

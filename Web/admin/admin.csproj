@@ -1,0 +1,1725 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FF884E24-378E-4C25-BA22-05DE634ECF0D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>web</RootNamespace>
+    <AssemblyName>admin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\DataGrid.ascx.designer.cs">
+      <DependentUpon>DataGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="jqx.cs" />
+    <Compile Include="js\xxxx.ascx.cs">
+      <DependentUpon>xxxx.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="js\xxxx.ascx.designer.cs">
+      <DependentUpon>xxxx.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Anno.aspx.cs">
+      <DependentUpon>Anno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys\billboard.aspx.cs">
+      <DependentUpon>Billboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Corp.aspx.cs">
+      <DependentUpon>Corp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DataGrid.cs" />
+    <Compile Include="sys\Game.aspx.cs">
+      <DependentUpon>Game.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys\root.Master.cs">
+      <DependentUpon>root.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys\root.Master.designer.cs">
+      <DependentUpon>root.Master</DependentUpon>
+    </Compile>
+    <Compile Include="users\Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="users\Admin2.aspx.cs">
+      <DependentUpon>Admin2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\group.master.cs">
+      <DependentUpon>group.master</DependentUpon>
+    </Compile>
+    <Compile Include="users\Agent.aspx.cs">
+      <DependentUpon>Agent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="users\AgentTree.aspx.cs">
+      <DependentUpon>AgentTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="users\Member.cs" />
+    <Compile Include="users\UserRow.cs" />
+    <Compile Include="api.cs" />
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com.yeepay\com.yeepay.icc\Buy.cs" />
+    <Compile Include="com.yeepay\com.yeepay.icc\BuyCallbackResult.cs" />
+    <Compile Include="com.yeepay\com.yeepay.icc\BuyQueryOrdDetailResult.cs" />
+    <Compile Include="com.yeepay\com.yeepay.icc\ICCBuyRefundOrdResult.cs" />
+    <Compile Include="com.yeepay\com.yeepay.utils\Digest.cs" />
+    <Compile Include="com.yeepay\com.yeepay.utils\FormatQueryString.cs" />
+    <Compile Include="com.yeepay\com.yeepay.utils\HmacMD5.cs" />
+    <Compile Include="com.yeepay\com.yeepay.utils\HttpUtils.cs" />
+    <Compile Include="Currency.cs" />
+    <Compile Include="DB.cs" />
+    <Compile Include="Defines.cs" />
+    <Compile Include="extAPI\ag.cs" />
+    <Compile Include="extAPI\bbin.cs" />
+    <Compile Include="extAPI\ea.cs" />
+    <Compile Include="extAPI\enum.cs" />
+    <Compile Include="extAPI\hg.cs" />
+    <Compile Include="extAPI\hg.defines.cs" />
+    <Compile Include="extAPI\keno.cs" />
+    <Compile Include="extAPI\MakeAndParsXMLHG.cs" />
+    <Compile Include="extAPI\pt.cs" />
+    <Compile Include="extAPI\util.cs" />
+    <Compile Include="extAPI\WinningFT.cs" />
+    <Compile Include="extAPI\_base.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="game\AG.cs" />
+    <Compile Include="game\BBIN.cs" />
+    <Compile Include="game\EA.cs" />
+    <Compile Include="game\HG.cs" />
+    <Compile Include="game\KENO.cs" />
+    <Compile Include="game\PT.cs" />
+    <Compile Include="game\UserGame.cs" />
+    <Compile Include="game\WFT.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="jgrid.cs" />
+    <Compile Include="logs\GameLogRow.cs" />
+    <Compile Include="page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Permissions.cs" />
+    <Compile Include="Poker.cs" />
+    <Compile Include="protocol.cs" />
+    <Compile Include="RowError.cs" />
+    <Compile Include="sqltool.cs" />
+    <Compile Include="Text.cs" />
+    <Compile Include="tran\Cash.cs" />
+    <Compile Include="tran\CashChannel.cs" />
+    <Compile Include="tran\dinpay.ashx.cs" />
+    <Compile Include="tran\dinpay_v3.ashx.cs" />
+    <Compile Include="tran\ecpss.ashx.cs" />
+    <Compile Include="tran\Game.cs" />
+    <Compile Include="tran\Promo.cs" />
+    <Compile Include="tran\TranCore.cs" />
+    <Compile Include="tran\TranLog.cs" />
+    <Compile Include="tran\TranPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tran\yeepay.ashx.cs" />
+    <Compile Include="Users.cs" />
+    <Compile Include="SqlSettingAttribute.cs" />
+    <Compile Include="webAPI\GameTran.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow_AG.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow_BBIN.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow_EA.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow_HG.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow_KENO.cs" />
+    <Compile Include="webAPI\subacc\MemberGameRow_WFT.cs" />
+    <Compile Include="webAPI\Tran.cs" />
+    <Compile Include="robot_api.cs" />
+    <Compile Include="sys\AccountInfo.aspx.cs">
+      <DependentUpon>AccountInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="users\AdminGroup.aspx.cs">
+      <DependentUpon>AdminGroup.aspx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="sys\MenuEdit.aspx.cs">
+      <DependentUpon>MenuEdit.aspx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="users\AgentGroup.aspx.cs">
+      <DependentUpon>AgentGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="users\MemberGroup.aspx.cs">
+      <DependentUpon>MemberGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\LogService.aspx.cs">
+      <DependentUpon>LogService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys\ControlPanel.aspx.cs">
+      <DependentUpon>ControlPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys\ControlPanel.aspx.designer.cs">
+      <DependentUpon>ControlPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys\LangEdit.aspx.cs">
+      <DependentUpon>LangEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logs\BetAmtDG.aspx.cs">
+      <DependentUpon>BetAmtDG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logs\LoginLog.master.cs">
+      <DependentUpon>LoginLog.master</DependentUpon>
+    </Compile>
+    <Compile Include="logs\logs.master.cs">
+      <DependentUpon>logs.master</DependentUpon>
+    </Compile>
+    <Compile Include="notes\notes.master.cs">
+      <DependentUpon>notes.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="notes\notes.master.designer.cs">
+      <DependentUpon>notes.master</DependentUpon>
+    </Compile>
+    <Compile Include="sys\Config.aspx.cs">
+      <DependentUpon>Config.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tran\CashChannel.aspx.cs">
+      <DependentUpon>CashChannel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tran\tran.master.cs">
+      <DependentUpon>tran.master</DependentUpon>
+    </Compile>
+    <Compile Include="web.config.cs">
+      <DependentUpon>web.config</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\DataGrid.ascx" />
+    <Content Include="css\style2.css">
+      <DependentUpon>style2.less</DependentUpon>
+    </Content>
+    <Content Include="css\style2.less" />
+    <Content Include="js\admin2.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.af-ZA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.af.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.am-ET.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.am.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-AE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-BH.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-DZ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-EG.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-IQ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-JO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-KW.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-LB.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-LY.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-MA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-OM.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-QA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-SA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-SY.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-TN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar-YE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ar.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.arn-CL.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.arn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.as-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.as.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.az-Cyrl-AZ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.az-Cyrl.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.az-Latn-AZ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.az-Latn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.az.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ba-RU.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ba.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.be-BY.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.be.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.bg-BG.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.bg.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.bn-BD.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.bn-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.bn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.bo-CN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.bo.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.br-FR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.br.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.bs-Cyrl-BA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.bs-Cyrl.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.bs-Latn-BA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.bs-Latn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.bs.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ca-ES.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ca.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.co-FR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.co.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.cs-CZ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.cs.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.cy-GB.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.cy.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.da-DK.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.da.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.de-AT.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.de-CH.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.de-DE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.de-LI.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.de-LU.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.de.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.dsb-DE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.dsb.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.dv-MV.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.dv.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.el-GR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.el.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-029.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-AU.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-BZ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-CA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-GB.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-IE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-JM.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-MY.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-NZ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-PH.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-SG.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-TT.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-US.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-ZA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.en-ZW.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-AR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-BO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-CL.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-CO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-CR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-DO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-EC.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-ES.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-GT.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-HN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-MX.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-NI.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-PA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-PE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-PR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-PY.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-SV.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-US.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-UY.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es-VE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.es.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.et-EE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.et.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.eu-ES.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.eu.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fa-IR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fa.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fi-FI.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fi.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fil-PH.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fil.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fo-FO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fo.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fr-BE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fr-CA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fr-CH.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fr-FR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fr-LU.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fr-MC.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fr.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fy-NL.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.fy.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ga-IE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ga.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.gd-GB.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.gd.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.gl-ES.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.gl.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.gsw-FR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.gsw.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.gu-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.gu.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ha-Latn-NG.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ha-Latn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ha.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.he-IL.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.he.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.hi-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.hi.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.hr-BA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.hr-HR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.hr.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.hsb-DE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.hsb.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.hu-HU.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.hu.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.hy-AM.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.hy.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.id-ID.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.id.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ig-NG.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ig.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ii-CN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ii.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.is-IS.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.is.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.it-CH.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.it-IT.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.it.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.iu-Cans-CA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.iu-Cans.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.iu-Latn-CA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.iu-Latn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.iu.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ja-JP.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ja.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ka-GE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ka.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.kk-KZ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.kk.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.kl-GL.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.kl.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.km-KH.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.km.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.kn-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.kn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ko-KR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ko.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.kok-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.kok.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ky-KG.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ky.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.lb-LU.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.lb.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.lo-LA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.lo.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.lt-LT.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.lt.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.lv-LV.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.lv.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mi-NZ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mi.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mk-MK.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mk.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ml-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ml.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mn-Cyrl.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mn-MN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mn-Mong-CN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mn-Mong.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.moh-CA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.moh.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mr-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mr.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ms-BN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ms-MY.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ms.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mt-MT.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.mt.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.nb-NO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.nb.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ne-NP.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ne.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.nl-BE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.nl-NL.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.nl.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.nn-NO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.nn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.no.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.nso-ZA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.nso.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.oc-FR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.oc.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.or-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.or.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.pa-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.pa.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.pl-PL.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.pl.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.prs-AF.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.prs.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ps-AF.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ps.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.pt-BR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.pt-PT.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.pt.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.qut-GT.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.qut.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.quz-BO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.quz-EC.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.quz-PE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.quz.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.rm-CH.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.rm.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ro-RO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ro.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ru-RU.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ru.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.rw-RW.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.rw.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sa-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sa.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sah-RU.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sah.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.se-FI.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.se-NO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.se-SE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.se.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.si-LK.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.si.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sk-SK.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sk.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sl-SI.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sl.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sma-NO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sma-SE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sma.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.smj-NO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.smj-SE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.smj.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.smn-FI.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.smn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sms-FI.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sms.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sq-AL.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sq.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sr-Cyrl-BA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sr-Cyrl-CS.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sr-Cyrl-ME.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sr-Cyrl-RS.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sr-Cyrl.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sr-Latn-BA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sr-Latn-CS.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sr-Latn-ME.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sr-Latn-RS.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sr-Latn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sr.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sv-FI.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sv-SE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sv.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sw-KE.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.sw.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.syr-SY.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.syr.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ta-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ta.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.te-IN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.te.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tg-Cyrl-TJ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tg-Cyrl.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tg.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.th-TH.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.th.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tk-TM.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tk.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tn-ZA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tr-TR.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tr.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tt-RU.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tt.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tzm-Latn-DZ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tzm-Latn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.tzm.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ug-CN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ug.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.uk-UA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.uk.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ur-PK.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.ur.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.uz-Cyrl-UZ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.uz-Cyrl.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.uz-Latn-UZ.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.uz-Latn.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.uz.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.vi-VN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.vi.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.wo-SN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.wo.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.xh-ZA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.xh.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.yo-NG.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.yo.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.zh-CHS.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.zh-CHT.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.zh-CN.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.zh-Hans.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.zh-Hant.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.zh-HK.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.zh-MO.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.zh-SG.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.zh-TW.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.zh.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.zu-ZA.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.culture.zu.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.cultures.js" />
+    <Content Include="js\jqwidgets\globalization\globalize.js" />
+    <Content Include="js\jqwidgets\globalization\ReadMe.txt" />
+    <Content Include="js\jqwidgets\jqx-all.js" />
+    <Content Include="js\jqwidgets\jqxangular.js" />
+    <Content Include="js\jqwidgets\jqxbulletchart.js" />
+    <Content Include="js\jqwidgets\jqxbuttongroup.js" />
+    <Content Include="js\jqwidgets\jqxbuttons.js" />
+    <Content Include="js\jqwidgets\jqxcalendar.js" />
+    <Content Include="js\jqwidgets\jqxchart.core.js" />
+    <Content Include="js\jqwidgets\jqxchart.js" />
+    <Content Include="js\jqwidgets\jqxchart.rangeselector.js" />
+    <Content Include="js\jqwidgets\jqxcheckbox.js" />
+    <Content Include="js\jqwidgets\jqxcolorpicker.js" />
+    <Content Include="js\jqwidgets\jqxcombobox.js" />
+    <Content Include="js\jqwidgets\jqxcore.js" />
+    <Content Include="js\jqwidgets\jqxdata.export.js" />
+    <Content Include="js\jqwidgets\jqxdata.js" />
+    <Content Include="js\jqwidgets\jqxdatatable.js" />
+    <Content Include="js\jqwidgets\jqxdatetimeinput.js" />
+    <Content Include="js\jqwidgets\jqxdocking.js" />
+    <Content Include="js\jqwidgets\jqxdockpanel.js" />
+    <Content Include="js\jqwidgets\jqxdragdrop.js" />
+    <Content Include="js\jqwidgets\jqxdraw.js" />
+    <Content Include="js\jqwidgets\jqxdropdownbutton.js" />
+    <Content Include="js\jqwidgets\jqxdropdownlist.js" />
+    <Content Include="js\jqwidgets\jqxeditor.js" />
+    <Content Include="js\jqwidgets\jqxexpander.js" />
+    <Content Include="js\jqwidgets\jqxgauge.js" />
+    <Content Include="js\jqwidgets\jqxgrid.aggregates.js" />
+    <Content Include="js\jqwidgets\jqxgrid.columnsreorder.js" />
+    <Content Include="js\jqwidgets\jqxgrid.columnsresize.js" />
+    <Content Include="js\jqwidgets\jqxgrid.edit.js" />
+    <Content Include="js\jqwidgets\jqxgrid.export.js" />
+    <Content Include="js\jqwidgets\jqxgrid.filter.js" />
+    <Content Include="js\jqwidgets\jqxgrid.grouping.js" />
+    <Content Include="js\jqwidgets\jqxgrid.js" />
+    <Content Include="js\jqwidgets\jqxgrid.pager.js" />
+    <Content Include="js\jqwidgets\jqxgrid.selection.js" />
+    <Content Include="js\jqwidgets\jqxgrid.sort.js" />
+    <Content Include="js\jqwidgets\jqxgrid.storage.js" />
+    <Content Include="js\jqwidgets\jqxinput.js" />
+    <Content Include="js\jqwidgets\jqxknockout.js" />
+    <Content Include="js\jqwidgets\jqxlistbox.js" />
+    <Content Include="js\jqwidgets\jqxlistmenu.js" />
+    <Content Include="js\jqwidgets\jqxmaskedinput.js" />
+    <Content Include="js\jqwidgets\jqxmenu.js" />
+    <Content Include="js\jqwidgets\jqxnavigationbar.js" />
+    <Content Include="js\jqwidgets\jqxnotification.js" />
+    <Content Include="js\jqwidgets\jqxnumberinput.js" />
+    <Content Include="js\jqwidgets\jqxpanel.js" />
+    <Content Include="js\jqwidgets\jqxpasswordinput.js" />
+    <Content Include="js\jqwidgets\jqxprogressbar.js" />
+    <Content Include="js\jqwidgets\jqxradiobutton.js" />
+    <Content Include="js\jqwidgets\jqxrangeselector.js" />
+    <Content Include="js\jqwidgets\jqxrating.js" />
+    <Content Include="js\jqwidgets\jqxresponse.js" />
+    <Content Include="js\jqwidgets\jqxscrollbar.js" />
+    <Content Include="js\jqwidgets\jqxscrollview.js" />
+    <Content Include="js\jqwidgets\jqxslider.js" />
+    <Content Include="js\jqwidgets\jqxsplitter.js" />
+    <Content Include="js\jqwidgets\jqxswitchbutton.js" />
+    <Content Include="js\jqwidgets\jqxtabs.js" />
+    <Content Include="js\jqwidgets\jqxtooltip.js" />
+    <Content Include="js\jqwidgets\jqxtouch.js" />
+    <Content Include="js\jqwidgets\jqxtree.js" />
+    <Content Include="js\jqwidgets\jqxtreegrid.js" />
+    <Content Include="js\jqwidgets\jqxtreemap.js" />
+    <Content Include="js\jqwidgets\jqxvalidator.js" />
+    <Content Include="js\jqwidgets\jqxwindow.js" />
+    <Content Include="js\jqwidgets\styles\images\backgroundTop.png" />
+    <Content Include="js\jqwidgets\styles\images\backImage.png" />
+    <Content Include="js\jqwidgets\styles\images\bg_black.png" />
+    <Content Include="js\jqwidgets\styles\images\bg_blackhover.png" />
+    <Content Include="js\jqwidgets\styles\images\bg_blackhover_horizontal.png" />
+    <Content Include="js\jqwidgets\styles\images\bg_blackpressed.png" />
+    <Content Include="js\jqwidgets\styles\images\bg_blackpressed_horizontal.png" />
+    <Content Include="js\jqwidgets\styles\images\bg_black_horizontal.png" />
+    <Content Include="js\jqwidgets\styles\images\bg_blueenergy.png" />
+    <Content Include="js\jqwidgets\styles\images\bg_darkblue.png" />
+    <Content Include="js\jqwidgets\styles\images\bg_darkbluehover.png" />
+    <Content Include="js\jqwidgets\styles\images\bg_darkbluepressed.png" />
+    <Content Include="js\jqwidgets\styles\images\blackbackground.png" />
+    <Content Include="js\jqwidgets\styles\images\black_gradient.png" />
+    <Content Include="js\jqwidgets\styles\images\check_black.png" />
+    <Content Include="js\jqwidgets\styles\images\check_blue.png" />
+    <Content Include="js\jqwidgets\styles\images\check_blue_indeterminate.png" />
+    <Content Include="js\jqwidgets\styles\images\check_disabled.png" />
+    <Content Include="js\jqwidgets\styles\images\check_indeterminate_black.png" />
+    <Content Include="js\jqwidgets\styles\images\check_indeterminate_disabled.png" />
+    <Content Include="js\jqwidgets\styles\images\check_indeterminate_white.png" />
+    <Content Include="js\jqwidgets\styles\images\check_lightblue.png" />
+    <Content Include="js\jqwidgets\styles\images\check_lightblue_indeterminate.png" />
+    <Content Include="js\jqwidgets\styles\images\check_white.png" />
+    <Content Include="js\jqwidgets\styles\images\close.png" />
+    <Content Include="js\jqwidgets\styles\images\close_black.png" />
+    <Content Include="js\jqwidgets\styles\images\close_blue.png" />
+    <Content Include="js\jqwidgets\styles\images\close_white.png" />
+    <Content Include="js\jqwidgets\styles\images\colorpicker\bar-hue.png" />
+    <Content Include="js\jqwidgets\styles\images\colorpicker\bar-saturation.png" />
+    <Content Include="js\jqwidgets\styles\images\colorpicker\map-hue.png" />
+    <Content Include="js\jqwidgets\styles\images\colorpicker\map-saturation-overlay.png" />
+    <Content Include="js\jqwidgets\styles\images\colorpicker\map-saturation.png" />
+    <Content Include="js\jqwidgets\styles\images\colorpicker\ReadMe.txt" />
+    <Content Include="js\jqwidgets\styles\images\crosshair-white.png" />
+    <Content Include="js\jqwidgets\styles\images\crosshair.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ReadMe.txt" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-bg_glass_20_555555_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-bg_glass_40_0078a3_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-bg_gloss-wave_25_333333_500x100.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-bg_inset-soft_25_000000_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-bg_inset-soft_30_f58400_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-icons_222222_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-icons_a83300_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-icons_cccccc_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\darkness\ui-icons_ffffff_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\darkred_gradient.png" />
+    <Content Include="js\jqwidgets\styles\images\drag.png" />
+    <Content Include="js\jqwidgets\styles\images\dragcancel.png" />
+    <Content Include="js\jqwidgets\styles\images\error.png" />
+    <Content Include="js\jqwidgets\styles\images\filter.png" />
+    <Content Include="js\jqwidgets\styles\images\html_editor.png" />
+    <Content Include="js\jqwidgets\styles\images\html_editor_white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-calendar-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-calendar.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-cancel-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-cancel.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-delete-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-delete.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-down-blue.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-down-transparent.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-down-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-down.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-edit-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-edit.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-first-blue.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-first-transparent.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-first-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-first.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-last-blue.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-last-transparent.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-last-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-last.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-left-blue.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-left-transparent.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-left-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-left.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-menu-minimized-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-menu-minimized.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-right-blue.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-right-transparent.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-right-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-right.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-save-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-save.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-showpassword-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-showpassword.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-up-blue.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-up-transparent.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-up-white.png" />
+    <Content Include="js\jqwidgets\styles\images\icon-up.png" />
+    <Content Include="js\jqwidgets\styles\images\info.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ReadMe.txt" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-bg_diagonals-small_0_aaaaaa_40x40.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-bg_diagonals-thick_15_444444_40x40.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-bg_diagonals-thick_95_ffdc2e_40x40.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-bg_glass_55_fbf5d0_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-bg_highlight-hard_30_285c00_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-bg_highlight-soft_33_3a8104_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-bg_highlight-soft_50_4eb305_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-bg_highlight-soft_60_4ca20b_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-bg_inset-soft_10_285c00_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-icons_4eb305_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-icons_72b42d_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\le-frog\ui-icons_ffffff_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\icon-first.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\icon-last.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ReadMe.txt" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-icons_222222_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-icons_228ef1_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-icons_ef8c08_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-icons_ffd27a_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\lightness\ui-icons_ffffff_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\loader.gif" />
+    <Content Include="js\jqwidgets\styles\images\mail.png" />
+    <Content Include="js\jqwidgets\styles\images\menubutton.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-down-white.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-down.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-first-white.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-first.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-last-white.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-last.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-left-white.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-left.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-right - Copy.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-right-white.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-right.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-up-white.png" />
+    <Content Include="js\jqwidgets\styles\images\metro-icon-up.png" />
+    <Content Include="js\jqwidgets\styles\images\multi-arrow.gif" />
+    <Content Include="js\jqwidgets\styles\images\office-icon-down.png" />
+    <Content Include="js\jqwidgets\styles\images\office-icon-first.png" />
+    <Content Include="js\jqwidgets\styles\images\office-icon-last.png" />
+    <Content Include="js\jqwidgets\styles\images\office-icon-left.png" />
+    <Content Include="js\jqwidgets\styles\images\office-icon-right.png" />
+    <Content Include="js\jqwidgets\styles\images\office-icon-up.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ReadMe.txt" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-bg_flat_55_c0402a_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-bg_flat_55_eeeeee_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-bg_glass_100_f8f8f8_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-bg_glass_35_dddddd_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-bg_glass_60_eeeeee_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-bg_inset-hard_75_999999_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-bg_inset-soft_50_c9c9c9_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-icons_3383bb_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-icons_454545_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-icons_70b2e1_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-icons_999999_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\overcast\ui-icons_fbc856_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\plus.png" />
+    <Content Include="js\jqwidgets\styles\images\plus_white.png" />
+    <Content Include="js\jqwidgets\styles\images\pointer.png" />
+    <Content Include="js\jqwidgets\styles\images\rangebar_classic.png" />
+    <Content Include="js\jqwidgets\styles\images\rangebar_darkblue.png" />
+    <Content Include="js\jqwidgets\styles\images\rangebar_shinyblack.png" />
+    <Content Include="js\jqwidgets\styles\images\rangebar_summer.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\icon-first.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\icon-last.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ReadMe.txt" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-icons_217bc0_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-icons_2e83ff_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-icons_469bdd_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-icons_6da8d5_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\redmond\ui-icons_f9bd01_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\red_arrow_down.png" />
+    <Content Include="js\jqwidgets\styles\images\red_arrow_up.png" />
+    <Content Include="js\jqwidgets\styles\images\red_gradient.png" />
+    <Content Include="js\jqwidgets\styles\images\roundbg_check_black.png" />
+    <Content Include="js\jqwidgets\styles\images\roundbg_check_disabled.png" />
+    <Content Include="js\jqwidgets\styles\images\roundbg_check_indeterminate.png" />
+    <Content Include="js\jqwidgets\styles\images\roundbg_check_white.png" />
+    <Content Include="js\jqwidgets\styles\images\roundbg_classic_hover.png" />
+    <Content Include="js\jqwidgets\styles\images\roundbg_classic_normal.png" />
+    <Content Include="js\jqwidgets\styles\images\roundbg_disabled.png" />
+    <Content Include="js\jqwidgets\styles\images\search.png" />
+    <Content Include="js\jqwidgets\styles\images\search_white.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ReadMe.txt" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-icons_222222_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-icons_2e83ff_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-icons_454545_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-icons_888888_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\smoothness\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\sortasc.png" />
+    <Content Include="js\jqwidgets\styles\images\sortascbutton.png" />
+    <Content Include="js\jqwidgets\styles\images\sortdesc.png" />
+    <Content Include="js\jqwidgets\styles\images\sortdescbutton.png" />
+    <Content Include="js\jqwidgets\styles\images\sortremove.png" />
+    <Content Include="js\jqwidgets\styles\images\star.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ReadMe.txt" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-icons_0078ae_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-icons_056b93_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-icons_e0fdff_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-icons_f5e175_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-icons_f7a50d_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\start\ui-icons_fcd113_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\star_disabled.png" />
+    <Content Include="js\jqwidgets\styles\images\star_hover.png" />
+    <Content Include="js\jqwidgets\styles\images\success.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ReadMe.txt" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-bg_diagonals-medium_20_d34d17_40x40.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-bg_gloss-wave_45_817865_500x100.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-bg_gloss-wave_60_fece2f_500x100.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-bg_gloss-wave_70_ffdd57_500x100.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-bg_gloss-wave_90_fff9e5_500x100.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-bg_highlight-soft_100_feeebd_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-bg_inset-soft_30_ffffff_1x100.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-icons_3d3d3d_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-icons_bd7b00_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-icons_d19405_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-icons_eb990f_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-icons_ed9f26_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-icons_fadc7a_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\sunny\ui-icons_ffe180_256x240.png" />
+    <Content Include="js\jqwidgets\styles\images\tick.png" />
+    <Content Include="js\jqwidgets\styles\images\time.png" />
+    <Content Include="js\jqwidgets\styles\images\track_classic.png" />
+    <Content Include="js\jqwidgets\styles\images\track_darkblue.png" />
+    <Content Include="js\jqwidgets\styles\images\track_shinyblack.png" />
+    <Content Include="js\jqwidgets\styles\images\track_summer.png" />
+    <Content Include="js\jqwidgets\styles\images\warning.png" />
+    <Content Include="js\jqwidgets\styles\images\wp_check_indeterminate_white.png" />
+    <Content Include="js\jqwidgets\styles\images\wp_check_white.png" />
+    <Content Include="js\jqwidgets\styles\jqx.android.css" />
+    <Content Include="js\jqwidgets\styles\jqx.arctic.css" />
+    <Content Include="js\jqwidgets\styles\jqx.base.css" />
+    <Content Include="js\jqwidgets\styles\jqx.black.css" />
+    <Content Include="js\jqwidgets\styles\jqx.blackberry.css" />
+    <Content Include="js\jqwidgets\styles\jqx.bootstrap.css" />
+    <Content Include="js\jqwidgets\styles\jqx.classic.css" />
+    <Content Include="js\jqwidgets\styles\jqx.darkblue.css" />
+    <Content Include="js\jqwidgets\styles\jqx.energyblue.css" />
+    <Content Include="js\jqwidgets\styles\jqx.fresh.css" />
+    <Content Include="js\jqwidgets\styles\jqx.highcontrast.css" />
+    <Content Include="js\jqwidgets\styles\jqx.metro.css" />
+    <Content Include="js\jqwidgets\styles\jqx.metrodark.css" />
+    <Content Include="js\jqwidgets\styles\jqx.mobile.css" />
+    <Content Include="js\jqwidgets\styles\jqx.office.css" />
+    <Content Include="js\jqwidgets\styles\jqx.orange.css" />
+    <Content Include="js\jqwidgets\styles\jqx.shinyblack.css" />
+    <Content Include="js\jqwidgets\styles\jqx.summer.css" />
+    <Content Include="js\jqwidgets\styles\jqx.ui-darkness.css" />
+    <Content Include="js\jqwidgets\styles\jqx.ui-le-frog.css" />
+    <Content Include="js\jqwidgets\styles\jqx.ui-lightness.css" />
+    <Content Include="js\jqwidgets\styles\jqx.ui-overcast.css" />
+    <Content Include="js\jqwidgets\styles\jqx.ui-redmond.css" />
+    <Content Include="js\jqwidgets\styles\jqx.ui-smoothness.css" />
+    <Content Include="js\jqwidgets\styles\jqx.ui-start.css" />
+    <Content Include="js\jqwidgets\styles\jqx.ui-sunny.css" />
+    <Content Include="js\jqwidgets\styles\jqx.web.css" />
+    <Content Include="js\jqwidgets\styles\jqx.windowsphone.css" />
+    <Content Include="js\jqx.js" />
+    <Content Include="js\datagrid.js" />
+    <Content Include="js\lang.aspx" />
+    <Content Include="js\xxx.js" />
+    <Content Include="js\xxxx.ascx" />
+    <Content Include="sys\Anno.aspx" />
+    <Content Include="sys\Billboard.aspx" />
+    <Content Include="sys\Corp.aspx" />
+    <Content Include="sys\Game.aspx" />
+    <Content Include="users\Agent.aspx" />
+    <Content Include="users\Member.v2.aspx" />
+    <Content Include="users\Member.aspx" />
+    <Content Include="users\Admin3.aspx" />
+    <Content Include="users\Admin2.aspx" />
+    <Content Include="users\Admin1.aspx" />
+    <Content Include="users\AgentDetails.aspx" />
+    <Content Include="users\AdminDetails.aspx" />
+    <Content Include="users\MemberDetails.aspx" />
+    <Content Include="users\Agent1.aspx" />
+    <Content Include="users\Agent2.aspx" />
+    <Content Include="users\Agent3.aspx" />
+    <Content Include="js\jquery-ui-i18n.js" />
+    <Content Include="js\jquery-ui.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="logs\BetAmtW.aspx" />
+    <Content Include="logs\BetAmtAW.aspx" />
+    <Content Include="logs\PointsW.aspx" />
+    <Content Include="logs\PointsAW.aspx" />
+    <Content Include="logs\009.aspx" />
+    <Content Include="logs\011.aspx" />
+    <Content Include="logs\TranLog.aspx" />
+    <Content Include="ptkeyfile\play.p12" />
+    <Content Include="css\style.css.map">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="js\jqx.ref.js" />
+    <Content Include="css\style2.css.map">
+      <DependentUpon>style2.css</DependentUpon>
+    </Content>
+    <None Include="sql\restore_logDB_bak.sql" />
+    <None Include="sql\restore_logDB.sql" />
+    <None Include="sql\restore_mainDB.sql" />
+    <Content Include="sys\AccountInfo.aspx" />
+    <Content Include="users\Admin.aspx" />
+    <Content Include="users\AdminGroup.aspx" />
+    <Content Include="users\Member1.aspx" />
+    <Content Include="sys\MenuEdit.aspx" />
+    <Content Include="users\AgentGroup.aspx" />
+    <Content Include="users\MemberGroup.aspx" />
+    <Content Include="sys\ControlPanel.aspx" />
+    <Content Include="admin\LogService.aspx" />
+    <Content Include="users\Member3.aspx" />
+    <Content Include="users\Member2.aspx" />
+    <Content Include="admin\MessagePanel.aspx" />
+    <Content Include="sys\LangEdit.aspx" />
+    <Content Include="css\style.min.css">
+      <DependentUpon>style.less</DependentUpon>
+    </Content>
+    <Content Include="images\loading2_000000.gif" />
+    <Content Include="images\loading3_000000.gif" />
+    <Content Include="js\jqgrid\grid.pivot.js" />
+    <Content Include="js\util.js" />
+    <Content Include="default.aspx" />
+    <Content Include="logs\001.aspx" />
+    <Content Include="logs\BetAmtD.aspx" />
+    <Content Include="logs\AdminLogin.aspx" />
+    <Content Include="logs\AgentLogin.aspx" />
+    <Content Include="logs\BetAmtDG.aspx" />
+    <Content Include="logs\MemberLogin.aspx" />
+    <Content Include="logs\PointsD.aspx" />
+    <Content Include="logs\PointsM.aspx" />
+    <Content Include="logs\BetAmtM.aspx" />
+    <Content Include="logs\BetAmtAD.aspx" />
+    <Content Include="logs\BetAmtAM.aspx" />
+    <Content Include="logs\PointsAD.aspx" />
+    <Content Include="logs\PointsAM.aspx" />
+    <Content Include="notes\note0.aspx" />
+    <Content Include="notes\note2.aspx" />
+    <Content Include="notes\note3.aspx" />
+    <Content Include="notes\note4.aspx" />
+    <Content Include="notes\note1.aspx" />
+    <Content Include="sys\Config.aspx" />
+    <Content Include="css\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="css\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\themes\base\jquery-ui.css" />
+    <Content Include="css\themes\base\jquery.ui.accordion.css" />
+    <Content Include="css\themes\base\jquery.ui.all.css" />
+    <Content Include="css\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="css\themes\base\jquery.ui.base.css" />
+    <Content Include="css\themes\base\jquery.ui.button.css" />
+    <Content Include="css\themes\base\jquery.ui.core.css" />
+    <Content Include="css\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="css\themes\base\jquery.ui.dialog.css" />
+    <Content Include="css\themes\base\jquery.ui.menu.css" />
+    <Content Include="css\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="css\themes\base\jquery.ui.resizable.css" />
+    <Content Include="css\themes\base\jquery.ui.selectable.css" />
+    <Content Include="css\themes\base\jquery.ui.slider.css" />
+    <Content Include="css\themes\base\jquery.ui.spinner.css" />
+    <Content Include="css\themes\base\jquery.ui.tabs.css" />
+    <Content Include="css\themes\base\jquery.ui.theme.css" />
+    <Content Include="css\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="css\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="css\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="css\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="css\themes\black-tie\images\ui-bg_diagonals-thick_8_333333_40x40.png" />
+    <Content Include="css\themes\black-tie\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="css\themes\black-tie\images\ui-bg_glass_40_111111_1x400.png" />
+    <Content Include="css\themes\black-tie\images\ui-bg_glass_55_1c1c1c_1x400.png" />
+    <Content Include="css\themes\black-tie\images\ui-bg_highlight-hard_100_f9f9f9_1x100.png" />
+    <Content Include="css\themes\black-tie\images\ui-bg_highlight-hard_40_aaaaaa_1x100.png" />
+    <Content Include="css\themes\black-tie\images\ui-bg_highlight-soft_50_aaaaaa_1x100.png" />
+    <Content Include="css\themes\black-tie\images\ui-bg_inset-hard_45_cd0a0a_1x100.png" />
+    <Content Include="css\themes\black-tie\images\ui-bg_inset-hard_55_ffeb80_1x100.png" />
+    <Content Include="css\themes\black-tie\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\themes\black-tie\images\ui-icons_4ca300_256x240.png" />
+    <Content Include="css\themes\black-tie\images\ui-icons_bbbbbb_256x240.png" />
+    <Content Include="css\themes\black-tie\images\ui-icons_ededed_256x240.png" />
+    <Content Include="css\themes\black-tie\images\ui-icons_ffcf29_256x240.png" />
+    <Content Include="css\themes\black-tie\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\black-tie\jquery-ui.css" />
+    <Content Include="css\themes\black-tie\jquery.ui.theme.css" />
+    <Content Include="css\themes\blitzer\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
+    <Content Include="css\themes\blitzer\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
+    <Content Include="css\themes\blitzer\images\ui-bg_flat_0_333333_40x100.png" />
+    <Content Include="css\themes\blitzer\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="css\themes\blitzer\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\themes\blitzer\images\ui-bg_glass_55_fbf8ee_1x400.png" />
+    <Content Include="css\themes\blitzer\images\ui-bg_highlight-hard_100_eeeeee_1x100.png" />
+    <Content Include="css\themes\blitzer\images\ui-bg_highlight-hard_100_f6f6f6_1x100.png" />
+    <Content Include="css\themes\blitzer\images\ui-bg_highlight-soft_15_cc0000_1x100.png" />
+    <Content Include="css\themes\blitzer\images\ui-icons_004276_256x240.png" />
+    <Content Include="css\themes\blitzer\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="css\themes\blitzer\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\blitzer\jquery-ui.css" />
+    <Content Include="css\themes\blitzer\jquery.ui.theme.css" />
+    <Content Include="css\themes\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="css\themes\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="css\themes\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="css\themes\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="css\themes\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="css\themes\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="css\themes\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="css\themes\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="css\themes\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="css\themes\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="css\themes\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\themes\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="css\themes\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="css\themes\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\cupertino\jquery-ui.css" />
+    <Content Include="css\themes\cupertino\jquery.ui.theme.css" />
+    <Content Include="css\themes\dark-hive\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="css\themes\dark-hive\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="css\themes\dark-hive\images\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="css\themes\dark-hive\images\ui-bg_highlight-hard_20_0972a5_1x100.png" />
+    <Content Include="css\themes\dark-hive\images\ui-bg_highlight-soft_33_003147_1x100.png" />
+    <Content Include="css\themes\dark-hive\images\ui-bg_highlight-soft_35_222222_1x100.png" />
+    <Content Include="css\themes\dark-hive\images\ui-bg_highlight-soft_44_444444_1x100.png" />
+    <Content Include="css\themes\dark-hive\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="css\themes\dark-hive\images\ui-bg_loop_25_000000_21x21.png" />
+    <Content Include="css\themes\dark-hive\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\themes\dark-hive\images\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="css\themes\dark-hive\images\ui-icons_a83300_256x240.png" />
+    <Content Include="css\themes\dark-hive\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="css\themes\dark-hive\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\dark-hive\jquery-ui.css" />
+    <Content Include="css\themes\dark-hive\jquery.ui.theme.css" />
+    <Content Include="css\themes\dot-luv\images\ui-bg_diagonals-thick_15_0b3e6f_40x40.png" />
+    <Content Include="css\themes\dot-luv\images\ui-bg_dots-medium_30_0b58a2_4x4.png" />
+    <Content Include="css\themes\dot-luv\images\ui-bg_dots-small_20_333333_2x2.png" />
+    <Content Include="css\themes\dot-luv\images\ui-bg_dots-small_30_a32d00_2x2.png" />
+    <Content Include="css\themes\dot-luv\images\ui-bg_dots-small_40_00498f_2x2.png" />
+    <Content Include="css\themes\dot-luv\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\themes\dot-luv\images\ui-bg_flat_40_292929_40x100.png" />
+    <Content Include="css\themes\dot-luv\images\ui-bg_gloss-wave_20_111111_500x100.png" />
+    <Content Include="css\themes\dot-luv\images\ui-icons_00498f_256x240.png" />
+    <Content Include="css\themes\dot-luv\images\ui-icons_98d2fb_256x240.png" />
+    <Content Include="css\themes\dot-luv\images\ui-icons_9ccdfc_256x240.png" />
+    <Content Include="css\themes\dot-luv\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\dot-luv\jquery-ui.css" />
+    <Content Include="css\themes\dot-luv\jquery.ui.theme.css" />
+    <Content Include="css\themes\eggplant\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\themes\eggplant\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="css\themes\eggplant\images\ui-bg_flat_55_994d53_40x100.png" />
+    <Content Include="css\themes\eggplant\images\ui-bg_flat_55_fafafa_40x100.png" />
+    <Content Include="css\themes\eggplant\images\ui-bg_gloss-wave_30_3d3644_500x100.png" />
+    <Content Include="css\themes\eggplant\images\ui-bg_highlight-soft_100_dcd9de_1x100.png" />
+    <Content Include="css\themes\eggplant\images\ui-bg_highlight-soft_100_eae6ea_1x100.png" />
+    <Content Include="css\themes\eggplant\images\ui-bg_highlight-soft_25_30273a_1x100.png" />
+    <Content Include="css\themes\eggplant\images\ui-bg_highlight-soft_45_5f5964_1x100.png" />
+    <Content Include="css\themes\eggplant\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\themes\eggplant\images\ui-icons_734d99_256x240.png" />
+    <Content Include="css\themes\eggplant\images\ui-icons_8d78a5_256x240.png" />
+    <Content Include="css\themes\eggplant\images\ui-icons_a8a3ae_256x240.png" />
+    <Content Include="css\themes\eggplant\images\ui-icons_ebccce_256x240.png" />
+    <Content Include="css\themes\eggplant\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\eggplant\jquery-ui.css" />
+    <Content Include="css\themes\eggplant\jquery.ui.theme.css" />
+    <Content Include="css\themes\excite-bike\images\ui-bg_diagonals-small_25_c5ddfc_40x40.png" />
+    <Content Include="css\themes\excite-bike\images\ui-bg_diagonals-thick_20_e69700_40x40.png" />
+    <Content Include="css\themes\excite-bike\images\ui-bg_diagonals-thick_22_1484e6_40x40.png" />
+    <Content Include="css\themes\excite-bike\images\ui-bg_diagonals-thick_26_2293f7_40x40.png" />
+    <Content Include="css\themes\excite-bike\images\ui-bg_flat_0_e69700_40x100.png" />
+    <Content Include="css\themes\excite-bike\images\ui-bg_flat_0_e6b900_40x100.png" />
+    <Content Include="css\themes\excite-bike\images\ui-bg_highlight-soft_100_f9f9f9_1x100.png" />
+    <Content Include="css\themes\excite-bike\images\ui-bg_inset-hard_100_eeeeee_1x100.png" />
+    <Content Include="css\themes\excite-bike\images\ui-icons_0a82eb_256x240.png" />
+    <Content Include="css\themes\excite-bike\images\ui-icons_0b54d5_256x240.png" />
+    <Content Include="css\themes\excite-bike\images\ui-icons_5fa5e3_256x240.png" />
+    <Content Include="css\themes\excite-bike\images\ui-icons_fcdd4a_256x240.png" />
+    <Content Include="css\themes\excite-bike\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\excite-bike\jquery-ui.css" />
+    <Content Include="css\themes\excite-bike\jquery.ui.theme.css" />
+    <Content Include="css\themes\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\themes\flick\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="css\themes\flick\images\ui-bg_flat_55_ffffff_40x100.png" />
+    <Content Include="css\themes\flick\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\themes\flick\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\themes\flick\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="css\themes\flick\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="css\themes\flick\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="css\themes\flick\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="css\themes\flick\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\themes\flick\images\ui-icons_666666_256x240.png" />
+    <Content Include="css\themes\flick\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="css\themes\flick\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\flick\jquery-ui.css" />
+    <Content Include="css\themes\flick\jquery.ui.theme.css" />
+    <Content Include="css\themes\hot-sneaks\images\ui-bg_diagonals-small_40_db4865_40x40.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-bg_diagonals-small_50_93c3cd_40x40.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-bg_diagonals-small_50_ff3853_40x40.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-bg_diagonals-small_75_ccd232_40x40.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-bg_dots-medium_80_ffff38_4x4.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-bg_dots-small_35_35414f_2x2.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-bg_flat_75_ba9217_40x100.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-bg_white-lines_85_f7f7ba_40x100.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-icons_88a206_256x240.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-icons_c02669_256x240.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-icons_e1e463_256x240.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-icons_ffeb33_256x240.png" />
+    <Content Include="css\themes\hot-sneaks\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\hot-sneaks\jquery-ui.css" />
+    <Content Include="css\themes\hot-sneaks\jquery.ui.theme.css" />
+    <Content Include="css\themes\humanity\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="css\themes\humanity\images\ui-bg_glass_100_f5f0e5_1x400.png" />
+    <Content Include="css\themes\humanity\images\ui-bg_glass_25_cb842e_1x400.png" />
+    <Content Include="css\themes\humanity\images\ui-bg_glass_70_ede4d4_1x400.png" />
+    <Content Include="css\themes\humanity\images\ui-bg_highlight-hard_100_f4f0ec_1x100.png" />
+    <Content Include="css\themes\humanity\images\ui-bg_highlight-hard_65_fee4bd_1x100.png" />
+    <Content Include="css\themes\humanity\images\ui-bg_highlight-hard_75_f5f5b5_1x100.png" />
+    <Content Include="css\themes\humanity\images\ui-bg_inset-soft_100_f4f0ec_1x100.png" />
+    <Content Include="css\themes\humanity\images\ui-icons_c47a23_256x240.png" />
+    <Content Include="css\themes\humanity\images\ui-icons_cb672b_256x240.png" />
+    <Content Include="css\themes\humanity\images\ui-icons_f08000_256x240.png" />
+    <Content Include="css\themes\humanity\images\ui-icons_f35f07_256x240.png" />
+    <Content Include="css\themes\humanity\images\ui-icons_ff7519_256x240.png" />
+    <Content Include="css\themes\humanity\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\humanity\jquery-ui.css" />
+    <Content Include="css\themes\humanity\jquery.ui.theme.css" />
+    <Content Include="css\themes\le-frog\images\ui-bg_diagonals-small_0_aaaaaa_40x40.png" />
+    <Content Include="css\themes\le-frog\images\ui-bg_diagonals-thick_15_444444_40x40.png" />
+    <Content Include="css\themes\le-frog\images\ui-bg_diagonals-thick_95_ffdc2e_40x40.png" />
+    <Content Include="css\themes\le-frog\images\ui-bg_glass_55_fbf5d0_1x400.png" />
+    <Content Include="css\themes\le-frog\images\ui-bg_highlight-hard_30_285c00_1x100.png" />
+    <Content Include="css\themes\le-frog\images\ui-bg_highlight-soft_33_3a8104_1x100.png" />
+    <Content Include="css\themes\le-frog\images\ui-bg_highlight-soft_50_4eb305_1x100.png" />
+    <Content Include="css\themes\le-frog\images\ui-bg_highlight-soft_60_4ca20b_1x100.png" />
+    <Content Include="css\themes\le-frog\images\ui-bg_inset-soft_10_285c00_1x100.png" />
+    <Content Include="css\themes\le-frog\images\ui-icons_4eb305_256x240.png" />
+    <Content Include="css\themes\le-frog\images\ui-icons_72b42d_256x240.png" />
+    <Content Include="css\themes\le-frog\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\themes\le-frog\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\le-frog\jquery-ui.css" />
+    <Content Include="css\themes\le-frog\jquery.ui.theme.css" />
+    <Content Include="css\themes\mint-choc\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\themes\mint-choc\images\ui-bg_glass_15_5f391b_1x400.png" />
+    <Content Include="css\themes\mint-choc\images\ui-bg_gloss-wave_20_1c160d_500x100.png" />
+    <Content Include="css\themes\mint-choc\images\ui-bg_gloss-wave_25_453326_500x100.png" />
+    <Content Include="css\themes\mint-choc\images\ui-bg_gloss-wave_30_44372c_500x100.png" />
+    <Content Include="css\themes\mint-choc\images\ui-bg_highlight-soft_20_201913_1x100.png" />
+    <Content Include="css\themes\mint-choc\images\ui-bg_highlight-soft_20_619226_1x100.png" />
+    <Content Include="css\themes\mint-choc\images\ui-bg_inset-soft_10_201913_1x100.png" />
+    <Content Include="css\themes\mint-choc\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\themes\mint-choc\images\ui-icons_9bcc60_256x240.png" />
+    <Content Include="css\themes\mint-choc\images\ui-icons_add978_256x240.png" />
+    <Content Include="css\themes\mint-choc\images\ui-icons_e3ddc9_256x240.png" />
+    <Content Include="css\themes\mint-choc\images\ui-icons_f1fd86_256x240.png" />
+    <Content Include="css\themes\mint-choc\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\mint-choc\jquery-ui.css" />
+    <Content Include="css\themes\mint-choc\jquery.ui.theme.css" />
+    <Content Include="css\themes\overcast\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\themes\overcast\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="css\themes\overcast\images\ui-bg_flat_55_c0402a_40x100.png" />
+    <Content Include="css\themes\overcast\images\ui-bg_flat_55_eeeeee_40x100.png" />
+    <Content Include="css\themes\overcast\images\ui-bg_glass_100_f8f8f8_1x400.png" />
+    <Content Include="css\themes\overcast\images\ui-bg_glass_35_dddddd_1x400.png" />
+    <Content Include="css\themes\overcast\images\ui-bg_glass_60_eeeeee_1x400.png" />
+    <Content Include="css\themes\overcast\images\ui-bg_inset-hard_75_999999_1x100.png" />
+    <Content Include="css\themes\overcast\images\ui-bg_inset-soft_50_c9c9c9_1x100.png" />
+    <Content Include="css\themes\overcast\images\ui-icons_3383bb_256x240.png" />
+    <Content Include="css\themes\overcast\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\themes\overcast\images\ui-icons_70b2e1_256x240.png" />
+    <Content Include="css\themes\overcast\images\ui-icons_999999_256x240.png" />
+    <Content Include="css\themes\overcast\images\ui-icons_fbc856_256x240.png" />
+    <Content Include="css\themes\overcast\jquery-ui.css" />
+    <Content Include="css\themes\overcast\jquery.ui.theme.css" />
+    <Content Include="css\themes\pepper-grinder\images\ui-bg_diagonal-maze_20_6e4f1c_10x10.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-bg_diagonal-maze_40_000000_10x10.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-bg_fine-grain_10_eceadf_60x60.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-bg_fine-grain_10_f8f7f6_60x60.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-bg_fine-grain_15_eceadf_60x60.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-bg_fine-grain_15_f7f3de_60x60.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-bg_fine-grain_15_ffffff_60x60.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-bg_fine-grain_65_654b24_60x60.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-bg_fine-grain_68_b83400_60x60.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-icons_3572ac_256x240.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-icons_8c291d_256x240.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-icons_b83400_256x240.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-icons_fbdb93_256x240.png" />
+    <Content Include="css\themes\pepper-grinder\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\pepper-grinder\jquery-ui.css" />
+    <Content Include="css\themes\pepper-grinder\jquery.ui.theme.css" />
+    <Content Include="css\themes\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\themes\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="css\themes\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="css\themes\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="css\themes\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\themes\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="css\themes\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="css\themes\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="css\themes\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="css\themes\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\themes\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="css\themes\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="css\themes\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\themes\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="css\themes\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="css\themes\redmond\jquery-ui.css" />
+    <Content Include="css\themes\redmond\jquery.ui.theme.css" />
+    <Content Include="css\themes\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\themes\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="css\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\themes\smoothness\jquery-ui.css" />
+    <Content Include="css\themes\smoothness\jquery.ui.theme.css" />
+    <Content Include="css\themes\south-street\images\ui-bg_glass_55_fcf0ba_1x400.png" />
+    <Content Include="css\themes\south-street\images\ui-bg_gloss-wave_100_ece8da_500x100.png" />
+    <Content Include="css\themes\south-street\images\ui-bg_highlight-hard_100_f5f3e5_1x100.png" />
+    <Content Include="css\themes\south-street\images\ui-bg_highlight-hard_100_fafaf4_1x100.png" />
+    <Content Include="css\themes\south-street\images\ui-bg_highlight-hard_15_459e00_1x100.png" />
+    <Content Include="css\themes\south-street\images\ui-bg_highlight-hard_95_cccccc_1x100.png" />
+    <Content Include="css\themes\south-street\images\ui-bg_highlight-soft_25_67b021_1x100.png" />
+    <Content Include="css\themes\south-street\images\ui-bg_highlight-soft_95_ffedad_1x100.png" />
+    <Content Include="css\themes\south-street\images\ui-bg_inset-soft_15_2b2922_1x100.png" />
+    <Content Include="css\themes\south-street\images\ui-icons_808080_256x240.png" />
+    <Content Include="css\themes\south-street\images\ui-icons_847e71_256x240.png" />
+    <Content Include="css\themes\south-street\images\ui-icons_8DC262_256x240.png" />
+    <Content Include="css\themes\south-street\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\themes\south-street\images\ui-icons_eeeeee_256x240.png" />
+    <Content Include="css\themes\south-street\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\south-street\jquery-ui.css" />
+    <Content Include="css\themes\south-street\jquery.ui.theme.css" />
+    <Content Include="css\themes\start\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="css\themes\start\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="css\themes\start\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="css\themes\start\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="css\themes\start\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="css\themes\start\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="css\themes\start\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="css\themes\start\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="css\themes\start\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="css\themes\start\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="css\themes\start\images\ui-icons_056b93_256x240.png" />
+    <Content Include="css\themes\start\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="css\themes\start\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="css\themes\start\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="css\themes\start\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="css\themes\start\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="css\themes\start\jquery-ui.css" />
+    <Content Include="css\themes\start\jquery.ui.theme.css" />
+    <Content Include="css\themes\sunny\images\ui-bg_diagonals-medium_20_d34d17_40x40.png" />
+    <Content Include="css\themes\sunny\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="css\themes\sunny\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="css\themes\sunny\images\ui-bg_gloss-wave_45_817865_500x100.png" />
+    <Content Include="css\themes\sunny\images\ui-bg_gloss-wave_60_fece2f_500x100.png" />
+    <Content Include="css\themes\sunny\images\ui-bg_gloss-wave_70_ffdd57_500x100.png" />
+    <Content Include="css\themes\sunny\images\ui-bg_gloss-wave_90_fff9e5_500x100.png" />
+    <Content Include="css\themes\sunny\images\ui-bg_highlight-soft_100_feeebd_1x100.png" />
+    <Content Include="css\themes\sunny\images\ui-bg_inset-soft_30_ffffff_1x100.png" />
+    <Content Include="css\themes\sunny\images\ui-icons_3d3d3d_256x240.png" />
+    <Content Include="css\themes\sunny\images\ui-icons_bd7b00_256x240.png" />
+    <Content Include="css\themes\sunny\images\ui-icons_d19405_256x240.png" />
+    <Content Include="css\themes\sunny\images\ui-icons_eb990f_256x240.png" />
+    <Content Include="css\themes\sunny\images\ui-icons_ed9f26_256x240.png" />
+    <Content Include="css\themes\sunny\images\ui-icons_fadc7a_256x240.png" />
+    <Content Include="css\themes\sunny\images\ui-icons_ffe180_256x240.png" />
+    <Content Include="css\themes\sunny\jquery-ui.css" />
+    <Content Include="css\themes\sunny\jquery.ui.theme.css" />
+    <Content Include="css\themes\swanky-purse\images\ui-bg_diamond_10_4f4221_10x8.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-bg_diamond_20_372806_10x8.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-bg_diamond_25_675423_10x8.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-bg_diamond_25_d5ac5d_10x8.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-bg_diamond_8_261803_10x8.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-bg_diamond_8_443113_10x8.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-bg_flat_75_ddd4b0_40x100.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-bg_highlight-hard_65_fee4bd_1x100.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-icons_070603_256x240.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-icons_e8e2b5_256x240.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-icons_e9cd86_256x240.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-icons_efec9f_256x240.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-icons_f2ec64_256x240.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-icons_f9f2bd_256x240.png" />
+    <Content Include="css\themes\swanky-purse\images\ui-icons_ff7519_256x240.png" />
+    <Content Include="css\themes\swanky-purse\jquery-ui.css" />
+    <Content Include="css\themes\swanky-purse\jquery.ui.theme.css" />
+    <Content Include="css\themes\trontastic\images\ui-bg_diagonals-small_50_262626_40x40.png" />
+    <Content Include="css\themes\trontastic\images\ui-bg_flat_0_303030_40x100.png" />
+    <Content Include="css\themes\trontastic\images\ui-bg_flat_0_4c4c4c_40x100.png" />
+    <Content Include="css\themes\trontastic\images\ui-bg_glass_40_0a0a0a_1x400.png" />
+    <Content Include="css\themes\trontastic\images\ui-bg_glass_55_f1fbe5_1x400.png" />
+    <Content Include="css\themes\trontastic\images\ui-bg_glass_60_000000_1x400.png" />
+    <Content Include="css\themes\trontastic\images\ui-bg_gloss-wave_55_000000_500x100.png" />
+    <Content Include="css\themes\trontastic\images\ui-bg_gloss-wave_85_9fda58_500x100.png" />
+    <Content Include="css\themes\trontastic\images\ui-bg_gloss-wave_95_f6ecd5_500x100.png" />
+    <Content Include="css\themes\trontastic\images\ui-icons_000000_256x240.png" />
+    <Content Include="css\themes\trontastic\images\ui-icons_1f1f1f_256x240.png" />
+    <Content Include="css\themes\trontastic\images\ui-icons_9fda58_256x240.png" />
+    <Content Include="css\themes\trontastic\images\ui-icons_b8ec79_256x240.png" />
+    <Content Include="css\themes\trontastic\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\themes\trontastic\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\trontastic\jquery-ui.css" />
+    <Content Include="css\themes\trontastic\jquery.ui.theme.css" />
+    <Content Include="css\themes\ui-darkness\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-bg_glass_20_555555_1x400.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-bg_glass_40_0078a3_1x400.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-bg_gloss-wave_25_333333_500x100.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-bg_inset-soft_25_000000_1x100.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-bg_inset-soft_30_f58400_1x100.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-icons_a83300_256x240.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="css\themes\ui-darkness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\ui-darkness\jquery-ui.css" />
+    <Content Include="css\themes\ui-darkness\jquery.ui.theme.css" />
+    <Content Include="css\themes\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="css\themes\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\themes\ui-lightness\jquery-ui.css" />
+    <Content Include="css\themes\ui-lightness\jquery.ui.theme.css" />
+    <Content Include="css\themes\vader\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\themes\vader\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\themes\vader\images\ui-bg_gloss-wave_16_121212_500x100.png" />
+    <Content Include="css\themes\vader\images\ui-bg_highlight-hard_15_888888_1x100.png" />
+    <Content Include="css\themes\vader\images\ui-bg_highlight-hard_55_555555_1x100.png" />
+    <Content Include="css\themes\vader\images\ui-bg_highlight-soft_35_adadad_1x100.png" />
+    <Content Include="css\themes\vader\images\ui-bg_highlight-soft_60_dddddd_1x100.png" />
+    <Content Include="css\themes\vader\images\ui-bg_inset-soft_15_121212_1x100.png" />
+    <Content Include="css\themes\vader\images\ui-icons_666666_256x240.png" />
+    <Content Include="css\themes\vader\images\ui-icons_aaaaaa_256x240.png" />
+    <Content Include="css\themes\vader\images\ui-icons_bbbbbb_256x240.png" />
+    <Content Include="css\themes\vader\images\ui-icons_c98000_256x240.png" />
+    <Content Include="css\themes\vader\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="css\themes\vader\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\themes\vader\images\ui-icons_f29a00_256x240.png" />
+    <Content Include="css\themes\vader\jquery-ui.css" />
+    <Content Include="css\themes\vader\jquery.ui.theme.css" />
+    <Content Include="css\ui.jqgrid.css" />
+    <Content Include="Global.asax" />
+    <Content Include="images\kzxs_43.gif" />
+    <Content Include="images\kzxs_45.gif" />
+    <Content Include="images\kzxs_47.gif" />
+    <Content Include="images\kzxs_49.gif" />
+    <Content Include="images\kzxs_51.gif" />
+    <Content Include="images\kzxs_53.gif" />
+    <Content Include="images\kzxs_55.gif" />
+    <Content Include="images\kzxs_57.gif" />
+    <Content Include="images\kzxs_59.gif" />
+    <Content Include="images\loading1_000000.gif" />
+    <Content Include="js\grid.locale.js" />
+    <Content Include="js\html5.js" />
+    <Content Include="js\i18n\grid.locale-ar.js" />
+    <Content Include="js\i18n\grid.locale-bg.js" />
+    <Content Include="js\i18n\grid.locale-bg1251.js" />
+    <Content Include="js\i18n\grid.locale-cat.js" />
+    <Content Include="js\i18n\grid.locale-cn.js" />
+    <Content Include="js\i18n\grid.locale-cs.js" />
+    <Content Include="js\i18n\grid.locale-da.js" />
+    <Content Include="js\i18n\grid.locale-de.js" />
+    <Content Include="js\i18n\grid.locale-dk.js" />
+    <Content Include="js\i18n\grid.locale-el.js" />
+    <Content Include="js\i18n\grid.locale-en.js" />
+    <Content Include="js\i18n\grid.locale-es.js" />
+    <Content Include="js\i18n\grid.locale-fa.js" />
+    <Content Include="js\i18n\grid.locale-fi.js" />
+    <Content Include="js\i18n\grid.locale-fr.js" />
+    <Content Include="js\i18n\grid.locale-gl.js" />
+    <Content Include="js\i18n\grid.locale-he.js" />
+    <Content Include="js\i18n\grid.locale-hr.js" />
+    <Content Include="js\i18n\grid.locale-hr1250.js" />
+    <Content Include="js\i18n\grid.locale-hu.js" />
+    <Content Include="js\i18n\grid.locale-id.js" />
+    <Content Include="js\i18n\grid.locale-is.js" />
+    <Content Include="js\i18n\grid.locale-it.js" />
+    <Content Include="js\i18n\grid.locale-ja.js" />
+    <Content Include="js\i18n\grid.locale-kr.js" />
+    <Content Include="js\i18n\grid.locale-lt.js" />
+    <Content Include="js\i18n\grid.locale-mne.js" />
+    <Content Include="js\i18n\grid.locale-nl.js" />
+    <Content Include="js\i18n\grid.locale-no.js" />
+    <Content Include="js\i18n\grid.locale-pl.js" />
+    <Content Include="js\i18n\grid.locale-pt-br.js" />
+    <Content Include="js\i18n\grid.locale-pt.js" />
+    <Content Include="js\i18n\grid.locale-ro.js" />
+    <Content Include="js\i18n\grid.locale-ru.js" />
+    <Content Include="js\i18n\grid.locale-sk.js" />
+    <Content Include="js\i18n\grid.locale-sr-latin.js" />
+    <Content Include="js\i18n\grid.locale-sr.js" />
+    <Content Include="js\i18n\grid.locale-sv.js" />
+    <Content Include="js\i18n\grid.locale-th.js" />
+    <Content Include="js\i18n\grid.locale-tr.js" />
+    <Content Include="js\i18n\grid.locale-tw.js" />
+    <Content Include="js\i18n\grid.locale-ua.js" />
+    <Content Include="js\i18n\grid.locale-vi.js" />
+    <Content Include="js\ie7\blank.gif" />
+    <Content Include="js\ie7\ie7-squish.js" />
+    <Content Include="js\ie7\IE7.js" />
+    <Content Include="js\ie7\IE8.js" />
+    <Content Include="js\ie7\IE9.js" />
+    <Content Include="js\jqgrid.reference.js" />
+    <Content Include="js\jqgrid\grid.base.js" />
+    <Content Include="js\jqgrid\grid.base.min.js">
+      <DependentUpon>grid.base.js</DependentUpon>
+    </Content>
+    <Content Include="js\jqgrid\grid.celledit.js" />
+    <Content Include="js\jqgrid\grid.common.js" />
+    <Content Include="js\jqgrid\grid.custom.js" />
+    <Content Include="js\jqgrid\grid.filter.js" />
+    <Content Include="js\jqgrid\grid.formedit.js" />
+    <Content Include="js\jqgrid\grid.grouping.js" />
+    <Content Include="js\jqgrid\grid.import.js" />
+    <Content Include="js\jqgrid\grid.inlinedit.js" />
+    <Content Include="js\jqgrid\grid.jqueryui.js" />
+    <Content Include="js\jqgrid\grid.subgrid.js" />
+    <Content Include="js\jqgrid\grid.tbltogrid.js" />
+    <Content Include="js\jqgrid\grid.treegrid.js" />
+    <Content Include="js\jqgrid\jqDnR.js" />
+    <Content Include="js\jqgrid\jqModal.js" />
+    <Content Include="js\jqgrid\jquery.fmatter.js" />
+    <Content Include="js\jqgrid\JsonXml.js" />
+    <Content Include="js\admin.js" />
+    <Content Include="css\style.css">
+      <DependentUpon>style.less</DependentUpon>
+    </Content>
+    <Content Include="images\icon_settings.png" />
+    <Content Include="login.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="tran\CashChannel.aspx" />
+    <Content Include="tran_cash\AgentDeposit.aspx" />
+    <Content Include="tran_cash\AgentDepositHist.aspx" />
+    <Content Include="tran_cash\AgentWithdrawal.aspx" />
+    <Content Include="tran_cash\AgentWithdrawalHist.aspx" />
+    <Content Include="tran_cash\MemberDeposit.aspx" />
+    <Content Include="tran_cash\MemberDepositHist.aspx" />
+    <Content Include="tran_cash\MemberWithdrawal.aspx" />
+    <Content Include="tran_cash\MemberWithdrawalHist.aspx" />
+    <Content Include="tran_cash\ThirdPayment.aspx" />
+    <Content Include="tran_cash\ThirdPaymentHist.aspx" />
+    <Content Include="tran_game\AgentGameDeposit.aspx" />
+    <Content Include="tran_game\AgentGameDepositHist.aspx" />
+    <Content Include="tran_game\AgentGameWithdrawal.aspx" />
+    <Content Include="tran_game\AgentGameWithdrawalHist.aspx" />
+    <Content Include="tran_game\MemberGameDeposit.aspx" />
+    <Content Include="tran_game\MemberGameDepositHist.aspx" />
+    <Content Include="tran_game\MemberGameWithdrawal.aspx" />
+    <Content Include="tran_game\MemberGameWithdrawalHist.aspx" />
+    <Content Include="tran_promo\AgentBetAmt.aspx" />
+    <Content Include="tran_promo\AgentBetAmtHist.aspx" />
+    <Content Include="tran_promo\AgentPromo.aspx" />
+    <Content Include="tran_promo\AgentPromoHist.aspx" />
+    <Content Include="tran_promo\AgentShare.aspx" />
+    <Content Include="tran_promo\AgentShareHist.aspx" />
+    <Content Include="tran_promo\MemberBetAmt.aspx" />
+    <Content Include="tran_promo\MemberBetAmtHist.aspx" />
+    <Content Include="tran_promo\MemberDeposit1.aspx" />
+    <Content Include="tran_promo\MemberDeposit1Hist.aspx" />
+    <Content Include="tran_promo\MemberPromo.aspx" />
+    <Content Include="tran_promo\MemberPromoHist.aspx" />
+    <Content Include="users\AgentTree.aspx" />
+    <Content Include="users\UserList.aspx" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\style.less" />
+    <Content Include="js\web.config" />
+    <Content Include="css\web.config" />
+    <Content Include="admin\admin.master" />
+    <Content Include="admin\group.master" />
+    <Content Include="logs\logs.master" />
+    <Content Include="dinpay.ashx" />
+    <Content Include="users\UserDetail.master" />
+    <Content Include="logs\LoginLog.master" />
+    <Content Include="notes\notes.master" />
+    <Content Include="comet.ashx" />
+    <Content Include="js\jquery-1.10.2.min.map" />
+    <None Include="Properties\PublishProfiles\admin.dep.pubxml" />
+    <Content Include="tran\tran.master" />
+    <Content Include="tran_cash\AgentDeposit.master" />
+    <Content Include="tran_cash\AgentWithdrawal.master" />
+    <Content Include="tran_cash\MemberDeposit.master" />
+    <Content Include="tran_cash\MemberWithdrawal.master" />
+    <Content Include="tran_cash\ThirdPayment.master" />
+    <Content Include="tran_game\AgentGameDeposit.master" />
+    <Content Include="tran_game\AgentGameWithdrawal.master" />
+    <Content Include="tran_game\MemberGameDeposit.master" />
+    <Content Include="tran_game\MemberGameWithdrawal.master" />
+    <Content Include="tran_promo\AgentBetAmt.master" />
+    <Content Include="tran_promo\AgentPromo.master" />
+    <Content Include="tran_promo\AgentShare.master" />
+    <Content Include="tran_promo\MemberBetAmt.master" />
+    <Content Include="tran_promo\MemberDeposit1.master" />
+    <Content Include="tran_promo\MemberPromo.master" />
+    <Content Include="sys\root.Master" />
+    <Content Include="test.json" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\Tools\Tools.csproj">
+      <Project>{c7be9b7b-151d-45bd-b098-5e8a90959ed6}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1571</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/tfadmin</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

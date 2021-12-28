@@ -1,0 +1,489 @@
+BODY {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #014f8a; FONT-SIZE: 9pt; OVERFLOW: auto
+}
+BODY.bdMsgPage {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #eaf4fe; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #014f8a; FONT-SIZE: 9pt; OVERFLOW: auto
+}
+BODY.bdExplain {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #fbfffa; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #1d6402; FONT-SIZE: 9pt
+}
+TABLE {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 12px
+}
+TABLE.tbMain {
+	MARGIN: 0px auto; WIDTH: 98%; align: center
+}
+TABLE.tbTitle {
+	WIDTH: 100%
+}
+TABLE.tbBlock {
+	BACKGROUND-COLOR: #9fd6ff; WIDTH: 100%
+}
+TABLE.tbPanel {
+	WIDTH: 100%; HEIGHT: 24px
+}
+TABLE.tbPanelContent {
+	HEIGHT: 24px
+}
+TABLE.tbAgreement {
+	BACKGROUND-COLOR: #9fd6ff; WIDTH: 100%
+}
+TABLE.tbExplain {
+	BACKGROUND-COLOR: #97e490; WIDTH: 100%
+}
+TABLE.tbMsgPage {
+	BACKGROUND-COLOR: #9fd6ff; WIDTH: 500px; HEIGHT: 200px
+}
+TABLE.tbCommon {
+	WIDTH: 100%
+}
+TABLE.tbCommonColor {
+	BACKGROUND-COLOR: #f2f9ff; WIDTH: 100%
+}
+TD.tdCommonTop {
+	VERTICAL-ALIGN: top; align: left
+}
+TD.tdCommonMid {
+	VERTICAL-ALIGN: middle; align: left
+}
+TD.tdCommonBtm {
+	VERTICAL-ALIGN: bottom; align: left
+}
+TD.tdCommonTopColor {
+	BACKGROUND-COLOR: #f2f9ff; VERTICAL-ALIGN: top; align: left
+}
+TD.tdCommonMidColor {
+	BACKGROUND-COLOR: #f2f9ff; VERTICAL-ALIGN: middle; align: left
+}
+TD.tdCommonBtmColor {
+	BACKGROUND-COLOR: #f2f9ff; VERTICAL-ALIGN: bottom; align: left
+}
+TD.tdTitle1 {
+	TEXT-ALIGN: left; WIDTH: 50%; BACKGROUND: url(../images/title_01.gif)  left center; HEIGHT: 26px; COLOR: #014f8a
+}
+TD.tdTitle2 {
+	BACKGROUND: url(../images/title_02.gif)  center 50%; HEIGHT: 26px
+}
+TD.tdTitle3 {
+	TEXT-ALIGN: right; WIDTH: 40%; BACKGROUND: url(../images/title_03.gif)  right center; HEIGHT: 26px; COLOR: #c60001
+}
+TD.tdLeftH20 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; HEIGHT: 20px
+}
+TD.tdLeftH30 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; HEIGHT: 30px
+}
+TD.tdLeftH40 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; HEIGHT: 40px
+}
+TD.tdCenterH20 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; HEIGHT: 20px
+}
+TD.tdCenterH30 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; HEIGHT: 30px
+}
+TD.tdCenterH40 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; HEIGHT: 40px
+}
+TD.tdRightH20 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; HEIGHT: 20px
+}
+TD.tdRightH30 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; HEIGHT: 30px
+}
+TD.tdRightH40 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; HEIGHT: 40px
+}
+TD.tdLeftW15H20 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 15%; HEIGHT: 20px
+}
+TD.tdLeftW15H30 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 15%; HEIGHT: 30px
+}
+TD.tdLeftW15H40 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 15%; HEIGHT: 40px
+}
+TD.tdLeftW20H20 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 20%; HEIGHT: 20px
+}
+TD.tdLeftW20H30 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 20%; HEIGHT: 30px
+}
+TD.tdLeftW25H30 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 25%; HEIGHT: 30px
+}
+TD.tdLeftW20H40 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 20%; HEIGHT: 40px
+}
+TD.tdLeftW30H20 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 30%; HEIGHT: 20px
+}
+TD.tdLeftW30H30 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 30%; HEIGHT: 30px
+}
+TD.tdLeftW30H40 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 30%; HEIGHT: 40px
+}
+TD.tdLeftW35H20 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 30%; HEIGHT: 30px
+}
+TD.tdLeftW35H30 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 30%; HEIGHT: 30px
+}
+TD.tdLeftW35H40 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 30%; HEIGHT: 40px
+}
+TD.tdLeftW50H20 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 50%; HEIGHT: 20px
+}
+TD.tdLeftW50H30 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 50%; HEIGHT: 30px
+}
+TD.tdLeftW50H40 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #f2f9ff; WIDTH: 50%; HEIGHT: 40px
+}
+TD.tdCenterW15H20 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; WIDTH: 15%; HEIGHT: 20px
+}
+TD.tdCenterW15H30 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; WIDTH: 15%; HEIGHT: 30px
+}
+TD.tdCenterW15H40 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; WIDTH: 15%; HEIGHT: 40px
+}
+TD.tdCenterW20H20 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; WIDTH: 20%; HEIGHT: 20px
+}
+TD.tdCenterW20H30 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; WIDTH: 20%; HEIGHT: 30px
+}
+TD.tdCenterW20H40 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; WIDTH: 20%; HEIGHT: 40px
+}
+TD.tdCenterW30H20 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; WIDTH: 30%; HEIGHT: 20px
+}
+TD.tdCenterW30H30 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; WIDTH: 30%; HEIGHT: 30px
+}
+TD.tdCenterW30H40 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; WIDTH: 30%; HEIGHT: 40px
+}
+TD.tdCenterW50H20 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; WIDTH: 50%; HEIGHT: 20px
+}
+TD.tdCenterW50H30 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; WIDTH: 50%; HEIGHT: 30px
+}
+TD.tdCenterW50H40 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #f2f9ff; WIDTH: 50%; HEIGHT: 40px
+}
+TD.tdRightW15H20 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; WIDTH: 15%; HEIGHT: 20px
+}
+TD.tdRightW15H30 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; WIDTH: 15%; HEIGHT: 30px
+}
+TD.tdRightW15H40 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; WIDTH: 15%; HEIGHT: 40px
+}
+TD.tdRightW20H20 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; WIDTH: 20%; HEIGHT: 20px
+}
+TD.tdRightW20H30 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; WIDTH: 20%; HEIGHT: 30px
+}
+TD.tdRightW20H40 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; WIDTH: 20%; HEIGHT: 40px
+}
+TD.tdRightW30H20 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; WIDTH: 30%; HEIGHT: 20px
+}
+TD.tdRightW30H30 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; WIDTH: 30%; HEIGHT: 30px
+}
+TD.tdRightW30H40 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; WIDTH: 30%; HEIGHT: 40px
+}
+TD.tdRightW50H20 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; WIDTH: 50%; HEIGHT: 20px
+}
+TD.tdRightW50H30 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; WIDTH: 50%; HEIGHT: 30px
+}
+TD.tdRightW50H40 {
+	TEXT-ALIGN: right; BACKGROUND-COLOR: #f2f9ff; WIDTH: 50%; HEIGHT: 40px
+}
+TD.tdPanelContent {
+	HEIGHT: 24px; align: left
+}
+TD.tdPanelHead {
+	WIDTH: 100px; BACKGROUND: url(../images/panel_005.gif)  left center; HEIGHT: 24px
+}
+TD.tdPanelSpace {
+	WIDTH: 50px; BACKGROUND: url(../images/panel_005.gif)  center 50%; HEIGHT: 24px
+}
+TD.tdPanelSpaceW20 {
+	WIDTH: 20px; BACKGROUND: url(../images/panel_005.gif)  center 50%; HEIGHT: 24px
+}
+TD.tdPanelTrail {
+	WIDTH: 100%; BACKGROUND: url(../images/panel_005.gif)  right center; HEIGHT: 24px
+}
+TD.tdPanelSel {
+	BACKGROUND-IMAGE: url(../images/panel_001.gif); TEXT-ALIGN: center; WIDTH: 100px; HEIGHT: 24px; align: center
+}
+TD.tdPanelNoSel {
+	BACKGROUND-IMAGE: url(../images/panel_002.gif); TEXT-ALIGN: center; WIDTH: 100px; HEIGHT: 24px; align: center
+}
+TD.tdRelPanelSel {
+	BACKGROUND-IMAGE: url(../images/panel_003.gif); TEXT-ALIGN: center; WIDTH: 100px; HEIGHT: 24px; align: center
+}
+TD.tdRelPanelNoSel {
+	BACKGROUND-IMAGE: url(../images/panel_004.gif); TEXT-ALIGN: center; WIDTH: 100px; HEIGHT: 24px; align: center
+}
+TD.tdRelFuncTransQuery {
+	BACKGROUND-IMAGE: url(../images/panel_TransQuery.gif); TEXT-ALIGN: center; WIDTH: 74px; HEIGHT: 24px; CURSOR: pointer; align: center
+}
+TD.tdRelFuncPwdManager {
+	BACKGROUND-IMAGE: url(../images/panel_PwdManager.gif); TEXT-ALIGN: center; WIDTH: 74px; HEIGHT: 24px; CURSOR: pointer; align: center
+}
+TD.tdRelFuncReportLoss {
+	BACKGROUND-IMAGE: url(../images/panel_ReportLoss.gif); TEXT-ALIGN: center; WIDTH: 74px; HEIGHT: 24px; CURSOR: pointer; align: center
+}
+TD.tdRelFuncApplyMainCard {
+	BACKGROUND-IMAGE: url(../images/panel_ApplyMainCard.gif); TEXT-ALIGN: center; WIDTH: 84px; HEIGHT: 24px; CURSOR: pointer; align: center
+}
+TD.tdRelFuncApplyAffiliatedCard {
+	BACKGROUND-IMAGE: url(../images/panel_ApplyAffiliatedCard.gif); TEXT-ALIGN: center; WIDTH: 84px; HEIGHT: 24px; CURSOR: pointer; align: center
+}
+TD.tdSpace {
+	BACKGROUND-COLOR: #ffffff; WIDTH: 100%; HEIGHT: 6px
+}
+TD.tdSpaceH12 {
+	BACKGROUND-COLOR: #ffffff; WIDTH: 100%; HEIGHT: 12px
+}
+TD.tdSpaceColor {
+	BACKGROUND-COLOR: #f2f9ff; WIDTH: 100%; HEIGHT: 6px
+}
+TD.tdSpaceH12Color {
+	BACKGROUND-COLOR: #f2f9ff; WIDTH: 100%; HEIGHT: 12px
+}
+TD.tdPrompt {
+	TEXT-ALIGN: left; WIDTH: 100%; BACKGROUND: url(../images/bg_001.gif)  left center; HEIGHT: 27px; COLOR: #014f8a
+}
+TD.tdExplain {
+	BACKGROUND-COLOR: #ffffff; WIDTH: 100%
+}
+TD.tdAgreement {
+	BACKGROUND-COLOR: #ffffff; WIDTH: 100%
+}
+INPUT {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 12px
+}
+INPUT.input1 {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; HEIGHT: 22px; FONT-SIZE: 12px
+}
+INPUT.input2 {
+	BORDER-BOTTOM: #666666 1px solid; BORDER-LEFT: #666666 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; HEIGHT: 20px; FONT-SIZE: 9pt; BORDER-TOP: #666666 1px solid; BORDER-RIGHT: #666666 1px solid
+}
+SELECT {
+	WIDTH: 160px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 12px
+}
+OPTION {
+	
+}
+BUTTON {
+	CURSOR: pointer
+}
+BUTTON.btn1 {
+	BORDER-BOTTOM: #ff9702 1px solid; BORDER-LEFT: white 1px solid; BACKGROUND-COLOR: #efebef; BORDER-TOP: white 1px solid; BORDER-RIGHT: #ff9702 1px solid
+}
+TBODY {
+	
+}
+TEXTAREA {
+	
+}
+DIV {
+	
+}
+IMG {
+	BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: blue; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: red; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: red; TEXT-DECORATION: none
+}
+MENU.menustyle {
+	BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: gray 1px solid; BACKGROUND-COLOR: white; BORDER-TOP: gray 1px solid; BORDER-RIGHT: gray 1px solid
+}
+MENU.menuitem {
+	BORDER-BOTTOM: white 1px solid; BORDER-LEFT: white 1px solid; PADDING-BOTTOM: 2px; BACKGROUND-COLOR: white; PADDING-LEFT: 5px; PADDING-RIGHT: 15px; FONT-FAMILY: verdana; FONT-SIZE: 12px; BORDER-TOP: white 1px solid; CURSOR: pointer; BORDER-RIGHT: white 1px solid; PADDING-TOP: 2px
+}
+MENU.mouseover {
+	BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: gray 1px solid; PADDING-BOTTOM: 2px; BACKGROUND-COLOR: silver; PADDING-LEFT: 5px; PADDING-RIGHT: 15px; FONT-FAMILY: verdana; COLOR: black; FONT-SIZE: 12px; BORDER-TOP: gray 1px solid; CURSOR: pointer; BORDER-RIGHT: gray 1px solid; PADDING-TOP: 2px
+}
+.dgMain {
+	BACKGROUND-COLOR: white; WIDTH: 100%; COLOR: #014f8a
+}
+.dgMain TD {
+	BORDER-BOTTOM: #9fd6ff 1px solid; BORDER-LEFT: #9fd6ff 1px solid; BORDER-TOP: #9fd6ff 1px solid; BORDER-RIGHT: #9fd6ff 1px solid
+}
+.dgHeader {
+	BACKGROUND-IMAGE: url(../images/title_04.gif); BACKGROUND-COLOR: #f2f9ff; COLOR: #014f8a
+}
+.dgFooter {
+	BACKGROUND-COLOR: #f2f9ff; COLOR: #014f8a
+}
+.dgAlternatingItem {
+	BACKGROUND-COLOR: #f2f9ff; COLOR: #014f8a
+}
+.dgItemStyle {
+	COLOR: #014f8a
+}
+IFRAME.ifExplain {
+	WIDTH: 100%; HEIGHT: 100%
+}
+A.lkPanelSel:link {
+	COLOR: white; FONT-WEIGHT: bold
+}
+A.lkPanelSel:visited {
+	COLOR: white; FONT-WEIGHT: bold
+}
+A.lkPanelSel:active {
+	COLOR: red; TEXT-DECORATION: none
+}
+A.lkPanelSel:hover {
+	COLOR: red; TEXT-DECORATION: none
+}
+A.lkPanelNoSel:link {
+	WIDTH: 100%; COLOR: #014f8a; TEXT-DECORATION: none
+}
+A.lkPanelNoSel:visited {
+	WIDTH: 100%; COLOR: #014f8a; TEXT-DECORATION: none
+}
+A.lkPanelNoSel:active {
+	WIDTH: 100%; COLOR: red; TEXT-DECORATION: none
+}
+A.lkPanelNoSel:hover {
+	WIDTH: 100%; COLOR: red; TEXT-DECORATION: none
+}
+.wcLabel {
+	COLOR: #585858
+}
+INPUT {
+	BEHAVIOR: url(../doc/Scripts/button.htc)
+}
+.btn {
+	BACKGROUND-IMAGE: url(../images/bg_btn2.gif); BORDER-BOTTOM: #8496ce 0px solid; BORDER-LEFT: #8496ce 0px solid; BACKGROUND-COLOR: aliceblue; WIDTH: 56px; HEIGHT: 21px; COLOR: #5a6da5; BORDER-TOP: #8496ce 0px solid; CURSOR: pointer; BORDER-RIGHT: #8496ce 0px solid
+}
+.btn:unknown {
+	COLOR: #aaaaaa
+}
+.btnlong {
+	BACKGROUND-IMAGE: url(../images/bg_btn3.gif); BORDER-BOTTOM: #8496ce 0px solid; BORDER-LEFT: #8496ce 0px solid; BACKGROUND-COLOR: aliceblue; WIDTH: 120px; HEIGHT: 21px; COLOR: #5a6da5; BORDER-TOP: #8496ce 0px solid; CURSOR: pointer; BORDER-RIGHT: #8496ce 0px solid
+}
+.btn2 {
+	BACKGROUND-IMAGE: url(../images/bg_btn3.gif); BORDER-BOTTOM: #8496ce 0px solid; BORDER-LEFT: #8496ce 0px solid; BACKGROUND-COLOR: aliceblue; WIDTH: 120px; HEIGHT: 21px; COLOR: #5a6da5; BORDER-TOP: #8496ce 0px solid; CURSOR: pointer; BORDER-RIGHT: #8496ce 0px solid
+}
+.btnOver2 {
+	BACKGROUND-IMAGE: url(../images/bg_btn4.gif); BORDER-BOTTOM: #8496ce 0px solid; BORDER-LEFT: #8496ce 0px solid; BACKGROUND-COLOR: #b49b83; WIDTH: 120px; HEIGHT: 21px; COLOR: #203e94; BORDER-TOP: #8496ce 0px solid; CURSOR: pointer; BORDER-RIGHT: #8496ce 0px solid
+}
+.btnOver {
+	BACKGROUND-IMAGE: url(../images/bg_btn1.gif); BORDER-BOTTOM: #8496ce 0px solid; BORDER-LEFT: #8496ce 0px solid; BACKGROUND-COLOR: #b49b83; WIDTH: 56px; HEIGHT: 21px; COLOR: #203e94; BORDER-TOP: #8496ce 0px solid; CURSOR: pointer; BORDER-RIGHT: #8496ce 0px solid
+}
+TD.tdMsgPageLeft {
+	BACKGROUND-COLOR: #daeafb; WIDTH: 20%; BACKGROUND-ATTACHMENT: scroll; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: center top
+}
+TD.tdMsgPageCenter {
+	BACKGROUND-COLOR: #daeafb; VERTICAL-ALIGN: top; align: center
+}
+TD.tdMsgPageRight {
+	BACKGROUND-COLOR: #daeafb; WIDTH: 10%
+}
+TD.tdMsgPageCenter1 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #daeafb; HEIGHT: 50px
+}
+TD.tdMsgPageCenter2 {
+	TEXT-ALIGN: left; BACKGROUND-COLOR: #daeafb; HEIGHT: 100px; VERTICAL-ALIGN: text-top
+}
+TD.tdMsgPageCenter3 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #daeafb; HEIGHT: 50px; align: center
+}
+.cw_btnpre {
+	BACKGROUND-IMAGE: url(../images/cw_prestep.gif); BORDER-BOTTOM: #8496ce 0px solid; BORDER-LEFT: #8496ce 0px solid; BACKGROUND-COLOR: aliceblue; WIDTH: 91px; HEIGHT: 27px; COLOR: #5a6da5; BORDER-TOP: #8496ce 0px solid; CURSOR: pointer; BORDER-RIGHT: #8496ce 0px solid
+}
+.cw_btnnext {
+	BACKGROUND-IMAGE: url(../images/cw_nextstep.gif); BORDER-BOTTOM: #8496ce 0px solid; BORDER-LEFT: #8496ce 0px solid; BACKGROUND-COLOR: aliceblue; WIDTH: 91px; HEIGHT: 27px; COLOR: #5a6da5; BORDER-TOP: #8496ce 0px solid; CURSOR: pointer; BORDER-RIGHT: #8496ce 0px solid
+}
+.cw_btnclose {
+	BACKGROUND-IMAGE: url(../images/cw_close.gif); BORDER-BOTTOM: #8496ce 0px solid; BORDER-LEFT: #8496ce 0px solid; BACKGROUND-COLOR: aliceblue; WIDTH: 91px; HEIGHT: 27px; COLOR: #5a6da5; BORDER-TOP: #8496ce 0px solid; CURSOR: pointer; BORDER-RIGHT: #8496ce 0px solid
+}
+.cw_btn {
+	BACKGROUND-IMAGE: url(../images/cw_button.gif); BORDER-BOTTOM: #8496ce 0px solid; BORDER-LEFT: #8496ce 0px solid; BACKGROUND-COLOR: aliceblue; WIDTH: 91px; HEIGHT: 27px; COLOR: #5a6da5; BORDER-TOP: #8496ce 0px solid; CURSOR: pointer; BORDER-RIGHT: #8496ce 0px solid
+}
+.cw_box {
+	BORDER-BOTTOM: #1e5b87 1px solid; BORDER-LEFT: #1e5b87 1px solid; BORDER-TOP: #1e5b87 1px solid; BORDER-RIGHT: #1e5b87 1px solid
+}
+.red {
+	COLOR: #ff0000; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.hui {
+	LINE-HEIGHT: 20px; COLOR: #000000; FONT-SIZE: 12px
+}
+.hui02 {
+	COLOR: #666666; FONT-SIZE: 12px
+}
+.red2 {
+	COLOR: #ff0000; FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+.keyword {
+	COLOR: red
+}
+A.lkCreditDescript:link {
+	COLOR: #3184d7; TEXT-DECORATION: none
+}
+A.lkCreditDescript:visited {
+	COLOR: #3184d7; TEXT-DECORATION: none
+}
+A.lkCreditDescript:active {
+	COLOR: #3184d7; TEXT-DECORATION: none
+}
+A.lkCreditDescript:hover {
+	COLOR: #3184d7; TEXT-DECORATION: underline
+}
+TABLE.tbAdv {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BACKGROUND-COLOR: #9fd6ff; ; BORDER-SPACING: expression(this.cellSpacing="1px"); WIDTH: 100%; BORDER-COLLAPSE: separate; HEIGHT: 78px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+IFRAME.ifAdv {
+	BACKGROUND-COLOR: #ffffff; WIDTH: 100%; HEIGHT: 72px
+}
+TD.tdAdv {
+	BACKGROUND-COLOR: #ffffff; WIDTH: 100%
+}
+.tip {
+	Z-INDEX: 10; BORDER-BOTTOM: #94cff3 2px solid; POSITION: absolute; BORDER-LEFT: #94cff3 2px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; WIDTH: 196px; PADDING-RIGHT: 15px; BACKGROUND: #ffffff; BORDER-TOP: #94cff3 2px solid; BORDER-RIGHT: #94cff3 2px solid; PADDING-TOP: 5px; TOP: 2px; LEFT: 166px
+}
+.tip .ulTip {
+	LIST-STYLE-TYPE: none; MARGIN: 0px
+}
+.tip .ulTip LI {
+	LINE-HEIGHT: 150%; PADDING-LEFT: 25px; BACKGROUND: url(../Images/tooltip01.gif) no-repeat 0px 0px
+}
+.btn:hover {
+	BACKGROUND-IMAGE: url(../images/bg_btn1.gif); BORDER-BOTTOM: #8496ce 0px solid; BORDER-LEFT: #8496ce 0px solid; BACKGROUND-COLOR: #b49b83; WIDTH: 56px; HEIGHT: 21px; COLOR: #203e94; BORDER-TOP: #8496ce 0px solid; CURSOR: pointer; BORDER-RIGHT: #8496ce 0px solid
+}
+.btn2:hover {
+	BACKGROUND-IMAGE: url(../images/bg_btn4.gif); BORDER-BOTTOM: #8496ce 0px solid; BORDER-LEFT: #8496ce 0px solid; BACKGROUND-COLOR: #b49b83; WIDTH: 120px; HEIGHT: 21px; COLOR: #203e94; BORDER-TOP: #8496ce 0px solid; CURSOR: pointer; BORDER-RIGHT: #8496ce 0px solid
+}
+.btnlong:hover {
+	BACKGROUND-IMAGE: url(../images/bg_btn4.gif); BORDER-BOTTOM: #8496ce 0px solid; BORDER-LEFT: #8496ce 0px solid; BACKGROUND-COLOR: #b49b83; WIDTH: 120px; HEIGHT: 21px; COLOR: #203e94; BORDER-TOP: #8496ce 0px solid; CURSOR: pointer; BORDER-RIGHT: #8496ce 0px solid
+}

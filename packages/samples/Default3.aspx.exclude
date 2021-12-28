@@ -1,0 +1,240 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/samples/main.master" AutoEventWireup="true" CodeFile="Default3.aspx.cs" Inherits="_Default" %>
+
+<script runat="server">
+</script>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        body {
+            font-family: arial;
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .fill { width: 100%; height: 100%; }
+        .left { float: left; }
+        .right { float: right; }
+        /*.border.top.left        { background-color: yellow; }*/
+        /*.border.top             { background-color: red; height:1px; }*/
+        /*.border.top.right       { background-color: yellow; }*/
+        /*.border.left            { background-color:blue; width:1px; }*/
+        /*.border.right           { background-color:cyan; width:1px; }*/
+        /*.border.bottom.left     { background-color:yellow; }*/
+        /*.border.bottom          { background-color:green; height:1px; }*/
+        /*.border.bottom.right    { background-color:yellow; }*/
+
+        div.main-frame {
+            position: absolute;
+            width: 100%;
+            top: 50px;
+            height: 70%;
+        }
+        iframe.main-frame {
+        }
+        
+        
+        .nav-frame {
+            position: absolute;
+            width: 100%;
+            top: 0px;
+            height: 50px;
+            color: #dddddd;
+            background-color: #333333;
+        }
+        .nav-frame ul { list-style:none; margin:0; padding:0; }
+        .nav-frame li { }
+        .nav-logo {
+            position:absolute;
+            left:0px;
+            bottom:0px;
+        }
+        .nav-menu {
+            position:absolute;
+            left:200px;
+            top:0px;
+        }
+        .nav-info {
+            position: absolute;
+            right: 20px;
+            bottom: 0px;
+        }
+        .nav-info-name {
+            border-style: none double none double;
+            padding: 0px 5px 0px 5px;
+            margin: 0px 10px 0px 0px;
+            border-width: thick;
+            font-weight: bold;
+        }
+        .nav-setting {
+            position:absolute;
+            right:0px;
+            top:30px;
+        }
+        div.settings_icon {
+            text-align:right;
+        }
+        img.settings_icon {
+            width: 20px;
+            height: 20px;
+            padding:0;
+            margin:0;
+        }
+        .setting_menu {
+            display:none;
+            border-width: 0px 2px 2px 2px;
+            right: 0px;
+            color: #dddddd;
+            background-color: #333333;
+            border-style: none solid solid solid;
+            width:100px;
+        }
+            .setting_menu li {
+                /*margin: 5px;*/
+                padding: 0px 20px 2px 20px;
+                white-space: nowrap;
+            }
+            .setting_menu hr {
+                padding-right: 0px;
+                padding-left: 0px;
+                margin-right: 0px;
+                margin-left: 0px;
+            }
+
+        .footer-frame {
+            position: absolute;
+            width: 100%;
+            bottom: 0px;
+        }
+
+        .hover {
+            cursor: pointer;
+        }
+            .hover:hover {
+                background-color: #666666;
+            }
+        .btn { }
+    </style>
+    <script type="text/javascript">
+
+        $.fn.menu_1 = function (dst) {
+            obj = {
+                a: $(this),
+                b: $(dst),
+                timer: null,
+                toggle: function () {
+                    obj.b.fadeToggle('fast');
+                    window.event.cancelBubble = true;
+                },
+                hide: function () {
+                    obj.b.fadeOut('fast');
+                    return this;
+                }
+            };
+            obj.hide();
+            obj.a.click(obj.toggle).hover(function () {
+            }, function () {
+            }).addClass('hover');
+            $(window).click(obj.hide);
+            return obj;
+        }
+
+        $.fn.button_1 = function () {
+            this.addClass('hover');
+        }
+
+        $(document).ready(function () {
+            $('img.settings_icon').menu_1('ul.setting_menu');
+            $('.btn').button_1();
+        });
+
+        function logout() {
+            $.api.sExecute({ AdminLogout: {} }, function (obj) {
+                if (obj.LoginResult.t1 == 1)
+                    window.location.reload();
+            });
+        }
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
+<%--<table class="fill root" border="1"><tr><td class="border top left"></td><td class="border top"></td><td class="border top right"></td></tr><tr><td class="border left"></td><td></td><td class="border right"></td></tr><tr><td class="border bottom left"></td><td class="border bottom"></td><td class="border bottom right"></td></tr></table>--%>
+    <div class="main-frame"><iframe class="main-frame fill" src="xxx.aspx"></iframe></div>
+    <div class="nav-frame">
+        <ul>
+            <li class="nav-logo">logo</li>
+            <li class="nav-menu">
+                <ul>
+                    <li>aaa
+                        <ul>
+                            <li>aaa1</li>
+                            <li>aaa2</li>
+                            <li>aaa3</li>
+                            <li>aaa4</li>
+                            <li>aaa5</li>
+                        </ul>
+                    </li>
+                    <li>bbb
+                        <ul>
+                            <li>bbb1</li>
+                            <li>bbb2</li>
+                            <li>bbb3</li>
+                            <li>bbb4</li>
+                            <li>bbb5</li>
+                        </ul>
+                    </li>
+                    <li>ccc
+                        <ul>
+                            <li>ccc1</li>
+                            <li>ccc2</li>
+                            <li>ccc3</li>
+                            <li>ccc4</li>
+                            <li>ccc5</li>
+                        </ul>
+                    </li>
+                    <li>ddd
+                        <ul>
+                            <li>ddd1</li>
+                            <li>ddd2</li>
+                            <li>ddd3</li>
+                            <li>ddd4</li>
+                            <li>ddd5</li>
+                        </ul>
+                    </li>
+                    <li>eee
+                        <ul>
+                            <li>eee1</li>
+                            <li>eee2</li>
+                            <li>eee3</li>
+                            <li>eee4</li>
+                            <li>eee5</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-info"><div class="nav-info-name"><%=_UserInfo.Current.Name %></div></li>
+            <li class="nav-setting">
+                <div class="settings_icon"><img class="settings_icon" alt="" src="images/icon_settings.png" /></div>
+                <ul class="setting_menu">
+                    <li>&nbsp;</li>
+                    <li class="btn"><%=Resources.res.change_password %></li>
+                    <li class="btn"><%=Resources.res.login_hist %></li>
+                    <li><hr /></li>
+                    <li class="btn" onclick="logout()"><%=Resources.res.logout_text %></li>
+                    <li>&nbsp;</li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <div class="footer-frame"></div>
+    
+<%--    
+    <iframe class="main-frame fill" src="xxx.aspx"></iframe>
+    <table class="nav fill" border="1">
+        <tr>
+            <td class="nav-logo">1</td>
+            <td class="nav-menu">2</td>
+            <td class="nav-info">3</td>
+        </tr>
+    </table>--%>
+</asp:Content>
+

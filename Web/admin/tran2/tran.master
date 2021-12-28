@@ -1,0 +1,9 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/admin/admin.master" AutoEventWireup="true" CodeBehind="tran.master.cs" Inherits="tran_master2" %>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        /*#nav1 .ui-button-disabled { border:0; }*/
+        /*#nav1 .ui-button-disabled:hover { border:0; }*/
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server"><asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder></asp:Content>

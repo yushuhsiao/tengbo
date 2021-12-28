@@ -1,0 +1,13 @@
+C:\tengfa\Library\extAPI\obj\Release\extAPI.csprojResolveAssemblyReference.cache
+C:\tengfa\Library\extAPI\bin\extAPI.dll
+C:\tengfa\Library\extAPI\bin\extAPI.pdb
+C:\tengfa\Library\extAPI\bin\Newtonsoft.Json.dll
+C:\tengfa\Library\extAPI\bin\Tools.dll
+C:\tengfa\Library\extAPI\bin\Newtonsoft.Json.pdb
+C:\tengfa\Library\extAPI\bin\Newtonsoft.Json.xml
+C:\tengfa\Library\extAPI\bin\Tools.pdb
+C:\tengfa\Library\extAPI\obj\Release\extAPI.dll
+C:\tengfa\Library\extAPI\obj\Release\extAPI.pdb
+C:\tengfa\Library\extAPI\bin\extAPI.dll.config
+C:\tengfa\Library\extAPI\bin\BU.dll
+C:\tengfa\Library\extAPI\bin\BU.pdb

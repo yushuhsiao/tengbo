@@ -1,0 +1,957 @@
+<script language=javascript>var GenShell_ClientNo="7D01FEAA34B9AD6A8385F3FA5F61CAAA484621415422214400002902";var DefaultAuthName="CBANK_PB";var LoginType="A";var DefaultMenuType="A";var DefaultPageNo="";var ClientWarrantFlag="N";</script>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<html>
+<head>
+    <title></title>
+    <meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
+    <meta content="C#" name="CODE_LANGUAGE">
+    <meta content="JavaScript" name="vs_defaultClientScript">
+    <meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+    <!--
+		<link href="../doc/Styles/GenShell-Netbank.css" rel="stylesheet" title="netbank">
+		<link href="../doc/Styles/Menu-Netbank.css" rel="stylesheet" title="netbank">
+		<link href="../doc/Styles/VMenu-Netbank.css" rel="stylesheet" title="netbank">
+		-->
+    <link title="default" href="../doc/Styles/GenShell.css" rel="stylesheet">
+    <link title="default" href="../doc/Styles/Menu.css" rel="stylesheet">
+    <link href="../doc/Styles/leftmenu.css" rel="stylesheet">
+    <!--
+		<script language="javascript" src="../../Base/doc/Scripts/sdc_web.js"></script>
+		<script language="javascript" src="../../Base/doc/Scripts/sdc_cmb.js"></script>
+		-->
+
+    <script language="javascript" src="../../Base/doc/Scripts/BaseFunc.js"></script>
+
+    <script language="javascript" src="../../Base/doc/Scripts/default.js"></script>
+
+    <script language="javascript" src="../../Base/doc/Scripts/CommUtils.js"></script>
+
+    <script language="javascript" src="../../Base/doc/Scripts/XmlUtils.js"></script>
+
+    <script language="javascript" src="../../Base/doc/Scripts/DynaForm.js"></script>
+
+    <script language="javascript" src="../../Base/doc/Scripts/DynaXmlHttp.js"></script>
+
+    <script language="javascript" src="../doc/Scripts/GenUtils.js"></script>
+
+    <script src="../doc/Scripts/Menu.js" type="text/javascript"></script>
+
+    <script language="javascript" src="../../Base/doc/Scripts/FuncTrigger.js"></script>
+
+    <script language="javascript" src="../../Base/doc/Scripts/WebSvrCom.js"></script>
+
+    <script language="javascript" src="../../Base/doc/Scripts/HostPkg.js"></script>
+
+    <script language="javascript" src="../doc/Scripts/FuncDefineGen.js"></script>
+
+    <script language="javascript" src="../doc/Scripts/leftmenu.js"></script>
+
+    <script language="javascript" src="../doc/Scripts/favorite.js"></script>
+
+    <script language="JavaScript" type="text/JavaScript"> 
+		moveTo(0,0);
+  		resizeTo(screen.width,screen.height);
+
+		var GenServerLoginUrl = "/CmbBank_GenShell/UI/GenShellPC/Login/Login.aspx";
+		var GenServerLoginUrlF = "/CmbBank_GenShell/UI/GenShellPC/NetBankAcc/Login.aspx";
+		var GenServerLogoutUrl = "/CmbBank_GenShell/UI/GenShellPC/Login/Logout.aspx";
+		
+		var GenShellServerUrl = "/CmbBank_GenShell/UI/GenShellPC/";	
+		var GenServerTokenApplyUrl = "/CmbBank_GenShell/UI/GenShellPC/Login/ApplyToken.aspx";	
+		var SecurityServerLoginUrl = "/CmbBank_GenShell/UI/GenShellPC/Login/SecurityLogin.aspx";
+
+		var GenOnlineCustomerServiceURL = "";
+		
+		
+		function initPage()
+		{
+			MainWorkAreaIFrame = document.getElementById(Default_FormTarget);
+			
+			InitGenShellLogin(GenShell_ClientNo);
+			
+			cw_switchMenu(DefaultMenuType);
+
+			GenOnlineCustomerServiceURL = document.getElementById("OnlineCustomerServiceURL").value;
+
+			if ((DefaultMenuType == "C_A") || (DefaultMenuType == "C_B") || (DefaultMenuType == "C_C") || DefaultMenuType == "C" ) {
+//			    document.getElementById("ImgTelephone").src = "../doc/Images/400820.gif";
+			      document.getElementById("ImgTelephone").src = "../doc/Images/Online-Custom.png";
+			    document.getElementById("CreditImg").style.height=49;
+			} else {
+			    document.getElementById("ImgTelephone").src = "../doc/Images/95555.gif";
+			     document.getElementById("CreditImg").style.height=102;
+			}
+			//EventTrack('LoginSucceed.htm?LoginType=' + LoginType, '登录成功');
+
+			if (LoginType == "C_A" || LoginType == "C_B" || LoginType == "C_C" || GetBrowserType()!="ie") {
+			    document.getElementById("linkLanguage").style.display = "none";
+			}
+			
+			
+		}
+		
+		function setFrameEvent()
+		{
+            document.getElementById("mainWorkArea").contentWindow.addEventListener("click",doHideAllSubMenu,false);
+        }
+ 
+        function doHideAllSubMenu()
+        {
+            hideAllSubMenu();
+        }
+		
+				
+		function switchImg(menuType)
+		{
+		    try { g_currMenuType = menuType; } catch (e) { }; //for CallFuncEx2
+		    if ( menuType == "C_A" || menuType == "C_B" || menuType == "C_C" || menuType == "C" ) {
+		         document.getElementById("ImgTelephone").src = "../doc/Images/Online-Custom.png";
+		        document.getElementById("CreditImg").style.height=49;
+		    } else {
+		        document.getElementById("ImgTelephone").src = "../doc/Images/95555.gif";
+		        document.getElementById("CreditImg").style.height=102;
+		    }
+			if(menuType == "A")
+			{
+				if(TheForm.imgCommonCard!=null)
+					TheForm.imgCommonCard.src = "../doc/Images/tab_CommonCard_sel.gif";
+				if(TheForm.imgCreditCard!=null)
+					TheForm.imgCreditCard.src = "../doc/Images/tab_CreditCard_unsel_01.gif";
+				if(TheForm.imgBook!=null)
+					TheForm.imgBook.src = "../doc/Images/tab_Book_unsel_03.gif";
+				if(TheForm.imgUser!=null)
+					TheForm.imgUser.src = "../doc/Images/tab_User_unsel_02.gif";
+				return;
+			}
+			if(menuType == "B")
+			{
+				if(TheForm.imgCommonCard!=null)
+					TheForm.imgCommonCard.src = "../doc/Images/tab_CommonCard_unsel_02.gif";
+				if(TheForm.imgCreditCard!=null)
+					TheForm.imgCreditCard.src = "../doc/Images/tab_CreditCard_unsel_02.gif";
+				if(TheForm.imgBook!=null)
+					TheForm.imgBook.src = "../doc/Images/tab_Book_sel.gif";
+				if(TheForm.imgUser!=null)
+					TheForm.imgUser.src = "../doc/Images/tab_User_unsel_01.gif";
+				return;
+}
+			if((menuType == "C_A")||(menuType == "C_B")||(menuType == "C_C") || menuType=="C" )
+			{
+				if(TheForm.imgCommonCard!=null)
+					TheForm.imgCommonCard.src = "../doc/Images/tab_CommonCard_unsel_01.gif";
+				if(TheForm.imgCreditCard!=null)
+					TheForm.imgCreditCard.src = "../doc/Images/tab_CreditCard_sel.gif";
+				if(TheForm.imgBook!=null)
+					TheForm.imgBook.src = "../doc/Images/tab_Book_unsel_01.gif"
+				if(TheForm.imgUser!=null)
+					TheForm.imgUser.src = "../doc/Images/tab_User_unsel_02.gif"
+				return;
+			}
+			if(menuType == "D")
+			{
+				if(TheForm.imgCommonCard!=null)
+					TheForm.imgCommonCard.src = "../doc/Images/tab_CommonCard_unsel_02.gif";
+				if(TheForm.imgCreditCard!=null)
+					TheForm.imgCreditCard.src = "../doc/Images/tab_CreditCard_unsel_03.gif";
+				if(TheForm.imgBook!=null)
+					TheForm.imgBook.src = "../doc/Images/tab_Book_unsel_02.gif"
+				if(TheForm.imgUser!=null)
+					TheForm.imgUser.src = "../doc/Images/tab_User_sel.gif"
+				return;
+			}						
+			try{g_currMenuType = 'A';}catch(e){};//for CallFuncEx2
+			TheForm.imgCommonCard.src = "../doc/Images/tab_CommonCard_sel.gif";
+			TheForm.imgCreditCard.src = "../doc/Images/tab_CreditCard_unsel_01.gif";
+			TheForm.imgBook.src = "../doc/Images/tab_Book_unsel_03.gif";
+			TheForm.imgUser.src = "../doc/Images/tab_User_unsel_02.gif";
+			return;			
+		}
+
+		//默认打开欢迎页
+		function cw_switchMenu(menuType)
+		{
+            try { g_currMenuType = menuType; } catch (e) { };
+			initMenu(menuType);
+			initShortCutMenu(menuType);
+			cw_openHomePage(menuType);
+		}	
+		
+		//默认打开业务功能	
+		function switchMenu(menuType)
+		{
+			initMenu(menuType);
+			initShortCutMenu(menuType);
+			openFirstPage(menuType);
+		}
+		
+		
+		function switchMenuOnly(menuType)
+		{
+			initMenu(menuType);
+			initShortCutMenu(menuType);
+		}			
+		
+		function initMenu(menuType)
+		{
+			hideAllSubMenu();
+			var data2Send = new Object();
+			data2Send.ClientNo = GenShell_ClientNo;
+			data2Send.MenuType = menuType;
+			
+			var menuData = GenSendXmlRequest(data2Send,"/CmbBank_GenShell/UI/GenShellPC/Login/GetMenuData.aspx");
+			if(menuData)
+			{
+				sysMenuTD.innerHTML = menuData;
+			}
+			buildMenu("menu");
+			if(window.event!=null)
+				window.event.returnValue = false;
+			return false;
+		}		
+		
+		function logoutGenServer()
+		{
+		    if(window.event)
+			    window.event.returnValue = false;
+			var logoutInfo = new Object();
+			logoutInfo.ClientNo = GenShell_ClientNo;
+			var bRet = GenLogoutShell(logoutInfo,GenServerLogoutUrl);
+			return bRet;
+		}		
+		
+		function doRelogin()
+		{
+			var bRet = logoutGenServer();
+			if(LoginType=="F")
+				window.location = GenServerLoginUrlF;
+			else
+				window.location = GenServerLoginUrl;
+		}		
+			
+		function doExit()
+		{
+			if (confirm("您确定要退出个人银行大众版吗？"))
+			{
+				var bRet = logoutGenServer();
+				window.opener = null;
+				if(/Safari/.test(window.navigator.userAgent))
+				    window.open('','_self',''); 
+				window.close();
+			}
+		}
+
+        //i理财账户关户后自动退出大众版
+		function doExitAndClose() {
+		    doRelogin();
+		}
+		
+		function doUnload()
+		{
+			if((window.screenLeft >= 10000 && window.screenTop >= 10000) || event.altKey) 
+			{
+				var bRet = logoutGenServer();
+			}
+			else
+			{
+				GenLogoutTransServerOnly();
+			}
+		}
+		
+		function doExitSimple()
+		{
+			alert("谢谢您一直以来的支持，再见。");
+			window.opener = null;
+			window.close();
+		}		
+
+		function triggerNull()
+		{
+			alert("功能暂未提供");
+			window.event.returnValue = false;
+		}		
+		
+		function openFirstPage(menuType)
+		{
+			//空白页
+			mainWorkArea.document.write("<style TYPE='text/css'>.mycontent {font: 9pt/14pt '宋体';}</style>");
+			mainWorkArea.document.write("<body style='margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;'></body>");
+			mainWorkArea.document.close();
+
+			if (menuType == "A") {
+			    //一卡通
+			    CallFunc('CBANK_PB', 'DebitCard_AccountManager/am_QuerySubAccount.aspx', 'FORM', null);
+			}
+			else if (menuType == "B") {
+			    //存折
+			    CallFunc('CBANK_PB', 'Book/am_QuerySubAccount.aspx', 'FORM', null, 'panelcontrol=HomeAccountManager');
+			}
+			else if (menuType == "C_A") {
+			    //信用卡_个人卡
+			    CallFunc('CBANK_CREDITCARD', 'CreditCard/am_QueryReckoningNotRMB.aspx', 'FORM', null, 'MainPanel=inline', 'SIDType=A');
+			}
+			else if (menuType == "C_B") {
+			    //信用卡_商务卡个人偿债
+			    CallFunc('CBANK_CREDITCARD', 'CreditCard/am_QueryReckoningNotRMB.aspx', 'FORM', null, 'MainPanel=inline', 'SIDType=B');
+			}
+			else if (menuType == "C_C") {
+			    //信用卡_商务卡公司偿债
+			    CallFunc('CBANK_CREDITCARD', 'CreditCard/am_QueryReckoningNotRMB.aspx', 'FORM', null, 'MainPanel=inline', 'SIDType=C');
+			}
+			else if (menuType == "D") {
+			    //一网通用户
+			CallFunc('CBANK_USER', 'User/AccountInfo.aspx', 'FORM', null, 'CreditCardVersion=2.0');
+			} 
+			else if (menuType == "C") {
+			    //信用卡新系统
+			CallFunc('CBANK_CREDITCARDV2', 'CreditCardV2/am_QueryAccount.aspx', 'FORM', null);
+			}
+            if(window.event)
+		        window.event.returnValue = false;
+			return false;
+		}		
+
+		function cw_openHomePage(menuType)
+		{
+			//空白页
+			mainWorkArea.document.write("<style TYPE='text/css'>.mycontent {font: 9pt/14pt '宋体';}</style>");
+			mainWorkArea.document.write("<body style='margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;'></body>");
+			mainWorkArea.document.close();
+
+            if (DefaultPageNo == "") {
+                 if ( menuType == "C_A" || menuType == "C_B" || menuType == "C_C" || menuType == "C" ) {
+                CallFunc('CBANK_SHELL', 'Login/CreditHomePage.aspx', 'FORM', null, 'DefaultMenuType=' + menuType);
+		    } else {
+		        CallFunc('CBANK_SHELL', 'Login/HomePage.aspx', 'FORM', null, 'DefaultMenuType=' + menuType);
+		    }
+            }
+            //银证通快速通道
+            else if (DefaultPageNo == "105101" && (LoginType == "A" || LoginType == "B" || LoginType == "D") && (DefaultMenuType == "A" || DefaultMenuType == "B")) {
+                CallFunc('CBANK_INVEST', 'Invest/StockHome.aspx', 'FORM', null);
+            }
+            //银基通快速通道
+            else if (DefaultPageNo == "105202" && (LoginType == "A" || LoginType == "B" || LoginType == "D") && (DefaultMenuType == "A" || DefaultMenuType == "B")) {
+                CallFunc('CBANK_INVEST', 'Fund/FundHome.aspx', 'FORM', null);
+            }
+            //受托理财快速通道
+            else if (DefaultPageNo == "105402" && (LoginType == "A" || LoginType == "D") && DefaultMenuType == "A") {
+                CallFunc('CBANK_INVEST', 'Financing/QueryFundInAcc.aspx', 'FORM', null, 'AccType=A');
+            }
+            //金融超市快速通道
+            else if (DefaultPageNo == "000001" && (LoginType == "A" || LoginType == "B" || LoginType == "F")) {
+                CallFunc('CBANK_INVEST', 'Login/FinancePaymentHomepage.aspx', 'FORM', null, 'FinancePaymentXmlRequest=' + sFinancePaymentXmlRequest);
+            }
+            else {
+                CallFunc('CBANK_SHELL', 'Login/HomePage.aspx', 'FORM', null, 'DefaultMenuType=' + menuType);
+            }
+            
+            try{
+                var hasFuncJump = "";
+                if (hasFuncJump) {
+                    
+                }
+            }catch(e){
+                    CallFunc('CBANK_SHELL', 'Login/HomePage.aspx', 'FORM', null, 'DefaultMenuType=' + menuType);
+            }
+            
+		    if(window.event)
+		        window.event.returnValue = false;
+			return false;
+		}		
+				
+		//初始化快捷菜单
+		function initShortCutMenu(menuType)
+		{
+			/*var menuIds = ["A","B","C_A","C_B","C_C","D"];
+			
+			for(var i=0;i<menuIds.length;i++)
+			{
+				var menuId = "vmenu" + menuIds[i];
+				if(menuType==menuIds[i])
+				{
+					document.getElementById(menuId).style.display = "";
+				}else
+					document.getElementById(menuId).style.display = "none";
+			}
+			
+			var menuId = "vmenu" + menuType;
+			if( document.getElementById(menuId).innerHTML!="" )
+				return false;*/
+			
+					
+			var menu = AccMenuManager.getMenu("vmenu");
+			var needOpenUsual = false;
+			if( null == menu )
+			{
+				menu = AccMenuManager.createNewMenu("vmenu","headerOpen","headerClose","menuItem");
+				
+				var header = menu.addHeader("我的收藏","");
+				//var favSetEl = document.createElement("a");
+				//favSetEl.id = "lkFavSet";
+				//favSetEl.onclick = new Function("try{ CallFunc('CBANK_SHELL','Service/nv_Favorite.aspx','FORM',null);window.event.cancelBubble=true;return false;window.focus();}catch(e){}");
+				//favSetEl.innerHTML = "[定制]";
+				//header.firstChild.appendChild(favSetEl);
+				FavoriteMgr.Init(header.id);
+				FavoriteMgr.Update();
+				if(header.size()>1)
+					needOpenUsual = false;
+				else
+				{
+					header.hide();
+					needOpenUsual = true;
+				}
+				
+				var header1 = menu.addHeader("快速通道","");
+				var header = menu.addHeader("最近操作","");
+				HistoryOpMenuMgr.init("vmenu",header);
+				HistoryOpMenuMgr.clear();
+			}
+			var header1 = menu.getHeaderAt(1);
+			
+			var data2Send = new Object();
+			data2Send.ClientNo = GenShell_ClientNo;
+			data2Send.Command = "query";
+			data2Send.MenuType = menuType;
+			
+			var menuData = GenSendXmlRequest(data2Send,"/CmbBank_GenShell/UI/GenShellPC/Login/MngShortCut.aspx");
+			
+			if(menuData)
+			{
+				header1.setContent(menuData);
+			}
+			if(needOpenUsual)
+				header1.showAll();
+			if(window.event!=null)
+				window.event.returnValue = false;
+			return false;
+		}		
+		
+		function adjustFrameSize()
+		{
+		    
+		    var mainWorkArea=document.getElementById("mainWorkArea");
+            if(GetBrowserType()=="ie")
+                mainWorkArea.style.height = mainWorkArea.contentWindow.document.body.scrollHeight<400?400:mainWorkArea.contentWindow.document.body.scrollHeight;
+            else if(GetBrowserType()=="firefox")
+                mainWorkArea.style.height = mainWorkArea.contentWindow.document.documentElement.scrollHeight<400?400:mainWorkArea.contentWindow.document.documentElement.scrollHeight;
+            else
+            {
+                var contentHeight = 0;
+                var bodyChildNodes = mainWorkArea.contentWindow.document.body.childNodes;
+                for(var i=0 ; i<bodyChildNodes.length; i++)
+                {
+                    if(bodyChildNodes[i].nodeType==1)
+                    {
+                        contentHeight += bodyChildNodes[i].scrollHeight;
+                    }
+                }
+                mainWorkArea.style.height = contentHeight<300?400:contentHeight+ 100;
+            }
+		   // mainWorkArea.style.height = mainWorkArea.contentWindow.document.body.scrollHeight<400?400+0+"px":mainWorkArea.contentWindow.document.body.scrollHeight + 0 + "px";
+			mainWorkArea.contentWindow.document.body.style.overflowX='auto';
+			mainWorkArea.contentWindow.document.body.style.overflowY='auto';
+            if(GetBrowserType()!="ie")   //非IE浏览器点击mainWorkArea时隐藏菜单；onactivate="hideAllSubMenu();"非IE下不可用。
+                setFrameEvent();   
+            
+		}	
+					
+		
+		var sDisplay = "inline";
+		function swingShortCutMenu()
+		{
+			if(sDisplay == "inline")
+			{
+				sDisplay = "none";
+				document.getElementById("tdShortCutMenu").style.display = "none";
+				document.getElementById("splitter").style.backgroundImage = "url(../doc/Images/splitter_r.gif)";
+			}
+			else
+			{
+				sDisplay = "inline";
+				document.getElementById("tdShortCutMenu").style.display = "";
+				document.getElementById("splitter").style.backgroundImage = "url(../doc/Images/splitter_l.gif)";
+			}
+		}
+		
+		function onSearch()
+		{
+			var keyWordInput = document.getElementById("txtSearch");
+			if(keyWordInput.style.color=="gray")
+			{
+				CallFunc('CBANK_SHELL','Service/nv_FuncSearch.aspx','FORM',null);
+				return false;
+				alert("请输入关键字！");
+				keyWordInput.value = "";
+				keyWordInput.style.color="black";
+				keyWordInput.focus();
+				return false;
+			}
+			var keyWord = keyWordInput.value;
+			CallFunc('CBANK_SHELL','Service/nv_FuncSearch.aspx','FORM',null,'SearchKey='+keyWord);
+}
+
+function changeToEnglish() {
+    if (LoginType == "C_A") {
+        alert("英文版暂不支持信用卡");
+        return;
+    }
+    if (LoginType == "C_B" || LoginType == "C_C") {
+        //CallFunc('CBANK_SHELL', '../GenShellEnPC/Login/GenIndex.aspx', 'FORM', '_self');
+        alert("英文版暂不支持信用卡");
+        return;
+    }
+    CallFunc('CBANK_SHELL', '../GenShellPC_EN/Login/GenIndex.aspx', 'FORM', '_self');
+}
+
+    
+		function HuanYing()
+		{
+			if ((g_currMenuType == "C_A") || (g_currMenuType == "C_B") || (g_currMenuType == "C_C") || g_currMenuType == "C" ) {
+			    CallFunc('CBANK_SHELL','Login/CreditHomePage.aspx','FORM',null);
+			} else {
+			   CallFunc('CBANK_SHELL','Login/HomePage.aspx','FORM',null);
+			}
+		}
+    </script>
+
+</head>
+<body style="margin: 0px 2px" bgcolor="#ffffff" onload="initPage();" onunload="doUnload();">
+    <form name="TheForm" method="post" action="GenIndex.aspx" id="TheForm" onsubmit="window.event.returnValue = false;">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTQ1NTcwNzQwOA9kFgJmD2QWCAICDw8WBB4ISW1hZ2VVcmwFIC4uL2RvYy9JbWFnZXMvdGFiX0NvbW1vbkNhcmQuZ2lmHgdWaXNpYmxlZxYCHgdvbmNsaWNrBQ1yZXR1cm4gZmFsc2U7ZAIDDw8WAh8BaGRkAgQPDxYCHwFoZGQCBQ8PFgIfAWhkZGRgfRLEfaJkYkDIWFdX8kCt3oMLiA==" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBAKw09izDQLm9cyQAgKTl9GJAQL67MbiCU5qk1gXuWtr9FkxiKkymgCQHvow" />
+</div>
+    <table id="mainTable" height="100%" cellspacing="0" cellpadding="0" width="100%"
+        border="0">
+        <tr>
+            <td>
+                <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                    <tr style="height: 90px;">
+                        <td width="100%" background="../doc/images/headBg_02.gif" height="90">
+							<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+								<tr>
+									<td><IMG height="66" src="../doc/images/headBg_01.gif" width="328" border="0"></td>
+									<td width="100%" background="../doc/images/headBg_02.gif"></td>
+								</tr>
+							</table>
+							<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+								<tr>
+									<td height="24" width="100%" background="../doc/images/headBg_17.gif">
+									</td>
+								</tr>
+							</table>
+						</td>
+                        <td width="418">
+                            <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                <tr height="62">
+                                    <td width="100%" background="../doc/images/headBg_02.gif">
+                                        <table cellspacing="0" cellpadding="0" width="350" border="0">
+                                            <tr>
+                                                <td height="62" align="right" style="padding-right: 20px; padding-top: 6px" valign="top">
+                                                    <span id="linkLanguage"><a onclick="changeToEnglish();" href="#null" title="Change to English Version">
+                                                        English</a>&nbsp;|&nbsp;</span><a onclick="HuanYing();"
+                                                            href="#null">欢迎页</a>&nbsp;|&nbsp;<a onclick="CallFunc('CBANK_SHELL','Service/WebSiteMap.aspx','FORM',null);"
+                                                                href="#null">功能地图</a>&nbsp;|&nbsp;<a onclick="CallFunc('CBANK_SHELL','Login/HP_QueryLog.aspx','FORM',null);"
+                                                                    href="#null">日志查询</a>&nbsp;|&nbsp;<a onclick="doRelogin();" href="#null">重登录</a>&nbsp;|&nbsp;<a href="javascript:doExit();">退出</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr style="height: 28px;">
+                                    <td width="100%" background="../doc/images/headBg_16.gif">
+                                        <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                            <tr>
+                                                <td width="100%" background="../doc/images/headBg_18.gif">
+                                                </td>
+                                                <td height="28"><img id="imgCommonCard" onclick="return false;" src="../doc/Images/tab_CommonCard.gif" alt="一卡通" style="border-width:0px;CURSOR: pointer" /></td>
+											</tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td id="sysMenuTD" background="../doc/images/rootMenuBorder.gif" colspan="3" height="29">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#d9d9d9" colspan="3" height="2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" colspan="3" height="4">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="100%">
+                <table height="100%" cellspacing="0" cellpadding="0" width="100%" border="0">
+                    <tr>
+                        <td class="leftBg" id="tdShortCutMenu" valign="top" width="159" height="100%">
+                            <table cellspacing="0" cellpadding="0" width="159" border="0">
+                                <tr>
+                                    <td width="159" id="CreditImg" background="../doc/Images/onlineCS_bg.gif" height="102"><img id="ImgTelephone" style="cursor: pointer" onclick="var nWinLeft = (screen.width-600)/2;var nWinTop = (screen.height-450)/2;window.open(GenOnlineCustomerServiceURL,'WindowOpen','menubar=no,toolbar=no,location=no,directories=no,status=yes,resizable=no,scrollbars=no,width=600,height=450,top='+nWinTop+',left='+nWinLeft);" src="../doc/Images/95555.gif"></td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="white" height="4">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td background="../doc/Images/search_bg.jpg" height="57" align="center" style="vertical-align:middle;">
+                                        <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+                                        	<tr height="100%">
+                                        		<td style="vertical-align:middle;">
+                                        		<input id="txtSearch" maxlength="10" value="功能搜索" onkeypress="if(window.event.keyCode==13){onSearch();}"
+                                            onclick="if(this.style.color=='gray'){this.style.color='black';this.value='';}"
+                                            onblur="if(this.value==''){this.value='功能搜索';this.style.color='gray';}" style="border-right: gray 1px solid;
+                                            border-top: gray 1px solid; padding-left: 5px; margin-bottom:5px; margin-left:15px; border-left: gray 1px solid;
+                                            color: gray; padding-top: 4px; border-bottom: gray 1px solid; height: 22px" size="10">
+                                        		</td>
+                                        		<td style="vertical-align:middle;">
+                                        		<input type="image" src="../doc/Images/search_btn.jpg" onclick="onSearch();return false;" style="margin-bottom:2px; margin-right:11px;">
+                                        		</td>
+                                        	</tr>
+                                        </table>
+
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#0783df" style="height: 27px">
+                                        <ul id="vmenu">
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#0783df" height="4">
+                                        <font face="宋体"></font>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="14" onclick="swingShortCutMenu()" style="cursor: pointer" background="../doc/Images/splitter_bg.gif"
+                            height="100%" valign="top">
+                            <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                <tr>
+                                    <td height="125" colspan="3">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="2">
+                                    </td>
+                                    <td id="splitter" height="79" style="background-image:url(../doc/Images/splitter_l.gif);" width="9">
+                                    </td>
+                                    <td width="3">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top">
+                            <iframe onactivate="hideAllSubMenu();" id="mainWorkArea" name="mainWorkArea" marginwidth="0"
+                                marginheight="0" src="/CmbBank_GenShell/UI/Base/Blank.htm" frameborder="0" width="100%"
+                                 onload="adjustFrameSize()" height="400"></iframe>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 1px">
+                <input name="ClientNo" type="hidden" id="ClientNo" value="7D01FEAA34B9AD6A8385F3FA5F61CAAA484621415422214400002902" />
+                <input name="OnlineCustomerServiceURL" type="hidden" id="OnlineCustomerServiceURL" value="https://forum.cmbchina.com/pcs/Service.aspx?hdType=Normal&amp;hdToken=%3c%3fxml+version%3d%221.0%22+encoding%3d%22gb2312%22%3f%3e%3cToken%3e%3cIDType%3e0%3c%2fIDType%3e%3cID%3e6225885790980221%3c%2fID%3e%3cCardIDList%3e0%2f6225885790980221%3c%2fCardIDList%3e%3cName%3e%3c%2fName%3e%3cFrom%3eE%3c%2fFrom%3e%3cSystime%3e20130303+10%3a08%3a57%3c%2fSystime%3e%3cVerify_Type%3eHMAC_SHA1%3c%2fVerify_Type%3e%3cVerify%3ecbPpp%2btNP2xct%2b4cFLwbh4B0BPk%3d%3c%2fVerify%3e%3c%2fToken%3e" />
+                
+<script language="JavaScript" type="text/JavaScript">
+    var DIV_MSG_AdjustDIVSize = null;
+    var DIV_MSG_SelectedObj = null;
+    var DIV_MSG_ActionPage = "/CMBBANK_GENSHELL" + "/UI/Base/cn/Page/MessagePage4.aspx";
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //层的显示、隐藏以及大小调整
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function IsIe6() {
+        var browser = navigator.appName
+        var b_version = navigator.appVersion
+        var version = b_version.split(";");
+        var trim_Version = version[1].replace(/[ ]/g, "");
+        if (browser == "Microsoft Internet Explorer" && trim_Version == "MSIE6.0") {
+            return true;
+        }
+        return false;
+    }
+
+    function IsXhtmlDoctype() {
+        try {
+            var res = false;
+            /*********************************************
+            Just check for internet explorer.
+            **********************************************/
+            if (typeof document.namespaces != "undefined" && document.all[0].nodeType == 8) {
+                var strDocType = "" + document.all[0].nodeValue;
+
+                return strDocType.indexOf("XHTML") != -1;
+            }
+            else if (document.doctype != null) {
+                var strDocType = "" + document.doctype.toString();
+
+            }
+            return false;
+        } catch (e) {
+
+            return false;
+        }
+        return false;
+    }
+
+    var g_isXhtmlDocType = IsXhtmlDoctype();
+
+
+    var g_isIe6 = IsIe6();
+
+    function AdjustFrameWidth(id) {
+        var frameIdOBJECT = window.document.getElementById(id);
+        frameIdOBJECT.style.width = 539;
+    }
+
+    function AdjustFrameHeight(id) {
+        var frameIdDOM = window.frames[id];
+        var frameIdOBJECT = window.document.getElementById(id);
+        if (frameIdDOM.document.body.scrollHeight > 204)
+            frameIdOBJECT.style.height = frameIdDOM.document.body.scrollHeight;
+        else
+            frameIdOBJECT.style.height = 204;
+        var imgLefter = window.document.getElementById("imgLefter");
+        var imgRighter = window.document.getElementById("imgRighter");
+        imgLefter.height = frameIdOBJECT.offsetHeight;
+        imgRighter.height = frameIdOBJECT.offsetHeight;
+    }
+
+    function AdjustDIVSize(msgID, shieldID) {
+        var MsgDIV = window.document.getElementById(msgID);
+        var ShieldDIV = window.document.getElementById(shieldID);
+        if (MsgDIV != null) {
+            MsgDIV.style.width = 565; //MsgDIV.scrollWidth;
+            if (MsgDIV.scrollHeight > 263)
+                MsgDIV.style.height = MsgDIV.scrollHeight;
+            else
+                MsgDIV.style.height = 263;
+            MsgDIV.style.left = (window.document.body.clientWidth - MsgDIV.offsetWidth) / 2;
+            if (window.top == window && !g_isIe6 && g_isXhtmlDocType)
+                MsgDIV.style.top = 100;
+            else {
+                MsgDIV.style.position = "absolute";
+                MsgDIV.style.top = (window.document.body.clientHeight - MsgDIV.offsetHeight) / 2;
+            }
+        }
+
+        if (ShieldDIV != null) {
+            ShieldDIV.style.width = window.document.body.clientWidth;
+
+            if (window.document.body.scrollHeight > window.document.body.clientHeight) {
+                ShieldDIV.style.height = window.document.body.scrollHeight;
+            }
+            else {
+                ShieldDIV.style.height = window.document.body.clientHeight;
+            }
+            if (ShieldDIV.style.height < 432)
+                ShieldDIV.style.height = 432;
+        }
+    }
+
+    function AdjustMsgDIVSize() {
+        AdjustDIVSize('MsgDIV', '');
+    }
+
+    // 兼容旧式调用方式， 也可以直接通过传函数参数调用
+    function MsgShow() {
+        if (arguments.length > 0) param1 = "MsgXml='" + arguments[0] + "'";
+        else if (typeof (DIV_MSG_MsgXml) != 'undefined') param1 = "MsgXml='" + DIV_MSG_MsgXml + "'";
+        window.attachEvent("onload", MsgDIVShowPre);
+    }
+
+    function StopTabAndEnter() {
+        if (event.keyCode == 9 || event.keyCode == 13) {
+            event.returnValue = false;
+            return false;
+        }
+    }
+
+    function directShow(DIV_MSG_MsgXml) {
+        param1 = "MsgXml='" + DIV_MSG_MsgXml + "'";
+        MsgDIVShowPre();
+    }
+    function MsgDIVShowPre() {
+        var ShieldDIV = window.document.getElementById("ShieldDIV");
+        AdjustDIVSize('', 'ShieldDIV');
+        ShieldDIV.style.visibility = "visible";
+        AdjustFrameWidth('MsgIframe');
+        triggerFuncEq(DIV_MSG_ActionPage, 'FORM', 'MsgIframe', param1);
+        var content = window.document.getElementById("MsgIframe");
+        content.attachEvent("onload", MsgDIVShow);
+        document.attachEvent("onkeydown", StopTabAndEnter);
+    }
+
+    function MsgDIVShow() {
+        var MsgTable = window.document.getElementById("MsgTable");
+        MsgTable.style.display = "inline";
+        AdjustFrameHeight("MsgIframe");
+        AdjustDIVSize('MsgDIV', '');
+        var MsgDIV = window.document.getElementById("MsgDIV");
+        MsgDIV.style.visibility = "visible";
+        MsgDIV.onmousedown = grabObj;
+
+        ShieldDIV.onresize = AdjustMsgDIVSize;
+
+        DIV_MSG_AdjustDIVSize = window.setInterval("AdjustDIVSize('','ShieldDIV')", 100);
+    }
+
+    function MsgHide() {
+        var MsgDIV = window.document.getElementById("MsgDIV");
+        var MsgIframe = window.document.getElementById("MsgIframe");
+        var ShieldDIV = window.document.getElementById("ShieldDIV");
+
+        if (MsgDIV.style.visibility == "visible") {
+            MsgDIV.style.visibility = "hidden";
+            MsgDIV.style.width = 0;
+            MsgDIV.style.height = 0;
+            MsgDIV.onmousedown = null;
+            MsgIframe.style.width = "100%";
+            MsgIframe.style.height = "100%";
+
+            var MsgTable = window.document.getElementById("MsgTable");
+            MsgTable.style.display = "none";
+        }
+        if (ShieldDIV.style.visibility == "visible") {
+            ShieldDIV.style.visibility = "hidden";
+            ShieldDIV.style.width = 0;
+            ShieldDIV.style.height = 0;
+            ShieldDIV.onresize = null;
+        }
+
+        if (DIV_MSG_AdjustDIVSize != null) {
+            window.clearInterval(DIV_MSG_AdjustDIVSize);
+        }
+        MsgIframe.detachEvent("onload", MsgDIVShow);
+        document.detachEvent("onkeydown", StopTabAndEnter);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+    //层的移动
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+    function grabObj() {
+        var imgObjID = window.event.srcElement.id;
+        if (imgObjID == "imgHeader") {
+            DIV_MSG_SelectedObj = window.document.getElementById("MsgDIV");
+        }
+
+        offsetX = window.event.offsetX;
+        offsetY = window.event.offsetY;
+
+        var MsgDIV = window.document.getElementById("MsgDIV");
+        MsgDIV.onmousemove = dragObj;
+        MsgDIV.onmouseup = releaseObj;
+        // prevent further processing of mouseDown event so 
+        // that the Macintosh doesn't display the contextual 
+        // menu and lets dragging work normally.
+        return false;
+    }
+
+    function dragObj() {
+        if (DIV_MSG_SelectedObj) {
+            x = window.event.clientX - offsetX;
+            y = window.event.clientY - offsetY;
+
+            if (x < 0) x = 0;
+            if ((x + DIV_MSG_SelectedObj.offsetWidth) > window.document.body.clientWidth) x = window.document.body.clientWidth - DIV_MSG_SelectedObj.offsetWidth;
+
+            DIV_MSG_SelectedObj.style.pixelLeft = x;
+
+            if (y < 0) y = 0;
+            if ((y + DIV_MSG_SelectedObj.offsetHeight) > window.document.body.clientHeight) y = window.document.body.clientHeight - DIV_MSG_SelectedObj.offsetHeight;
+
+            DIV_MSG_SelectedObj.style.pixelTop = y;
+
+            //prevent further system response to dragging
+            window.event.returnValue = false;
+            return false
+        }
+    }
+
+    function releaseObj() {
+        if (DIV_MSG_SelectedObj) {
+            DIV_MSG_SelectedObj = null;
+            var MsgDIV = window.document.getElementById("MsgDIV");
+            MsgDIV.onmousemove = null;
+            MsgDIV.onmouseup = null;
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+    //其他事件处理
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+    function ChangeSrc(flag) {
+        var imgClose = window.document.getElementById("imgClose");
+        if (flag == 2) {
+            imgClose.src = "/CMBBANK_GENSHELL" + '/UI/Base/doc/Images/MessageNew9.gif';
+        }
+        else {
+            imgClose.src = "/CMBBANK_GENSHELL" + '/UI/Base/doc/Images/MessageNew12.gif';
+        }
+    }
+		
+		
+</script>
+<div id="ShieldDIV" style="z-index: 10; filter: alpha(opacity=10); left: 0px; visibility: hidden;
+    width: 0px; position: absolute; top: 0px; height: 0px">
+    <iframe id='ShieldIftame' frameborder="0" width="100%" height="100%" style="overflow: hidden"
+        scrolling="no" marginheight="0" marginwidth="0" src="/CMBBANK_GENSHELL/UI/Base/DefaultDiv.htm">
+    </iframe>
+</div>
+<div id="MsgDIV" style="z-index: 15; left: 0px; visibility: hidden; width: 0px; position: fixed;
+    top: 0px; height: 0px">
+    <table border="0" align="center" cellpadding="0" cellspacing="0" id="MsgTable" style="display: none">
+        <tr>
+            <td colspan="3">
+                <img src="/CMBBANK_GENSHELL/UI/Base/doc/Images/MessageNew7.jpg" id="imgHeader" alt=""/><div style="left: 535px; position: absolute; top: 10px">
+                    <img alt="" src="/CMBBANK_GENSHELL/UI/Base/doc/Images/MessageNew9.gif" id="imgClose" onmouseover="ChangeSrc(1);"
+                        onmouseout="ChangeSrc(2);" style="cursor: hand" onclick="MsgHide();"/>
+                        </div>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="/CMBBANK_GENSHELL/UI/Base/doc/Images/MessageNew10.gif" id="imgLefter" height="10" width="13"/></td>
+            <td>
+                <iframe id='MsgIframe' name='MsgIframe' frameborder="0" width="537" height="10" scrolling="no"
+                    marginheight="0" marginwidth="0" src="/CMBBANK_GENSHELL/UI/Base/Blank.htm">
+                </iframe>
+            </td>
+            <td>
+                <img src="/CMBBANK_GENSHELL/UI/Base/doc/Images/MessageNew11.gif" id="imgRighter" height="10" width="13" /></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <img src="/CMBBANK_GENSHELL/UI/Base/doc/Images/MessageNew8.jpg">
+            </td>
+        </tr>
+    </table>
+</div>
+            </td>
+        </tr>
+    </table>
+    <!-- CardInfoForType 记录用户有哪些类别的账号  -->
+    <input name="CardsInfoForType" type="hidden" id="CardsInfoForType" value="{A:true}" />
+    </form>
+</body>
+</html>

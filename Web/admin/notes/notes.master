@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/admin/admin.master" AutoEventWireup="true" CodeBehind="notes.master.cs" Inherits="notes_master" %>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .ui-jqgrid tr.jqgrow td.note-content { white-space: normal; padding: .4em; }
+        /*.ui-jqgrid .ui-userdata { height : auto;	}*/
+    </style>
+    <script type="text/javascript">
+        var $table;
+
+        $(document).ready(function () {
+
+            $table = $('#table01').jqGrid_init({
+                pager: true, toppager: false, loadonce: true, subGrid: false, shrinkToFit: true,
+                SelectCommand: function (postData) { return { 'Note<%=(int?)this.type%>Select': postData } },
+                UpdateCommand: function (postData) { return { 'Note<%=(int?)this.type%>Update': postData } },
+                InsertCommand: function (postData) { return { 'Note<%=(int?)this.type%>Insert': postData } },
+                useDefValues: true,
+
+                colModel: [
+                    { name: 'Action    ', label: '<%=lang["colAction    "]%>', colType: 'Buttons' },
+                    { name: 'ID        ', label: '<%=lang["colID        "]%>', colType: 'ID' },
+                    { name: 'CreateTime', label: '<%=lang["colCreateTime"]%>', fixed: true, align: 'left', colType: 'DateTime2', nowrap: false }, <% if (this.NoteState) { %>
+                    { name: 'NoteState ', label: '<%=lang["colNoteState "]%>', width: 040, colType: 'Locked', editoptions: {<%=enumlist<BU.NoteStates>("value")%> } }, <% } %>
+                    { name: 'Note      ', label: '<%=lang["colNote      "]%>', width: 300, sorttype: 'text', align: 'left', editable: true, edittype: 'textarea', editoptions: { rows: "3" }, classes: 'note-content' },
+                    { name: 'NoteType  ', label: '<%=lang["colNoteType  "]%>', width: 035, sorttype: 'int', editable: true, formatter: 'select', edittype: 'select', editoptions: { defaultValue: '<%=(int?)this.type%>',<%=enumlist<BU.NoteTypes>("value")%> }, hidden: true },
+                    { name: 'CreateUser', label: '<%=lang["colCreateUser"]%>', fixed: true, colType: 'ACNT2' },
+                    { name: 'ModifyTime', label: '<%=lang["colModifyTime"]%>', fixed: true, align: 'left', colType: 'DateTime2', nowrap: false },
+                    { name: 'ModifyUser', label: '<%=lang["colModifyUser"]%>', fixed: true, colType: 'ACNT2' },
+                ],
+            });
+
+            $('#btnAdd').button({ icons: { primary: 'ui-icon-plus' } }).click($table[0].addRow).css('border', 0);
+            $(window).resize(function () { $table.gridSize(window); }).trigger('resize');
+        });
+    </script>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body" runat="server">
+    <table id="table01">
+        <tr class="colModel">
+            <td name="Action">
+                <span property="action">
+                    <div class="edithide" action="editRow"    icon="ui-icon-pencil"><%=lang["Actions_Edit"]%></div>
+                    <div class="editshow" action="restoreRow" icon="ui-icon-cancel"><%=lang["Actions_Cancel"]%></div>
+                    <div class="editshow" action="saveRow"    icon="ui-icon-disk"  ><%=lang["Actions_Save"]%></div>
+                </span>
+            </td>
+        </tr>
+        <tr class="grid-option">
+            <td>
+                <div name="nav1">
+                    <button id="btnAdd"><%=lang["btnAdd"]%></button>
+                </div>
+                <div name="nav2" class="ui-widget-content" style=""></div>
+            </td>
+        </tr>
+    </table>
+</asp:Content>

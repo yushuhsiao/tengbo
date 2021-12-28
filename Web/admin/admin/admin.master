@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="web.masterpage" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="web" %>
+
+<!DOCTYPE html>
+<script runat="server">
+</script>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <!--[if lt IE 7]> <script src="js/ie7/IE7.js"></script> <![endif]-->
+    <!--[if lt IE 8]> <script src="js/ie7/IE8.js"></script> <![endif]-->
+    <!--[if lt IE 9]> <script src="js/ie7/IE9.js"></script> <![endif]-->
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.base.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.custom.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/jqModal.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/jqDnR.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/JsonXml.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/jquery.fmatter.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.common.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.filter.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.formedit.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.inlinedit.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.celledit.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.subgrid.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.treegrid.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.grouping.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.import.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.jqueryui.js"></script>
+    <script type="text/javascript" src="../js/jqgrid/grid.tbltogrid.js"></script>
+    <%--<script type="text/javascript" src="js/jquery.jqGrid.js"></script>--%>
+    <script type="text/javascript" src="../js/jquery-ui-i18n.js"></script>
+    <script type="text/javascript" src='<%=ResolveClientUrl("../js/i18n/grid.locale-"+ (lang["", "locale"] ?? "en") +".js")%>' ></script>
+    <link href="../css/themes/start/jquery-ui.css" rel="stylesheet" />
+    <link <%= "id=\"css_jquery_ui_theme\""%> href="../css/themes/<%=lang["", "ui_theme", 0] ?? "start" %>/jquery-ui.css" rel="stylesheet" />
+    <link href="../css/ui.jqgrid.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="../js/util.js"></script>
+    <script type="text/javascript" src="../js/admin.js"></script>
+    <script type="text/javascript" src="../js/admin2.js"></script>
+    <link href="../css/style.css" rel="stylesheet" />
+    <script type="text/jscript">
+        <%
+        List<CorpRow> corps = CorpRow.Cache.Instance.Rows;
+        Dictionary<int, string> c1 = new Dictionary<int, string>();
+        Dictionary<int, string> c2 = new Dictionary<int, string>();
+        foreach (CorpRow corp in corps)
+        {
+            if ((User.CorpID == corp.ID) || (User.CorpID == 0))
+            {
+                c1[corp.ID.Value] = corp.Name;
+                c2[corp.ID.Value] = corp.Name;
+            }
+        }
+        c2[-1] = "--";
+        %>
+
+        <% if (User.CorpID != 0) { %>$.fn.colTypes.CorpID.hidden = true;<% } %>
+        $.fn.colTypes.CorpID.editoptions = {
+            defaultValue: '<%=User.CorpID==0 ? web._Global.DefaultCorpID : User.CorpID %>',
+            value: [<%=api.SerializeObject(c1)%>][0]
+        }
+        $.fn.colTypes.CorpID.searchoptions = {
+            defaultValue: -1,
+            value: [<%=api.SerializeObject(c2)%>][0]
+        };
+
+        var enums = {
+            locked: {} <%=enumlist<BU.Locked>(",locked")%>
+            ,currency_code: {}<%=enumlist<BU.CurrencyCode>(",currency_code")%>
+        };
+
+        var lang = {
+        };
+
+        theme_change();
+    </script>
+    <asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <asp:ContentPlaceHolder id="body" runat="server"></asp:ContentPlaceHolder>
+</body>
+</html>

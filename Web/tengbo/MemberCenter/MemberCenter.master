@@ -1,0 +1,123 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/master/default.Master" AutoEventWireup="true" Inherits="SiteMasterPage" %>
+
+<%@ Register Src="02.ascx" TagPrefix="uc1" TagName="MemberCenter02" %>
+<%@ Register Src="04.ascx" TagPrefix="uc1" TagName="MemberCenter04" %>
+
+<script runat="server">
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (this.Member == null) Response.Redirect("~/");
+        this.RootMasterPage.ShowNotice = false;
+        this.RootMasterPage.ShowFooter = false;
+    }
+</script>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="init" runat="server"></asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        $.fn.block2 = function (opts) {
+            return this.block($.extend({
+                centerY: false,
+                message: '<div class="user_center_busy"></div>',
+                css: { top: 170 },
+                overlayCSS: { backgroundColor: '#000', opacity: 0.6 }
+            }, opts));
+        }
+
+        $.nav = function (nav_index) { return $('.nav_item[index="' + nav_index + '"]'); }
+        $.fn.navshow = function (content_index, data) {
+            //console.log(this);
+            //if (!$.nav.tmp) {
+            //    $.nav.tmp = $('<div></div>').appendTo(document.body);
+            //}
+            var user_center = $('.user_center');
+            var nav_item = this;
+            var nav_index = this.attr('index');
+            content_index = content_index || nav_index;
+
+            function show() {
+                $('.nav_item').removeClass('cur');
+                nav_item.show().addClass('cur');
+                $('.user_center_content', user_center).hide();
+                $('.user_center_content[index="' + content_index + '"]', user_center).show();
+                user_center.unblock();
+            }
+
+            var dst = $('.user_center_content[index="' + content_index + '"]', user_center);
+            if ((dst.attr('reload') != 'false') || (data)) {
+                user_center.block({
+                    message: '<div class="user_center_busy"></div>',
+                    centerY: false,
+                    css: { top: 170 },
+                    overlayCSS: { backgroundColor: '#000', opacity: 0.6 }
+                });
+                $('.loading-tmp').load2('<%=ResolveClientUrl("~/MemberCenter/load.aspx")%>', { nav_index: nav_index, content_index: content_index }, data, function () {
+                    $('.loading-tmp').children().each(function () {
+                        var $this = $(this);
+                        if ($this.hasClass('user_center_content')) {
+                            var content_index_1 = $this.attr('index');
+                            if (content_index_1) {
+                                $('.user_center > .user_center_content[index="' + content_index_1 + '"]').remove();
+                                $this.hide().appendTo($('.user_center'));
+                            }
+                        }
+                    });
+                    show();
+                });
+            }
+            else {
+                show();
+            }
+            return this;
+        }
+
+        //$(document).ready(function () {
+
+        //     $tmp = $('<div></div>').appendTo(document.body).hide();
+
+        //    $('.nav_item').click(function () { $(this).navshow(); });
+        //});
+    </script>
+  <style type="text/css">
+  .custom-combobox { position: relative; display: inline-block; }
+  .custom-combobox-toggle { position: absolute; top: 0; bottom: 0; margin-left: -1px; padding: 0; /* support: IE7 */ *height: 1.7em; *top: 0.1em; }
+  .custom-combobox-input { margin: 0; padding: 0.3em;}
+  </style>
+</asp:Content>
+<asp:Content ContentPlaceHolderID="body2" runat="server">
+    <div class="loading-tmp" style="display:none; "></div>
+    <div class="membercenter user-state-membercenter">
+        <div class="body">
+            <div class="user_nav_a">
+                <ul>
+                    <li class="nav_title">客户资料</li>
+                    <li class="nav_level">VIP级别: <%if (Member != null) {%><%=Member.GroupIDString()%><%}%></li>
+                    <li index="01" onclick="$(this).navshow()" class="nav_item ui-corner-all<% if (this.PageUrl==urls.MemberCenter){%> cur<%}%>">基本资料</li>
+                    <li index="02" onclick="$(this).navshow()" class="nav_item ui-corner-all">修改密码</li>
+                    <li index="03" onclick="$(this).navshow()" class="nav_item ui-corner-all">银行资料</li>
+                    <li index="04" onclick="$(this).navshow()" class="nav_item ui-corner-all">安全密码</li>
+                </ul>
+            </div>
+            <div class="user_center">
+                <asp:ContentPlaceHolder ID="user_center_content" runat="server"></asp:ContentPlaceHolder>
+                <uc1:MemberCenter02 runat="server" ID="MemberCenter02"  />
+                <uc1:MemberCenter04 runat="server" ID="MemberCenter04" />
+                <div class="clear"></div>
+            </div>
+            <div class="user_nav_b">
+                <ul>
+                    <li class="nav_title">财务中心</li>
+                    <li index="05" onclick="$(this).navshow()" class="nav_item ui-corner-all<% if (this.PageUrl==urls.Deposit || this.PageUrl==urls.YeePayFinish){%> cur<%}%>">会员存款</li>
+                    <li index="06" onclick="$(this).navshow()" class="nav_item ui-corner-all<% if (this.PageUrl==urls.Withdrawal  ){%> cur<%}%>">会员提款</li>
+                    <li index="07" onclick="$(this).navshow()" class="nav_item ui-corner-all<% if (this.PageUrl==urls.GameTran    ){%> cur<%}%>">户内转账</li>
+                    <li class="nav_title">客户报表</li>
+                    <li index="08" onclick="$(this).navshow()" class="nav_item ui-corner-all">存款记录</li>
+                    <li index="09" onclick="$(this).navshow()" class="nav_item ui-corner-all">洗码记录</li>
+                    <li index="10" onclick="$(this).navshow()" class="nav_item ui-corner-all">优惠记录</li>
+                    <li index="11" onclick="$(this).navshow()" class="nav_item ui-corner-all">提款记录</li>
+                    <li index="12" onclick="$(this).navshow()" class="nav_item ui-corner-all">额度记录</li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</asp:Content>

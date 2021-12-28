@@ -1,0 +1,1476 @@
+html {
+	margin: 0px; padding: 0px;
+}
+body {
+	margin: 0px; padding: 0px;
+}
+h1 {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+h2 {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+h3 {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+h4 {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+h5 {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+h6 {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+ul {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+ul li {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+div {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+form {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+dl {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+dd {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+dt {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+blockquote {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+p {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+fieldset {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+span {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+legend {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+label {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+img {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+q {
+	margin: 0px; padding: 0px; border: 0px currentColor;
+}
+h3 {
+	font-size: 12px;
+}
+ul {
+	list-style: none;
+}
+ul li {
+	list-style: none;
+}
+input {
+	font-size: 12px;
+}
+select {
+	font-size: 12px;
+}
+table {
+	margin: 0px; padding: 0px; border: 0px currentColor; border-collapse: collapse;
+}
+table th {
+	margin: 0px; padding: 0px; border: 0px currentColor; border-collapse: collapse;
+}
+table td {
+	margin: 0px; padding: 0px; border: 0px currentColor; border-collapse: collapse;
+}
+body {
+	background: rgb(20, 20, 20); font: 12px/160% Verdana, Tahoma, "·L?¶®¶Â", "Hiragino Sans GB", "·s§ºÊ^"; height: 100%; color: rgb(136, 136, 136); font-size-adjust: none; font-stretch: normal; -webkit-text-size-adjust: none;
+}
+a {
+	outline: 0px; color: rgb(153, 153, 153); text-decoration: none; cursor: pointer;
+}
+a:hover {
+	color: rgb(255, 186, 38); text-decoration: none;
+}
+a:active {
+	outline: 0px;
+}
+em {
+	margin: 0px; padding: 0px; font-style: normal;
+}
+i {
+	margin: 0px; padding: 0px; font-style: normal;
+}
+.red {
+	color: rgb(234, 66, 66);
+}
+a.red {
+	color: rgb(234, 66, 66);
+}
+.orange {
+	color: rgb(255, 186, 38);
+}
+a.orange {
+	color: rgb(255, 186, 38);
+}
+i.orange {
+	margin: 0px 3px;
+}
+.blue {
+	color: rgb(126, 206, 244);
+}
+a.blue {
+	color: rgb(126, 206, 244);
+}
+.green {
+	color: rgb(128, 194, 105);
+}
+a.green {
+	color: rgb(128, 194, 105);
+}
+.bold {
+	font-weight: 700;
+}
+.icos {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/kuaikai/ico_clock.gif") no-repeat 0px; width: 16px; height: 16px; line-height: 200px; overflow: hidden; display: inline-block;
+}
+.error {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/error.png") no-repeat 0px 0px; margin: 0px 3px; width: 16px; height: 16px; bottom: -3px; display: inline-block; position: relative;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.tok {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/tok.png") no-repeat 0px 3px; width: 16px; height: 16px; display: inline-block;
+}
+.tero {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/tok.png") no-repeat 0px -21px; width: 16px; height: 16px; display: inline-block;
+}
+.plaintB {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/plaint.png") no-repeat 0px 3px; width: 16px; height: 16px; display: inline-block;
+}
+.clear {
+	height: 0px; line-height: 0; overflow: hidden; clear: both; font-size: 0px;
+}
+.clearfix::after {
+	height: 0px; clear: both; display: block; visibility: hidden; content: ".";
+}
+.pt20 {
+	padding-top: 20px;
+}
+input[type='checkbox'] {
+	
+}
+input[type='radio'] {
+	
+}
+.wBreak {
+	overflow: hidden; word-break: break-all; word-wrap: break-word;
+}
+.wrapper {
+	width: 100%;
+}
+.header {
+	background: rgb(28, 28, 28); width: 100%; float: left;
+}
+.content {
+	background: rgb(28, 28, 28); width: 100%; padding-bottom: 15px; float: left;
+}
+.footer {
+	background: rgb(20, 20, 20); width: 100%; text-align: center; color: rgb(153, 153, 153); clear: both; border-top-color: rgb(16, 16, 16); border-top-width: 2px; border-top-style: solid; float: left;
+}
+.footInter {
+	padding: 16px 0px 50px; height: 60px; color: rgb(153, 153, 153);
+}
+.headerInner {
+	margin: 0px auto; width: 980px;
+}
+.main {
+	margin: 0px auto; width: 980px;
+}
+.footInter {
+	margin: 0px auto; width: 980px;
+}
+.main {
+	padding: 12px 0px 20px;
+}
+.h_top {
+	background: rgb(22, 22, 22); width: 100%; height: 29px; border-bottom-color: rgb(0, 0, 0); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.h_topinner {
+	margin: 0px auto; width: 980px; height: 29px;
+}
+.h_top_l {
+	width: 210px; padding-top: 5px; float: left;
+}
+.h_top_l a {
+	float: left; display: inline-block;
+}
+.h_top_l th a {
+	float: none;
+}
+.headInner {
+	padding-top: 10px;
+}
+.h_top_l .all_lottery {
+	padding: 0px 5px; color: silver; margin-left: 10px; float: left; display: inline-block; position: relative; z-index: 200;
+}
+.all_lottery a.top {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/ico_d.gif") no-repeat right 7px; padding-right: 12px; text-decoration: none; cursor: default;
+}
+.hover.all_lottery {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/all_lottery.png") repeat-x top rgb(255, 187, 42);
+}
+.hover.all_lottery a.top {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/drop.gif") no-repeat right 7px; color: rgb(0, 0, 0);
+}
+.all_lottery i {
+	color: rgb(255, 186, 38);
+}
+.hover.all_lottery i {
+	color: rgb(209, 0, 0);
+}
+.all_lottery .drop {
+	background: rgb(255, 204, 99); border-radius: 0px 3px 3px; left: 0px; top: 19px; width: 280px; position: absolute; z-index: 9999999; min-height: 110px; box-shadow: 0px 6px 5px 3px #000;
+}
+.drop table {
+	border: 0px currentColor; width: 100%; color: rgb(0, 0, 0);
+}
+.drop table th {
+	background: rgb(255, 186, 38); border: 1px solid rgb(255, 228, 173); width: 54px; text-align: center; font-size: 13px; font-weight: 700;
+}
+.drop table td {
+	background: rgb(255, 204, 99); padding: 5px 0px; border: 1px solid rgb(255, 228, 173);
+}
+.drop table th span {
+	width: 100%; display: inline-block;
+}
+.drop tr td span {
+	width: 50%; height: 26px; line-height: 26px; float: left; display: inline-block;
+}
+.drop table a {
+	color: rgb(0, 0, 0); padding-left: 10px;
+}
+.drop table th a {
+	padding: 0px;
+}
+.drop tr a:hover {
+	color: rgb(209, 0, 0);
+}
+.drop table td a.new b {
+	bottom: -2px; margin-left: 2px; position: relative;
+}
+.drop table td a.jia b {
+	bottom: -2px; margin-left: 2px; position: relative;
+}
+.drop table td a.new b {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/new_icon.png") no-repeat 0px 0px; width: 14px; height: 14px; display: inline-block;
+}
+.drop table td a.jia b {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/new_icon.png") no-repeat 0px -45px; width: 27px; height: 14px; display: inline-block;
+}
+.vip {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/vip.png") no-repeat right; padding-right: 30px;
+}
+.login_on b.vip {
+	background-position: right 1px;
+}
+.Go_phone {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/phone.png") no-repeat left 5px; color: silver; padding-top: 1px; padding-left: 14px; margin-left: 15px; float: left;
+}
+.h_top_r {
+	padding-top: 5px; float: right; white-space: nowrap;
+}
+.h_top_r div.login_bg {
+	width: 114px; height: 20px; text-align: center; display: inline-block;
+}
+.h_top_r div.login_bg a {
+	margin: 0px 5px; color: rgb(241, 176, 37); cursor: pointer;
+}
+.login_on {
+	color: silver;
+}
+.login_on a {
+	color: silver;
+}
+.login_on b {
+	color: rgb(255, 186, 38); font-weight: 700; margin-right: 10px;
+}
+.login_on a:hover {
+	color: rgb(255, 186, 38);
+}
+a.Go_phone:hover {
+	color: rgb(255, 186, 38);
+}
+.myAccount {
+	color: silver;
+}
+.mybet {
+	color: silver;
+}
+a.logout {
+	color: silver;
+}
+.mybet {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/icon_d.png") no-repeat right; cursor: default;
+}
+.login_bg {
+	float: left; display: inline-block;
+}
+.login_on {
+	float: left; display: inline-block;
+}
+.mybet {
+	float: left; display: inline-block;
+}
+.Pop {
+	float: left; display: inline-block;
+}
+.myAccount {
+	float: left; display: inline-block;
+}
+.mybet {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/kuaikai/shop_cart.png") no-repeat 0px 2px; width: 130px; height: 18px; line-height: 18px; padding-left: 16px; margin-left: 20px; cursor: default;
+}
+.mybet em {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/icon_d.png") no-repeat right; padding-right: 9px; font-style: normal; margin-left: 3px; cursor: default;
+}
+.myAccount .Pop {
+	float: right; position: relative; z-index: 9992;
+}
+.mybetPop {
+	top: 18px; width: 250px; height: auto; right: 30px; display: none; position: absolute;
+}
+.mybetPop a:hover {
+	text-decoration: none;
+}
+.myAccount {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/icon_d.png") no-repeat 62px; border: 1px solid rgb(22, 22, 22); width: 65px; height: 18px; text-align: center; padding-right: 7px; margin-left: 10px; cursor: default;
+}
+div.myAccount:hover {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/icon_d.png") no-repeat 62px rgb(64, 64, 64); border: 1px solid rgb(76, 76, 76); color: rgb(192, 192, 192);
+}
+div.active.myAccount {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/icon_d.png") no-repeat 62px rgb(64, 64, 64); border: 1px solid rgb(76, 76, 76); color: rgb(192, 192, 192);
+}
+.myAccount .mybetPop {
+	border-width: 1px; left: auto; right: -8px;
+}
+.mybetPop .L {
+	height: 116px; float: right;
+}
+.mybetPop .R {
+	height: 116px; float: right;
+}
+.mybetPop .L {
+	background: rgb(42, 42, 42); border-width: 1px 0px 1px 1px; border-style: solid none solid solid; border-color: rgb(76, 76, 76) currentColor rgb(76, 76, 76) rgb(76, 76, 76); width: 165px; text-align: left;
+}
+.mybetPop .L ul {
+	padding: 12px 5px 5px 10px;
+}
+.mybetPop .L ul a {
+	color: rgb(255, 186, 38); margin-right: 14px;
+}
+.mybetPop .L ul li {
+	color: rgb(192, 192, 192); background-image: none;
+}
+.mybetPop .L ul span {
+	color: rgb(192, 192, 192); background-image: none;
+}
+.mybetPop .L ul a:hover {
+	text-decoration: underline;
+}
+.mybetPop .R {
+	background: rgb(64, 64, 64); border: 1px solid rgb(76, 76, 76); width: 72px;
+}
+.mybetPop .R a {
+	text-align: center; color: rgb(220, 220, 220); line-height: 28px; border-bottom-color: rgb(50, 50, 50); border-bottom-width: 1px; border-bottom-style: solid; display: block;
+}
+.mybetPop .R a:hover {
+	color: rgb(255, 186, 38);
+}
+.headerInner h1 {
+	width: 174px; height: 74px; float: left;
+}
+.headerInner h1 a {
+	line-height: 300em; overflow: hidden; float: left; display: block;
+}
+a.logo {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/logo.png") no-repeat 0px 0px; width: 174px; height: 74px; overflow: hidden;
+}
+.cqsscLogo {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/cqsscLogo.png") no-repeat left top; width: 190px; height: 61px;
+}
+.sd11x5Logo {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/kuaikai/sd11x5/sd11x5Logo.png") no-repeat; width: 190px; height: 61px;
+}
+.tjsscLogo {
+	width: 190px; height: 61px;
+}
+.cqkl10Logo {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/cqkl10/cqkl10Logo.png") no-repeat; width: 190px; height: 61px;
+}
+.cq11x5cLogo {
+	width: 190px; height: 61px; background-image: url("http://64.19.142.13/static.shishicai.cn/images/kuaikai/cq11x5/cq11x5Logo.png");
+}
+.gdkl10Logo {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/gd10f/gdkl10Logo.png") no-repeat; width: 190px; height: 61px;
+}
+.gd11x5Logo {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/gd11x5/gd11x5Logo.png") no-repeat; width: 190px; height: 61px;
+}
+.jx11x5Logo {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/kuaikai/jx11x5/jx11x5Logo.png") no-repeat; width: 190px; height: 61px;
+}
+.jxsscLogo {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/jx/jxsscLogo.png") no-repeat; width: 190px; height: 61px;
+}
+.jsk3Logo {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/kuaikai/jsk3/jsk3Logo.png") no-repeat; width: 190px; height: 61px;
+}
+.hbk3Logo {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/kuaikai/hbk3/hbk3Logo.png") no-repeat; width: 190px; height: 61px;
+}
+.sdqyhLogo {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/kuaikai/sdqyh/sdqyhlogo.png") no-repeat; width: 190px; height: 61px;
+}
+.hljsscLogo {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/kuaikai/hlj/hljsscLogo.png") no-repeat; width: 190px; height: 61px;
+}
+.menu {
+	height: 74px; float: left;
+}
+.menu li {
+	border-left-color: rgb(0, 0, 0); border-left-width: 1px; border-left-style: solid; float: left;
+}
+.menu li a {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/menu.png") no-repeat; border: 0px currentColor; width: 123px; height: 74px; line-height: 300em; overflow: hidden; float: left; display: block;
+}
+.menu li.a0 a {
+	
+}
+.menu li.a0 a:hover {
+	background-position: 0px -151px;
+}
+.menu li.a0 a.active {
+	background-position: 0px -75px;
+}
+.menu li.a1 a {
+	background-position: -124px 0px;
+}
+.menu li.a1 a:hover {
+	background-position: -124px -151px;
+}
+.menu li.a1 a.active {
+	background-position: -124px -75px;
+}
+.menu li.a2 a {
+	background-position: -248px 0px;
+}
+.menu li.a2 a:hover {
+	background-position: -248px -151px;
+}
+.menu li.a2 a.active {
+	background-position: -248px -75px;
+}
+.menu li.a3 a {
+	background-position: -372px 0px;
+}
+.menu li.a3 a:hover {
+	background-position: -372px -151px;
+}
+.menu li.a3 a.active {
+	background-position: -372px -75px;
+}
+.menu li.a4 a {
+	background-position: -496px 0px;
+}
+.menu li.a4 a:hover {
+	background-position: -496px -151px;
+}
+.menu li.a4 a.active {
+	background-position: -496px -75px;
+}
+.menu li.m_r {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/m_r.png") no-repeat left top; width: 185px; height: 74px;
+}
+.playMenu {
+	height: 61px; float: left;
+}
+.playMenu li {
+	border-width: 0px 0px 0px 1px; border-style: none none none solid; border-color: currentColor currentColor currentColor rgb(0, 0, 0); font-family: "·L?¶®¶Â","§ºÊ^","¶ÂÊ^"; float: left;
+}
+.playMenu li a {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/playMenu.png") repeat-x 0px 0px; border: 0px currentColor; width: 83px; height: 61px; text-align: center; color: silver; line-height: 60px; font-size: 16px; font-weight: 700; text-decoration: none; float: left; display: block;
+}
+.playMenu li a:hover {
+	background-position: 0px -129px; color: rgb(255, 186, 38); text-decoration: none;
+}
+.playMenu li a.active {
+	background-position: 0px -64px; color: rgb(255, 186, 38); text-decoration: none;
+}
+.playMenu li.m_r {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/m_r2.png") no-repeat left top; width: 116px; height: 61px; overflow: hidden;
+}
+.footInter .L {
+	text-align: left; color: grey; line-height: 200%; float: left;
+}
+.footInter .L p a.qq {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/qq.png") no-repeat left; padding-left: 18px;
+}
+.footInter .L p.text {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/text.png") no-repeat left; color: rgb(102, 102, 102); padding-left: 180px;
+}
+.footInter .L p em {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/footer.png") no-repeat -3px -4px; color: grey; padding-right: 20px; padding-bottom: 5px; padding-left: 20px; margin-left: 15px;
+}
+.footInter .L p.text span {
+	width: 1px; height: 1px; line-height: 300em; overflow: hidden; font-size: 1px; display: inline-block;
+}
+.footInter .L a {
+	padding: 2px; color: rgb(160, 160, 160); margin-right: 15px;
+}
+.footInter .L a:hover {
+	color: rgb(255, 186, 38);
+}
+.footInter .R {
+	float: right;
+}
+.footInter .R a {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/footer.png") no-repeat; margin: 0px 10px; width: 37px; height: 37px; display: inline-block;
+}
+.footInter .R a.safely {
+	background-position: -3px -84px;
+}
+.footInter .R a.alipay {
+	background-position: -64px -84px;
+}
+.footInter .R a.tenpay {
+	background-position: -126px -84px;
+}
+.footInter .R a.healthy {
+	background-position: -187px -84px;
+}
+.footInter .R a._18 {
+	background-position: -246px -84px;
+}
+.footInter .R a.safely2 {
+	background-position: -301px -84px;
+}
+.theCurrent {
+	width: 978px; height: 22px; text-align: left; color: rgb(160, 160, 160); line-height: 12px; float: left;
+}
+.theCurrent span {
+	padding-left: 15px; display: inline-block;
+}
+.theCurrent a {
+	padding: 0px 3px; height: 32px; color: rgb(160, 160, 160);
+}
+.theCurrent i {
+	padding: 0px 3px; height: 32px; font-family: Verdana,Geneva,sans-serif;
+}
+.theCurrent a:hover {
+	color: rgb(255, 186, 38);
+}
+.butt {
+	-webkit-user-select: none; -moz-user-select: none;
+}
+.butt span {
+	-webkit-user-select: none; -moz-user-select: none;
+}
+.butt_s {
+	-webkit-user-select: none; -moz-user-select: none;
+}
+.butt_s span {
+	-webkit-user-select: none; -moz-user-select: none;
+}
+a.sub {
+	-webkit-user-select: none; -moz-user-select: none;
+}
+a.sub span {
+	-webkit-user-select: none; -moz-user-select: none;
+}
+a.csbtn {
+	-webkit-user-select: none; -moz-user-select: none;
+}
+a.csbtn span {
+	-webkit-user-select: none; -moz-user-select: none;
+}
+a.bet {
+	-webkit-user-select: none; -moz-user-select: none;
+}
+a.bet span {
+	-webkit-user-select: none; -moz-user-select: none;
+}
+.input {
+	background: rgb(161, 161, 161); padding: 2px 4px; border-radius: 3px; border: 1px solid rgb(28, 28, 28); width: 190px; height: 22px; font-size: 14px;
+}
+.input2 {
+	background: rgb(70, 70, 70); padding: 2px 4px; border-radius: 3px; border: 1px solid rgb(0, 0, 0); width: 190px; height: 22px; color: rgb(153, 153, 153); font-size: 14px;
+}
+.code {
+	background: rgb(161, 161, 161); padding: 2px 4px; border-radius: 3px; border: 1px solid rgb(28, 28, 28); width: 90px; height: 22px; color: rgb(0, 0, 0); font-size: 14px;
+}
+.butt {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat left 0px; height: 32px; color: rgb(0, 0, 0); line-height: 32px; padding-left: 25px; font-size: 16px; font-weight: 700; text-decoration: none; display: inline-block; cursor: pointer;
+}
+.butt span {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat right 0px; height: 32px; line-height: 32px; padding-right: 25px; display: inline-block;
+}
+.butt:hover {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat left -76px; color: rgb(0, 0, 0);
+}
+.butt:hover span {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat right -76px;
+}
+.butt:active {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat left -118px; color: rgb(0, 0, 0);
+}
+.active.butt {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat left -118px; color: rgb(0, 0, 0);
+}
+.butt:active span {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat right -118px;
+}
+.active.butt span {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat right -118px;
+}
+.disabled {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat left -36px; color: rgb(102, 102, 102); cursor: default;
+}
+.disabled:hover {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat left -36px; color: rgb(102, 102, 102); cursor: default;
+}
+.disabled span {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat right -36px; cursor: default;
+}
+.disabled:hover span {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat right -36px; cursor: default;
+}
+.disabled span:hover {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/but_bg.png") no-repeat right -36px; cursor: default;
+}
+.butt_s {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/but_bg3.png") no-repeat left 0px; height: 22px; color: rgb(0, 0, 0); line-height: 22px; padding-left: 16px; display: inline-block; cursor: pointer;
+}
+.butt_s span {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/but_bg3.png") no-repeat right 0px; height: 22px; right: -6px; line-height: 22px; padding-right: 20px; display: inline-block; position: relative;
+}
+.butt_s:hover {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/but_bg3.png") no-repeat left -76px; color: rgb(0, 0, 0);
+}
+.butt_s:hover span {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/but_bg3.png") no-repeat right -76px;
+}
+.butt_s:active {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/but_bg3.png") no-repeat left -118px; color: rgb(0, 0, 0);
+}
+.active.butt_s {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/but_bg3.png") no-repeat left -118px; color: rgb(0, 0, 0);
+}
+.butt_s:active span {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/but_bg3.png") no-repeat right -118px;
+}
+.active.butt_s span {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/but_bg3.png") no-repeat right -118px;
+}
+a.btn_sel {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/btn_sel.png") no-repeat; width: 60px; height: 22px; text-align: center; color: rgb(0, 0, 0); line-height: 21px; text-decoration: none; display: inline-block;
+}
+a.btn_sel:hover {
+	background-position: 0px -42px; color: rgb(0, 0, 0); text-decoration: none;
+}
+a.btn_sel:active {
+	background-position: 0px -84px; color: rgb(0, 0, 0); text-decoration: none;
+}
+a.csbtn {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/index/but_bg3.png") no-repeat; width: 85px; height: 22px; text-align: center; color: rgb(0, 0, 0); line-height: 21px; margin-top: 10px; margin-left: 15px; display: inline-block;
+}
+a.csbtn:hover {
+	background-position: 0px -76px;
+}
+a.csbtn:active {
+	background-position: 0px -118px;
+}
+a.disabled.csbtn {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/index/but_bg3.png") no-repeat 0px -36px; color: rgb(102, 102, 102);
+}
+a.disabled.csbtn:hover {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/index/but_bg3.png") no-repeat 0px -36px; color: rgb(102, 102, 102);
+}
+a.disabled.csbtn span {
+	
+}
+a.sub {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/sub.png") no-repeat 0px 0px; height: 33px; text-align: center; line-height: 31px; padding-left: 20px; font-size: 15px; display: inline-block;
+}
+a.sub span {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/sub.png") no-repeat 100% 0px; height: 33px; right: -10px; color: rgb(0, 0, 0); text-indent: -10px; padding-right: 20px; font-family: "·L?¶®¶Â",Arial,Verdana; font-weight: 700; float: left; display: inline-block; position: relative;
+}
+a.sub:hover {
+	background-position: 0px -67px;
+}
+a.sub:hover span {
+	background-position: 100% -67px;
+}
+a.sub:active {
+	background-position: 0px -135px;
+}
+a.sub:active span {
+	background-position: 100% -135px;
+}
+a.disabled.sub {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/sub.png") no-repeat 0px -202px; color: rgb(102, 102, 102);
+}
+a.disabled.sub:hover {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/sub.png") no-repeat 0px -202px; color: rgb(102, 102, 102);
+}
+a.disabled.sub span {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/sub.png") no-repeat 100% -202px; color: rgb(102, 102, 102);
+}
+a.disabled.sub:hover span {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/sub.png") no-repeat 100% -202px; color: rgb(102, 102, 102);
+}
+a.stopSell {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/stopSell.png") no-repeat; width: 137px; height: 30px; font-size: 0px; display: inline-block; cursor: default;
+}
+.subNav {
+	width: 978px; height: 36px; color: rgb(179, 179, 179); line-height: 36px; border-top-color: currentColor; border-top-width: 0px; border-top-style: none; float: left;
+}
+.subNav ul {
+	height: 26px; margin-top: 4px; margin-left: 15px; float: left; display: inline-block;
+}
+.subNav ul li {
+	font-size: 14px; font-weight: 700; float: left;
+}
+.subNav ul li a {
+	width: 100px; height: 25px; text-align: center; color: rgb(193, 193, 193); line-height: 25px; text-decoration: none; float: left; display: inline-block;
+}
+.subNav ul li a:hover {
+	color: rgb(255, 186, 0);
+}
+.subNav ul li a.active {
+	color: rgb(255, 186, 0);
+}
+.select {
+	line-height: 20px; margin-left: 2px; display: inline-block; position: relative; z-index: 99;
+}
+.select .selectSpan {
+	margin: 0px; height: 20px; color: rgb(255, 255, 255); line-height: 19px; font-weight: 400; float: none; display: inline-block;
+}
+.select .selectSpan strong {
+	margin: 0px; height: 20px; color: rgb(255, 255, 255); line-height: 19px; font-weight: 400; float: none; display: inline-block;
+}
+.select .selectSpan {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/select.png") no-repeat 0px 0px; padding-left: 10px;
+}
+.select .selectSpan strong {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/select.png") no-repeat 100% 0px; width: auto; height: auto; padding-right: 20px; cursor: default;
+}
+ul.selectUl {
+	background: rgb(65, 65, 65); padding: 5px 0px; border: 2px solid rgb(102, 102, 102); left: 1px; top: 0px; font-weight: 400; margin-top: 18px; display: none; position: absolute; z-index: 999; box-shadow: 0px 5px 5px 0px #000;
+}
+ul.show.selectUl {
+	display: block;
+}
+.selectUl li strong {
+	color: rgb(153, 153, 153); float: none;
+}
+.selectUl li {
+	margin: 0px; padding: 0px; text-align: left; line-height: 20px; display: block; white-space: nowrap; cursor: default;
+}
+.selectUl li a {
+	margin: 0px; padding: 0px 5px 0px 15px; border: 0px currentColor; height: 20px; color: rgb(193, 193, 193); line-height: 20px; text-decoration: none; display: block; white-space: nowrap; cursor: pointer;
+}
+.selectUl li a:hover {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/select.png") repeat-x -40px -23px; color: rgb(0, 0, 0); text-decoration: none; _color: #ffba26;
+}
+.selectUl li a.selected {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/select.png") repeat-x -40px -23px; color: rgb(0, 0, 0); text-decoration: none; _color: #ffba26;
+}
+.selectUl li i {
+	margin: 0px; padding: 0px 5px; border: 0px currentColor; height: 20px; color: rgb(170, 170, 170); line-height: 20px; font-weight: 700; display: block;
+}
+.select2 {
+	line-height: 20px; padding-right: 5px; margin-left: 2px; display: inline-block; position: relative; z-index: 99;
+}
+.select2 .selectSpan {
+	margin: 0px; height: 20px; color: rgb(0, 0, 0); line-height: 19px; font-weight: 400; float: none; display: inline-block;
+}
+.select2 .selectSpan strong {
+	margin: 0px; height: 20px; color: rgb(0, 0, 0); line-height: 19px; font-weight: 400; float: none; display: inline-block;
+}
+.select2 .selectSpan {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/select2.png") no-repeat 0px 0px; padding-left: 10px;
+}
+.select2 .selectSpan strong {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/select2.png") no-repeat 100% 0px; width: auto; height: auto; right: -2px; padding-right: 20px; position: relative; cursor: default;
+}
+.select2 ul.selectUl {
+	background: rgb(255, 255, 255); padding: 5px 0px; border: 1px solid rgb(149, 149, 149); left: 1px; top: 0px; font-weight: 400; margin-top: 18px; display: none; position: absolute; z-index: 999; box-shadow: 0px 5px 5px 0px #000;
+}
+.select2 ul.show.selectUl {
+	display: block;
+}
+.select2 .selectUl li strong {
+	color: rgb(0, 0, 0); float: none;
+}
+.select2 .selectUl li {
+	margin: 0px; padding: 0px; text-align: left; line-height: 20px; display: block; white-space: nowrap; cursor: default;
+}
+.select2 .selectUl li a {
+	margin: 0px; padding: 0px 5px 0px 15px; border: 0px currentColor; height: 20px; color: rgb(0, 0, 0); line-height: 20px; text-decoration: none; display: block; white-space: nowrap; cursor: pointer;
+}
+.select2 .selectUl li a:hover {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/select.png") repeat-x -40px -23px; color: rgb(0, 0, 0); text-decoration: none; _color: #ffba26;
+}
+.select2 .selectUl li a.selected {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/select.png") repeat-x -40px -23px; color: rgb(0, 0, 0); text-decoration: none; _color: #ffba26;
+}
+.select2 .selectUl li i {
+	margin: 0px; padding: 0px 5px; border: 0px currentColor; height: 20px; color: rgb(170, 170, 170); line-height: 20px; font-weight: 700; display: block;
+}
+.jscroll-c {
+	padding-right: 11px; position: relative; z-index: 9999;
+}
+.jscroll-e {
+	background-position: 0%; top: 0px; width: 10px; height: 100%; right: 0px; overflow: hidden; border-left-color: rgb(58, 58, 58); border-left-width: 1px; border-left-style: solid; position: absolute; z-index: 10000; background-attachment: scroll; background-repeat: repeat; background-size: auto; background-origin: padding-box; background-clip: border-box; background-color: rgb(58, 58, 58); -moz-user-select: none;
+}
+.jscroll-h {
+	border-radius: 6px; border: 0px currentColor; left: 0px; width: 9px; position: absolute; background-color: rgb(27, 27, 27); -moz-user-select: none;
+}
+.jscroll-h:hover {
+	background: rgb(160, 160, 160); border: 0px currentColor;
+}
+.bet {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/bet.png") no-repeat 0px 0px; width: 139px; height: 40px; line-height: 300em; overflow: hidden; font-size: 1px; display: inline-block;
+}
+.bet:hover {
+	background-position: 0px -53px;
+}
+.bet:active {
+	background-position: 0px -107px;
+}
+.disabled.bet {
+	background-position: 0px -211px;
+}
+.stopSale.bet {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/bet.png") no-repeat 0px -160px; width: 140px; height: 40px; line-height: 300px; overflow: hidden; font-size: 1px; display: inline-block; cursor: default;
+}
+.stopSale {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/bet.png") no-repeat 0px -160px; width: 140px; height: 40px; line-height: 300px; overflow: hidden; font-size: 1px; display: inline-block; cursor: default;
+}
+.stopSale:hover {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/bet.png") no-repeat 0px -160px; width: 140px; height: 40px; line-height: 300px; overflow: hidden; font-size: 1px; display: inline-block; cursor: default;
+}
+a.goBet {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/gobet.png") no-repeat 0px -36px; width: 139px; height: 41px; line-height: 100em; overflow: hidden; display: inline-block;
+}
+a.GObet {
+	background: url("http://64.19.142.10/static.shishicai.cn/images/common/gobet.png") no-repeat 0px -36px; width: 139px; height: 41px; line-height: 100em; overflow: hidden; display: inline-block;
+}
+.feedback {
+	top: 120px; width: 21px; height: 188px; position: fixed; z-index: 9990;
+}
+.feedback a.feed {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/feedback.png") no-repeat 0px 0px; top: 0px; width: 20px; height: 57px; right: 0px; line-height: 300em; overflow: hidden; display: block; position: absolute;
+}
+.feedback a.newhelp {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/feedback.png") no-repeat 0px 0px; top: 0px; width: 20px; height: 57px; right: 0px; line-height: 300em; overflow: hidden; display: block; position: absolute;
+}
+.feedback a.on.feed {
+	background-position: -21px 0px;
+}
+.feedback a.newhelp {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/feedback.png") no-repeat 0px -63px; top: 58px;
+}
+.feedback a.on.newhelp {
+	background-position: -21px 0px;
+}
+.feedbkPop {
+	background: rgb(255, 204, 99); border: 10px solid rgb(255, 204, 99); width: 490px; height: 162px; right: 21px; display: none; position: absolute;
+}
+.show.feedbkPop {
+	display: block;
+}
+.feedbkPop textarea {
+	background: rgb(247, 247, 247); padding: 5px; border: 1px solid rgb(165, 137, 80); width: 478px; height: 120px; font-size: 12px;
+}
+textarea.grey {
+	color: rgb(153, 153, 153);
+}
+input.grey {
+	color: rgb(153, 153, 153);
+}
+.feedbkPop p {
+	padding-top: 5px;
+}
+.feedbkPop p input {
+	background: rgb(247, 247, 247); padding: 0px 4px; border: 1px solid rgb(165, 137, 80); width: 124px; height: 20px; line-height: 20px; float: left;
+}
+.feedbkPop p span {
+	color: rgb(209, 0, 0); padding-right: 20px; float: right;
+}
+.feedbkPop p button {
+	float: right; cursor: pointer;
+}
+.feedbkPop p a.btn_sel {
+	float: right; cursor: pointer;
+}
+.loading {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/loading.gif") no-repeat center; height: 50px;
+}
+.newhelpWrap {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/newhelp.png") no-repeat; top: 0px; width: 920px; height: 550px; position: absolute;
+}
+.nhDialog {
+	width: 450px; height: 230px; margin-top: 280px; margin-left: 210px; position: relative;
+}
+.nhDialog .x {
+	display: inline-block; position: absolute;
+}
+.nhDialog .close {
+	display: inline-block; position: absolute;
+}
+.nhDialog .more {
+	display: inline-block; position: absolute;
+}
+.nhDialog .contact {
+	display: inline-block; position: absolute;
+}
+.nhDialog .x {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/x.png") no-repeat 0px 0px; top: -76px; width: 37px; height: 37px; right: 40px;
+}
+.nhDialog .x:hover {
+	background-position: 0px -40px;
+}
+.nhDialog .more {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/r_btn.png") no-repeat 0px 0px; left: 125px; top: 160px; width: 107px; height: 30px; text-align: center; color: rgb(255, 255, 255); line-height: 28px; font-size: 15px;
+}
+.nhDialog .more:hover {
+	background-position: 0px -40px; text-decoration: none;
+}
+.nhDialog .more:active {
+	
+}
+.nhDialog .contact {
+	background: url("http://64.19.142.11/static.shishicai.cn/images/common/qq.png") no-repeat left; left: 300px; top: 163px; width: 60px; height: 20px; color: rgb(0, 0, 0); padding-left: 18px; text-decoration: underline;
+}
+.contact:hover {
+	color: rgb(225, 0, 0);
+}
+.nhDialog .text_L {
+	left: -145px; top: -210px; text-align: center; color: rgb(26, 26, 26); display: none; position: absolute;
+}
+.text_L b {
+	line-height: 36px; font-size: 14px;
+}
+.nhDialog .text_R {
+	top: -215px; text-align: center; right: -145px; color: rgb(26, 26, 26); display: none; position: absolute;
+}
+.text_R b {
+	line-height: 32px; font-size: 14px;
+}
+.cont_box {
+	width: 100%; padding-top: 20px; float: left;
+}
+.nhDialog ul {
+	float: left;
+}
+.t_A {
+	width: 110px; margin-left: 15px;
+}
+.t_B {
+	margin-left: 10px;
+}
+.t_C {
+	margin-left: 55px;
+}
+.t_D {
+	margin-left: 12px;
+}
+.nhDialog ul li {
+	line-height: 2.3em;
+}
+.cont_box a {
+	color: rgb(0, 0, 0); font-size: 12px; text-decoration: underline;
+}
+.cont_box a:hover {
+	color: red;
+}
+p.Accept {
+	padding: 10px 5px; text-align: center; line-height: 80%; font-size: 12px;
+}
+p.Accept input {
+	line-height: normal; font-size: 100%; margin-right: 10px; vertical-align: middle;
+}
+p.Accept a {
+	color: rgb(255, 186, 38);
+}
+body {
+	_margin: 0; _height: 100%;
+}
+.d-outer {
+	border-radius: 10px; border: 5px solid rgb(102, 102, 102); text-align: left; box-shadow: 0px 0px 30px 20px #000;
+}
+.d-border {
+	margin: 0px; border: 0px currentColor; width: auto; border-collapse: collapse;
+}
+.d-dialog {
+	margin: 0px; border: 0px currentColor; width: auto; border-collapse: collapse;
+}
+.d-nw {
+	padding: 0px;
+}
+.d-n {
+	padding: 0px;
+}
+.d-ne {
+	padding: 0px;
+}
+.d-w {
+	padding: 0px;
+}
+.d-c {
+	padding: 0px;
+}
+.d-e {
+	padding: 0px;
+}
+.d-sw {
+	padding: 0px;
+}
+.d-s {
+	padding: 0px;
+}
+.d-se {
+	padding: 0px;
+}
+.d-header {
+	padding: 0px;
+}
+.d-main {
+	padding: 0px;
+}
+.d-footer {
+	padding: 0px;
+}
+.d-header {
+	font: 14px/1.2 "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti; font-size-adjust: none; font-stretch: normal; _font-family: Tahoma, Arial, Helvetica, STHeiti; -o-font-family: Tahoma, Arial;
+}
+.d-button {
+	font: 14px/1.2 "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti; font-size-adjust: none; font-stretch: normal; _font-family: Tahoma, Arial, Helvetica, STHeiti; -o-font-family: Tahoma, Arial;
+}
+.d-header {
+	background: rgb(102, 102, 102);
+}
+.d-title {
+	overflow: hidden; float: left; cursor: default; text-overflow: ellipsis;
+}
+.d-state-noTitle .d-title {
+	display: none;
+}
+.d-close {
+	text-decoration: none; display: block; position: absolute; _cursor: pointer;
+}
+.d-close:hover {
+	text-decoration: none;
+}
+.d-main {
+	background: rgb(102, 102, 102); text-align: center; vertical-align: middle; min-width: 9em;
+}
+.d-content {
+	background: rgb(85, 85, 85); border-radius: 5px; border: 1px solid rgb(58, 58, 58); text-align: left; float: left; display: block;
+}
+.d-state-full.d-content {
+	margin: 0px; padding: 0px !important; width: 100%; height: 100%; display: block;
+}
+.d-loading {
+	background: url("http://64.19.142.13/static.shishicai.cn/style/ssc2/loading.gif") no-repeat center; width: 96px; height: 32px; text-align: left; text-indent: -999em; overflow: hidden;
+}
+.d-buttons {
+	padding: 8px; text-align: right; display: none; white-space: nowrap;
+}
+.d-button {
+	background: rgb(255, 208, 108); padding: 0px 15px; border-radius: 15px; border: 1px solid rgb(255, 191, 0); width: auto; text-align: center; color: rgb(0, 0, 0); letter-spacing: 2px; overflow: visible; margin-left: 15px; display: inline-block; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd06c',endColorstr='#ffbb29'); cursor: pointer; min-height: 2.1em; box-shadow: 0px 1px 0px #ffd06c; text-shadow: 0 1px 1px #ffd06c; -moz-transition: -moz-box-shadow linear .2s; -webkit-transition: -webkit-box-shadow linear .2s; transition: box-shadow linear .2s;
+}
+.d-button:focus {
+	border-color: rgb(255, 191, 0); outline: 0px; box-shadow: 0px 0px 8px #ffd06c;
+}
+.d-button:hover {
+	border-color: rgb(255, 191, 0); color: rgb(0, 0, 0);
+}
+.d-button:active {
+	border-color: rgb(255, 191, 0); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd06c',endColorstr='#ffbb29');
+}
+[disabled].d-button {
+	background: rgb(221, 221, 221); border: 1px solid rgb(153, 153, 153); color: rgb(102, 102, 102); filter: alpha(opacity=50); cursor: default; opacity: 0.5; box-shadow: none;
+}
+.d-state-highlight {
+	background: rgb(34, 136, 204); border: 1px solid rgb(255, 191, 0); color: rgb(34, 34, 34); padding-right: 15px; padding-left: 15px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd06c',endColorstr='#ffbb29'); text-shadow: -1px -1px 1px #ffd06c;
+}
+.d-state-highlight:hover {
+	border-color: rgb(255, 187, 41); color: rgb(0, 0, 0);
+}
+.d-state-highlight:active {
+	border-color: rgb(255, 187, 41); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bbee',endColorstr='#2288cc');
+}
+.d-mask {
+	background: rgb(0, 0, 0); filter: alpha(opacity=50); opacity: 0.5;
+}
+.dia_c_error {
+	background: rgb(34, 34, 34); border: 1px solid rgb(29, 29, 29); text-align: center; color: rgb(220, 9, 9); line-height: 24px; margin-bottom: 5px; visibility: hidden;
+}
+.show.dia_c_error {
+	background: url("http://64.19.142.12/static.shishicai.cn/images/common/error2.png") no-repeat 79px; border: 0px currentColor; text-align: left; color: rgb(255, 255, 255); padding-left: 109px; visibility: visible;
+}
+.infoShow.dia_c_error {
+	background: rgb(34, 34, 34); text-align: center; color: rgb(255, 255, 255); padding-left: 0px; visibility: visible;
+}
+.ero.dia_c_error {
+	background: rgb(34, 34, 34); color: rgb(209, 0, 0); visibility: visible;
+}
+.dia_c_main {
+	color: rgb(220, 220, 220);
+}
+.dia_c_main .submitDiv {
+	padding-bottom: 20px;
+}
+.dia_c_main .L {
+	width: 370px; margin-top: 5px; float: left;
+}
+.dia_c_main .R {
+	width: 130px; padding-left: 18px; margin-top: 5px; border-left-color: rgb(70, 70, 70); border-left-width: 1px; border-left-style: solid; float: right; min-height: 150px;
+}
+.dia_c_main .R .but_alipay {
+	background: url("http://64.19.142.13/static.shishicai.cn/images/common/btn_alipay_smo.png") no-repeat; width: 116px; height: 26px; line-height: 300em; overflow: hidden; display: inline-block;
+}
+.dia_c_main .L div {
+	width: 100%; padding-top: 5px; font-weight: 400; float: left; min-height: 50px;
+}
+.dia_c_main .L div label {
+	width: 70px; text-align: right; color: rgb(220, 220, 220); line-height: 24px; padding-right: 10px; font-size: 14px; float: left; display: inline-block;
+}
+.dia_c_main .L div.tit {
+	color: rgb(255, 186, 0); padding-top: 5px; font-size: 14px; font-weight: 700; min-height: 30px;
+}
+.dia_c_main .R p.tit {
+	color: rgb(255, 186, 0); padding-top: 5px; font-size: 14px; font-weight: 700; min-height: 30px;
+}
+.dia_c_main .L div.tit strong {
+	padding-left: 25px;
+}
+.dia_c_main .L div input {
+	float: left;
+}
+.dia_c_main .L div a.changeCode {
+	padding: 0px;
+}
+a.forget {
+	color: rgb(255, 186, 38); line-height: 22px; padding-left: 15px;
+}
+.changeCode {
+	color: rgb(255, 186, 38); line-height: 22px; padding-left: 15px;
+}
+.changeCode {
+	padding-left: 0px;
+}
+.codePic {
+	width: 110px; height: 28px; overflow: hidden; padding-top: 0px; padding-left: 5px; float: left; display: inline-block;
+}
+.codePic img {
+	height: 28px !important;
+}
+.d-inner {
+	background: rgb(0, 0, 0);
+}
+.d-title {
+	padding: 2px 0px 4px; left: 0px; top: 0px; height: 20px; text-align: left; color: rgb(255, 186, 38); line-height: 20px; text-indent: 5px; font-weight: 700;
+}
+.d-close {
+	background-image: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/idialog_s.png"); background-repeat: no-repeat;
+}
+.d-nw {
+	background: url("http://64.19.142.13/static.shishicai.cn/style/ssc/idialog_bg.png") no-repeat 1px -130px; width: 24px; height: 24px;
+}
+.d-ne {
+	background: url("http://64.19.142.13/static.shishicai.cn/style/ssc/idialog_bg.png") no-repeat -26px -130px;
+}
+.d-sw {
+	background: url("http://64.19.142.13/static.shishicai.cn/style/ssc/idialog_bg.png") no-repeat 1px -156px; width: 24px; height: 24px;
+}
+.d-se {
+	background: url("http://64.19.142.13/static.shishicai.cn/style/ssc/idialog_bg.png") no-repeat -26px -156px;
+}
+.d-close {
+	top: 0px; width: 43px; height: 23px; right: 10px; text-indent: -9999em; position: absolute; _z-index: 1; _font-size: 0; _line-height: 0;
+}
+.d-close:hover {
+	background-position: 0px -37px;
+}
+.d-n {
+	background: url("http://64.19.142.13/static.shishicai.cn/style/ssc/idialog_bg.png") repeat-x; height: 24px;
+}
+.d-s {
+	background: url("http://64.19.142.13/static.shishicai.cn/style/ssc/idialog_bg.png") repeat-x; height: 24px;
+}
+.d-n {
+	
+}
+.d-s {
+	background-position: 0px -25px;
+}
+.d-w {
+	width: 24px; background-image: url("http://64.19.142.12/static.shishicai.cn/style/ssc/idialog_s2.png"); background-repeat: repeat-y;
+}
+.d-e {
+	width: 24px; background-image: url("http://64.19.142.12/static.shishicai.cn/style/ssc/idialog_s2.png"); background-repeat: repeat-y;
+}
+.d-w {
+	
+}
+.d-e {
+	background-position: right bottom;
+}
+b.plaint {
+	background: url("http://64.19.142.13/static.shishicai.cn/style/ssc2/plaint2.png") no-repeat; width: 22px; height: 22px; overflow: hidden; margin-right: 5px; display: inline-block;
+}
+p.plaint {
+	background: url("http://64.19.142.13/static.shishicai.cn/style/ssc2/plaint2.png") no-repeat left; width: auto; height: 22px; display: block;
+}
+b.tipok {
+	background: url("http://64.19.142.10/static.shishicai.cn/style/ssc/tipok2.png") no-repeat; width: 22px; height: 22px; overflow: hidden; margin-right: 5px; display: inline-block;
+}
+p.tipok {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/tipok2.png") no-repeat left; width: auto; display: block;
+}
+.cet {
+	padding: 15px 0px; text-align: center; color: rgb(220, 220, 220); font-size: 14px; min-width: 450px;
+}
+.cet span {
+	height: 22px; line-height: 22px; overflow: hidden; display: inline-block;
+}
+.cetBtn {
+	height: 50px; text-align: center; padding-top: 28px; clear: both; display: block;
+}
+.safeDia div.cetBtn {
+	height: 50px;
+}
+.teLeft {
+	text-align: left; font-size: 14px; min-width: 450px;
+}
+.teLeft p {
+	margin: 6px 10px 6px 100px; line-height: 20px; padding-left: 30px; clear: both;
+}
+.cTime {
+	padding: 0px 15px; line-height: 24px; float: left;
+}
+.Dbutt {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat left 0px; height: 32px; color: rgb(0, 0, 0); line-height: 32px; padding-left: 30px; font-size: 16px; font-weight: 700; text-decoration: none; display: inline-block; cursor: pointer; -moz-user-select: none;
+}
+.Dbutt span {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat right 0px; height: 32px; line-height: 32px; padding-right: 30px; display: inline-block;
+}
+.Dbutt:hover {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat left -76px; color: rgb(0, 0, 0);
+}
+.Dbutt:hover span {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat right -76px;
+}
+.Dbutt:active {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat left -118px; color: rgb(0, 0, 0);
+}
+.active.Dbutt {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat left -118px; color: rgb(0, 0, 0);
+}
+.Dbutt:active span {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat right -118px;
+}
+.active.Dbutt span {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat right -118px;
+}
+.disabled.Dbutt {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat left -36px; color: rgb(102, 102, 102); cursor: default;
+}
+.disabled.Dbutt:hover {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat left -36px; color: rgb(102, 102, 102); cursor: default;
+}
+.disabled.Dbutt span {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat right -36px; cursor: default;
+}
+.disabled.Dbutt:hover span {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat right -36px; cursor: default;
+}
+.disabled.Dbutt span:hover {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/but_bg2.png") no-repeat right -36px; cursor: default;
+}
+.cetBtn .cancel {
+	margin-left: 10px;
+}
+.cancel {
+	background: rgb(136, 136, 136); padding: 0px 25px; border-radius: 15px; height: 29px; color: rgb(51, 51, 51); line-height: 29px; font-size: 14px; font-weight: 700; display: inline-block; position: relative; behavior: url(/js/PIE.htc);
+}
+.cancel:hover {
+	background: rgb(136, 136, 136); padding: 0px 25px; border-radius: 15px; height: 29px; color: rgb(51, 51, 51); line-height: 29px; font-size: 14px; font-weight: 700; display: inline-block; position: relative; behavior: url(/js/PIE.htc);
+}
+.msgBox {
+	padding: 10px; width: 630px; height: auto; color: silver; min-height: 250px;
+}
+.msgBox p {
+	text-indent: 2em;
+}
+.safeDia {
+	width: 500px;
+}
+.safeDia div {
+	height: 24px; padding-top: 5px; padding-bottom: 8px; font-size: 14px;
+}
+.safeDia div label {
+	text-align: right; color: rgb(220, 220, 220); line-height: 24px; float: left;
+}
+.safeDia div input {
+	float: left;
+}
+.stx {
+	color: rgb(153, 153, 153); line-height: 24px; float: left;
+}
+.get_code {
+	color: rgb(255, 186, 38); padding-top: 3px; text-decoration: underline; margin-left: 10px; float: left;
+}
+.tablediv {
+	width: 450px; text-align: center;
+}
+.tablediv table {
+	width: 100%;
+}
+.tablediv th {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/tabth.png") repeat-x; border-width: 0px 1px; border-style: solid; border-color: rgb(17, 17, 17); padding: 2px 4px; height: 26px; text-align: center; font-weight: 400;
+}
+.tablediv tbody tr {
+	background: rgb(58, 58, 58);
+}
+.tablediv tbody tr td {
+	padding: 2px 4px; border: 1px solid rgb(17, 17, 17); text-align: center;
+}
+.tablediv p {
+	padding-top: 8px;
+}
+p.fa_Num span {
+	float: left;
+}
+p.fa_Num span em {
+	display: block;
+}
+.bonus_main {
+	width: 850px;
+}
+.b_top {
+	width: 850px; padding-bottom: 5px;
+}
+.b_top input {
+	bottom: -2px; position: relative;
+}
+.b_top span {
+	padding-right: 10px;
+}
+.b_top span.active {
+	color: rgb(255, 186, 38);
+}
+.bonusDiv table {
+	width: 100%; text-align: center; line-height: 24px;
+}
+.predictionDiv table {
+	width: 100%; text-align: center; line-height: 24px;
+}
+.bonusTH table {
+	width: 100%; text-align: center; line-height: 24px;
+}
+.bonusDiv thead th {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/tabth.png") repeat-x; text-align: center; font-weight: 400; border-left-color: rgb(36, 36, 36); border-left-width: 1px; border-left-style: solid;
+}
+.bonusDiv thead th.nb {
+	border: 0px currentColor;
+}
+.bonusTH th.nb {
+	border: 0px currentColor;
+}
+.bonusDiv tbody th {
+	text-align: center; border-bottom-color: rgb(36, 36, 36); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.bonusDiv tbody td {
+	text-align: center; border-bottom-color: rgb(36, 36, 36); border-left-color: rgb(36, 36, 36); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid; cursor: pointer;
+}
+.bonusDiv tbody td.bet {
+	background: rgb(125, 0, 0); color: rgb(255, 255, 255);
+}
+.bonusDiv tbody td.click {
+	background: rgb(0, 94, 21); color: rgb(255, 255, 255);
+}
+.bonusDiv p {
+	padding: 15px 0px; text-align: center;
+}
+.predictionDiv p {
+	background: url("http://64.19.142.11/static.shishicai.cn/style/ssc2/bons.png") repeat-x 0px -52px; line-height: 24px;
+}
+.predictionDiv p span {
+	width: 30%; text-align: left; text-indent: 10px; display: inline-block;
+}
+.predictionDiv p span.bgA {
+	background: url("http://64.19.142.11/static.shishicai.cn/style/ssc2/bons.png") repeat-x 0px 0px; width: 30%;
+}
+.predictionDiv p span.bgB {
+	background: url("http://64.19.142.11/static.shishicai.cn/style/ssc2/bons.png") repeat-x 0px -26px; width: 38%;
+}
+.predictionDiv p span i {
+	width: 70%; text-align: right; color: rgb(255, 186, 38); display: inline-block;
+}
+.predictionDiv th {
+	font-weight: 400; border-bottom-color: rgb(36, 36, 36); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.predictionDiv td {
+	text-align: center; border-bottom-color: rgb(36, 36, 36); border-left-color: rgb(36, 36, 36); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid;
+}
+.predictionDiv td a {
+	color: rgb(255, 186, 38); text-decoration: underline;
+}
+.bonusTH {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/tabth.png") repeat-x top; padding-right: 11px;
+}
+h5.bonusH5 {
+	color: rgb(255, 186, 38); padding-top: 10px; font-size: 12px; font-weight: 400; display: block;
+}
+.bonusTH th {
+	background: url("http://64.19.142.12/static.shishicai.cn/style/ssc2/tabth.png") repeat-x; font-weight: 400; border-left-color: rgb(36, 36, 36); border-left-width: 1px; border-left-style: solid;
+}
+.bonusTH table {
+	width: 100%;
+}
+.bonusTD table {
+	width: 100%;
+}
+.bonusTD {
+	width: 100%; height: 160px; overflow: hidden; position: relative;
+}
+.bonusTD td {
+	text-align: center; line-height: 24px; border-bottom-color: rgb(36, 36, 36); border-left-color: rgb(36, 36, 36); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid;
+}
+.bonusTD th {
+	text-align: center; font-weight: 400; border-bottom-color: rgb(36, 36, 36); border-bottom-width: 1px; border-bottom-style: solid;
+}
+._w {
+	width: 6.2%;
+}
+p.remark {
+	padding: 10px 0px 0px; text-align: center;
+}
